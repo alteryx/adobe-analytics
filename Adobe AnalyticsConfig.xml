@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--All paths are relative to this config file.  
+	The variables [Engine.EngineDirectory], [Engine.PluginDirectory] 
+	and [Engine.JavaScriptPluginDirectory] can also be used-->
+<AlteryxJavaScriptPlugin>
+    <EngineSettings EngineDllEntryPoint="Adobe AnalyticsEngine.html" EngineDll="HTML" SDKVersion="10.1" />
+    <GuiSettings Help="HTML-AdobeAnalytics.htm" Html="Adobe AnalyticsGui.html" Icon="Adobe AnalyticsIcon.png" SDKVersion="10.1">
+        <InputConnections>
+            <!--<Connection Name="Input" AllowMultiple="False" Optional="True" Type="Connection" Label=""/>-->"Report not ready"
+        </InputConnections>
+        <OutputConnections>
+            <Connection Name="Output" AllowMultiple="False" Optional="False" Type="Connection" Label=""/>
+        </OutputConnections>
+    </GuiSettings>
+    <Properties>
+        <MetaInfo>
+            <NameIsFileName value="True" />
+            <Name>Adobe Analytics</Name>
+            <Description>Generate on demand report data from your Adobe Analytics report suites.                                    v1.0.0.2</Description>
+            <RootToolName></RootToolName>
+            <ToolVersion>1.0.0.2</ToolVersion>
+            <ToolInDb value="False" />
+            <CategoryName>Connectors</CategoryName>
+            <SearchTags>Adobe</SearchTags>
+            <Author>Alteryx</Author>
+            <Company>Alteryx, Inc.</Company>
+            <Copyright>Alteryx, Inc.</Copyright>
+            <DescriptionLink actual="" displayed="" />
+        </MetaInfo>
+    </Properties>
+</AlteryxJavaScriptPlugin>
