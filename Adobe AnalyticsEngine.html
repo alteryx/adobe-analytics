@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        document.write('<script src="' + window.Alteryx.LibDir + '1/lib/compiled/alteryx/engine/main.js"><\/script>');
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+    <title></title>
+</head>
+<body>
+<script type="text/javascript">
+    var accessToken = '';
+    var preMeta = [];
+    var metaData = [];
+    var outputRecords = [];
+    var indRecord = [];
+    var recordInfo = {};
+
+    Alteryx.Plugin.II_Init = function (obj) {
+        Alteryx.Engine.SendMessage.Error("II_Init", "This Tool has no inputs");
+    }
+
+    Alteryx.Plugin.DefineConnections = function () {
+        return {
+            IncomingConnections: [],
+            OutgoingConnections: [{
+                name: "Output"
+            }]
+        };
+    };
+
+    Alteryx.Plugin.PI_Init = function (obj) {
+        try {
+            Alteryx.Engine.initVar = obj.InitVar;
+            Alteryx.Engine.configuration = obj.Configuration != null ? obj.Configuration : {};
+        }
+        catch (e) {
+            Alteryx.Engine.SendMessage.Error("PI_Init", e);
+        }
+    }
+
+
+    Alteryx.Engine.PI_PushAllRecords = function (obj) {
+
+        try {
+
+
+            if (Alteryx.Engine.configuration.auth) {
+                if (Alteryx.Engine.configuration.reportSuite) {
+                    if (obj.RecordLimit !== 0) {
+
+                        setAuth()
+                                .then(function (data) {
+                                    var reportDef = constReport();
+                                    accessToken = data;
+                                    return queueReport(reportDef);
+                                })
+                                .then(function (report) {
+                                    getReport(report);
+                                }, function (jqXHR) {
+                                    Alteryx.Engine.SendMessage.Error(("Adobe Error: " + JSON.parse(jqXHR.responseText).error_description));
+                                    Alteryx.Engine.SendMessage.Complete();
+                                })
+
+
+                        function getReport(report) {
+                            var currMethod = "/?method=Report.Get";
+                            var url = endPoint + currMethod + "&access_token=" + accessToken;
+                            $.ajax({
+                                url: url,
+                                dataType: 'json',
+                                data: report
+                            })
+
+                                    .done(function (data) {
+                                        formatData(data);
+                                    })
+
+                                    .fail(function (jqXHR) {
+                                        var response = JSON.parse(jqXHR.responseText);
+                                        if (response.error_description === "Report not ready") {
+                                            setTimeout(getReport(report), 2000);
+                                        }
+
+                                        else {
+                                            Alteryx.Engine.SendMessage.Error(JSON.stringify(jqXHR));
+                                            Alteryx.Engine.SendMessage.Complete();
+                                        }
+                                        ;
+                                    })
+                        }
+
+
+                        function formatData(data) {
+//                            var recordInfo = {};
+                            if (Alteryx.Engine.configuration.jsonParse == 'True') {
+                                if (data.report.data.length === 0) {
+                                    Alteryx.Engine.SendMessage.Warning("No Data was Returned for this Report");
+                                    Alteryx.Engine.SendMessage.Complete();
+                                }
+                                else {
+                                    var preRecords = parseData(data.report, []);
+                                    var outputRecords = formatRecords(preRecords, preMeta);
+                                    for (var i = 0; i < preMeta.length; i++) {
+                                        addMetaData(preMeta[i], "Adobe Analytics");
+                                    }
+                                    recordInfo.Field = metaData;
+                                    Alteryx.Engine.SendMessage.Info(
+                                            "Test Report Suite: " + data.report.reportSuite.name
+                                            + " | " + "Report run time (seconds): " + data.runSeconds
+                                            + " | " + "Report period: " + data.report.period
+                                            + " | " + "Report type: " + data.report.type
+                                    );
+                                    Alteryx.Engine.SendMessage.RecordInfo("Output", recordInfo);
+                                    Alteryx.Engine.SendMessage.PushRecords("Output", outputRecords);
+                                    Alteryx.Engine.SendMessage.Complete();
+                                }
+                            }
+
+                            else {
+                                //metadata information
+                                addMetaData('Report JSON', "Adobe Analytics Report JSON");
+                                recordInfo.Field = metaData;
+                                //JSON object
+                                outputRecords = [[JSON.stringify(data.report)]];
+                                //send the metadata, the record information, and the complete message to the engine
+                                Alteryx.Engine.SendMessage.RecordInfo("Output", recordInfo);
+                                Alteryx.Engine.SendMessage.PushRecords("Output", outputRecords);
+                                Alteryx.Engine.SendMessage.Complete();
+                            }
+                        }
+                    }
+
+                    else {
+                        //object limit is 0
+                        sendMeta();
+                    }
+                }
+                else {
+                    //report suite is required
+                    Alteryx.Engine.SendMessage.Error("Report Suite is Required");
+                    sendMeta();
+                }
+            }
+            else {
+                //adobe authentication is required
+                Alteryx.Engine.SendMessage.Error("Sign in to Adobe");
+                sendMeta();
+            }
+        }
+
+        catch
+                (e) {
+            Alteryx.Engine.SendMessage.Error("PI_PushAllRecords", e);
+            Alteryx.Engine.SendMessage.Complete();
+        }
+    }
+    ;
+
+    //PI_Close sent at end of lifetime
+    //All data must be sent before we acknowledge
+    Alteryx.Engine.PI_Close = function () {
+        try {
+            Alteryx.Engine.SendMessage.PI_Close();
+        }
+        catch (e) {
+            Alteryx.Engine.SendMessage.Error("PI_Close", e);
+        }
+    };
+
+    function setAuth() {
+        return new Promise(function (resolve, reject) {
+            if (Alteryx.Engine.configuration.auth == 'dev') {
+                getAuthToken()
+                        .then(function (data) {
+                            resolve(data.access_token);
+                        }, function (jqXHR) {
+                            reject(jqXHR);
+                        })
+            }
+
+            else {
+                resolve(Alteryx.Engine.configuration.token);
+            }
+        });
+    }
+
+    function getAuthToken() {
+        var url = "https://api.omniture.com/token";
+        var authString = Alteryx.Engine.configuration.clientID + ":" + Alteryx.Engine.configuration.clientSecret;
+        return $.ajax({
+            url: url,
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("Authorization", "Basic " + btoa(authString));
+            },
+            type: "POST",
+            data: "grant_type=client_credentials"
+        })
+    }
+
+    function constReport() {
+
+        endPoint = Alteryx.Engine.configuration.baseURL;
+
+        var reportElements = [];
+        var reportMetrics = [];
+        var reportDefinition = {};
+        var reportDescription = {};
+
+        //add the report suite to the report description
+        if (Alteryx.Engine.configuration.reportSuite) {
+            reportDescription.reportSuiteID = Alteryx.Engine.configuration.reportSuite
+        }
+
+        //add selected elements to the report definition
+        if (Alteryx.Engine.configuration.elements) {
+            reportElements.push({
+                id: Alteryx.Engine.configuration.elements.toString(),
+                top : "50000"
+            })
+        }
+
+        if (Alteryx.Engine.configuration.elementTwo) {
+            reportElements.push({
+                id: Alteryx.Engine.configuration.elementTwo.toString(),
+                top : "50000"
+            })
+        }
+        if (Alteryx.Engine.configuration.elementThree) {
+            reportElements.push({
+                id: Alteryx.Engine.configuration.elementThree.toString(),
+                top : "50000"
+            })
+        }
+
+        reportDescription.elements = reportElements;
+
+        //add selected metric to the report definition
+        if (Alteryx.Engine.configuration.metrics) {
+            reportMetrics.push({
+                id: Alteryx.Engine.configuration.metrics.toString()
+            })
+            reportDescription.metrics = reportMetrics;
+        }
+
+        if (Alteryx.Engine.configuration.dateFrom) {
+//            var dateFrom = /\d{4}\/\d{2}\/\d{2}/.exec(Alteryx.Engine.configuration.dateFrom);
+            var dateFrom = /\d{4}[-/]\d{2}[-/]\d{2}/.exec(Alteryx.Engine.configuration.dateFrom);
+            dateFrom = dateFrom[0].replace(/\//g, "-");
+            reportDescription.dateFrom = dateFrom;
+        }
+
+        if (Alteryx.Engine.configuration.dateTo) {
+            var date = /\d{4}[-/]\d{2}[-/]\d{2}/.exec(Alteryx.Engine.configuration.dateTo);
+            date = date[0].replace(/\//g, "-");
+            reportDescription.dateTo = date;
+        }
+
+        if (Alteryx.Engine.configuration.granularity) {
+            reportDescription.dateGranularity = Alteryx.Engine.configuration.granularity;
+        }
+        //place the report description object within the report definition object
+        reportDefinition.reportDescription = reportDescription;
+        return reportDefinition;
+    }
+
+    function queueReport(reportDef) {
+        var currMethod = "/?method=Report.Queue";
+        var url = endPoint + currMethod + "&access_token=" + accessToken;
+
+        return $.ajax({
+            url: url,
+            dataType: 'json',
+            data: reportDef
+
+        });
+    }
+
+    function parseData(report, resultArr) {
+        report.data.forEach(function (element, index, arr) {
+                    var tmpObj = {};
+                    //added this to add Date to the metadata, and to add the date for the data to each row of information
+//                    checkKey("Date", preMeta);
+//                    tmpObj.Date = element.name;
+                    test(element);
+
+
+                    function test(data, elemIndex) {
+
+                        if (data.breakdownTotal) {
+                            checkKey("Date", preMeta);
+                            tmpObj.Date = element.name;
+                            var append = getAppendInfo(report, elemIndex);
+                            if (elemIndex === undefined) {
+                                var keyName = append;
+                                tmpObj[append] = data.breakdownTotal[0];
+                            }
+                            else {
+                                var arrR = [];
+                                arrR.push(data.name);
+                                arrR.push(data.breakdownTotal[0]);
+                                tmpObj[append] = arrR;
+                                keyName = append + ":" + data.name;
+                            }
+                            checkKey(keyName, preMeta);
+                        }
+
+                        else if (data.counts) {
+                            append = getAppendInfo(report, elemIndex);
+                            if (elemIndex === undefined) {
+                                keyName = append;
+                                tmpObj[append] = data.counts[0];
+                                tmpObj[report.elements[0].name] = data.name;
+                                checkKey(report.elements[0].name, preMeta);
+                            }
+                            else {
+                                arrR = [];
+                                arrR.push(data.name);
+                                arrR.push(data.counts[0]);
+                                tmpObj[append] = arrR;
+                                keyName = append + ":" + data.name;
+                            }
+                            checkKey(keyName, preMeta);
+                            resultArr.push(cloneObject(tmpObj));
+                        }
+
+//                        else if (data.counts) {
+//                            append = getAppendInfo(report, elemIndex);
+//                            arrR = [];
+//                            arrR.push(data.name);
+//                            arrR.push(data.counts[0]);
+//                            tmpObj[append] = arrR;
+//                            tmpObj[append] = arrR;
+//                            keyName = append + ":" + data.name;
+//                            checkKey(keyName, preMeta);
+//                            resultArr.push(cloneObject(tmpObj));
+//                        }
+
+                        if (data.breakdown) {
+                            if (elemIndex === null || elemIndex === undefined) {
+                                if (!data.breakdownTotal) {
+                                    elemIndex = 0;
+                                    elemIndex += 1;
+                                }
+                                else {
+                                    elemIndex = 0;
+                                }
+
+                            }
+                            else {
+                                elemIndex += 1;
+                            }
+
+                            test(data.breakdown, elemIndex);
+
+                            if (data.breakdown.length == 1) {
+                                append = getAppendInfo(report, elemIndex);
+                                arrR = [];
+                                arrR.push(data.breakdown[0].name);
+                                arrR.push(data.breakdown[0].counts[0]);
+                                tmpObj[append] = arrR;
+                                keyName = append + ":" + data.breakdown[0].name;
+                                checkKey(keyName, preMeta);
+                            }
+
+                            else if (data.breakdown.length === 0) {
+                                resultArr.push(cloneObject(tmpObj));
+                            }
+
+                            else {
+                                data.breakdown.forEach(function (element) {
+                                    test(element, elemIndex);
+                                })
+                            }
+                        }
+                    }
+                }
+        );
+        return resultArr;
+    }
+
+    function checkKey(key, meta) {
+
+        if (meta.indexOf(key) > -1) {
+        }
+        else {
+            meta.push(key);
+        }
+
+    }
+
+    function cloneObject(currentObject) {
+        var clone = {};
+        for (var key in currentObject) {
+            if (currentObject.hasOwnProperty(key)) //ensure not adding inherited props
+                clone[key] = currentObject[key];
+        }
+        return clone;
+    }
+
+    function formatRecords(arr, metaData) {
+
+        var preFormat = arr.map(function (obj) {
+            var newRecord = {};
+            var objectKeys = Object.keys(obj);
+            for (var i = 0; i < objectKeys.length; i++) {
+                //console.log(obj[objectKeys[i]]);
+                if (typeof obj[objectKeys[i]] != 'object') {
+                    newRecord[objectKeys[i]] = obj[objectKeys[i]];
+                }
+                else {
+                    newRecord[objectKeys[i] + ":" + obj[objectKeys[i]][0]] = obj[objectKeys[i]][1];
+                }
+            }
+            return newRecord;
+        });
+
+
+        return preFormat.map(function (obj) {
+            var indRecord = [];
+            for (var i = 0; i < metaData.length; i++) {
+                if (obj.hasOwnProperty(metaData[i])) {
+                    indRecord.push(obj[metaData[i]]);
+                }
+                else {
+                    indRecord.push(null);
+                }
+            }
+            return indRecord;
+        })
+    }
+
+    function getAppendInfo(report, elemCounter, flag) {
+//        Alteryx.Engine.SendMessage.Info(elemCounter);
+        var appendInfo = '';
+        if (elemCounter === undefined || elemCounter === null) {
+            appendInfo = report.metrics[0].name;
+        }
+        else {
+            appendInfo = report.elements[elemCounter].name;
+        }
+        return appendInfo;
+    }
+
+    function addMetaData(name, desc) {
+
+        metaData.push({
+            name: name,
+            type: "V_WString",
+            size: "1073741823",
+            source: "Adobe Analytics",
+            description: desc
+        })
+    }
+
+    function sendMeta() {
+        //if the metadata cache is populated, use that, else send placeholder metadata
+        Alteryx.Engine.SendMessage.GetCachedMetaInfo('Output', function(metaInfo){
+            try {
+                if (metaInfo.MetaInfo && metaInfo.MetaInfo.RecordInfo.Field.length > 0) {
+                    Alteryx.Engine.SendMessage.RecordInfo('Output', {"Field": metaInfo.MetaInfo.RecordInfo.Field});
+                } else {
+                    Alteryx.Engine.SendMessage.RecordInfo('Output', {
+                        "Field": [{
+                            "description": 'RunWorkflowtoUpdate',
+                            "source": "Adobe Analytics",
+                            "name": 'placeholderMetaData',
+                            "type": 'V_WString',
+                            "size": '1073741823'
+                        }]
+                    });
+                }
+                Alteryx.Engine.SendMessage.Complete();
+            }
+
+            catch (e) {
+                Alteryx.Engine.SendMessage.Error("sendMeta", e);
+                Alteryx.Engine.SendMessage.Complete();
+            }
+        })
+    }
+</script>
+</body>
+</html>

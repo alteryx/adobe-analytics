@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Adobe Analytics</title>
+    <script type="text/javascript">
+        // Include version 1 of the base GUI library.
+        document.write('<link rel="import" href="' + window.Alteryx.LibDir + '1/lib/alteryx/gui/includes.html">');
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+    <style>
+        .alignment_container {
+            display: inline-block;
+            vertical-align: middle;
+            padding: 4px 0;
+            width: 100%;
+        }
+
+        @media (max-width: 407px) {
+            .alignment_container {
+                /*padding-left: 5%;*/
+                /*width: 90%;*/
+            }
+        }
+
+        /*for the loading spinner svg*/
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -125px; /* Half the height */
+            margin-left: -50px; /* Half the width */
+        }
+
+        /*for the center aligned buttons on page 1 */
+        .button-panel {
+            display: table;
+            float: left;
+            margin: 0 auto;
+        }
+
+        .button {
+            display: block;
+            float: left;
+            padding: .5em 1em;
+            width: 116px;
+            /*width: 100%;*/
+        }
+
+        .button2 {
+            margin-top: .25em;
+            display: block;
+            float: left;
+            padding: .5em 1em;
+            /*width: 100%;*/
+        }
+    </style>
+
+</head>
+<body>
+<!--<form>-->
+<!--initial field set that will let the user select which authentication flow they wish to engage in -->
+<fieldset id="authSelect">
+    <legend>Sign in to Adobe Analytics</legend>
+    <br/>
+
+    <div class="button-panel">
+
+        <button class="button" type="submit" id="userButton"
+                onclick="authMethod('user')">User Login
+        </button>
+        </br>
+        </br>
+        <p>Sign in using Adobe Analytics credentials. This option requires re-entering credentials every 30 days
+            or any time a new instance of the tool is added.</p>
+
+        <button class="button2" type="submit" id="devButton"
+                onclick="authMethod('dev')">Developer Login
+        </button>
+        </br>
+        </br>
+        <p>Sign in using API credentials. This option requires obtaining a Client ID and Client Secret and does not
+            require re-entering credentials to run a workflow.</p>
+    </div>
+    <div class="alignment_container">
+        <div id="authStatus"></div>
+    </div>
+
+</fieldset>
+
+<!--field set for the user that chooses developer login-->
+<fieldset id="creds">
+    <legend>Sign in as Developer</legend>
+    <label for="clientID">Client ID</label>
+    <alteryx-pluginwidget type="TextBox" id="clientID" dataname="clientID" onkeyup="enableDev()">
+    </alteryx-pluginwidget>
+
+    <label for="clientSecret">Client Secret</label>
+    <alteryx-pluginwidget type="TextBox" id="clientSecret" password="true" dataname="clientSecret"
+                          onkeyup="enableDev()">
+    </alteryx-pluginwidget>
+    </br>
+    </br>
+    <div class="alignment_container">
+        <button type="submit" style="float: right" id="connectButton" onclick="getAuthToken()">Connect</button>
+        <a href="javascript:void(0)" style="float:left" onclick="changeCredentials()">Change Login Credentials</a>
+        </br>
+        </br>
+    </div>
+    <div id="connectionStatus"></div>
+    </br>
+    </br>
+</fieldset>
+
+<fieldset id="reportOptions">
+    <legend>Adobe Analytics</legend>
+    <label for="reportSuite">Report Suite</label>
+    <alteryx-pluginwidget type="ComboBox" id="reportSuite" dataname="reportSuite">
+    </alteryx-pluginwidget>
+    </br>
+    </br>
+    <fieldset id="reportBreakdown">
+        <legend>Report Breakdown</legend>
+        <label for="metrics">Metric</label>
+        <alteryx-pluginwidget type="ComboBox" id="metrics" dataname="metrics" clearable="true">
+        </alteryx-pluginwidget>
+        </br>
+
+        <label for="elements">Element (1)</label>
+        <alteryx-pluginwidget type="ComboBox" id="elements" dataname="elements" clearable="true">
+        </alteryx-pluginwidget>
+        </br>
+
+        <label for="elements">Element (2)</label>
+        <alteryx-pluginwidget type="ComboBox" id="elementTwo" dataname="elementTwo" clearable="true">
+        </alteryx-pluginwidget>
+        </br>
+
+        <label for="elements">Element (3)</label>
+        <alteryx-pluginwidget type="ComboBox" id="elementThree" dataname="elementThree" clearable="true">
+        </alteryx-pluginwidget>
+
+    </fieldset>
+    </br>
+    <fieldset id="advancedOptions">
+        <legend>Advanced Options</legend>
+        <label for="date1">Start</label>
+        <alteryx-pluginwidget type="DateTimeField" dateFormat="YYYY-MM-DD" id="date1" dataType="SimpleDate"
+                              dataname="dateFrom">
+        </alteryx-pluginwidget>
+        <label for="date2">End</label>
+        <alteryx-pluginwidget type="DateTimeField" dateFormat="YYYY-MM-DD" id="date2" dataType="SimpleDate"
+                              dataname="dateTo">
+        </alteryx-pluginwidget>
+        <label for="granularity">Granularity</label>
+        <alteryx-pluginwidget type="ComboBox" id="granularity" dataname="granularity" clearable="true">
+            <alteryx-option>Hour</alteryx-option>
+            <alteryx-option>Day</alteryx-option>
+            <alteryx-option>Week</alteryx-option>
+            <alteryx-option>Month</alteryx-option>
+            <alteryx-option>Quarter</alteryx-option>
+            <alteryx-option>Year</alteryx-option>
+        </alteryx-pluginwidget>
+        </br>
+        <label for="dataCenter">Data Center</label>
+        <alteryx-pluginwidget type="DropDown" id="dataCenter" dataname="dataCenter">
+            <alteryx-option default uiobject="San Jose">api.omniture.com</alteryx-option>
+            <alteryx-option uiobject="Dallas">api2.omniture.com</alteryx-option>
+            <alteryx-option uiobject="London">api3.omniture.com</alteryx-option>
+            <alteryx-option uiobject="Singapore">api4.omniture.com</alteryx-option>
+            <alteryx-option uiobject="Pacific Northwest">api5.omniture.com</alteryx-option>
+        </alteryx-pluginwidget>
+        </br>
+        <alteryx-pluginwidget type="CheckBox" id="jsonParse" dataName="jsonParse"
+                              ischecked="true" text="Attempt to Parse Report"></alteryx-pluginwidget>
+        </br>
+        <div class="alignment_container">
+            <a href="javascript:void(0)" onclick="changeCredentials()">Change Login Credentials</a>
+        </div>
+    </fieldset>
+</fieldset>
+
+<fieldset id=test style="display:none">
+    <alteryx-pluginwidget id="token" dataname="token" type="TextBox"></alteryx-pluginwidget>
+    <alteryx-pluginwidget id="baseURL" dataname="baseURL" type="TextBox"></alteryx-pluginwidget>
+    <alteryx-pluginwidget id="auth" dataname="auth" type="TextBox"></alteryx-pluginwidget>
+</fieldset>
+<!--</form>-->
+<div style="display:block" id="loader">
+    <img src="loading_ring.svg">
+</div>
+</body>
+<script type="text/javascript" src="app.js">
+</script>
+</html>
