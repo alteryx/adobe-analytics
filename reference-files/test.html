@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.4/lodash.min.js"></script>
+
+      <meta charset="utf-8">
+    <title>test for adobe</title>
+  </head>
+  <body>
+    <script type="text/javascript" src="utils.js"></script>
+    <script type="text/javascript">
+
+    
+    var url = "https://api.omniture.com/token";
+    var clientID = "bfecd55fad-groot-connection";
+    var clientSecret = "898bce17314a13d01a06";
+    var dataCenter = "api2.omniture.com";
+
+    var endPoint = getEndpoint(dataCenter);
+/*
+    var getHash = getAuthToken(clientID, clientSecret, url);
+
+    var getReportsList = getHash.then(function (data, status) {
+      console.log(data.access_token);
+      return getReportSuites(endPoint, data.access_token);
+    });
+
+    getReportsList.done(function(data) {
+      console.log(data.report_suites.map(extractReport));
+    });
+
+    var requestData = generateRequestData('metric','Day',
+                                          "adp.sj.adobedevdp.05.07",
+                                          [], [] );
+    var getElementsList = getHash.then( function (data, status) {
+      console.log(data.access_token);
+      return getElements(endPoint, data.access_token, requestData);
+    });
+
+    getElementsList.done(function(data) {
+      console.log(data);
+    });
+
+    //var reportSuitesList = getReportSuites(endPoint, getAuthToken(clientID, clientSecret, url));
+*/
+
+
+    </script>
+  </body>
+</html>

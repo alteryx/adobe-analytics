@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--All paths are relative to this config file.  
+	The variables [Engine.EngineDirectory], [Engine.PluginDirectory] 
+	and [Engine.JavaScriptPluginDirectory] can also be used-->
+<AlteryxJavaScriptPlugin>
+    <EngineSettings EngineDllEntryPoint="AdobeAnalytics\supporting-macros\adobe-analytics-engine.yxmc" EngineDll="Macro" SDKVersion="10.1" />
+    <GuiSettings Help="HTML-AdobeAnalytics.htm" Html="AdobeAnalyticsGui.html" Icon="AdobeAnalyticsIcon.png" SDKVersion="10.1">
+        <InputConnections>
+            <!--<Connection Name="Input" AllowMultiple="False" Optional="True" Type="Connection" Label=""/>-->
+        </InputConnections>
+        <OutputConnections>
+            <Connection Name="Report" AllowMultiple="False" Optional="False" Type="Connection" Label="R"/>
+            <Connection Name="JSON" AllowMultiple="False" Optional="False" Type="Connection" Label="J"/>
+            <Connection Name="API Response" AllowMultiple="False" Optional="False" Type="Connection" Label="A"/>
+        </OutputConnections>
+    </GuiSettings>
+    <Properties>
+        <MetaInfo>
+            <NameIsFileName value="True" />
+            <Name>Adobe Analytics</Name>
+            <Description>Generate on demand report data from your Adobe Analytics report suites.                                    v2.0.0.0</Description>
+            <RootToolName></RootToolName>
+            <ToolVersion>2</ToolVersion>
+            <ToolInDb value="False" />
+            <CategoryName>Connectors</CategoryName>
+            <SearchTags>Adobe, download, cloud, api, omniture, analytics, marketing, report, suite</SearchTags>
+            <Author>Alteryx</Author>
+            <Company>Alteryx, Inc.</Company>
+            <Copyright>Alteryx, Inc.</Copyright>
+            <DescriptionLink actual="" displayed="" />
+        </MetaInfo>
+    </Properties>
+</AlteryxJavaScriptPlugin>

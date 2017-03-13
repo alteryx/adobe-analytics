@@ -117,29 +117,29 @@
 <fieldset id="reportOptions">
     <legend>Adobe Analytics</legend>
     <label for="reportSuite">Report Suite</label>
-    <alteryx-pluginwidget type="ComboBox" id="reportSuite" dataname="reportSuite">
+    <alteryx-pluginwidget type="ListBox" id="reportSuite" dataname="reportSuite" isSearchable="true">
     </alteryx-pluginwidget>
     </br>
     </br>
     <fieldset id="reportBreakdown">
         <legend>Report Breakdown</legend>
-        <label for="metrics">Metric</label>
-        <alteryx-pluginwidget type="ComboBox" id="metrics" dataname="metrics" clearable="true">
+        <label for="metrics">Metric 1</label>
+        <alteryx-pluginwidget type="DropDown" id="metric_1" dataname="metric_1" clearable="true">
         </alteryx-pluginwidget>
         </br>
 
-        <label for="elements">Element (1)</label>
-        <alteryx-pluginwidget type="ComboBox" id="elements" dataname="elements" clearable="true">
+        <label for="metrics">Metric 2</label>
+        <alteryx-pluginwidget type="DropDown" id="metric_2" dataname="metric_2" clearable="true">
         </alteryx-pluginwidget>
         </br>
 
-        <label for="elements">Element (2)</label>
-        <alteryx-pluginwidget type="ComboBox" id="elementTwo" dataname="elementTwo" clearable="true">
+        <label for="metrics">Metric 3</label>
+        <alteryx-pluginwidget type="DropDown" id="metric_3" dataname="metric_3" clearable="true">
         </alteryx-pluginwidget>
         </br>
 
-        <label for="elements">Element (3)</label>
-        <alteryx-pluginwidget type="ComboBox" id="elementThree" dataname="elementThree" clearable="true">
+        <label for="elements">Dimension</label>
+        <alteryx-pluginwidget type="DropDown" id="dimensionSelect" dataname="dimensionSelect" clearable="true">
         </alteryx-pluginwidget>
 
     </fieldset>
@@ -155,7 +155,7 @@
                               dataname="dateTo">
         </alteryx-pluginwidget>
         <label for="granularity">Granularity</label>
-        <alteryx-pluginwidget type="ComboBox" id="granularity" dataname="granularity" clearable="true">
+        <alteryx-pluginwidget type="DropDown" id="granularitySelect" dataname="granularitySelect" clearable="true">
             <alteryx-option>Hour</alteryx-option>
             <alteryx-option>Day</alteryx-option>
             <alteryx-option>Week</alteryx-option>
@@ -193,5 +193,7 @@
 </div>
 </body>
 <script type="text/javascript" src="app.js">
+</script>
+<script type="text/javascript" src="utils.js">
 </script>
 </html>
