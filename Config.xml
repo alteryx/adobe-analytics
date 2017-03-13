@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AlteryxJavaScriptPlugin>
+   <Properties>
+      <MetaInfo>
+         <Name>Adobe Analytics</Name>
+         <Description>Generate on demand report data from your Adobe Analytics report suites.                                    v2.0.0.0</Description>
+         <ToolVersion>2</ToolVersion>
+         <CategoryName>Connectors</CategoryName>
+         <Author>Alteryx</Author>
+         <Icon>AdobeAnalytics\AdobeAnalyticsIcon.png</Icon>
+      </MetaInfo>
+   </Properties>
+</AlteryxJavaScriptPlugin>
