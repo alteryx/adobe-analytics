@@ -12,7 +12,7 @@
 </head>
 <body>
 <!--<form>-->
-<!--initial field set that will let the user select which authentication flow they wish to engage in -->
+<!--Logon Selection Page -->
 <fieldset id="authSelect">
     <legend>Sign in to Adobe Analytics</legend>
     <div class="button-panel">
@@ -33,29 +33,29 @@
 
 </fieldset>
 
-<!--field set for the user that chooses developer login-->
-<!-- <fieldset id="creds">
-    <legend>Sign in as Developer</legend>
-    <label for="clientID">Client ID</label>
-    <alteryx-pluginwidget type="TextBox" id="clientID" dataname="clientID" onkeyup="enableDev()">
-    </alteryx-pluginwidget>
+<!-- Developer credentials -->
+    <fieldset id="developerCreds" style="display:block">
+        <legend>Enter Adobe Analytics credentials</legend>
+        <label for="dataItemClientID">Client ID</label>
+        <alteryx-pluginwidget type="TextBox" id="client_id" dataName="client_id"></alteryx-pluginwidget>
+        <br/>
+        <label>Client Secret</label>
+        <alteryx-pluginwidget type="TextBox" password="true" id="client_secret" dataName="client_secret"></alteryx-pluginwidget>
+        <br/>
+        <div id="offlineConnectionErrorMessage" style="height: 0px;"></div>
+        <div class='footer_spacer' style="height: 100px;"></div>
+        <div class='footer'>
+            <hr>
+            <div style="margin-top: 8px;margin-bottom: 8px;">
+                <button type="submit" style="float: right" id="connect_button" onclick="">Connect</button>
+             </div>
+        <br>
+        <br>
+        <a href="javascript:void(0)" onclick="">Change Login Credentials</a>
+        </div>
+    </fieldset>
 
-    <label for="clientSecret">Client Secret</label>
-    <alteryx-pluginwidget type="TextBox" id="clientSecret" password="true" dataname="clientSecret"
-                          onkeyup="enableDev()">
-    </alteryx-pluginwidget>
-    </br>
-    </br>
-    <div class="alignment_container">
-        <button type="submit" style="float: right" id="connectButton" onclick="getAuthToken()">Connect</button>
-        <a href="javascript:void(0)" style="float:left" onclick="changeCredentials()">Change Login Credentials</a>
-        </br>
-        </br>
-    </div>
-    <div id="connectionStatus"></div>
-    </br>
-    </br>
-</fieldset> -->
+
 
 <!-- <fieldset id="reportOptions">
     <legend>Adobe Analytics</legend>
