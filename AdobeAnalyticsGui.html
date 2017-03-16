@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Adobe Analytics</title>
-    
+
     <script type="text/javascript">
         // Include version 1 of the base GUI library.
         document.write('<link rel="import" href="' + window.Alteryx.LibDir + '1/lib/alteryx/gui/includes.html">');
@@ -15,23 +15,15 @@
 <!--initial field set that will let the user select which authentication flow they wish to engage in -->
 <fieldset id="authSelect">
     <legend>Sign in to Adobe Analytics</legend>
-    <br/>
-
     <div class="button-panel">
-
-        <button class="button" type="submit" id="userButton"
-                onclick="authMethod('user')">User Login
+        <button style="width:116px;" class="button" type="submit" id="userButton"
+                onclick="">User Login
         </button>
-        </br>
-        </br>
         <p>Sign in using Adobe Analytics credentials. This option requires re-entering credentials every 30 days
             or any time a new instance of the tool is added.</p>
-
-        <button class="button2" type="submit" id="devButton"
-                onclick="authMethod('dev')">Developer Login
+        <button style="width:116px;" class="button2" type="submit" id="devButton"
+                onclick="">Developer Login
         </button>
-        </br>
-        </br>
         <p>Sign in using API credentials. This option requires obtaining a Client ID and Client Secret and does not
             require re-entering credentials to run a workflow.</p>
     </div>
@@ -132,14 +124,14 @@
         </div>
     </fieldset>
 </fieldset> -->
-<!-- 
+<!--
 <fieldset id=test style="display:none">
     <alteryx-pluginwidget id="token" dataname="token" type="TextBox"></alteryx-pluginwidget>
     <alteryx-pluginwidget id="baseURL" dataname="baseURL" type="TextBox"></alteryx-pluginwidget>
     <alteryx-pluginwidget id="auth" dataname="auth" type="TextBox"></alteryx-pluginwidget>
 </fieldset> -->
 <!--</form>-->
-<div style="display:block" id="loader">
+<div style="display:none" id="loader">
     <img src="loading_ring.svg">
 </div>
 </body>
