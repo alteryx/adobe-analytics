@@ -52,12 +52,54 @@
         </div>
     </fieldset>
 
+    <fieldset id="datePickers" style="display:block;">
+        <legend>Select Dates to Include</legend>
+        <div id="preDefDateRange">
+            <label for="preDefDropDown">Preset Date Range</label>
+            <alteryx-pluginwidget type="DropDown" id="preDefDropDown" dataName="preDefDropDown">
+                <alteryx-option uiobject="Custom">custom</alteryx-option>
+                <alteryx-option uiobject="Today">today</alteryx-option>
+                <alteryx-option uiobject="Yesterday">yesterday</alteryx-option>
+                <alteryx-option uiobject="Last 7 Days">last7Days</alteryx-option>
+                <alteryx-option uiobject="Last Week">lastWeek</alteryx-option>
+                <alteryx-option uiobject="Last 30 Days">last30Days</alteryx-option>
+                <alteryx-option uiobject="Last Month">lastMonth</alteryx-option>
+                <alteryx-option uiobject="Month to Date">monthToDate</alteryx-option>
+                <alteryx-option uiobject="Year to Date">yearToDate</alteryx-option>
+                <alteryx-option uiobject="Last Year">lastYear</alteryx-option>
+            </alteryx-pluginwidget>
+        </div>
+        <br>
+        <div id="startDate" class="datePicker">
+            <label for="startDatePicker" class="datePickerLabel">Start</label>
+            <alteryx-pluginwidget type="DateTimeField" dateFormat="YYYY-MM-DD" id="startDatePicker" dataType="SimpleDate" dataName="startDatePicker"></alteryx-pluginwidget>
+        </div>
+        <div id="endDate" class="datePicker">
+            <label for="endDatePicker" class="datePickerLabel">End</label>
+            <alteryx-pluginwidget type="DateTimeField" dateFormat="YYYY-MM-DD" id="endDatePicker" dataType="SimpleDate" dataName="endDatePicker"></alteryx-pluginwidget>
+        </div>
+        <div id="dateWarning" style="z-index: 99999; height:0px;"></div>
+        <!-- <div class='footer_spacer'></div> -->
+        <div class='footer'>
+            <hr>
+            <div style="margin-top: 8px;margin-bottom: 8px;">
+                <!-- Add id name and onclick function during process story -->
+                <button type="submit" class="nextBtn" id="datePickersNextBtn" onclick="">Next</button>
+                <button class="prevBtn" id="datePickersPrevBtn" onclick="">Previous</button>
+            </div>
+            <br>
+            <br>
+            <a href="javascript:void(0)" onclick="">Change Login Credentials</a>
+        </div>
+    </fieldset>
+
 <!-- Report Suite Selector -->
   <fieldset id="report">
     <label for="dataItemReportSuite">Select Report Suite</label>
     <alteryx-pluginwidget data-props='{type:"DropDown",id:"reportSuite",dataName:"reportSuite"}'>
     </alteryx-pluginwidget>
   </fieldset>
+
 
 
 <!-- Store values - never displayed -->
