@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="90" y="330" />
+        <Position x="54" y="318" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -12,12 +12,18 @@
             <Field name="client_id" />
             <Field name="client_secret" />
             <Field name="access_token" />
+            <Field name="startDatePicker" />
+            <Field name="endDatePicker" />
+            <Field name="preDefDropDown" />
           </Fields>
           <Data>
             <r>
               <c>%Question.client_id%</c>
               <c>%Question.client_secret%</c>
               <c>%Question.access_token%</c>
+              <c>%Question.startDatePicker%</c>
+              <c>%Question.endDatePicker%</c>
+              <c>%Question.preDefDropDown%</c>
             </r>
           </Data>
         </Configuration>
@@ -31,6 +37,9 @@
             <Field name="client_id" size="24" source="TextInput:" type="String" />
             <Field name="client_secret" size="20" source="TextInput:" type="String" />
             <Field name="access_token" size="5" source="TextInput:" type="String" />
+            <Field name="startDatePicker" source="TextInput:" type="Date" />
+            <Field name="endDatePicker" source="TextInput:" type="Date" />
+            <Field name="preDefDropDown" size="9" source="TextInput:" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -51,7 +60,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="990" y="330" />
+        <Position x="954" y="318" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -68,7 +77,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="990" y="390" />
+        <Position x="954" y="378" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -85,7 +94,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="102" y="66" width="59" height="59" />
+        <Position x="66" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -98,7 +107,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="210" y="66" width="59" height="59" />
+        <Position x="174" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -111,7 +120,7 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="342" y="66" width="59" height="59" />
+        <Position x="306" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -124,7 +133,7 @@
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Detour.Detour">
-        <Position x="258" y="330" />
+        <Position x="330" y="318" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -140,6 +149,9 @@
             <Field name="client_id" size="25000" source="TextInput:" type="V_WString" />
             <Field name="client_secret" size="25000" source="TextInput:" type="V_WString" />
             <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="startDatePicker" source="Formula: // startDatePicker logic based on predefined date dropdown&#xA;// ToDate selections end on the previous day&#xA;// Sunday is start of week&#xA;IF [preDefDropDown]=&quot;today&quot; THEN DateTimeToday() &#xA;ELSEIF [preDefDropDown]=&quot;yesterday&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;last7Days&quot; THEN DateTimeAdd(DateTimeToday(),-7,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastWeek&quot; THEN DateTimeAdd((DateTimeAdd(DateTimeToday(),&#xA; -(Switch(DateTimeFormat(DateTimeToday(),&quot;%a&quot;),0&#xA; ,'Sun',1&#xA; ,'Mon',2&#xA; ,'Tue',3&#xA; ,'Wed',4&#xA; ,'Thu',5&#xA; ,'Fri',6&#xA; ,'Sat',7))&#xA; ,'days')),-6,'days')&#xA;ELSEIF [preDefDropDown]=&quot;last30Days&quot; THEN DateTimeAdd(DateTimeToday(),-30,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastMonth&quot; THEN DateTimeAdd(DateTimeFirstOfMonth(),-1,'month') &#xA;ELSEIF [preDefDropDown]=&quot;monthToDate&quot; THEN DateTimeFirstOfMonth() &#xA;ELSEIF [preDefDropDown]=&quot;yearToDate&quot; THEN DateTimeTrim(DateTimeToday(),'year')&#xA;ELSEIF [preDefDropDown]=&quot;lastYear&quot; THEN DateTimeAdd(DateTimeTrim(DateTimeToday(),'year'),-1,'year') &#xA;ELSE [startDatePicker] ENDIF" type="Date" />
+            <Field name="endDatePicker" source="Formula: // endDatePicker logic based on predefined date dropdown&#xA;// ToDate selections end on the previous day&#xA;// Monday is start of week&#xA;IF [preDefDropDown]=&quot;today&quot; THEN DateTimeToday() &#xA;ELSEIF [preDefDropDown]=&quot;yesterday&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;last7Days&quot; THEN DateTimeAdd([startDatePicker],6,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastWeek&quot; THEN DateTimeAdd([startDatePicker],6,'days')&#xA;ELSEIF [preDefDropDown]=&quot;last30Days&quot; THEN DateTimeAdd([startDatePicker],29,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastMonth&quot; THEN DateTimeAdd(DateTimeLastOfMonth(),-1,'month') &#xA;ELSEIF [preDefDropDown]=&quot;monthToDate&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;yearToDate&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days')&#xA;ELSEIF [preDefDropDown]=&quot;lastYear&quot; THEN DateTimeFormat(DateTimeAdd(DateTimeTrim(DateTimeToday(),'year'),-1,'year'),&quot;%Y&quot;)+&quot;-12-31&quot; &#xA;ELSE [endDatePicker] ENDIF" type="Date" />
+            <Field name="preDefDropDown" size="1500" source="TextInput:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
         <MetaInfo connection="Right">
@@ -147,6 +159,9 @@
             <Field name="client_id" size="25000" source="TextInput:" type="V_WString" />
             <Field name="client_secret" size="25000" source="TextInput:" type="V_WString" />
             <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="startDatePicker" source="Formula: // startDatePicker logic based on predefined date dropdown&#xA;// ToDate selections end on the previous day&#xA;// Sunday is start of week&#xA;IF [preDefDropDown]=&quot;today&quot; THEN DateTimeToday() &#xA;ELSEIF [preDefDropDown]=&quot;yesterday&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;last7Days&quot; THEN DateTimeAdd(DateTimeToday(),-7,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastWeek&quot; THEN DateTimeAdd((DateTimeAdd(DateTimeToday(),&#xA; -(Switch(DateTimeFormat(DateTimeToday(),&quot;%a&quot;),0&#xA; ,'Sun',1&#xA; ,'Mon',2&#xA; ,'Tue',3&#xA; ,'Wed',4&#xA; ,'Thu',5&#xA; ,'Fri',6&#xA; ,'Sat',7))&#xA; ,'days')),-6,'days')&#xA;ELSEIF [preDefDropDown]=&quot;last30Days&quot; THEN DateTimeAdd(DateTimeToday(),-30,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastMonth&quot; THEN DateTimeAdd(DateTimeFirstOfMonth(),-1,'month') &#xA;ELSEIF [preDefDropDown]=&quot;monthToDate&quot; THEN DateTimeFirstOfMonth() &#xA;ELSEIF [preDefDropDown]=&quot;yearToDate&quot; THEN DateTimeTrim(DateTimeToday(),'year')&#xA;ELSEIF [preDefDropDown]=&quot;lastYear&quot; THEN DateTimeAdd(DateTimeTrim(DateTimeToday(),'year'),-1,'year') &#xA;ELSE [startDatePicker] ENDIF" type="Date" />
+            <Field name="endDatePicker" source="Formula: // endDatePicker logic based on predefined date dropdown&#xA;// ToDate selections end on the previous day&#xA;// Monday is start of week&#xA;IF [preDefDropDown]=&quot;today&quot; THEN DateTimeToday() &#xA;ELSEIF [preDefDropDown]=&quot;yesterday&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;last7Days&quot; THEN DateTimeAdd([startDatePicker],6,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastWeek&quot; THEN DateTimeAdd([startDatePicker],6,'days')&#xA;ELSEIF [preDefDropDown]=&quot;last30Days&quot; THEN DateTimeAdd([startDatePicker],29,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastMonth&quot; THEN DateTimeAdd(DateTimeLastOfMonth(),-1,'month') &#xA;ELSEIF [preDefDropDown]=&quot;monthToDate&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;yearToDate&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days')&#xA;ELSEIF [preDefDropDown]=&quot;lastYear&quot; THEN DateTimeFormat(DateTimeAdd(DateTimeTrim(DateTimeToday(),'year'),-1,'year'),&quot;%Y&quot;)+&quot;-12-31&quot; &#xA;ELSE [endDatePicker] ENDIF" type="Date" />
+            <Field name="preDefDropDown" size="1500" source="TextInput:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -154,7 +169,7 @@
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DetourEnd.DetourEnd">
-        <Position x="510" y="330" />
+        <Position x="582" y="318" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -168,6 +183,9 @@
             <Field name="client_id" size="25000" source="TextInput:" type="V_WString" />
             <Field name="client_secret" size="25000" source="TextInput:" type="V_WString" />
             <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="startDatePicker" source="Formula: // startDatePicker logic based on predefined date dropdown&#xA;// ToDate selections end on the previous day&#xA;// Sunday is start of week&#xA;IF [preDefDropDown]=&quot;today&quot; THEN DateTimeToday() &#xA;ELSEIF [preDefDropDown]=&quot;yesterday&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;last7Days&quot; THEN DateTimeAdd(DateTimeToday(),-7,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastWeek&quot; THEN DateTimeAdd((DateTimeAdd(DateTimeToday(),&#xA; -(Switch(DateTimeFormat(DateTimeToday(),&quot;%a&quot;),0&#xA; ,'Sun',1&#xA; ,'Mon',2&#xA; ,'Tue',3&#xA; ,'Wed',4&#xA; ,'Thu',5&#xA; ,'Fri',6&#xA; ,'Sat',7))&#xA; ,'days')),-6,'days')&#xA;ELSEIF [preDefDropDown]=&quot;last30Days&quot; THEN DateTimeAdd(DateTimeToday(),-30,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastMonth&quot; THEN DateTimeAdd(DateTimeFirstOfMonth(),-1,'month') &#xA;ELSEIF [preDefDropDown]=&quot;monthToDate&quot; THEN DateTimeFirstOfMonth() &#xA;ELSEIF [preDefDropDown]=&quot;yearToDate&quot; THEN DateTimeTrim(DateTimeToday(),'year')&#xA;ELSEIF [preDefDropDown]=&quot;lastYear&quot; THEN DateTimeAdd(DateTimeTrim(DateTimeToday(),'year'),-1,'year') &#xA;ELSE [startDatePicker] ENDIF" type="Date" />
+            <Field name="endDatePicker" source="Formula: // endDatePicker logic based on predefined date dropdown&#xA;// ToDate selections end on the previous day&#xA;// Monday is start of week&#xA;IF [preDefDropDown]=&quot;today&quot; THEN DateTimeToday() &#xA;ELSEIF [preDefDropDown]=&quot;yesterday&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;last7Days&quot; THEN DateTimeAdd([startDatePicker],6,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastWeek&quot; THEN DateTimeAdd([startDatePicker],6,'days')&#xA;ELSEIF [preDefDropDown]=&quot;last30Days&quot; THEN DateTimeAdd([startDatePicker],29,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastMonth&quot; THEN DateTimeAdd(DateTimeLastOfMonth(),-1,'month') &#xA;ELSEIF [preDefDropDown]=&quot;monthToDate&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;yearToDate&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days')&#xA;ELSEIF [preDefDropDown]=&quot;lastYear&quot; THEN DateTimeFormat(DateTimeAdd(DateTimeTrim(DateTimeToday(),'year'),-1,'year'),&quot;%Y&quot;)+&quot;-12-31&quot; &#xA;ELSE [endDatePicker] ENDIF" type="Date" />
+            <Field name="preDefDropDown" size="1500" source="TextInput:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -175,7 +193,7 @@
     </Node>
     <Node ToolID="12">
       <GuiSettings>
-        <Position x="342" y="378" />
+        <Position x="414" y="366" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -184,9 +202,6 @@
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="access_token" size="1073741823" source="JSONParse: " type="V_WString" />
@@ -197,7 +212,7 @@
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="174" y="330" />
+        <Position x="138" y="318" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -206,6 +221,7 @@
             <SelectField field="client_id" selected="True" type="V_WString" size="25000" />
             <SelectField field="client_secret" selected="True" type="V_WString" size="25000" />
             <SelectField field="access_token" selected="True" type="V_WString" size="25000" />
+            <SelectField field="preDefDropDown" selected="True" type="V_WString" size="1500" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -219,6 +235,9 @@
             <Field name="client_id" size="25000" source="TextInput:" type="V_WString" />
             <Field name="client_secret" size="25000" source="TextInput:" type="V_WString" />
             <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="startDatePicker" source="TextInput:" type="Date" />
+            <Field name="endDatePicker" source="TextInput:" type="Date" />
+            <Field name="preDefDropDown" size="1500" source="TextInput:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -226,11 +245,11 @@
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="606" y="330" />
+        <Position x="678" y="318" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_70580_56ff95895ca44f8ba50e8054d06719eb_\Engine_72836_36a6b08ea9274448bacb20ed9bfb2e4e_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_96232_8fb59dd5ae384e0cab16d140717c2fd6_\Engine_96572_7c339a06a86447d3ae5d4527c11b06e3_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -254,7 +273,7 @@
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-        <Position x="414" y="366" />
+        <Position x="486" y="354" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -286,7 +305,7 @@
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="258" y="270" width="59" height="59" />
+        <Position x="330" y="258" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -299,12 +318,82 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxGuiToolkit.Condition.Condition">
-        <Position x="258" y="198" width="59" height="59" />
+        <Position x="330" y="186" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
         <Annotation DisplayMode="0">
           <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="234" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="// startDatePicker logic based on predefined date dropdown&#xA;// ToDate selections end on the previous day&#xA;// Sunday is start of week&#xA;IF [preDefDropDown]=&quot;today&quot; THEN DateTimeToday() &#xA;ELSEIF [preDefDropDown]=&quot;yesterday&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;last7Days&quot; THEN DateTimeAdd(DateTimeToday(),-7,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastWeek&quot; THEN DateTimeAdd((DateTimeAdd(DateTimeToday(),&#xA;	-(Switch(DateTimeFormat(DateTimeToday(),&quot;%a&quot;),0&#xA;	,'Sun',1&#xA;	,'Mon',2&#xA;	,'Tue',3&#xA;	,'Wed',4&#xA;	,'Thu',5&#xA;	,'Fri',6&#xA;	,'Sat',7))&#xA;	,'days')),-6,'days')&#xA;ELSEIF [preDefDropDown]=&quot;last30Days&quot; THEN DateTimeAdd(DateTimeToday(),-30,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastMonth&quot; THEN DateTimeAdd(DateTimeFirstOfMonth(),-1,'month') &#xA;ELSEIF [preDefDropDown]=&quot;monthToDate&quot; THEN DateTimeFirstOfMonth() &#xA;ELSEIF [preDefDropDown]=&quot;yearToDate&quot; THEN DateTimeTrim(DateTimeToday(),'year')&#xA;ELSEIF [preDefDropDown]=&quot;lastYear&quot; THEN DateTimeAdd(DateTimeTrim(DateTimeToday(),'year'),-1,'year') &#xA;ELSE [startDatePicker] ENDIF" field="startDatePicker" size="10" type="Date" />
+            <FormulaField expression="// endDatePicker logic based on predefined date dropdown&#xA;// ToDate selections end on the previous day&#xA;// Monday is start of week&#xA;IF [preDefDropDown]=&quot;today&quot; THEN DateTimeToday() &#xA;ELSEIF [preDefDropDown]=&quot;yesterday&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;last7Days&quot; THEN DateTimeAdd([startDatePicker],6,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastWeek&quot; THEN DateTimeAdd([startDatePicker],6,'days')&#xA;ELSEIF [preDefDropDown]=&quot;last30Days&quot; THEN DateTimeAdd([startDatePicker],29,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastMonth&quot; THEN DateTimeAdd(DateTimeLastOfMonth(),-1,'month') &#xA;ELSEIF [preDefDropDown]=&quot;monthToDate&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;yearToDate&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days')&#xA;ELSEIF [preDefDropDown]=&quot;lastYear&quot; THEN DateTimeFormat(DateTimeAdd(DateTimeTrim(DateTimeToday(),'year'),-1,'year'),&quot;%Y&quot;)+&quot;-12-31&quot; &#xA;ELSE [endDatePicker] ENDIF" field="endDatePicker" size="10" type="Date" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Relative date logic based on Preset Date field (aka preDefDropDown)</AnnotationText>
+          <DefaultAnnotationText>startDatePicker = // startDatePicker logic based on predefined date dropdown
+// ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="client_id" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="startDatePicker" source="Formula: // startDatePicker logic based on predefined date dropdown&#xA;// ToDate selections end on the previous day&#xA;// Sunday is start of week&#xA;IF [preDefDropDown]=&quot;today&quot; THEN DateTimeToday() &#xA;ELSEIF [preDefDropDown]=&quot;yesterday&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;last7Days&quot; THEN DateTimeAdd(DateTimeToday(),-7,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastWeek&quot; THEN DateTimeAdd((DateTimeAdd(DateTimeToday(),&#xA; -(Switch(DateTimeFormat(DateTimeToday(),&quot;%a&quot;),0&#xA; ,'Sun',1&#xA; ,'Mon',2&#xA; ,'Tue',3&#xA; ,'Wed',4&#xA; ,'Thu',5&#xA; ,'Fri',6&#xA; ,'Sat',7))&#xA; ,'days')),-6,'days')&#xA;ELSEIF [preDefDropDown]=&quot;last30Days&quot; THEN DateTimeAdd(DateTimeToday(),-30,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastMonth&quot; THEN DateTimeAdd(DateTimeFirstOfMonth(),-1,'month') &#xA;ELSEIF [preDefDropDown]=&quot;monthToDate&quot; THEN DateTimeFirstOfMonth() &#xA;ELSEIF [preDefDropDown]=&quot;yearToDate&quot; THEN DateTimeTrim(DateTimeToday(),'year')&#xA;ELSEIF [preDefDropDown]=&quot;lastYear&quot; THEN DateTimeAdd(DateTimeTrim(DateTimeToday(),'year'),-1,'year') &#xA;ELSE [startDatePicker] ENDIF" type="Date" />
+            <Field name="endDatePicker" source="Formula: // endDatePicker logic based on predefined date dropdown&#xA;// ToDate selections end on the previous day&#xA;// Monday is start of week&#xA;IF [preDefDropDown]=&quot;today&quot; THEN DateTimeToday() &#xA;ELSEIF [preDefDropDown]=&quot;yesterday&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;last7Days&quot; THEN DateTimeAdd([startDatePicker],6,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastWeek&quot; THEN DateTimeAdd([startDatePicker],6,'days')&#xA;ELSEIF [preDefDropDown]=&quot;last30Days&quot; THEN DateTimeAdd([startDatePicker],29,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastMonth&quot; THEN DateTimeAdd(DateTimeLastOfMonth(),-1,'month') &#xA;ELSEIF [preDefDropDown]=&quot;monthToDate&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;yearToDate&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days')&#xA;ELSEIF [preDefDropDown]=&quot;lastYear&quot; THEN DateTimeFormat(DateTimeAdd(DateTimeTrim(DateTimeToday(),'year'),-1,'year'),&quot;%Y&quot;)+&quot;-12-31&quot; &#xA;ELSE [endDatePicker] ENDIF" type="Date" />
+            <Field name="preDefDropDown" size="1500" source="TextInput:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Date.Date">
+        <Position x="450" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="1">
+          <Name>startDatePicker</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Date.Date">
+        <Position x="606" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="1">
+          <Name>endDatePicker</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="762" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="1">
+          <Name>preDefDropDown</Name>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
@@ -350,11 +439,15 @@
     </Connection>
     <Connection>
       <Origin ToolID="13" Connection="Output" />
-      <Destination ToolID="10" Connection="Input" />
+      <Destination ToolID="18" Connection="Input" />
     </Connection>
     <Connection name="#1">
       <Origin ToolID="16" Connection="Action" />
       <Destination ToolID="10" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="10" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="17" Connection="True Condition" />
@@ -394,6 +487,24 @@
         <Namespace>Question</Namespace>
         <Name>access_token</Name>
         <Value>empty</Value>
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>startDatePicker</Name>
+        <Value>2017-01-01</Value>
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>endDatePicker</Name>
+        <Value>2017-02-01</Value>
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>preDefDropDown</Name>
+        <Value>lastMonth</Value>
         <IsNumeric value="False" />
       </Constant>
     </Constants>
@@ -485,6 +596,28 @@
               <Description>access_token</Description>
               <Name>access_token</Name>
               <ToolId value="8" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>Date</Type>
+              <Description>startDatePicker</Description>
+              <Name>startDatePicker</Name>
+              <ToolId value="19" />
+            </Question>
+            <Question>
+              <Type>Date</Type>
+              <Description>endDatePicker</Description>
+              <Name>endDatePicker</Name>
+              <ToolId value="20" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>preDefDropDown</Description>
+              <Name>preDefDropDown</Name>
+              <ToolId value="21" />
               <Default />
               <Password value="False" />
               <Multiline value="False" />

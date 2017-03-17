@@ -5,28 +5,28 @@ const devLogin = () => {
   const auth = store.client_id.trim() + ':' + store.client_secret.trim()
 
   var settings = {
-	  'async': true,
-	  'crossDomain': true,
-	  'url': 'https://api.omniture.com/token',
-	  'method': 'POST',
-	  'headers': {
-	    'authorization': 'Basic ' + btoa(auth),
-	    'content-type': 'application/x-www-form-urlencoded',
-	    'cache-control': 'no-cache'
-	  },
-	  'data': {
-	    'grant_type': 'client_credentials'
-	  }
+    'async': true,
+    'crossDomain': true,
+    'url': 'https://api.omniture.com/token',
+    'method': 'POST',
+    'headers': {
+      'authorization': 'Basic ' + btoa(auth),
+      'content-type': 'application/x-www-form-urlencoded',
+      'cache-control': 'no-cache'
+    },
+    'data': {
+      'grant_type': 'client_credentials'
+    }
   }
 
   $.ajax(settings)
-  	.done((data) => {
-	  store.access_token = data.access_token
-	  console.log('access_token is ' + store.access_token)
-  	})
-  	.fail((jqXHR, textStatus, errorThrown) => {
-  	  errorMessaging(jqXHR, textStatus, errorThrown)
-  	})
+    .done((data) => {
+      store.access_token = data.access_token
+      console.log('access_token is ' + store.access_token)
+    })
+    .fail((jqXHR, textStatus, errorThrown) => {
+      errorMessaging(jqXHR, textStatus, errorThrown)
+    })
 }
 
 // User access_token request triggered by User Login button on authSelect page
@@ -43,6 +43,7 @@ const userLogin = () => {
     try {
       if (win.document.location.origin === 'https://developers.google.com') {
         const url = win.document.URL
+        console.log(url)
         const accessToken = parseToken(url, 'access_token')
         store.access_token = accessToken
         console.log('User login access_token is:' + store.access_token)
