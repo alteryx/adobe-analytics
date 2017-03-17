@@ -6,13 +6,12 @@
 
     <script type="text/javascript">
         // Include version 1 of the base GUI library.
-        document.write('<link rel="import" href="' + window.Alteryx.LibDir + '1/lib/alteryx/gui/includes.html">');
+        document.write('<link rel="import" href="' + window.Alteryx.LibDir + '1/lib/alteryx/gui/includes.html">')
     </script>
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-<!--<form>-->
-<!--Logon Selection Page -->
+<!-- Logon Selection Page -->
 <fieldset id="authSelect">
     <legend>Sign in to Adobe Analytics</legend>
     <div class="button-panel">
@@ -35,7 +34,7 @@
 
 <!-- Developer credentials -->
     <fieldset id="developerCreds" style="display:block">
-        <legend>Enter Adobe Analytics credentials</legend>
+        <legend>Enter Adobe Analytics Credentials</legend>
         <label for="dataItemClientID">Client ID</label>
         <alteryx-pluginwidget type="TextBox" id="client_id" dataName="client_id"></alteryx-pluginwidget>
         <br/>
@@ -47,7 +46,7 @@
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
-                <button type="submit" style="float: right" id="connect_button" onclick="">Connect</button>
+                <button type="submit" style="float: right" id="connect_button" onclick="devLogin();">Connect</button>
              </div>
         <br>
         <br>
@@ -55,6 +54,10 @@
         </div>
     </fieldset>
 
+<!-- Store values - never displayed -->
+    <fieldset id="store" style="display:none">
+        <alteryx-pluginwidget type="TextBox" id="access_token" dataName="access_token"></alteryx-pluginwidget>
+    </fieldset>
 
 
 <!-- <fieldset id="reportOptions">
@@ -130,7 +133,6 @@
     <alteryx-pluginwidget id="baseURL" dataname="baseURL" type="TextBox"></alteryx-pluginwidget>
     <alteryx-pluginwidget id="auth" dataname="auth" type="TextBox"></alteryx-pluginwidget>
 </fieldset> -->
-<!--</form>-->
 <div style="display:none" id="loader">
     <img src="loading_ring.svg">
 </div>
