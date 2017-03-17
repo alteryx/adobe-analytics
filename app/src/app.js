@@ -4,6 +4,7 @@ import AyxStore from './stores/AyxStore'
 import { extendObservable, autorun, toJS } from 'mobx'
 import moment from 'moment'
 import * as utils from './utils/utils'
+import * as reportSuites from './utils/get-report-suites'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -30,4 +31,5 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.toJS = toJS
   window.devLogin = utils.devLogin
   window.userLogin = utils.userLogin
+  window.topLevelReportSuites = reportSuites.topLevelReportSuites
 }

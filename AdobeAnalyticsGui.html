@@ -54,6 +54,14 @@
         </div>
     </fieldset>
 
+<!-- Report Suite Selector -->
+  <fieldset id="report">
+    <label for="dataItemReportSuite">Select Report Suite</label>
+    <alteryx-pluginwidget data-props='{type:"DropDown",id:"reportSuite",dataName:"reportSuite"}'>
+    </alteryx-pluginwidget>
+  </fieldset>
+
+
 <!-- Store values - never displayed -->
     <fieldset id="store" style="display:none">
         <alteryx-pluginwidget type="TextBox" id="access_token" dataName="access_token"></alteryx-pluginwidget>
