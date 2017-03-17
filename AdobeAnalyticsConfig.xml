@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<!--All paths are relative to this config file.  
-	The variables [Engine.EngineDirectory], [Engine.PluginDirectory] 
+<!--All paths are relative to this config file.
+	The variables [Engine.EngineDirectory], [Engine.PluginDirectory]
 	and [Engine.JavaScriptPluginDirectory] can also be used-->
 <AlteryxJavaScriptPlugin>
     <EngineSettings EngineDllEntryPoint="AdobeAnalytics\supporting-macros\adobe-analytics-engine.yxmc" EngineDll="Macro" SDKVersion="10.1" />
