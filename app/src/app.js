@@ -29,4 +29,5 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.moment = moment
   window.toJS = toJS
   window.devLogin = utils.devLogin
+  window.userLogin = utils.userLogin
 }
