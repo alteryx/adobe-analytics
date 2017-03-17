@@ -52,7 +52,6 @@
         </div>
     </fieldset>
 
-<!-- Date Selection fieldset -->
     <fieldset id="datePickers" style="display:block;">
         <legend>Select Dates to Include</legend>
         <div id="preDefDateRange">
@@ -93,6 +92,14 @@
             <a href="javascript:void(0)" onclick="">Change Login Credentials</a>
         </div>
     </fieldset>
+
+<!-- Report Suite Selector -->
+  <fieldset id="report">
+    <label for="dataItemReportSuite">Select Report Suite</label>
+    <alteryx-pluginwidget data-props='{type:"DropDown",id:"reportSuite",dataName:"reportSuite"}'>
+    </alteryx-pluginwidget>
+  </fieldset>
+
 
 
 <!-- Store values - never displayed -->

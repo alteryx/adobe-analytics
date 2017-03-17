@@ -6,6 +6,7 @@ import moment from 'moment'
 import * as utils from './utils/utils'
 import * as picker from './utils/date-pickers'
 import DateMessage from './components/date-message.jsx'
+import * as reportSuites from './utils/get-report-suites'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -86,4 +87,5 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.userLogin = utils.userLogin
   window.getDates = picker.getDates
   window.setDates = picker.setDates
+  window.topLevelReportSuites = reportSuites.topLevelReportSuites
 }
