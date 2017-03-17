@@ -4,8 +4,8 @@ import AyxStore from './stores/AyxStore'
 import { extendObservable, autorun, toJS } from 'mobx'
 import moment from 'moment'
 import * as utils from './utils/utils'
-import * as picker from './utils/datePickers'
-import DateMessage from './components/dateMessage.jsx'
+import * as picker from './utils/date-pickers'
+import DateMessage from './components/date-message.jsx'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
