@@ -51,9 +51,21 @@
 
 <!-- Report Suite Selector -->
     <fieldset id="reportSuite" style="display:none">
+        <legend>Select Report Suite</legend>
         <label for="dataItemReportSuite">Select Report Suite</label>
-        <alteryx-pluginwidget data-props='{type:"DropDown",id:"reportSuite",dataName:"reportSuite"}'>
+        <alteryx-pluginwidget data-props='{type:"ListBox",dataType:"StringSelector",id:"reportSuite",issearchable:"true",dataName:"reportSuite"}'>
         </alteryx-pluginwidget>
+        <!-- <div class='footer_spacer'></div> -->
+        <div class='footer'>
+            <hr>
+            <div style="margin-top: 8px;margin-bottom: 8px;">
+                <!-- Add id name and onclick function during process story -->
+                <button type="submit" class="nextBtn" id="reportSuiteNextBtn" onclick="setPage('#datePickers')">Next</button>
+            </div>
+            <br>
+            <br>
+            <a href="javascript:void(0)" onclick="resetFields();">Change Login Credentials</a>
+        </div>
     </fieldset>
 
 <!-- Date Pickers Selector -->
