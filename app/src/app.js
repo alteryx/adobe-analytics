@@ -7,6 +7,7 @@ import * as utils from './utils/utils'
 import * as picker from './utils/date-pickers'
 import DateMessage from './components/date-message.jsx'
 import * as reportSuites from './utils/get-report-suites'
+import ConnectionErrorMessage from './components/connection-error-message.jsx'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -17,7 +18,8 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'startDatePicker', type: 'value'},
     {key: 'endDatePicker', type: 'value'},
     {key: 'preDefDropDown', type: 'value'},
-    {key: 'page', type: 'value'}
+    {key: 'page', type: 'value'},
+    {key: 'errorStatus', type: 'value'}
   ]
 
   // Instantiate the mobx store which will sync all dataItems
@@ -117,6 +119,16 @@ Alteryx.Gui.AfterLoad = (manager) => {
   //   }
   // })
 
+  // Render react component which handles connection error messaging
+  autorun(() => {
+    const devDiv = document.getElementById('devConnectionErrorMessage')
+    const userDiv = document.getElementById('userConnectionErrorMessage')
+    devDiv.innerHTML = ''
+    userDiv.innerHTML = ''
+
+    store.page === '#developerCreds' ? ReactDOM.render(<ConnectionErrorMessage store={store} />, devDiv) : ReactDOM.render(<ConnectionErrorMessage store={store} />, userDiv)
+  })
+
   // Render react component which handles a warning message for End Date not at or after Start Date.
   ReactDOM.render(<DateMessage store={store} />, document.querySelector('#dateWarning'))
 
@@ -134,4 +146,5 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.displayFieldset = utils.displayFieldset
   window.setPage = utils.setPage
   window.showLoader = utils.showLoader
+  window.resetFields = utils.resetFields
 }

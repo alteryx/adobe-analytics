@@ -95,7 +95,7 @@ hr {
    text-align: center;
 }
 
-.offlineConnectionWarning:before {
+.devConnectionWarning:before {
    background-color: transparent;
    border-left: 8px solid transparent;
    border-right: 8px solid transparent;
@@ -109,7 +109,7 @@ hr {
    display: inline-block;
 }
 
-.offlineConnectionWarning {
+.devConnectionWarning {
    background-color: #ec2227;
    border: 1px solid #9f1d20;
    border-radius: 5px;
@@ -125,7 +125,7 @@ hr {
    text-align: center;
 }
 
-.onlineConnectionWarning {
+.userConnectionWarning {
    background-color: #ec2227;
    border: 1px solid #9f1d20;
    border-radius: 5px;
@@ -134,7 +134,7 @@ hr {
    font-family: 'Segoe UI Semibold', Arial, sans-serif;
    font-size: 12px;
    left: 145px;
-   top: 44.5px;
+   top: 41.5px;
    right: 20px;
    padding: 5px 5px 5px 5px;
    position: absolute;
