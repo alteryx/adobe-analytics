@@ -23,6 +23,7 @@ const devLogin = () => {
     .done((data) => {
       store.access_token = data.access_token
       console.log('access_token is ' + store.access_token)
+      store.errorStatus = ''
       setPage('#reportSuite')
     })
     .fail((jqXHR, textStatus, errorThrown) => {
@@ -43,6 +44,7 @@ const userLogin = () => {
   // Hode all fieldsets and Show loading image
   setPage('#blank')
   showLoader(true)
+  store.errorStatus = ''
 
   const pollTimer = window.setInterval(() => {
     try {
@@ -76,13 +78,16 @@ const parseToken = (url, name) => {
 }
 
 const errorMessaging = (jqXHR, textStatus, errorThrown) => {
-  console.log('jqXHR:')
-  console.log(jqXHR)
-  console.log('textStatus:')
-  console.log(textStatus)
-  console.log('errorThrown:')
-  console.log(errorThrown)
-  // Need to write custom error messages
+  switch (jqXHR.responseJSON.error_description) {
+    case 'The access token provided has expired':
+      store.errorStatus = 1
+      break
+    case 'The client credentials are invalid':
+      store.errorStatus = 401
+      break
+    default:
+      store.errorStatus = jqXHR.status
+  }
 }
 
 const setPage = (page) => {
@@ -125,4 +130,40 @@ const showLoader = (flag) => {
   }
 }
 
-export { devLogin, userLogin, setPage, displayFieldset, showLoader }
+const resetFields = () => {
+  const setValueArray = [
+    'client_id',
+    'client_secret',
+    'access_token',
+    'errorStatus'
+  ]
+  // const stringListArray = [
+  //   'accountsList',
+  //   'segmentsList'
+  // ]
+  // const renderArray = [
+  //   'metricsList',
+  //   'segmentsList'
+  // ]
+
+  // Resets the selection value for widgets
+  setValueArray.map(d => {
+    Alteryx.Gui.manager.GetDataItem(d).setValue('')
+  })
+
+  // Resets the stringList for widgets
+  // stringListArray.map(d => {
+  //   Alteryx.Gui.manager.GetDataItem(d).setStringList([])
+  // })
+
+  // Remove prior selections from ListBox widgets
+  // renderArray.map(d => {
+  //   Alteryx.Gui.renderer.getReactComponentByDataName(d).selectedItemsMap = {}
+  //   Alteryx.Gui.renderer.getReactComponentByDataName(d).forceUpdate()
+  // })
+
+  // Set default value for preDefDropDown and advOptions
+  Alteryx.Gui.manager.GetDataItem('preDefDropDown').setValue('today')
+}
+
+export { devLogin, userLogin, setPage, displayFieldset, showLoader, resetFields }
