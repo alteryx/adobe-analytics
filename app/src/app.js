@@ -23,6 +23,11 @@ Alteryx.Gui.AfterLoad = (manager) => {
   // specified in the collection.
   const store = new AyxStore(manager, collection)
 
+    // Set Predefined dropdown to 'custom' value if it is undefined.
+  if (!store.preDefDropDown) {
+    store.preDefDropDown = 'custom'
+  }
+
   extendObservable(store, {
     // Compute if startDatePicker value is greater than endDatePicker value
     get startIsAfterEnd () {

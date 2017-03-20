@@ -1,9 +1,10 @@
-import _ from 'lodash'
+// import _ from 'lodash'
 
 const topLevelReportSuites = (store) => {
   const reportSuites = getReportSuites(store)
-  Promise.all(reportSuites)
-    .then(console.log('Promise complete'))
+  reportSuites
+    .then(mapReportSuites)
+    .then(console.log('Promise complete!!'))
 }
 
 const getReportSuites = (store) => {
@@ -12,21 +13,23 @@ const getReportSuites = (store) => {
   const url = endPoint + currentMethod + '&access_token=' + store.access_token
   // const reportSuiteList = []
   const reportSuites = $.ajax({
-      url: url,
-      dataType: 'json',
-      method: 'GET'
+    url: url,
+    dataType: 'json',
+    method: 'GET'
   })
   return reportSuites
 }
 
 const mapReportSuites = (response) => {
-  const mapResponse = reponse.map((d) => {
-    return {
-      uiobject: d.site_title,
-      dataname: d.rsid
-    }
-  })
-  return console.table(mapResponse)
+  console.log('response')
+  console.log(response)
+  // const mapResponse = response.map((d) => {
+  //   return {
+  //     uiobject: d.site_title,
+  //     dataname: d.rsid
+  //   }
+  // })
+  // return console.table(mapResponse)
 }
 
 // const pushReportSuites = (data) => {
