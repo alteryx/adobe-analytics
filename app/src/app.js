@@ -6,7 +6,7 @@ import moment from 'moment'
 import * as utils from './utils/utils'
 import * as picker from './utils/date-pickers'
 import DateMessage from './components/date-message.jsx'
-import * as reportSuites from './utils/get-report-suites'
+import * as reportSuites from './utils/report-suites'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -16,7 +16,8 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'access_token', type: 'value'},
     {key: 'startDatePicker', type: 'value'},
     {key: 'endDatePicker', type: 'value'},
-    {key: 'preDefDropDown', type: 'value'}
+    {key: 'preDefDropDown', type: 'value'},
+    {key: 'reportSuite', type: 'listBox'}
   ]
 
   // Instantiate the mobx store which will sync all dataItems
@@ -76,6 +77,13 @@ Alteryx.Gui.AfterLoad = (manager) => {
         store.startDatePicker = store.preDefStart
         store.endDatePicker = store.preDefEnd
       }
+    }
+  })
+
+  //Autorun function that populates metadata
+  autorun(() => {
+    if (store.access_token !== '') {
+      reportSuites.topLevelReportSuites(store)
     }
   })
 

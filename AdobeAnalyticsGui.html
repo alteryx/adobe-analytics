@@ -31,7 +31,7 @@
 </fieldset>
 
 <!-- Developer credentials -->
-    <fieldset id="developerCreds" style="display:block">
+    <fieldset id="developerCreds" style="display:none">
         <legend>Enter Adobe Analytics Credentials</legend>
         <label for="dataItemClientID">Client ID</label>
         <alteryx-pluginwidget type="TextBox" id="client_id" dataName="client_id"></alteryx-pluginwidget>
@@ -54,8 +54,9 @@
 
 <!-- Report Suite Selector -->
     <fieldset id="reportSuite">
+        <legend>Select Report Suite</legend>
         <label for="dataItemReportSuite">Select Report Suite</label>
-        <alteryx-pluginwidget data-props='{type:"DropDown",id:"reportSuite",dataName:"reportSuite"}'>
+        <alteryx-pluginwidget data-props='{type:"ListBox",dataType:"StringSelector",id:"reportSuite",issearchable:"true",dataName:"reportSuite"}'>
         </alteryx-pluginwidget>
     </fieldset>
 
