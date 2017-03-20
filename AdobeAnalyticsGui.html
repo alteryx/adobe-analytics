@@ -8,20 +8,17 @@
         // Include version 1 of the base GUI library.
         document.write('<link rel="import" href="' + window.Alteryx.LibDir + '1/lib/alteryx/gui/includes.html">')
     </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 <!-- Logon Selection Page -->
-<fieldset id="authSelect">
+<fieldset id="authSelect" style="display:none">
     <legend>Sign in to Adobe Analytics</legend>
     <div class="button-panel">
-        <button style="width:116px;" class="button" type="submit" id="userButton"
-                onclick="userLogin();">User Login
-        </button>
+        <button style="width:116px;" class="button" type="submit" id="userButton" onclick="userLogin();">User Login</button>
         <p>Sign in using Adobe Analytics credentials. This option requires re-entering credentials every 60 minutes or any time a new workflow is opened.</p>
-        <button style="width:116px;" class="button2" type="submit" id="devButton"
-                onclick="">Developer Login
-        </button>
+        <button style="width:116px;" class="button2" type="submit" id="devButton" onclick="setPage('#developerCreds')">Developer Login</button>
         <p>Sign in using API credentials. This option requires obtaining a Client ID and Client Secret and does not require re-entering credentials to run a workflow.</p>
     </div>
     <div class="alignment_container">
@@ -31,7 +28,7 @@
 </fieldset>
 
 <!-- Developer credentials -->
-    <fieldset id="developerCreds" style="display:block">
+    <fieldset id="developerCreds" style="display:none">
         <legend>Enter Adobe Analytics Credentials</legend>
         <label for="dataItemClientID">Client ID</label>
         <alteryx-pluginwidget type="TextBox" id="client_id" dataName="client_id"></alteryx-pluginwidget>
@@ -53,14 +50,14 @@
     </fieldset>
 
 <!-- Report Suite Selector -->
-    <fieldset id="reportSuite">
+    <fieldset id="reportSuite" style="display:none">
         <label for="dataItemReportSuite">Select Report Suite</label>
         <alteryx-pluginwidget data-props='{type:"DropDown",id:"reportSuite",dataName:"reportSuite"}'>
         </alteryx-pluginwidget>
     </fieldset>
 
 <!-- Date Pickers Selector -->
-    <fieldset id="datePickers" style="display:block;">
+    <fieldset id="datePickers" style="display:none;">
         <legend>Select Dates to Include</legend>
         <div id="preDefDateRange">
             <label for="preDefDropDown">Preset Date Range</label>
@@ -86,7 +83,7 @@
             <label for="endDatePicker" class="datePickerLabel">End</label>
             <alteryx-pluginwidget type="DateTimeField" dateFormat="YYYY-MM-DD" id="endDatePicker" dataType="SimpleDate" dataName="endDatePicker"></alteryx-pluginwidget>
         </div>
-        <div id="dateWarning" style="z-index: 99999; height:0px;"></div>
+        <div id="dateWarning" style="z-index: 1; height:0px;"></div>
         <!-- <div class='footer_spacer'></div> -->
         <div class='footer'>
             <hr>
@@ -108,6 +105,7 @@
 <!-- Store values - never displayed -->
     <fieldset id="store" style="display:none">
         <alteryx-pluginwidget type="TextBox" id="access_token" dataName="access_token"></alteryx-pluginwidget>
+        <alteryx-pluginwidget type="TextBox" id="page" dataName="page"></alteryx-pluginwidget>
     </fieldset>
 
 
@@ -184,7 +182,8 @@
     <alteryx-pluginwidget id="baseURL" dataname="baseURL" type="TextBox"></alteryx-pluginwidget>
     <alteryx-pluginwidget id="auth" dataname="auth" type="TextBox"></alteryx-pluginwidget>
 </fieldset> -->
-<div style="display:none" id="loader">
+<div id="loading" class="loading" style="display:none;"></div>
+<div id="loading-inner" class="loading-inner" style="display:none;">
     <img src="loading_ring.svg">
 </div>
 </body>
