@@ -399,6 +399,32 @@
         </Annotation>
       </Properties>
     </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="930" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>reportSuite</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="1062" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>page</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
@@ -505,6 +531,18 @@
         <Namespace>Question</Namespace>
         <Name>preDefDropDown</Name>
         <Value>lastMonth</Value>
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>reportSuite</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>page</Name>
+        <Value />
         <IsNumeric value="False" />
       </Constant>
     </Constants>
@@ -618,6 +656,26 @@
               <Description>preDefDropDown</Description>
               <Name>preDefDropDown</Name>
               <ToolId value="21" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>reportSuite</Description>
+              <Name>reportSuite</Name>
+              <ToolId value="22" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>page</Description>
+              <Name>page</Name>
+              <ToolId value="23" />
               <Default />
               <Password value="False" />
               <Multiline value="False" />

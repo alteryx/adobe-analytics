@@ -16,8 +16,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'access_token', type: 'value'},
     {key: 'startDatePicker', type: 'value'},
     {key: 'endDatePicker', type: 'value'},
-    {key: 'preDefDropDown', type: 'value'},
-    {key: 'reportSuite', type: 'listBox'}
+    {key: 'reportSuite', type: 'listBox'},
+    {key: 'page', type: 'value'},
+    {key: 'preDefDropDown', type: 'value'}
   ]
 
   // Instantiate the mobx store which will sync all dataItems
@@ -87,6 +88,43 @@ Alteryx.Gui.AfterLoad = (manager) => {
     }
   })
 
+  autorun(() => {
+    store.page === '' ? utils.displayFieldset('#authSelect') : utils.displayFieldset(store.page)
+  })
+
+  // // Determines whether to show/hide the loading spinner based on page
+  // autorun(() => {
+  //   // Shows or hides the loading spinner based on flag
+  //   const loading = (flag) => {
+  //     if (flag) {
+  //       document.getElementById('loading').style.display = 'block'
+  //       document.getElementById('loading-inner').style.display = 'block'
+  //     } else {
+  //       document.getElementById('loading').style.display = 'none'
+  //       document.getElementById('loading-inner').style.display = 'none'
+  //     }
+  //   }
+
+  //   switch (store.page) {
+  //     case '#reportSuite':
+  //       loading(store.accountsList.loading)
+  //       break
+  //     case '#developer':
+  //       loading(store.metricsList.loading)
+  //       break
+  //     case '#dimensions':
+  //       loading(store.dimensionsList.loading)
+  //       break
+  //     case '#segments':
+  //       loading(store.segmentsList.loading)
+  //       break
+  //     case '#summary':
+  //       const flag = (store.metricsList.loading || store.dimensionsList.loading || store.segmentsList.loading)
+  //       loading(flag)
+  //       break
+  //   }
+  // })
+
   // Render react component which handles a warning message for End Date not at or after Start Date.
   ReactDOM.render(<DateMessage store={store} />, document.querySelector('#dateWarning'))
 
@@ -101,4 +139,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.getDates = picker.getDates
   window.setDates = picker.setDates
   window.topLevelReportSuites = reportSuites.topLevelReportSuites
+  window.displayFieldset = utils.displayFieldset
+  window.setPage = utils.setPage
+  window.showLoader = utils.showLoader
 }

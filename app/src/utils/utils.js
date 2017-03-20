@@ -23,6 +23,7 @@ const devLogin = () => {
     .done((data) => {
       store.access_token = data.access_token
       console.log('access_token is ' + store.access_token)
+      setPage('#reportSuite')
     })
     .fail((jqXHR, textStatus, errorThrown) => {
       errorMessaging(jqXHR, textStatus, errorThrown)
@@ -39,6 +40,10 @@ const userLogin = () => {
   const win = window.open(_url, 'windowname1', 'width=800, height=600')
   // Alteryx.Gui.manager.GetDataItem('errorStatus').setValue('')
 
+  // Hode all fieldsets and Show loading image
+  setPage('#blank')
+  showLoader(true)
+
   const pollTimer = window.setInterval(() => {
     try {
       if (win.document.location.origin === 'https://developers.google.com') {
@@ -48,6 +53,8 @@ const userLogin = () => {
         store.access_token = accessToken
         console.log('User login access_token is:' + store.access_token)
         win.close()
+        showLoader(false)
+        setPage('#reportSuite')
       }
     } catch (e) {
                 // console.log("catch");
@@ -78,4 +85,44 @@ const errorMessaging = (jqXHR, textStatus, errorThrown) => {
   // Need to write custom error messages
 }
 
-export { devLogin, userLogin }
+const setPage = (page) => {
+  store.page = page
+}
+
+// Used to show/hide different fielsets
+const displayFieldset = (fieldsetName) => {
+  // Array containing all fieldsets
+  let hideArray = [
+    '#authSelect',
+    '#developerCreds',
+    '#datePickers',
+    '#reportSuite'
+  ]
+
+  let showArray = []
+
+  showArray.push(fieldsetName)
+
+  $(document).ready(() => {
+    // Hide each item in the hideArray
+    hideArray.forEach((v) => {
+      $(v).hide()
+    })
+    // Show the fieldset corresponding with fieldsetName
+    showArray.forEach((v) => {
+      $(v).show()
+    })
+  })
+}
+
+const showLoader = (flag) => {
+  if (flag) {
+    document.getElementById('loading').style.display = 'block'
+    document.getElementById('loading-inner').style.display = 'block'
+  } else {
+    document.getElementById('loading').style.display = 'none'
+    document.getElementById('loading-inner').style.display = 'none'
+  }
+}
+
+export { devLogin, userLogin, setPage, displayFieldset, showLoader }
