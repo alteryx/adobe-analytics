@@ -20,7 +20,8 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'preDefDropDown', type: 'value'},
     {key: 'page', type: 'value'},
     {key: 'errorStatus', type: 'value'},
-    {key: 'reportSuite', type: 'listBox'}
+    {key: 'reportSuite', type: 'listBox'},
+    {key: 'granularity', type: 'dropDown'}
   ]
 
   // Instantiate the mobx store which will sync all dataItems
