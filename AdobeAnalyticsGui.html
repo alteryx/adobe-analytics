@@ -65,7 +65,7 @@
         </div>
     </fieldset>
 
-<!-- Date Pickers Selector -->
+<!-- Selectors for Date Pickers and Granularity -->
     <fieldset id="datePickers" style="display:none;">
         <legend>Select Dates to Include</legend>
         <div id="preDefDateRange">
@@ -94,6 +94,23 @@
         </div>
         <div id="dateWarning" style="z-index: 1; height:0px;"></div>
         <!-- <div class='footer_spacer'></div> -->
+        <p>
+        <!-- Granularity section -->
+        <fieldset id="granularity" style="display:block;">
+            <legend>Select the Granularity of Dates</legend>
+            <div id="preDefDateRange">
+                <label for="granularity">Granularity</label>
+                <alteryx-pluginwidget data-props='{type:"DropDown",id:"granularity",dataName:"granularity",clearable:"true"}'>
+                    <alteryx-option uiobject="Hour">hour</alteryx-option>
+                    <alteryx-option uiobject="Day">day</alteryx-option>
+                    <alteryx-option uiobject="Week">week</alteryx-option>
+                    <alteryx-option uiobject="Month">month</alteryx-option>
+                    <alteryx-option uiobject="Quarter">quarter</alteryx-option>
+                    <alteryx-option uiobject="Year">year</alteryx-option>
+                </alteryx-widget>
+            </div>
+        </fieldset>
+
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
