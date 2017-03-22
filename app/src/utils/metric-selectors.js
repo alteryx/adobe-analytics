@@ -17,21 +17,42 @@ const getMetrics = (store, metricNumber) => {
   .done((response) => {
     const mapResponse = response.map((d) => {
       return {
-        uiobject: d.name,
+        uiobject: d.name + ' | ' + d.id,
         dataname: d.id
       }
+    })
+
+    const sortResponse = mapResponse.sort((a, b) => {
+      let uiNameA = a.uiobject.toLowerCase()
+      let uiNameB = b.uiobject.toLowerCase()
+      if (uiNameA < uiNameB) return -1 // sort string ascending
+      if (uiNameA > uiNameB) return 1
+      return 0 // default return value (no sorting)
     })
 
     const metric = populateMetric(store, metricNumber)
 
     metric.stringList = []
 
-    mapResponse.forEach(d => {
+    sortResponse.forEach(d => {
       return metric.stringList.push({
         uiobject: d.uiobject,
         dataname: d.dataname
       })
     })
+
+    store.metricError = {
+      'error': '',
+      'error_description': '',
+      'name': ''
+    }
+  })
+  .fail((jqXHR) => {
+    store.metricError = {
+      'error': jqXHR.responseJSON.error,
+      'error_description': jqXHR.responseJSON.error_description,
+      'name': ''
+    }
   })
 }
 

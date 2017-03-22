@@ -9,6 +9,7 @@ import DateMessage from './components/date-message.jsx'
 import ConnectionErrorMessage from './components/connection-error-message.jsx'
 import * as reportSuites from './utils/report-suites'
 import * as metricSelectors from './utils/metric-selectors'
+import InvalidMetric from './components/invalid-metric-message.jsx'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -27,6 +28,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'metric3', type: 'dropDown'},
     {key: 'metric4', type: 'dropDown'},
     {key: 'metric5', type: 'dropDown'},
+    {key: 'metricError', type: 'value'},
     {key: 'granularity', type: 'dropDown'}
   ]
 
@@ -134,6 +136,22 @@ Alteryx.Gui.AfterLoad = (manager) => {
     store.metricSelections.length === 0 ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
   })
 
+  // autorun(() => {
+  //   const metricArray = [
+  //     store.metric1,
+  //     store.metric2,
+  //     store.metric3,
+  //     store.metric4,
+  //     store.metric5
+  //   ]
+
+  //   for (let value of metricArray) {
+  //     if (store.metricError.error_description.includes(value.selection)) {
+  //       store.metricError.name = value.selectionName
+  //     }
+  //   }
+  // })
+
   // // Determines whether to show/hide the loading spinner based on page
   // autorun(() => {
   //   // Shows or hides the loading spinner based on flag
@@ -179,6 +197,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
 
   // Render react component which handles a warning message for End Date not at or after Start Date.
   ReactDOM.render(<DateMessage store={store} />, document.querySelector('#dateWarning'))
+
+  // Render react component which handles a warning message for End Date not at or after Start Date.
+  ReactDOM.render(<InvalidMetric store={store} />, document.querySelector('#invalidMetric'))
 
   // All window declarations, below, are simply to expose functionality to the console, and
   // should probably be removed or commented out before shipping the connector.
