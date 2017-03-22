@@ -8,6 +8,7 @@ import * as picker from './utils/date-pickers'
 import DateMessage from './components/date-message.jsx'
 import ConnectionErrorMessage from './components/connection-error-message.jsx'
 import * as reportSuites from './utils/report-suites'
+import * as metricSelectors from './utils/metric-selectors'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -21,6 +22,11 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'page', type: 'value'},
     {key: 'errorStatus', type: 'value'},
     {key: 'reportSuite', type: 'listBox'},
+    {key: 'metric1', type: 'dropDown'},
+    {key: 'metric2', type: 'dropDown'},
+    {key: 'metric3', type: 'dropDown'},
+    {key: 'metric4', type: 'dropDown'},
+    {key: 'metric5', type: 'dropDown'},
     {key: 'granularity', type: 'dropDown'}
   ]
 
@@ -28,7 +34,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
   // specified in the collection.
   const store = new AyxStore(manager, collection)
 
-    // Set Predefined dropdown to 'custom' value if it is undefined.
+  // Set Predefined dropdown to 'custom' value if it is undefined.
   if (!store.preDefDropDown) {
     store.preDefDropDown = 'custom'
   }
@@ -58,6 +64,22 @@ Alteryx.Gui.AfterLoad = (manager) => {
     get isCustomDate () {
       return store.startDatePicker !== store.preDefStart ||
              store.endDatePicker !== store.preDefEnd
+    },
+    // Create array of selected metrics
+    get metricSelections () {
+      const selections = [
+        store.metric1.selection,
+        store.metric2.selection,
+        store.metric3.selection,
+        store.metric4.selection,
+        store.metric5.selection
+      ]
+
+      const notEmpty = (value) => {
+        return value !== ''
+      }
+
+      return selections.filter(notEmpty)
     }
   })
 
@@ -84,7 +106,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     }
   })
 
-  //Autorun function that populates metadata
+  // Autorun function that populates metadata
   autorun(() => {
     if (store.access_token !== '') {
       reportSuites.topLevelReportSuites(store)
@@ -93,6 +115,23 @@ Alteryx.Gui.AfterLoad = (manager) => {
 
   autorun(() => {
     store.page === '' ? utils.displayFieldset('#authSelect') : utils.displayFieldset(store.page)
+  })
+
+  // Refreshes the metric dropdowns
+  autorun(() => {
+    if (store.access_token !== '' && store.reportSuite.selection !== '') {
+      metricSelectors.getMetrics(store, 1)
+      metricSelectors.getMetrics(store, 2)
+      metricSelectors.getMetrics(store, 3)
+      metricSelectors.getMetrics(store, 4)
+      metricSelectors.getMetrics(store, 5)
+    }
+  })
+
+  // Enable or Disable the Next button on metric selecotrs page
+  autorun(() => {
+    const target = document.getElementById('metricSelectorsNextBtn')
+    store.metricSelections.length === 0 ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
   })
 
   // // Determines whether to show/hide the loading spinner based on page
@@ -156,4 +195,5 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.setPage = utils.setPage
   window.showLoader = utils.showLoader
   window.resetFields = utils.resetFields
+  window.getMetrics = metricSelectors.getMetrics
 }
