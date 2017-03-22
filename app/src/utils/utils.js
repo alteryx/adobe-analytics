@@ -101,7 +101,8 @@ const displayFieldset = (fieldsetName) => {
     '#authSelect',
     '#developerCreds',
     '#datePickers',
-    '#reportSuite'
+    '#reportSuite',
+    '#metricSelectors'
   ]
 
   let showArray = []

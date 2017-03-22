@@ -98,8 +98,34 @@
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
                 <!-- Add id name and onclick function during process story -->
-                <button type="submit" class="nextBtn" id="datePickersNextBtn" onclick="">Next</button>
+                <button type="submit" class="nextBtn" id="datePickersNextBtn" onclick="setPage('#metricSelectors');">Next</button>
                 <button class="prevBtn" id="datePickersPrevBtn" onclick="setPage('#reportSuite');">Previous</button>
+            </div>
+            <br>
+            <br>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
+        </div>
+    </fieldset>
+
+<!-- Metric Selector -->
+    <fieldset id="metricSelectors" style="display:none;">
+        <legend>Select Metrics to Include</legend>
+        <label for="metric1">Metric 1</label>
+        <alteryx-pluginwidget data-props='{type:"DropDown",dataType:"StringSelector",id:"metric1",issearchable:"true",dataName:"metric1",clearable:"true"}'></alteryx-pluginwidget>
+        <label for="metric1">Metric 2 (optional)</label>
+        <alteryx-pluginwidget data-props='{type:"DropDown",dataType:"StringSelector",id:"metric2",issearchable:"true",dataName:"metric2",clearable:"true"}'></alteryx-pluginwidget>
+        <label for="metric1">Metric 3 (optional)</label>
+        <alteryx-pluginwidget data-props='{type:"DropDown",dataType:"StringSelector",id:"metric3",issearchable:"true",dataName:"metric3",clearable:"true"}'></alteryx-pluginwidget>
+        <label for="metric1">Metric 4 (optional)</label>
+        <alteryx-pluginwidget data-props='{type:"DropDown",dataType:"StringSelector",id:"metric4",issearchable:"true",dataName:"metric4",clearable:"true"}'></alteryx-pluginwidget>
+        <label for="metric1">Metric 5 (optional)</label>
+        <alteryx-pluginwidget data-props='{type:"DropDown",dataType:"StringSelector",id:"metric5",issearchable:"true",dataName:"metric5",clearable:"true"}'></alteryx-pluginwidget>
+        <div class='footer'>
+            <hr>
+            <div style="margin-top: 8px;margin-bottom: 8px;">
+                <!-- Add id name and onclick function during process story -->
+                <button type="submit" class="nextBtn" id="metricSelectorsNextBtn" onclick="alert('need to add');">Next</button>
+                <button class="prevBtn" id="metricSelectorsPrevBtn" onclick="setPage('#datePickers');">Previous</button>
             </div>
             <br>
             <br>
