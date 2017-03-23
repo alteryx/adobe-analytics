@@ -122,11 +122,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
   // Refreshes the metric dropdowns
   autorun(() => {
     if (store.access_token !== '' && store.reportSuite.selection !== '') {
-      metricSelectors.getMetrics(store, 1)
-      metricSelectors.getMetrics(store, 2)
-      metricSelectors.getMetrics(store, 3)
-      metricSelectors.getMetrics(store, 4)
-      metricSelectors.getMetrics(store, 5)
+      metricSelectors.topLevelMetrics(store)
     }
   })
 
@@ -152,38 +148,38 @@ Alteryx.Gui.AfterLoad = (manager) => {
   //   }
   // })
 
-  // // Determines whether to show/hide the loading spinner based on page
-  // autorun(() => {
-  //   // Shows or hides the loading spinner based on flag
-  //   const loading = (flag) => {
-  //     if (flag) {
-  //       document.getElementById('loading').style.display = 'block'
-  //       document.getElementById('loading-inner').style.display = 'block'
-  //     } else {
-  //       document.getElementById('loading').style.display = 'none'
-  //       document.getElementById('loading-inner').style.display = 'none'
-  //     }
-  //   }
+  // Determines whether to show/hide the loading spinner based on page
+  autorun(() => {
+    // Shows or hides the loading spinner based on flag
+    const loading = (flag) => {
+      if (flag) {
+        document.getElementById('loading').style.display = 'block'
+        document.getElementById('loading-inner').style.display = 'block'
+      } else {
+        document.getElementById('loading').style.display = 'none'
+        document.getElementById('loading-inner').style.display = 'none'
+      }
+    }
 
-  //   switch (store.page) {
-  //     case '#reportSuite':
-  //       loading(store.accountsList.loading)
-  //       break
-  //     case '#developer':
-  //       loading(store.metricsList.loading)
-  //       break
-  //     case '#dimensions':
-  //       loading(store.dimensionsList.loading)
-  //       break
-  //     case '#segments':
-  //       loading(store.segmentsList.loading)
-  //       break
-  //     case '#summary':
-  //       const flag = (store.metricsList.loading || store.dimensionsList.loading || store.segmentsList.loading)
-  //       loading(flag)
-  //       break
-  //   }
-  // })
+    switch (store.page) {
+      case '#reportSuite':
+        loading(store.reportSuite.loading)
+        break
+      case '#metricSelectors':
+        loading(store.metric1.loading)
+        break
+      // case '#dimensions':
+      //   loading(store.dimensionsList.loading)
+      //   break
+      // case '#segments':
+      //   loading(store.segmentsList.loading)
+      //   break
+      // case '#summary':
+      //   const flag = (store.metricsList.loading || store.dimensionsList.loading || store.segmentsList.loading)
+      //   loading(flag)
+      //   break
+    }
+  })
 
   // Render react component which handles connection error messaging
   autorun(() => {
@@ -216,5 +212,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.setPage = utils.setPage
   window.showLoader = utils.showLoader
   window.resetFields = utils.resetFields
+  window.topLevelMetrics = metricSelectors.topLevelMetrics
   window.getMetrics = metricSelectors.getMetrics
+  window.validateMetrics = metricSelectors.validateMetrics
 }

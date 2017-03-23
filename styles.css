@@ -142,6 +142,24 @@ hr {
    width: auto;
 }
 
+.metricWarning {
+   background-color: #ec2227;
+   border: 1px solid #9f1d20;
+   border-radius: 5px;
+   color: #ffffff;
+   display: inline-block;
+   font-family: 'Segoe UI Semibold', Arial, sans-serif;
+   font-size: 12px;
+   // left: 145px;
+   // top: 41.5px;
+   // right: 20px;
+   white-space: pre-wrap;
+   padding: 5px 5px 5px 5px;
+   position: relative;
+   text-align: center;
+   width: auto;
+}
+
 .prevBtn {
     border-color: rgb(228, 228, 228);
     background-color: white;
