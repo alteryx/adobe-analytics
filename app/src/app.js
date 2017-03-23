@@ -10,6 +10,7 @@ import ConnectionErrorMessage from './components/connection-error-message.jsx'
 import * as reportSuites from './utils/report-suites'
 import * as metricSelectors from './utils/metric-selectors'
 import InvalidMetric from './components/invalid-metric-message.jsx'
+import * as elementSelectors from './utils/element-selectors'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -29,7 +30,8 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'metric4', type: 'dropDown'},
     {key: 'metric5', type: 'dropDown'},
     {key: 'metricError', type: 'value'},
-    {key: 'granularity', type: 'dropDown'}
+    {key: 'granularity', type: 'dropDown'},
+    {key: 'element1', type: 'dropDown'}
   ]
 
   // Instantiate the mobx store which will sync all dataItems
@@ -123,6 +125,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
   autorun(() => {
     if (store.access_token !== '' && store.reportSuite.selection !== '') {
       metricSelectors.topLevelMetrics(store)
+      elementSelectors.topLevelElements(store)
     }
   })
 
@@ -167,6 +170,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
         break
       case '#metricSelectors':
         loading(store.metric1.loading)
+        break
+      case '#elementSelectors':
+        loading(store.element1.loading)
         break
       // case '#dimensions':
       //   loading(store.dimensionsList.loading)
@@ -215,4 +221,6 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.topLevelMetrics = metricSelectors.topLevelMetrics
   window.getMetrics = metricSelectors.getMetrics
   window.validateMetrics = metricSelectors.validateMetrics
+  window.topLevelElements = elementSelectors.topLevelElements
+  window.pushElements = elementSelectors.pushElements
 }
