@@ -33,7 +33,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'metricError', type: 'value'},
     {key: 'granularity', type: 'dropDown'},
     {key: 'segment1', type: 'dropDown'},
-    {key: 'segment2', type: 'dropDown'}
+    {key: 'segment2', type: 'dropDown'},
     {key: 'element1', type: 'dropDown'}
   ]
 
