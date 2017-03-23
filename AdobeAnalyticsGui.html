@@ -144,7 +144,7 @@
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
                 <!-- Add id name and onclick function during process story -->
-                <button type="submit" class="nextBtn" id="metricSelectorsNextBtn" onclick="alert('move to next page; add setPage()');">Next</button>
+                <button type="submit" class="nextBtn" id="metricSelectorsNextBtn" onclick="setPage('#elementSelectors');">Next</button>
                 <button class="prevBtn" id="metricSelectorsPrevBtn" onclick="setPage('#datePickers');">Previous</button>
             </div>
             <br>
@@ -152,6 +152,25 @@
             <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
         </div>
     </fieldset>
+
+<!--Element Selector -->
+<fieldset id="elementSelectors" style="display:none;">
+    <legend>Select Element to Include (Optional)</legend>
+    <label for="element1">Element 1</label>
+    <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"element1",issearchable:"true",dataName:"element1",clearable:"true"}'></alteryx-pluginwidget>
+    <div id="invalidElement"></div>
+    <div class='footer'>
+        <hr>
+        <div style="margin-top: 8px;margin-bottom: 8px;">
+            <!-- Add id name and onclick function during process story -->
+            <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="validateMetrics();">Next</button>
+            <button class="prevBtn" id="elementSelectorsPrevBtn" onclick="setPage('#metricSelectors');">Previous</button>
+        </div>
+        <br>
+        <br>
+        <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
+    </div>
+</fieldset>
 
 <!-- Store values - never displayed -->
     <fieldset id="store" style="display:none">
