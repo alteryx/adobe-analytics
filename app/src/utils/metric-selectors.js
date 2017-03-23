@@ -6,6 +6,7 @@ const topLevelMetrics = (store) => {
   Metrics
     .then(mapMetrics)
     .then(sortMetrics)
+    .then(removeInvalidMetrics)
     .then(pushMetrics)
     .fail((jqXHR) => {
       console.log(jqXHR)
@@ -47,6 +48,17 @@ const sortMetrics = (response) => {
     return 0 // default return value (no sorting)
   })
   return sortResponse
+}
+
+const removeInvalidMetrics = (response) => {
+  const invalid = (value) => {
+    if (value.dataname.startsWith('cm') && value.dataname.length === 30) {
+      return false
+    } else {
+      return true
+    }
+  }
+  return response.filter(invalid)
 }
 
 const pushMetrics = (response) => {

@@ -137,12 +137,14 @@
         <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"metric4",issearchable:"true",dataName:"metric4",clearable:"true"}'></alteryx-pluginwidget>
         <label for="metric1">Metric 5 (optional)</label>
         <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"metric5",issearchable:"true",dataName:"metric5",clearable:"true"}'></alteryx-pluginwidget>
+        <button class="prevBtn" id="metricValidation" onclick="validateMetrics();">Validate Metric Selections</button>
+        <br>
         <div id="invalidMetric"></div>
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
                 <!-- Add id name and onclick function during process story -->
-                <button type="submit" class="nextBtn" id="metricSelectorsNextBtn" onclick="validateMetrics();">Next</button>
+                <button type="submit" class="nextBtn" id="metricSelectorsNextBtn" onclick="alert('move to next page; add setPage()');">Next</button>
                 <button class="prevBtn" id="metricSelectorsPrevBtn" onclick="setPage('#datePickers');">Previous</button>
             </div>
             <br>
