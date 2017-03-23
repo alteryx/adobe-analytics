@@ -5,31 +5,27 @@ class InvalidMetric extends React.Component {
   constructor (props) {
     super(props)
     this.store = props.store
-    this.errorText = props.errorText
-    this.errorDescription = props.errorDescription
   }
 
-  mapName (store, errorDescription) {
-    const metricArray = [
-      store.metric1,
-      store.metric2,
-      store.metric3,
-      store.metric4,
-      store.metric5
-    ]
+  addClass (type) {
+    return type === '' || type === undefined ? '' : 'metricWarning'
+  }
 
-    console.log(store.metric1.selectionName)
+  addText (type, desc, metric) {
+    const text = type + '\n\n' + desc + '\n\n' + metric
+    return type === '' || type === undefined ? '' : text
   }
 
   render () {
-    const store = this.store
-    const desc = this.errorDescription
-    const metricName = this.mapName(store, desc)
+    const errorType = this.store.metricError.error_type
+    const errorDesc = this.store.metricError.error_description
+    const metric = this.store.metricError.metricName
+    const divClass = this.addClass(errorType)
+    const text = this.addText(errorType, errorDesc, metric)
+
     return (
-      <div>
-        <p>{this.errorText}</p>
-        <p>{this.errorDescription}</p>
-        <p>{this.metricName}</p>
+      <div className={divClass}>
+        {text}
       </div>
     )
   }
