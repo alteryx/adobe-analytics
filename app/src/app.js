@@ -11,6 +11,7 @@ import * as reportSuites from './utils/report-suites'
 import * as metricSelectors from './utils/metric-selectors'
 import InvalidMetric from './components/invalid-metric-message.jsx'
 import * as segmentSelectors from './utils/segment-selectors'
+import * as elementSelectors from './utils/element-selectors'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -33,6 +34,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'granularity', type: 'dropDown'},
     {key: 'segment1', type: 'dropDown'},
     {key: 'segment2', type: 'dropDown'}
+    {key: 'element1', type: 'dropDown'}
   ]
 
   // Instantiate the mobx store which will sync all dataItems
@@ -126,6 +128,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
   autorun(() => {
     if (store.access_token !== '' && store.reportSuite.selection !== '') {
       metricSelectors.topLevelMetrics(store)
+      elementSelectors.topLevelElements(store)
     }
   })
 
@@ -170,6 +173,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
         break
       case '#metricSelectors':
         loading(store.metric1.loading)
+        break
+      case '#elementSelectors':
+        loading(store.element1.loading)
         break
       // case '#dimensions':
       //   loading(store.dimensionsList.loading)
@@ -220,4 +226,6 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.validateMetrics = metricSelectors.validateMetrics
   window.topLevelSegments = segmentSelectors.topLevelSegments
   window.getSegments = segmentSelectors.getSegments
+  window.topLevelElements = elementSelectors.topLevelElements
+  window.pushElements = elementSelectors.pushElements
 }
