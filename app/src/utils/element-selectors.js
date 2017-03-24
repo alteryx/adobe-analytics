@@ -1,9 +1,10 @@
 const topLevelElements = (store) => {
-  store.element1.loading = true
+  store.elementPrimary.loading = true
   const Elements = getElements(store)
   Elements
     .then(mapElements)
     .then(sortElements)
+    .then(filterElements)
     .then(pushElements)
 }
 
@@ -44,10 +45,20 @@ const sortElements = (response) => {
   return sortResponse
 }
 
+const filterElements = (response) => {
+  console.log(response)
+  const filterResponse = response.filter(d => {
+    return d.dataname !== store.elementSecondary.selection
+  })
+  console.log(filterResponse)
+  return filterResponse
+}
+
 const pushElements = (response) => {
   const mapResponse = response
   const elementArray = [
-    store.element1
+    store.elementPrimary,
+    store.elementSecondary
   ]
 
   for (let value of elementArray) {
@@ -59,7 +70,7 @@ const pushElements = (response) => {
       })
     })
   }
-  store.element1.loading = false
+  store.elementPrimary.loading = false
 }
 
 export { topLevelElements }

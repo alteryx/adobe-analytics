@@ -32,9 +32,10 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'metric5', type: 'dropDown'},
     {key: 'metricError', type: 'value'},
     {key: 'granularity', type: 'dropDown'},
+    {key: 'elementPrimary', type: 'dropDown'},
+    {key: 'elementSecondary', type: 'dropDown'},
     {key: 'segment1', type: 'dropDown'},
-    {key: 'segment2', type: 'dropDown'},
-    {key: 'element1', type: 'dropDown'}
+    {key: 'segment2', type: 'dropDown'}
   ]
 
   // Instantiate the mobx store which will sync all dataItems
@@ -175,7 +176,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
         loading(store.metric1.loading)
         break
       case '#elementSelectors':
-        loading(store.element1.loading)
+        loading(store.elementPrimary.loading)
         break
       // case '#dimensions':
       //   loading(store.dimensionsList.loading)
