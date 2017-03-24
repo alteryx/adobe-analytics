@@ -497,7 +497,20 @@
       <Properties>
         <Configuration />
         <Annotation DisplayMode="0">
-          <Name>metric</Name>
+          <Name>segment1</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="1302" y="102" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>segment2</Name>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
@@ -655,7 +668,13 @@
       </Constant>
       <Constant>
         <Namespace>Question</Namespace>
-        <Name>metric</Name>
+        <Name>segment1</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>segment2</Name>
         <Value />
         <IsNumeric value="False" />
       </Constant>
@@ -847,9 +866,19 @@
             </Question>
             <Question>
               <Type>TextBox</Type>
-              <Description>metric</Description>
-              <Name>metric</Name>
+              <Description>segment1</Description>
+              <Name>segment1</Name>
               <ToolId value="29" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>segment2</Description>
+              <Name>segment2</Name>
+              <ToolId value="30" />
               <Default />
               <Password value="False" />
               <Multiline value="False" />

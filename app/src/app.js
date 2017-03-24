@@ -10,6 +10,7 @@ import ConnectionErrorMessage from './components/connection-error-message.jsx'
 import * as reportSuites from './utils/report-suites'
 import * as metricSelectors from './utils/metric-selectors'
 import InvalidMetric from './components/invalid-metric-message.jsx'
+import * as segmentSelectors from './utils/segment-selectors'
 import * as elementSelectors from './utils/element-selectors'
 // import _ from 'lodash'
 
@@ -32,7 +33,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'metricError', type: 'value'},
     {key: 'granularity', type: 'dropDown'},
     {key: 'elementPrimary', type: 'dropDown'},
-    {key: 'elementSecondary', type: 'dropDown'}
+    {key: 'elementSecondary', type: 'dropDown'},
+    {key: 'segment1', type: 'dropDown'},
+    {key: 'segment2', type: 'dropDown'}
   ]
 
   // Instantiate the mobx store which will sync all dataItems
@@ -222,6 +225,8 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.topLevelMetrics = metricSelectors.topLevelMetrics
   window.getMetrics = metricSelectors.getMetrics
   window.validateMetrics = metricSelectors.validateMetrics
+  window.topLevelSegments = segmentSelectors.topLevelSegments
+  window.getSegments = segmentSelectors.getSegments
   window.topLevelElements = elementSelectors.topLevelElements
   window.pushElements = elementSelectors.pushElements
 }
