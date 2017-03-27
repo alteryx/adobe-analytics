@@ -8,12 +8,30 @@ class InvalidMetric extends React.Component {
   }
 
   addClass (type) {
-    return type === '' || type === undefined ? '' : 'metricWarning'
+    let divClass = ''
+
+    if (type === '' || type === undefined) {
+      divClass = ''
+    } else if (type === 'Success') {
+      divClass = 'metricValid'
+    } else {
+      divClass = 'metricWarning'
+    }
+    return divClass
   }
 
   addText (type, desc, metric) {
-    const text = type + '\n\n' + desc + '\n\n' + metric
-    return type === '' || type === undefined ? '' : text
+    let text = ''
+
+    if (type === '' || type === undefined) {
+      text = ''
+    } else if (type === 'Success') {
+      text = 'Success!  Valid combination of metrics.'
+    } else {
+      text = type + '\n\n' + desc + '\n\n' + metric
+    }
+
+    return text
   }
 
   render () {

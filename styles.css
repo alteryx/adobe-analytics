@@ -160,6 +160,24 @@ hr {
    width: auto;
 }
 
+.metricValid, .elementValid {
+   background-color: rgb(204,246,209);
+   border: 1px solid rgb(204,246,209);
+   border-radius: 5px;
+   color: black;
+   display: block;
+   font-family: 'Segoe UI Semibold', Arial, sans-serif;
+   font-size: 12px;
+   margin-top: 35px;
+   // left: 145px;
+   // top: 41.5px;
+   // right: 20px;
+   white-space: pre-wrap;
+   padding: 5px 5px 5px 5px;
+   text-align: center;
+   width: auto;
+}
+
 .prevBtn {
     border-color: rgb(228, 228, 228);
     background-color: white;
