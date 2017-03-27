@@ -13,6 +13,7 @@ import InvalidMetric from './components/invalid-metric-message.jsx'
 import InvalidElement from './components/invalid-element-message.jsx'
 import * as segmentSelectors from './utils/segment-selectors'
 import * as elementSelectors from './utils/element-selectors'
+import * as reportValidation from './utils/report-validation'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -86,6 +87,17 @@ Alteryx.Gui.AfterLoad = (manager) => {
       ]
 
       return selections.filter(notEmpty)
+    },
+    // Array of metrics
+    get metricArray () {
+      const array = [
+        store.metric1,
+        store.metric2,
+        store.metric3,
+        store.metric4,
+        store.metric5
+      ]
+      return array
     },
     // Create array of selected elements
     get elementSelections () {
@@ -228,4 +240,6 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.topLevelElements = elementSelectors.topLevelElements
   window.pushElements = elementSelectors.pushElements
   window.validateElements = elementSelectors.validateElements
+  window.validateReport = reportValidation.validateReport
+  window.metrics = reportValidation.metrics
 }
