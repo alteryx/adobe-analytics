@@ -4,7 +4,6 @@ const topLevelElements = (store) => {
   Elements
     .then(mapElements)
     .then(sortElements)
-    .then(filterElements)
     .then(pushElements)
 }
 
@@ -45,15 +44,6 @@ const sortElements = (response) => {
   return sortResponse
 }
 
-const filterElements = (response) => {
-  console.log(response)
-  const filterResponse = response.filter(d => {
-    return d.dataname !== store.elementSecondary.selection
-  })
-  console.log(filterResponse)
-  return filterResponse
-}
-
 const pushElements = (response) => {
   const mapResponse = response
   const elementArray = [
@@ -73,4 +63,32 @@ const pushElements = (response) => {
   store.elementPrimary.loading = false
 }
 
-export { topLevelElements }
+// Filter Element Selection Section
+//
+// this filter function removes the element selection from the other element's store stringlist
+// example arguments = (store.elementPrimary.selection, store.elementSecondary)
+// const filterElements = (elementSelection, otherElementStore) => {
+//   // console.log('filterElements', this)
+//   // console.log('elementSelection')
+//   // console.log(elementSelection)
+//   // console.log('first otherElementStore.stringList')
+//   // console.log(otherElementStore.stringList)
+//   debugger
+//   const filterElement = otherElementStore.stringList.filter(d => {
+//     return d.dataName !== elementSelection
+//   })
+//   // console.log('filterElement')
+//   // console.log(filterElement)
+//   otherElementStore.stringList = []
+//   // console.log('otherElementStore')
+//   // console.log(otherElementStore.stringList)
+//   filterElement.forEach(d => {
+//     otherElementStore.stringList.push({
+//       uiobject: d.uiObject,
+//       dataname: d.dataName
+//     })
+//   })
+//   console.log('i did it')
+// }
+
+export { topLevelElements, filterElements }

@@ -139,6 +139,21 @@ Alteryx.Gui.AfterLoad = (manager) => {
     store.metricSelections.length === 0 ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
   })
 
+  // const filterElementsFunction = elementSelectors.filterElements.bind(this, store.elementPrimary.selection, store.elementSecondary)
+  // const filterElementsFunction = elementSelectors.filterElements.apply(null, store.elementPrimary.selection, store.elementSecondary)
+
+  // window.filterElementsFunction = elementSelectors.filterElements
+  // Alteryx.Gui.manager.GetDataItem('elementPrimary').UserDataChanged.push(() => { elementSelectors.filterElements(store.elementPrimary.selection, store.elementSecondary) })
+
+  // // Update the other element stores based on element selection
+  // autorun(() => {
+  //   console.log('store.elementPrimary.selection !== ""')
+  //   // elementSelectors.filterElements(store.elementPrimary.selection, store.elementSecondary)
+  //   // if (store.elementPrimary.selection !== '') {
+  //   filterElementsFunction()
+  //   // }
+  // })
+
   // autorun(() => {
   //   const metricArray = [
   //     store.metric1,
@@ -228,5 +243,5 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.topLevelSegments = segmentSelectors.topLevelSegments
   window.getSegments = segmentSelectors.getSegments
   window.topLevelElements = elementSelectors.topLevelElements
-  window.pushElements = elementSelectors.pushElements
+  window.filterElements = elementSelectors.filterElements
 }
