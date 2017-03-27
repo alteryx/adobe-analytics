@@ -101,10 +101,10 @@ const validateMetrics = () => {
   .done(() => {
     store.setPage = '#elementSelectors'
     store.metricError = {
-      'error_type': '',
+      'error_type': 'Success',
       'error_description': ''
     }
-    console.log('validate done')
+    console.log('valid metric combination')
     store.metric1.loading = false
   })
   .fail((jqXHR) => {

@@ -181,12 +181,14 @@
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimary",issearchable:"true",dataName:"elementPrimary",clearable:"true"}'></alteryx-pluginwidget>
     <label for="elementSecondary">Secondary Element</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondary",issearchable:"true",dataName:"elementSecondary",clearable:"true"}'></alteryx-pluginwidget>
+    <button class="prevBtn" id="elementValidation" onclick="validateElements();">Validate Element Selections</button>
+    <br>
     <div id="invalidElement"></div>
     <div class='footer'>
         <hr>
         <div style="margin-top: 8px;margin-bottom: 8px;">
             <!-- Add id name and onclick function during process story -->
-            <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="validateMetrics();">Next</button>
+            <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="alert('add setPage for next page when known');">Next</button>
             <button class="prevBtn" id="elementSelectorsPrevBtn" onclick="setPage('#metricSelectors');">Previous</button>
         </div>
         <br>
@@ -201,6 +203,7 @@
         <alteryx-pluginwidget type="TextBox" id="page" dataName="page"></alteryx-pluginwidget>
         <alteryx-pluginwidget type="TextBox" id="errorStatus" dataName="errorStatus"></alteryx-pluginwidget>
         <alteryx-pluginwidget type="TextBox" id="metricError" dataName="metricError"></alteryx-pluginwidget>
+        <alteryx-pluginwidget type="TextBox" id="elementError" dataName="elementError"></alteryx-pluginwidget>
     </fieldset>
 
 <!-- Error and Loading Messaging -->
