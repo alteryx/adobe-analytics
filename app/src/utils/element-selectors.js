@@ -91,7 +91,7 @@ const validateElements = () => {
   })
   .done(() => {
     store.elementError = {
-      'error_type': '',
+      'error_type': 'Success',
       'error_description': '',
       'elementName': ''
     }

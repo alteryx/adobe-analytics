@@ -8,14 +8,31 @@ class InvalidElement extends React.Component {
   }
 
   addClass (type) {
-    return type === '' || type === undefined ? '' : 'elementWarning'
+    let divClass = ''
+
+    if (type === '' || type === undefined) {
+      divClass = ''
+    } else if (type === 'Success') {
+      divClass = 'elementValid'
+    } else {
+      divClass = 'elementWarning'
+    }
+    return divClass
   }
 
   addText (type, desc, element) {
-    const text = type + '\n\n' + desc + '\n\n' + element
-    return type === '' || type === undefined ? '' : text
-  }
+    let text = ''
 
+    if (type === '' || type === undefined) {
+      text = ''
+    } else if (type === 'Success') {
+      text = 'Success!  Valid combination of elements.'
+    } else {
+      text = type + '\n\n' + desc + '\n\n' + element
+    }
+
+    return text
+  }
   render () {
     const errorType = this.store.elementError.error_type
     const errorDesc = this.store.elementError.error_description
