@@ -8,6 +8,10 @@ import * as picker from './utils/date-pickers'
 import DateMessage from './components/date-message.jsx'
 import ConnectionErrorMessage from './components/connection-error-message.jsx'
 import * as reportSuites from './utils/report-suites'
+import * as metricSelectors from './utils/metric-selectors'
+import InvalidMetric from './components/invalid-metric-message.jsx'
+import * as segmentSelectors from './utils/segment-selectors'
+import * as elementSelectors from './utils/element-selectors'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -21,14 +25,24 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'page', type: 'value'},
     {key: 'errorStatus', type: 'value'},
     {key: 'reportSuite', type: 'listBox'},
-    {key: 'granularity', type: 'dropDown'}
+    {key: 'metric1', type: 'dropDown'},
+    {key: 'metric2', type: 'dropDown'},
+    {key: 'metric3', type: 'dropDown'},
+    {key: 'metric4', type: 'dropDown'},
+    {key: 'metric5', type: 'dropDown'},
+    {key: 'metricError', type: 'value'},
+    {key: 'granularity', type: 'dropDown'},
+    {key: 'elementPrimary', type: 'dropDown'},
+    {key: 'elementSecondary', type: 'dropDown'},
+    {key: 'segment1', type: 'dropDown'},
+    {key: 'segment2', type: 'dropDown'}
   ]
 
   // Instantiate the mobx store which will sync all dataItems
   // specified in the collection.
   const store = new AyxStore(manager, collection)
 
-    // Set Predefined dropdown to 'custom' value if it is undefined.
+  // Set Predefined dropdown to 'custom' value if it is undefined.
   if (!store.preDefDropDown) {
     store.preDefDropDown = 'custom'
   }
@@ -58,6 +72,22 @@ Alteryx.Gui.AfterLoad = (manager) => {
     get isCustomDate () {
       return store.startDatePicker !== store.preDefStart ||
              store.endDatePicker !== store.preDefEnd
+    },
+    // Create array of selected metrics
+    get metricSelections () {
+      const selections = [
+        store.metric1.selection,
+        store.metric2.selection,
+        store.metric3.selection,
+        store.metric4.selection,
+        store.metric5.selection
+      ]
+
+      const notEmpty = (value) => {
+        return value !== ''
+      }
+
+      return selections.filter(notEmpty)
     }
   })
 
@@ -84,7 +114,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     }
   })
 
-  //Autorun function that populates metadata
+  // Autorun function that populates metadata
   autorun(() => {
     if (store.access_token !== '') {
       reportSuites.topLevelReportSuites(store)
@@ -95,38 +125,71 @@ Alteryx.Gui.AfterLoad = (manager) => {
     store.page === '' ? utils.displayFieldset('#authSelect') : utils.displayFieldset(store.page)
   })
 
-  // // Determines whether to show/hide the loading spinner based on page
+  // Refreshes the metric dropdowns
+  autorun(() => {
+    if (store.access_token !== '' && store.reportSuite.selection !== '') {
+      metricSelectors.topLevelMetrics(store)
+      elementSelectors.topLevelElements(store)
+    }
+  })
+
+  // Enable or Disable the Next button on metric selecotrs page
+  autorun(() => {
+    const target = document.getElementById('metricSelectorsNextBtn')
+    store.metricSelections.length === 0 ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
+  })
+
   // autorun(() => {
-  //   // Shows or hides the loading spinner based on flag
-  //   const loading = (flag) => {
-  //     if (flag) {
-  //       document.getElementById('loading').style.display = 'block'
-  //       document.getElementById('loading-inner').style.display = 'block'
-  //     } else {
-  //       document.getElementById('loading').style.display = 'none'
-  //       document.getElementById('loading-inner').style.display = 'none'
+  //   const metricArray = [
+  //     store.metric1,
+  //     store.metric2,
+  //     store.metric3,
+  //     store.metric4,
+  //     store.metric5
+  //   ]
+
+  //   for (let value of metricArray) {
+  //     if (store.metricError.error_description.includes(value.selection)) {
+  //       store.metricError.name = value.selectionName
   //     }
   //   }
-
-  //   switch (store.page) {
-  //     case '#reportSuite':
-  //       loading(store.accountsList.loading)
-  //       break
-  //     case '#developer':
-  //       loading(store.metricsList.loading)
-  //       break
-  //     case '#dimensions':
-  //       loading(store.dimensionsList.loading)
-  //       break
-  //     case '#segments':
-  //       loading(store.segmentsList.loading)
-  //       break
-  //     case '#summary':
-  //       const flag = (store.metricsList.loading || store.dimensionsList.loading || store.segmentsList.loading)
-  //       loading(flag)
-  //       break
-  //   }
   // })
+
+  // Determines whether to show/hide the loading spinner based on page
+  autorun(() => {
+    // Shows or hides the loading spinner based on flag
+    const loading = (flag) => {
+      if (flag) {
+        document.getElementById('loading').style.display = 'block'
+        document.getElementById('loading-inner').style.display = 'block'
+      } else {
+        document.getElementById('loading').style.display = 'none'
+        document.getElementById('loading-inner').style.display = 'none'
+      }
+    }
+
+    switch (store.page) {
+      case '#reportSuite':
+        loading(store.reportSuite.loading)
+        break
+      case '#metricSelectors':
+        loading(store.metric1.loading)
+        break
+      case '#elementSelectors':
+        loading(store.elementPrimary.loading)
+        break
+      // case '#dimensions':
+      //   loading(store.dimensionsList.loading)
+      //   break
+      // case '#segments':
+      //   loading(store.segmentsList.loading)
+      //   break
+      // case '#summary':
+      //   const flag = (store.metricsList.loading || store.dimensionsList.loading || store.segmentsList.loading)
+      //   loading(flag)
+      //   break
+    }
+  })
 
   // Render react component which handles connection error messaging
   autorun(() => {
@@ -140,6 +203,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
 
   // Render react component which handles a warning message for End Date not at or after Start Date.
   ReactDOM.render(<DateMessage store={store} />, document.querySelector('#dateWarning'))
+
+  // Render react component which handles a warning message for End Date not at or after Start Date.
+  ReactDOM.render(<InvalidMetric store={store} />, document.querySelector('#invalidMetric'))
 
   // All window declarations, below, are simply to expose functionality to the console, and
   // should probably be removed or commented out before shipping the connector.
@@ -156,4 +222,11 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.setPage = utils.setPage
   window.showLoader = utils.showLoader
   window.resetFields = utils.resetFields
+  window.topLevelMetrics = metricSelectors.topLevelMetrics
+  window.getMetrics = metricSelectors.getMetrics
+  window.validateMetrics = metricSelectors.validateMetrics
+  window.topLevelSegments = segmentSelectors.topLevelSegments
+  window.getSegments = segmentSelectors.getSegments
+  window.topLevelElements = elementSelectors.topLevelElements
+  window.pushElements = elementSelectors.pushElements
 }

@@ -2,6 +2,7 @@ const topLevelReportSuites = (store) => {
   const reportSuites = getReportSuites(store)
   reportSuites
     .then(mapReportSuites)
+    .then(sortReportSuites)
     .then(pushReportSuites)
 }
 
@@ -27,6 +28,17 @@ const mapReportSuites = (response) => {
     }
   })
   return mapResponse
+}
+
+const sortReportSuites = (response) => {
+  const sortResponse = response
+  return sortResponse.sort((a, b) => {
+    let uiNameA = a.uiobject.toLowerCase()
+    let uiNameB = b.uiobject.toLowerCase()
+    if (uiNameA < uiNameB) return -1 // sort string ascending
+    if (uiNameA > uiNameB) return 1
+    return 0 // default return value (no sorting)
+  })
 }
 
 const pushReportSuites = (response) => {
