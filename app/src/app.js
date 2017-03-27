@@ -10,8 +10,10 @@ import ConnectionErrorMessage from './components/connection-error-message.jsx'
 import * as reportSuites from './utils/report-suites'
 import * as metricSelectors from './utils/metric-selectors'
 import InvalidMetric from './components/invalid-metric-message.jsx'
+import InvalidElement from './components/invalid-element-message.jsx'
 import * as segmentSelectors from './utils/segment-selectors'
 import * as elementSelectors from './utils/element-selectors'
+import * as reportValidation from './utils/report-validation'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -34,6 +36,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'granularity', type: 'dropDown'},
     {key: 'elementPrimary', type: 'dropDown'},
     {key: 'elementSecondary', type: 'dropDown'},
+    {key: 'elementError', type: 'value'},
     {key: 'segment1', type: 'dropDown'},
     {key: 'segment2', type: 'dropDown'}
   ]
@@ -83,13 +86,33 @@ Alteryx.Gui.AfterLoad = (manager) => {
         store.metric5.selection
       ]
 
-      const notEmpty = (value) => {
-        return value !== ''
-      }
+      return selections.filter(notEmpty)
+    },
+    // Array of metrics
+    get metricArray () {
+      const array = [
+        store.metric1,
+        store.metric2,
+        store.metric3,
+        store.metric4,
+        store.metric5
+      ]
+      return array
+    },
+    // Create array of selected elements
+    get elementSelections () {
+      const selections = [
+        store.elementPrimary.selection,
+        store.elementSecondary.selection
+      ]
 
       return selections.filter(notEmpty)
     }
   })
+
+  const notEmpty = (value) => {
+    return value !== ''
+  }
 
   // Enable or Disable the Connect button on Developer Credentials page
   autorun(() => {
@@ -219,8 +242,11 @@ Alteryx.Gui.AfterLoad = (manager) => {
   // Render react component which handles a warning message for End Date not at or after Start Date.
   ReactDOM.render(<DateMessage store={store} />, document.querySelector('#dateWarning'))
 
-  // Render react component which handles a warning message for End Date not at or after Start Date.
+  // Render react component which handles a warning message for invalid metrics
   ReactDOM.render(<InvalidMetric store={store} />, document.querySelector('#invalidMetric'))
+
+  // Render react component which handles a warning message for invalid elements
+  ReactDOM.render(<InvalidElement store={store} />, document.querySelector('#invalidElement'))
 
   // All window declarations, below, are simply to expose functionality to the console, and
   // should probably be removed or commented out before shipping the connector.
@@ -244,4 +270,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.getSegments = segmentSelectors.getSegments
   window.topLevelElements = elementSelectors.topLevelElements
   window.filterElements = elementSelectors.filterElements
+  window.validateElements = elementSelectors.validateElements
+  window.validateReport = reportValidation.validateReport
+  window.metrics = reportValidation.metrics
 }
