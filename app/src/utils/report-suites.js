@@ -1,4 +1,5 @@
 const topLevelReportSuites = (store) => {
+  store.reportSuite.loading = true
   const reportSuites = getReportSuites(store)
   reportSuites
     .then(mapReportSuites)
@@ -10,7 +11,6 @@ const getReportSuites = (store) => {
   const endPoint = 'https://api.omniture.com/admin/1.4/rest/'
   const currentMethod = '?method=Company.GetReportSuites'
   const url = endPoint + currentMethod + '&access_token=' + store.access_token
-  // const reportSuiteList = []
   const reportSuites = $.ajax({
     url: url,
     dataType: 'json',
@@ -51,5 +51,6 @@ const pushReportSuites = (response) => {
       dataname: d.dataname
     })
   })
+  store.reportSuite.loading = false
 }
 export { topLevelReportSuites }
