@@ -138,7 +138,16 @@ const resetFields = () => {
     'client_secret',
     'access_token',
     'errorStatus',
-    'reportSuite'
+    'reportSuite',
+    'granularity',
+    'metric1',
+    'metric2',
+    'metric3',
+    'metric4',
+    'metric5',
+    'elementPrimary',
+    'elementSecondary',
+    'elementTertiary'
   ]
 
   // Resets the selection value for widgets
