@@ -13,6 +13,7 @@ import InvalidMetric from './components/invalid-metric-message.jsx'
 import InvalidElement from './components/invalid-element-message.jsx'
 import * as segmentSelectors from './utils/segment-selectors'
 import * as elementSelectors from './utils/element-selectors'
+import * as reportValidation from './utils/report-validation'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -87,6 +88,17 @@ Alteryx.Gui.AfterLoad = (manager) => {
 
       return selections.filter(notEmpty)
     },
+    // Array of metrics
+    get metricArray () {
+      const array = [
+        store.metric1,
+        store.metric2,
+        store.metric3,
+        store.metric4,
+        store.metric5
+      ]
+      return array
+    },
     // Create array of selected elements
     get elementSelections () {
       const selections = [
@@ -149,6 +161,37 @@ Alteryx.Gui.AfterLoad = (manager) => {
     const target = document.getElementById('metricSelectorsNextBtn')
     store.metricSelections.length === 0 ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
   })
+
+  // const filterElementsFunction = elementSelectors.filterElements.bind(this, store.elementPrimary.selection, store.elementSecondary)
+  // const filterElementsFunction = elementSelectors.filterElements.apply(null, store.elementPrimary.selection, store.elementSecondary)
+
+  // window.filterElementsFunction = elementSelectors.filterElements
+  // Alteryx.Gui.manager.GetDataItem('elementPrimary').UserDataChanged.push(() => { elementSelectors.filterElements(store.elementPrimary.selection, store.elementSecondary) })
+
+  // // Update the other element stores based on element selection
+  // autorun(() => {
+  //   console.log('store.elementPrimary.selection !== ""')
+  //   // elementSelectors.filterElements(store.elementPrimary.selection, store.elementSecondary)
+  //   // if (store.elementPrimary.selection !== '') {
+  //   filterElementsFunction()
+  //   // }
+  // })
+
+  // autorun(() => {
+  //   const metricArray = [
+  //     store.metric1,
+  //     store.metric2,
+  //     store.metric3,
+  //     store.metric4,
+  //     store.metric5
+  //   ]
+
+  //   for (let value of metricArray) {
+  //     if (store.metricError.error_description.includes(value.selection)) {
+  //       store.metricError.name = value.selectionName
+  //     }
+  //   }
+  // })
 
   // Determines whether to show/hide the loading spinner based on page
   autorun(() => {
@@ -226,6 +269,8 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.topLevelSegments = segmentSelectors.topLevelSegments
   window.getSegments = segmentSelectors.getSegments
   window.topLevelElements = elementSelectors.topLevelElements
-  window.pushElements = elementSelectors.pushElements
+  window.filterElements = elementSelectors.filterElements
   window.validateElements = elementSelectors.validateElements
+  window.validateReport = reportValidation.validateReport
+  window.metrics = reportValidation.metrics
 }
