@@ -120,6 +120,12 @@ Alteryx.Gui.AfterLoad = (manager) => {
     store.client_id === '' || store.client_secret === '' ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
   })
 
+  // Enable or Disable the Next button on Report Suite page
+  autorun(() => {
+    const target = document.getElementById('reportSuiteNextBtn')
+    store.reportSuite.selection === '' ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
+  })
+
   // Update preDefined selector to 'custom' when a custom date is selected/entered
   autorun(() => {
     if (store.isCustomDate) {
