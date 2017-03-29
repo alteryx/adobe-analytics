@@ -281,4 +281,6 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.validateElements = elementSelectors.validateElements
   window.validateReport = reportValidation.validateReport
   window.metrics = reportValidation.metrics
+  window.elements = reportValidation.elements
+  window.segments = reportValidation.segments
 }

@@ -16,57 +16,13 @@ const validateReport = (store) => {
 const payload = (store) => {
   const data = {
     'reportDescription': {
- 	  'reportSuiteID': store.reportSuite.selection,
+      'reportSuiteID': store.reportSuite.selection,
       'dateFrom': store.startDatePicker,
       'dateTo': store.endDatePicker,
       'dateGranularity': store.granularity.selection,
-      'metrics': metrics(store) // ,
-      // 'elements': [
-      //   {
-      //     'id': '(string)',
-      //     'classification': '(string)',
-      //     'top': '(int)',
-      //     'startingWith': '(int)',
-      //     'search': {
-      //       'type': '(string)',
-      //       'keywords': [
-      //         '(string)'
-      //       ],
-      //       'searches': [
-      //         '(reportDescriptionSearch)'
-      //       ]
-      //     },
-      //     'selected': [
-      //       '(string)'
-      //     ],
-      //     'parentID': '(string)',
-      //     'checkpoints': [
-      //       '(string)'
-      //     ],
-      //     'pattern': [
-      //       [
-      //         '(string)'
-      //       ]
-      //     ],
-      //     'everythingElse': '(boolean)'
-      //   }
-      // ],
-      // 'segments': [
-      //   {
-      //     'id': '(string)',
-      //     'element': '(string)',
-      //     'classification': '(string)',
-      //     'search': {
-      //       'type': '(string)',
-      //       'keywords': [
-      //         '(string)'
-      //       ]
-      //     },
-      //     'selected': [
-      //       '(string)'
-      //     ]
-      //   }
-      // ],
+      'metrics': metrics(store),
+      'elements': elements(store),
+      'segments': segments(store) // ,
       // 'elementDataEncoding': '(string)' // base64 or utf8
     }
   }
@@ -85,4 +41,53 @@ const metrics = (store) => {
 
   return metrics
 }
-export { validateReport, metrics }
+
+const elements = (store) => {
+  const list = [
+    store.elementPrimary,
+    store.elementSecondary,
+    store.elementTertiary
+  ]
+
+  const elements = list.filter(notEmpty)
+
+  let elementDetails = []
+
+  elements.forEach((item) => {
+    elementDetails.push({
+      'id': item.selection // ,
+      // 'classification': '', // optional adv. option
+      // 'top': '', // optional adv. option
+      // 'startingWith': '' // optional adv. option
+    })
+  })
+
+  return elementDetails
+}
+
+const segments = (store) => {
+  const list = [
+    store.segment1,
+    store.segment2
+  ]
+
+  const segments = list.filter(notEmpty)
+
+  let segmentDetails = []
+
+  segments.forEach((item) => {
+    segmentDetails.push({
+      'id': item.selection // ,
+      // 'element': '(string)', // Don't believe this is needed since we aren't supporting inline segments
+      // 'classification': '(string)' // Don't believe this is needed since we aren't supporting inline segments
+    })
+  })
+
+  return segmentDetails
+}
+
+const notEmpty = (item) => {
+  return item.selection !== ''
+}
+
+export { validateReport, metrics, elements, segments }
