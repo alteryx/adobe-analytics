@@ -4,7 +4,7 @@ module.exports = {
     filename: '../bundle.js',
     sourceMapFilename: '../bundle.js.map'
   },
-  debug: true,
+  // debug: true,
   module: {
     // preLoaders: [
     //   {
