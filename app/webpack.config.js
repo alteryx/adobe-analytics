@@ -1,9 +1,10 @@
 module.exports = {
-  entry: ['./src/app.js', './src/utils/utils.js'],
+  entry: './src/app.js', // './src/utils/utils.js'],
   output: {
-    filename: '../bundle.js'
-    // sourceMapFilename: '../bundle.js.map'
+    filename: '../bundle.js',
+    sourceMapFilename: '../bundle.js.map'
   },
+  // debug: true,
   module: {
     // preLoaders: [
     //   {
@@ -24,7 +25,7 @@ module.exports = {
       }
     ]
   },
-  devtool: '#inline-source-map',
+  devtool: 'inline-source-map',
   resolve: {
     extensions: ['', '.js', '.es6', 'jsx']
   },
