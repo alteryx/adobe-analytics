@@ -133,32 +133,35 @@ const showLoader = (flag) => {
 }
 
 const resetFields = () => {
-  const setValueArray = [
+  const valueArray = [
     'client_id',
     'client_secret',
     'access_token',
-    'errorStatus'
+    'errorStatus',
+    'reportSuite',
+    'granularity',
+    'metric1',
+    'metric2',
+    'metric3',
+    'metric4',
+    'metric5',
+    'elementPrimary',
+    'elementSecondary',
+    'elementTertiary'
   ]
-  // const stringListArray = [
-  //   'accountsList',
-  //   'segmentsList'
-  // ]
-  // const renderArray = [
-  //   'metricsList',
-  //   'segmentsList'
-  // ]
 
   // Resets the selection value for widgets
-  setValueArray.map(d => {
-    Alteryx.Gui.manager.GetDataItem(d).setValue('')
+  valueArray.forEach((item) => {
+    Alteryx.Gui.manager.GetDataItem(item).setValue('')
   })
 
-  // Resets the stringList for widgets
-  // stringListArray.map(d => {
-  //   Alteryx.Gui.manager.GetDataItem(d).setStringList([])
-  // })
+  // Alteryx.Gui.manager.GetDataItem('reportSuite').setStringList([])
+  // for (let value of stringListArray) {
+  //   console.log(value)
+  //   Alteryx.Gui.manager.GetDataItem(value).setStringList([])
+  // }
 
-  // Remove prior selections from ListBox widgets
+  // // Remove prior selections from ListBox widgets
   // renderArray.map(d => {
   //   Alteryx.Gui.renderer.getReactComponentByDataName(d).selectedItemsMap = {}
   //   Alteryx.Gui.renderer.getReactComponentByDataName(d).forceUpdate()

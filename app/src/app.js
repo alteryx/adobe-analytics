@@ -36,6 +36,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'granularity', type: 'dropDown'},
     {key: 'elementPrimary', type: 'dropDown'},
     {key: 'elementSecondary', type: 'dropDown'},
+    {key: 'elementTertiary', type: 'dropDown'},
     {key: 'elementError', type: 'value'},
     {key: 'segment1', type: 'dropDown'},
     {key: 'segment2', type: 'dropDown'}
@@ -103,7 +104,8 @@ Alteryx.Gui.AfterLoad = (manager) => {
     get elementSelections () {
       const selections = [
         store.elementPrimary.selection,
-        store.elementSecondary.selection
+        store.elementSecondary.selection,
+        store.elementTertiary.selection
       ]
 
       return selections.filter(notEmpty)
@@ -118,6 +120,12 @@ Alteryx.Gui.AfterLoad = (manager) => {
   autorun(() => {
     const target = document.getElementById('connect_button')
     store.client_id === '' || store.client_secret === '' ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
+  })
+
+  // Enable or Disable the Next button on Report Suite page
+  autorun(() => {
+    const target = document.getElementById('reportSuiteNextBtn')
+    store.reportSuite.selection === '' ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
   })
 
   // Update preDefined selector to 'custom' when a custom date is selected/entered

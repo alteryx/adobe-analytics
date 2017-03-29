@@ -48,7 +48,8 @@ const pushElements = (response) => {
   const mapResponse = response
   const elementArray = [
     store.elementPrimary,
-    store.elementSecondary
+    store.elementSecondary,
+    store.elementTertiary
   ]
 
   for (let value of elementArray) {
@@ -130,7 +131,8 @@ const validateElements = () => {
   const elementName = (description) => {
     const elementArray = [
       store.elementPrimary,
-      store.elementSecondary
+      store.elementSecondary,
+      store.elementTertiary
     ]
 
     for (let value of elementArray) {
