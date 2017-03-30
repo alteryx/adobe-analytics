@@ -216,33 +216,27 @@ Alteryx.Gui.AfterLoad = (manager) => {
   // Displays the Classification, top and starting with options for Primary Elements if Advanced Options is toggled
   autorun(() => {
    if (store.advOptionsPrimary) {
-     document.getElementById('recordLimitPrimary').style.display = 'block'
-    //  document.getElementById('startingWithPrimary').style.display = 'block'
+     document.getElementById('advOptionsInputsPrimary').style.display = 'block'
    } else {
-     document.getElementById('recordLimitPrimary').style.display = 'none'
-    //  document.getElementById('startingWithPrimary').style.display = 'none'
+     document.getElementById('advOptionsInputsPrimary').style.display = 'none'
    }
  })
 
     // Displays the Classification, top and starting with options for Secondary Elements if Advanced Options is toggled
    autorun(() => {
     if (store.advOptionsSecondary) {
-      document.getElementById('recordLimitSecondary').style.display = 'block'
-      // document.getElementById('startingWithSecondary').style.display = 'block'
+      document.getElementById('advOptionsInputsSecondary').style.display = 'block'
     } else {
-      document.getElementById('recordLimitSecondary').style.display = 'none'
-      // document.getElementById('startingWithSecondary').style.display = 'none'
+      document.getElementById('advOptionsInputsSecondary').style.display = 'none'
     }
   })
 
     // Displays the Classification, top and starting with options for Tertiary Elements if Advanced Options is toggled
    autorun(() => {
     if (store.advOptionsTertiary) {
-      document.getElementById('recordLimitTertiary').style.display = 'block'
-      // document.getElementById('startingWithTertiary').style.display = 'block'
+      document.getElementById('advOptionsInputsTertiary').style.display = 'block'
     } else {
-      document.getElementById('recordLimitTertiary').style.display = 'none'
-      // document.getElementById('startingWithTertiary').style.display = 'none'
+      document.getElementById('advOptionsInputsTertiary').style.display = 'none'
     }
   })
 
