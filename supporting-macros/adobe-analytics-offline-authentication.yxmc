@@ -3,14 +3,15 @@
   <Nodes>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="162" y="102" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <OrderChanged value="False" />
+          <CommaDecimal value="False" />
           <SelectFields>
-            <SelectField field="client_id" selected="True" size="25000" />
-            <SelectField field="client_secret" selected="True" size="25000" />
+            <SelectField field="client_id" selected="True" size="250000" />
+            <SelectField field="client_secret" selected="True" size="250000" />
             <SelectField field="*Unknown" selected="False" />
           </SelectFields>
         </Configuration>
@@ -22,8 +23,8 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="client_id" size="25000" source="TextInput:" type="V_WString" />
-            <Field name="client_secret" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="client_id" size="250000" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="250000" source="TextInput:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -31,7 +32,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="270" y="102" />
+        <Position x="258" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -50,8 +51,8 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="client_id" size="25000" source="TextInput:" type="V_WString" />
-            <Field name="client_secret" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="client_id" size="250000" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="250000" source="TextInput:" type="V_WString" />
             <Field name="url" size="1073741823" source="Formula: 'https://api.omniture.com/token'" type="V_WString" />
             <Field name="client_id__client_secret" size="1073741823" source="Formula: [client_id]+&quot;:&quot;+[client_secret]" type="V_WString" />
           </RecordInfo>
@@ -61,7 +62,7 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
     </Node>
     <Node ToolID="4">
       <GuiSettings>
-        <Position x="378" y="102" />
+        <Position x="366" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -74,9 +75,6 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="client_id__client_secret" size="1073741823" source="Formula: [client_id]+&quot;:&quot;+[client_secret]" type="V_WString" />
@@ -91,7 +89,7 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="474" y="102" />
+        <Position x="462" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -120,7 +118,7 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-        <Position x="594" y="102" />
+        <Position x="582" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -185,7 +183,7 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
-        <Position x="858" y="102" />
+        <Position x="846" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -217,7 +215,7 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
-        <Position x="786" y="198" />
+        <Position x="774" y="150" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -251,7 +249,7 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="678" y="102" />
+        <Position x="666" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -298,7 +296,7 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
-        <Position x="786" y="102" />
+        <Position x="774" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -332,7 +330,7 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="942" y="102" />
+        <Position x="930" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -382,7 +380,7 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1038" y="102" />
+        <Position x="1026" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -411,6 +409,7 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
         <Position x="0" y="0" width="59" height="59" />
       </GuiSettings>
       <Properties>
+        <Configuration />
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
@@ -420,7 +419,7 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1122" y="102" />
+        <Position x="1110" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -437,7 +436,7 @@ client_id__client_secret = [client_id]+":...</DefaultAnnotationText>
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="66" y="102" />
+        <Position x="54" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>

@@ -90,4 +90,4 @@ const notEmpty = (item) => {
   return item.selection !== ''
 }
 
-export { validateReport, metrics, elements, segments }
+export { validateReport, metrics, elements, segments, payload }
