@@ -167,8 +167,11 @@ const resetFields = () => {
   //   Alteryx.Gui.renderer.getReactComponentByDataName(d).forceUpdate()
   // })
 
-  // Set default value for preDefDropDown and advOptions
+  // Set default value for preDefDropDown and advOptionsPrimary, advOptionsSecondary, advOptionsTertiary
   Alteryx.Gui.manager.GetDataItem('preDefDropDown').setValue('today')
+  Alteryx.Gui.manager.GetDataItem('advOptionsPrimary').setValue(false)
+  Alteryx.Gui.manager.GetDataItem('advOptionsSecondary').setValue(false)
+  Alteryx.Gui.manager.GetDataItem('advOptionsTertiary').setValue(false)
 }
 
 export { devLogin, userLogin, setPage, displayFieldset, showLoader, resetFields }
