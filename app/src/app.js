@@ -36,8 +36,17 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'metricError', type: 'value'},
     {key: 'granularity', type: 'dropDown'},
     {key: 'elementPrimary', type: 'dropDown'},
+    {key: 'advOptionsPrimary', type: 'value'},
+    {key: 'topPrimary', type: 'value'},
+    {key: 'startingWithPrimary', type: 'value'},
     {key: 'elementSecondary', type: 'dropDown'},
+    {key: 'advOptionsSecondary', type: 'value'},
+    {key: 'topSecondary', type: 'value'},
+    {key: 'startingWithSecondary', type: 'value'},
     {key: 'elementTertiary', type: 'dropDown'},
+    {key: 'advOptionsTertiary', type: 'value'},
+    {key: 'topTertiary', type: 'value'},
+    {key: 'startingWithTertiary', type: 'value'},
     {key: 'elementError', type: 'value'},
     {key: 'segment1', type: 'dropDown'},
     {key: 'segment2', type: 'dropDown'}
@@ -165,7 +174,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     }
   })
 
-  // Enable or Disable the Next button on metric selecotrs page
+  // Enable or Disable the Next button on metric selectors page
   autorun(() => {
     const target = document.getElementById('metricSelectorsNextBtn')
     store.metricSelections.length === 0 ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
@@ -203,6 +212,41 @@ Alteryx.Gui.AfterLoad = (manager) => {
   // })
 
   // Determines whether to show/hide the loading spinner based on page
+
+  // Displays the Classification, top and starting with options for Primary Elements if Advanced Options is toggled
+  autorun(() => {
+   if (store.advOptionsPrimary) {
+     document.getElementById('recordLimitPrimary').style.display = 'block'
+    //  document.getElementById('startingWithPrimary').style.display = 'block'
+   } else {
+     document.getElementById('recordLimitPrimary').style.display = 'none'
+    //  document.getElementById('startingWithPrimary').style.display = 'none'
+   }
+ })
+
+    // Displays the Classification, top and starting with options for Secondary Elements if Advanced Options is toggled
+   autorun(() => {
+    if (store.advOptionsSecondary) {
+      document.getElementById('recordLimitSecondary').style.display = 'block'
+      // document.getElementById('startingWithSecondary').style.display = 'block'
+    } else {
+      document.getElementById('recordLimitSecondary').style.display = 'none'
+      // document.getElementById('startingWithSecondary').style.display = 'none'
+    }
+  })
+
+    // Displays the Classification, top and starting with options for Tertiary Elements if Advanced Options is toggled
+   autorun(() => {
+    if (store.advOptionsTertiary) {
+      document.getElementById('recordLimitTertiary').style.display = 'block'
+      // document.getElementById('startingWithTertiary').style.display = 'block'
+    } else {
+      document.getElementById('recordLimitTertiary').style.display = 'none'
+      // document.getElementById('startingWithTertiary').style.display = 'none'
+    }
+  })
+
+
   autorun(() => {
     // Shows or hides the loading spinner based on flag
     const loading = (flag) => {
