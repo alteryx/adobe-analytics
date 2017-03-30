@@ -244,6 +244,12 @@ Alteryx.Gui.AfterLoad = (manager) => {
   //   store.reportDefintion = JSON.stringify(reportValidation.payload(store))
   // })
 
+  // Show or Hide the Validate Selections buttons
+  autorun(() => {
+    store.metricSelections.length > 1 ? document.getElementById('metricValidation').style.display = 'block' : document.getElementById('metricValidation').style.display = 'none'
+    // store.elementSelections.length > 1 ? document.getElementById('elementValidation').style.display = 'block' : document.getElementById('elementValidation').style.display = 'none'
+  })
+
   // Render react component which handles connection error messaging
   autorun(() => {
     const devDiv = document.getElementById('devConnectionErrorMessage')

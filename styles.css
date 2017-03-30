@@ -9,7 +9,7 @@ hr {
 
 .loading {
   background-color: white;
-  opacity: 1;
+  opacity: .8;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -342,7 +342,7 @@ hr {
     height: auto;
 }
 
-#preDefDateRange {
+#preDefDateRange, #granularity {
     max-width: 200px;
 }
 
