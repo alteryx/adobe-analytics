@@ -237,10 +237,12 @@ Alteryx.Gui.AfterLoad = (manager) => {
       //   break
     }
   })
+
+  // Seems to crash the devTools window
   // Populate the reportDefinition store
-  autorun(() => {
-    store.reportDefintion = JSON.stringify(reportValidation.payload(store))
-  })
+  // autorun(() => {
+  //   store.reportDefintion = JSON.stringify(reportValidation.payload(store))
+  // })
 
   // Render react component which handles connection error messaging
   autorun(() => {
