@@ -18,6 +18,7 @@ import * as reportValidation from './utils/report-validation'
 
 Alteryx.Gui.AfterLoad = (manager) => {
   const collection = [
+    {key: 'reportDefinition', type: 'value'},
     {key: 'client_id', type: 'value'},
     {key: 'client_secret', type: 'value'},
     {key: 'access_token', type: 'value'},
@@ -236,6 +237,10 @@ Alteryx.Gui.AfterLoad = (manager) => {
       //   break
     }
   })
+  // Populate the reportDefinition store
+  autorun(() => {
+    store.reportDefintion = JSON.stringify(reportValidation.payload(store))
+  })
 
   // Render react component which handles connection error messaging
   autorun(() => {
@@ -281,4 +286,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.validateElements = elementSelectors.validateElements
   window.validateReport = reportValidation.validateReport
   window.metrics = reportValidation.metrics
+  window.elements = reportValidation.elements
+  window.segments = reportValidation.segments
+  window.payload = reportValidation.payload
 }
