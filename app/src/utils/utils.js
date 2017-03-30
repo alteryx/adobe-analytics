@@ -41,8 +41,6 @@ const userLogin = () => {
   const win = window.open(_url, 'windowname1', 'width=800, height=600')
   // Alteryx.Gui.manager.GetDataItem('errorStatus').setValue('')
 
-  // Hode all fieldsets and Show loading image
-  setPage('#blank')
   showLoader(true)
   store.errorStatus = ''
 
@@ -125,9 +123,11 @@ const displayFieldset = (fieldsetName) => {
 const showLoader = (flag) => {
   if (flag) {
     document.getElementById('loading').style.display = 'block'
+    document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">Sign in to Adobe Analytics<br>using the popup</p><img src="loading_ring.svg">'
     document.getElementById('loading-inner').style.display = 'block'
   } else {
     document.getElementById('loading').style.display = 'none'
+    document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
     document.getElementById('loading-inner').style.display = 'none'
   }
 }
