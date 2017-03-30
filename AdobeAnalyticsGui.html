@@ -49,7 +49,6 @@
 <!-- Report Suite Selector -->
     <fieldset id="reportSuite" style="display:none">
         <legend>Select Report Suite</legend>
-        <label for="dataItemReportSuite">Select Report Suite</label>
         <alteryx-pluginwidget data-props='{type:"ListBox",dataType:"StringSelector",id:"reportSuite",issearchable:"true",dataName:"reportSuite"}'>
         </alteryx-pluginwidget>
         <!-- <div class='footer_spacer'></div> -->
@@ -67,7 +66,7 @@
 
 <!-- Selectors for Date Pickers and Granularity -->
     <fieldset id="datePickers" style="display:none;">
-        <legend>Select Dates to Include</legend>
+        <legend>Select Dates and Granularity to Include</legend>
         <div id="preDefDateRange">
             <label for="preDefDropDown">Preset Date Range</label>
             <alteryx-pluginwidget type="DropDown" id="preDefDropDown" dataName="preDefDropDown">
@@ -96,21 +95,17 @@
         <!-- <div class='footer_spacer'></div> -->
         <p>
         <!-- Granularity section -->
-        <fieldset id="granularity" style="display:block;">
-            <legend>Select the Granularity of Dates</legend>
-            <div id="preDefDateRange">
-                <label for="granularity">Granularity</label>
-                <alteryx-pluginwidget data-props='{type:"DropDown",id:"granularity",dataName:"granularity",clearable:"true"}'>
-                    <alteryx-option uiobject="Hour">hour</alteryx-option>
-                    <alteryx-option uiobject="Day">day</alteryx-option>
-                    <alteryx-option uiobject="Week">week</alteryx-option>
-                    <alteryx-option uiobject="Month">month</alteryx-option>
-                    <alteryx-option uiobject="Quarter">quarter</alteryx-option>
-                    <alteryx-option uiobject="Year">year</alteryx-option>
-                </alteryx-widget>
-            </div>
-        </fieldset>
-
+        <div id="granularity">
+            <label for="granularity">Granularity (Optional)</label>
+            <alteryx-pluginwidget data-props='{type:"DropDown",id:"granularity",dataName:"granularity",clearable:"true"}'>
+                <alteryx-option uiobject="Hour">hour</alteryx-option>
+                <alteryx-option uiobject="Day">day</alteryx-option>
+                <alteryx-option uiobject="Week">week</alteryx-option>
+                <alteryx-option uiobject="Month">month</alteryx-option>
+                <alteryx-option uiobject="Quarter">quarter</alteryx-option>
+                <alteryx-option uiobject="Year">year</alteryx-option>
+            </alteryx-pluginwidget>
+        </div>
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
