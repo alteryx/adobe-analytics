@@ -211,8 +211,6 @@ Alteryx.Gui.AfterLoad = (manager) => {
   //   }
   // })
 
-  // Determines whether to show/hide the loading spinner based on page
-
   // Displays the Classification, top and starting with options for Primary Elements if Advanced Options is toggled
   autorun(() => {
    if (store.advOptionsPrimary) {
@@ -240,7 +238,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     }
   })
 
-
+// Determines whether to show/hide the loading spinner based on page
   autorun(() => {
     // Shows or hides the loading spinner based on flag
     const loading = (flag) => {
