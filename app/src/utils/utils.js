@@ -41,8 +41,6 @@ const userLogin = () => {
   const win = window.open(_url, 'windowname1', 'width=800, height=600')
   // Alteryx.Gui.manager.GetDataItem('errorStatus').setValue('')
 
-  // Hode all fieldsets and Show loading image
-  setPage('#blank')
   showLoader(true)
   store.errorStatus = ''
 
@@ -104,6 +102,7 @@ const displayFieldset = (fieldsetName) => {
     '#reportSuite',
     '#metricSelectors',
     '#elementSelectors',
+    '#segmentSelectors',
     '#summary'
   ]
 
@@ -126,9 +125,11 @@ const displayFieldset = (fieldsetName) => {
 const showLoader = (flag) => {
   if (flag) {
     document.getElementById('loading').style.display = 'block'
+    document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">Sign in to Adobe Analytics<br>using the popup</p><img src="loading_ring.svg">'
     document.getElementById('loading-inner').style.display = 'block'
   } else {
     document.getElementById('loading').style.display = 'none'
+    document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
     document.getElementById('loading-inner').style.display = 'none'
   }
 }
@@ -148,7 +149,9 @@ const resetFields = () => {
     'metric5',
     'elementPrimary',
     'elementSecondary',
-    'elementTertiary'
+    'elementTertiary',
+    'segment1',
+    'segment2'
   ]
 
   // Resets the selection value for widgets
@@ -168,8 +171,11 @@ const resetFields = () => {
   //   Alteryx.Gui.renderer.getReactComponentByDataName(d).forceUpdate()
   // })
 
-  // Set default value for preDefDropDown and advOptions
+  // Set default value for preDefDropDown and advOptionsPrimary, advOptionsSecondary, advOptionsTertiary
   Alteryx.Gui.manager.GetDataItem('preDefDropDown').setValue('today')
+  Alteryx.Gui.manager.GetDataItem('advOptionsPrimary').setValue(false)
+  Alteryx.Gui.manager.GetDataItem('advOptionsSecondary').setValue(false)
+  Alteryx.Gui.manager.GetDataItem('advOptionsTertiary').setValue(false)
 }
 
 export { devLogin, userLogin, setPage, displayFieldset, showLoader, resetFields }

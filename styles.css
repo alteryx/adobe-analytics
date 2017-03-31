@@ -9,7 +9,7 @@ hr {
 
 .loading {
   background-color: white;
-  opacity: 1;
+  opacity: .8;
   position: absolute;
   top: 0px;
   left: 0px;
@@ -142,7 +142,7 @@ hr {
    width: auto;
 }
 
-.metricWarning, .elementWarning {
+.metricWarning, .elementWarning, .segmentWarning {
    background-color: #ec2227;
    border: 1px solid #9f1d20;
    border-radius: 5px;
@@ -160,7 +160,7 @@ hr {
    width: auto;
 }
 
-.metricValid, .elementValid {
+.metricValid, .elementValid, .segmentValid {
    background-color: rgb(204,246,209);
    border: 1px solid rgb(204,246,209);
    border-radius: 5px;
@@ -342,7 +342,7 @@ hr {
     height: auto;
 }
 
-#preDefDateRange {
+#preDefDateRange, #granularity {
     max-width: 200px;
 }
 
@@ -351,6 +351,15 @@ hr {
     position: relative;
     width: 100%;
 }
+
+#advOptionsPrimary {display:inline-block}
+#advOptionsPrimaryText {display:inline-block}
+
+#advOptionsSecondary {display:inline-block}
+#advOptionsSecondaryText {display:inline-block}
+
+#advOptionsTertiary {display:inline-block}
+#advOptionsTertiaryText {display:inline-block}
 
 input:disabled {
     opacity: .5;
