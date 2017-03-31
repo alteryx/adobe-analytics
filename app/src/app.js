@@ -213,15 +213,15 @@ Alteryx.Gui.AfterLoad = (manager) => {
 
   // Displays the Classification, top and starting with options for Primary Elements if Advanced Options is toggled
   autorun(() => {
-   if (store.advOptionsPrimary) {
-     document.getElementById('advOptionsInputsPrimary').style.display = 'block'
-   } else {
-     document.getElementById('advOptionsInputsPrimary').style.display = 'none'
-   }
- })
+    if (store.advOptionsPrimary) {
+      document.getElementById('advOptionsInputsPrimary').style.display = 'block'
+    } else {
+      document.getElementById('advOptionsInputsPrimary').style.display = 'none'
+    }
+  })
 
     // Displays the Classification, top and starting with options for Secondary Elements if Advanced Options is toggled
-   autorun(() => {
+  autorun(() => {
     if (store.advOptionsSecondary) {
       document.getElementById('advOptionsInputsSecondary').style.display = 'block'
     } else {
@@ -230,7 +230,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
   })
 
     // Displays the Classification, top and starting with options for Tertiary Elements if Advanced Options is toggled
-   autorun(() => {
+  autorun(() => {
     if (store.advOptionsTertiary) {
       document.getElementById('advOptionsInputsTertiary').style.display = 'block'
     } else {
