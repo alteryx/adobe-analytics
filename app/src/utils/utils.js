@@ -103,7 +103,8 @@ const displayFieldset = (fieldsetName) => {
     '#datePickers',
     '#reportSuite',
     '#metricSelectors',
-    '#elementSelectors'
+    '#elementSelectors',
+    '#summary'
   ]
 
   let showArray = []

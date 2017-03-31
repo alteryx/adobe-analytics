@@ -14,6 +14,7 @@ import InvalidElement from './components/invalid-element-message.jsx'
 import * as segmentSelectors from './utils/segment-selectors'
 import * as elementSelectors from './utils/element-selectors'
 import * as reportValidation from './utils/report-validation'
+import Summary from './components/summary.jsx'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -225,6 +226,10 @@ Alteryx.Gui.AfterLoad = (manager) => {
       case '#elementSelectors':
         loading(store.elementPrimary.loading)
         break
+      case '#summary':
+        const flag = (store.metric1.loading || store.elementPrimary.loading)
+        loading(flag)
+        break
       // case '#dimensions':
       //   loading(store.dimensionsList.loading)
       //   break
@@ -262,6 +267,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
 
   // Render react component which handles a warning message for invalid elements
   ReactDOM.render(<InvalidElement store={store} />, document.querySelector('#invalidElement'))
+
+  // Render react component which handles the summary page
+  ReactDOM.render(<Summary store={store} />, document.querySelector('#summaryDiv'))
 
   // All window declarations, below, are simply to expose functionality to the console, and
   // should probably be removed or commented out before shipping the connector.

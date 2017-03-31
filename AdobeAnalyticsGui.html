@@ -190,7 +190,7 @@
         <hr>
         <div style="margin-top: 8px;margin-bottom: 8px;">
             <!-- Add id name and onclick function during process story -->
-            <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="alert('add setPage for next page when known');">Next</button>
+            <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="setPage('#summary');">Next</button>
             <button class="prevBtn" id="elementSelectorsPrevBtn" onclick="setPage('#metricSelectors');">Previous</button>
         </div>
         <br>
@@ -198,6 +198,22 @@
         <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
     </div>
 </fieldset>
+
+<!-- Fieldset to display configuration summary -->
+    <fieldset id="summary" style="display:none">
+        <legend>Configuration Summary</legend>
+        <div id="summaryDiv"></div>
+        <div class='footer_spacer'></div>
+        <div class='footer'>
+            <hr>
+            <div style="margin-top: 8px;margin-bottom: 8px;">
+                <button class="prevBtn" id="summaryPrevBtn" onclick="setPage('#elementSelectors');">Previous</button>
+            </div>
+            <br>
+            <br>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
+        </div>
+    </fieldset>
 
 <!-- Store values - never displayed -->
     <fieldset id="store" style="display:none">
