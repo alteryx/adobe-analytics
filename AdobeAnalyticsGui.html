@@ -49,7 +49,6 @@
 <!-- Report Suite Selector -->
     <fieldset id="reportSuite" style="display:none">
         <legend>Select Report Suite</legend>
-        <label for="dataItemReportSuite">Select Report Suite</label>
         <alteryx-pluginwidget data-props='{type:"ListBox",dataType:"StringSelector",id:"reportSuite",issearchable:"true",dataName:"reportSuite"}'>
         </alteryx-pluginwidget>
         <!-- <div class='footer_spacer'></div> -->
@@ -67,7 +66,7 @@
 
 <!-- Selectors for Date Pickers and Granularity -->
     <fieldset id="datePickers" style="display:none;">
-        <legend>Select Dates to Include</legend>
+        <legend>Select Dates and Granularity to Include</legend>
         <div id="preDefDateRange">
             <label for="preDefDropDown">Preset Date Range</label>
             <alteryx-pluginwidget type="DropDown" id="preDefDropDown" dataName="preDefDropDown">
@@ -96,21 +95,17 @@
         <!-- <div class='footer_spacer'></div> -->
         <p>
         <!-- Granularity section -->
-        <fieldset id="granularity" style="display:block;">
-            <legend>Select the Granularity of Dates</legend>
-            <div id="preDefDateRange">
-                <label for="granularity">Granularity</label>
-                <alteryx-pluginwidget data-props='{type:"DropDown",id:"granularity",dataName:"granularity",clearable:"true"}'>
-                    <alteryx-option uiobject="Hour">hour</alteryx-option>
-                    <alteryx-option uiobject="Day">day</alteryx-option>
-                    <alteryx-option uiobject="Week">week</alteryx-option>
-                    <alteryx-option uiobject="Month">month</alteryx-option>
-                    <alteryx-option uiobject="Quarter">quarter</alteryx-option>
-                    <alteryx-option uiobject="Year">year</alteryx-option>
-                </alteryx-widget>
-            </div>
-        </fieldset>
-
+        <div id="granularity">
+            <label for="granularity">Granularity (Optional)</label>
+            <alteryx-pluginwidget data-props='{type:"DropDown",id:"granularity",dataName:"granularity",clearable:"true"}'>
+                <alteryx-option uiobject="Hour">hour</alteryx-option>
+                <alteryx-option uiobject="Day">day</alteryx-option>
+                <alteryx-option uiobject="Week">week</alteryx-option>
+                <alteryx-option uiobject="Month">month</alteryx-option>
+                <alteryx-option uiobject="Quarter">quarter</alteryx-option>
+                <alteryx-option uiobject="Year">year</alteryx-option>
+            </alteryx-pluginwidget>
+        </div>
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
@@ -153,52 +148,91 @@
         </div>
     </fieldset>
 
-
-<!-- Segment Selectors -->
-    <fieldset id="segmentSelectors" style="display:none;">
-        <legend>Select Segment Filters</legend>
-        <label for="segment1">Segment 1 (optional)</label>
-        <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"segment1",issearchable:"true",dataName:"segment1",clearable:"true"}'></alteryx-pluginwidget>
-        <label for="segment2">Segment 2 (optional)</label>
-        <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"segment2",issearchable:"true",dataName:"segment2",clearable:"true"}'></alteryx-pluginwidget>
-        <div class='footer'>
-            <hr>
-            <div style="margin-top: 8px;margin-bottom: 8px;">
-                <!-- Add id name and onclick function during process story -->
-                <button type="submit" class="nextBtn" id="segmentSelectorsNextBtn" onclick="alert('move to next page; add setPage()');">Next</button>
-                <button class="prevBtn" id="segmentSelectorsPrevBtn" onclick="alert('add setpage for previous');">Previous</button>
-            </div>
-            <br>
-            <br>
-            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
-        </div>
-    </fieldset>
-
 <!--Element Selector -->
 <fieldset id="elementSelectors" style="display:none;">
     <legend>Select Elements to Include (Optional)</legend>
     <label for="elementPrimary">Primary Element</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimary",issearchable:"true",dataName:"elementPrimary",clearable:"true"}'></alteryx-pluginwidget>
-    <label for="elementPrimaryClassification">Classification</label>
-    <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimaryClassification",issearchable:"true",dataName:"elementPrimaryClassification",clearable:"true"}'></alteryx-pluginwidget>
-    <p>
+
+    <div id="advOptionsPrimary">
+      <alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsPrimary" dataName="advOptionsPrimary"></alteryx-pluginwidget>
+    </div>
+
+    <div id="advOptionsPrimaryText">
+    <u>Advanced Options</u>
+    </div>
+
+    <div id="advOptionsInputsPrimary">
+      <label for="elementPrimaryClassification">Classification</label>
+      <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimaryClassification",issearchable:"true",dataName:"elementPrimaryClassification",clearable:"true"}'></alteryx-pluginwidget>
+      <label style="margin-left: 20px">Record Limits</label>
+      <label style="margin-left: 40px">Top Record Limit:</label>
+      <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"topPrimary",default:"100",max:"50000",min:"1",dataName:"topPrimary"}'></alteryx-pluginwidget>
+      <label style="margin-left: 40px">Starting with Record:</label>
+      <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"startingWithPrimary",default:"1",max:"49999",min:"1",dataName:"startingWithPrimary"}'></alteryx-pluginwidget>
+    </div>
+
+    <br>
+    <br>
+
     <label for="elementSecondary">Secondary Element</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondary",issearchable:"true",dataName:"elementSecondary",clearable:"true"}'></alteryx-pluginwidget>
-    <label for="elementSecondaryClassification">Classification</label>
-    <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondaryClassification",issearchable:"true",dataName:"elementSecondaryClassification",clearable:"true"}'></alteryx-pluginwidget>
-    <p>
+
+    <div id="advOptionsSecondary">
+      <alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsSecondary" dataName="advOptionsSecondary"></alteryx-pluginwidget>
+    </div>
+
+    <div id="advOptionsSecondaryText">
+      <u>Advanced Options</u>
+    </div>
+
+    <div id="advOptionsInputsSecondary">
+      <label for="elementSecondaryClassification">Classification</label>
+      <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondaryClassification",issearchable:"true",dataName:"elementSecondaryClassification",clearable:"true"}'></alteryx-pluginwidget>
+      <label style="margin-left: 20px">Record Limits</label>
+      <label style="margin-left: 40px">Top Record Limit:</label>
+      <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"topSecondary",default:"100",max:"50000",min:"1",dataName:"topSecondary"}'></alteryx-pluginwidget>
+      <label style="margin-left: 40px">Starting with Record:</label>
+      <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"startingWithSecondary",default:"1",max:"49999",min:"1",dataName:"startingWithSecondary"}'></alteryx-pluginwidget>
+    </div>
+
+    <br>
+    <br>
+
     <label for="elementTertiary">Tertiary Element</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiary",issearchable:"true",dataName:"elementTertiary",clearable:"true"}'></alteryx-pluginwidget>
-    <label for="elementTertiaryClassification">Classification</label>
-    <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiaryClassification",issearchable:"true",dataName:"elementTertiaryClassification",clearable:"true"}'></alteryx-pluginwidget>
+
+    <div id="advOptionsTertiary">
+      <alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsTertiary" dataName="advOptionsTertiary"></alteryx-pluginwidget>
+    </div>
+
+    <div id="advOptionsTertiaryText">
+    <u>Advanced Options</u>
+    </div>
+
+    <div id="advOptionsInputsTertiary">
+      <label for="elementTertiaryClassification">Classification</label>
+      <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiaryClassification",issearchable:"true",dataName:"elementTertiaryClassification",clearable:"true"}'></alteryx-pluginwidget>
+      <label style="margin-left: 20px">Record Limits</label>
+      <label style="margin-left: 40px">Top Record Limit:</label>
+      <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"topTertiary",default:"100",max:"50000",min:"1",dataName:"topTertiary"}'></alteryx-pluginwidget>
+      <label style="margin-left: 40px">Starting with Record:</label>
+      <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"startingWithTertiary",default:"1",max:"49999",min:"1",dataName:"startingWithTertiary"}'></alteryx-pluginwidget>
+      <br>
+    </div>
+
+    <br>
+    <br>
+
     <button class="prevBtn" id="elementValidation" onclick="validateElements();">Validate Element Selections</button>
+
     <br>
     <div id="invalidElement"></div>
     <div class='footer'>
         <hr>
         <div style="margin-top: 8px;margin-bottom: 8px;">
             <!-- Add id name and onclick function during process story -->
-            <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="alert('add setPage for next page when known');">Next</button>
+            <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="setPage('#segmentSelectors');">Next</button>
             <button class="prevBtn" id="elementSelectorsPrevBtn" onclick="setPage('#metricSelectors');">Previous</button>
         </div>
         <br>
@@ -207,8 +241,48 @@
     </div>
 </fieldset>
 
+<!-- Segment Selectors -->
+    <fieldset id="segmentSelectors" style="display:none;">
+        <legend>Select Segment Filters to Include (Optional)</legend>
+        <label for="segment1">Segment 1</label>
+        <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"segment1",issearchable:"true",dataName:"segment1",clearable:"true"}'></alteryx-pluginwidget>
+        <label for="segment2">Segment 2</label>
+        <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"segment2",issearchable:"true",dataName:"segment2",clearable:"true"}'></alteryx-pluginwidget>
+        <button class="prevBtn" id="segmentValidation" onclick="validateSegments();">Validate Segment Selections</button>
+        <br>
+        <div id="invalidSegment"></div>
+        <div class='footer'>
+            <hr>
+            <div style="margin-top: 8px;margin-bottom: 8px;">
+                <!-- Add id name and onclick function during process story -->
+                <button type="submit" class="nextBtn" id="segmentSelectorsNextBtn" onclick="setPage('#summary');">Done</button>
+                <button class="prevBtn" id="segmentSelectorsPrevBtn" onclick="setPage('#elementSelectors');">Previous</button>
+            </div>
+            <br>
+            <br>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
+        </div>
+    </fieldset>
+
+<!-- Fieldset to display configuration summary -->
+    <fieldset id="summary" style="display:none">
+        <legend>Configuration Summary</legend>
+        <div id="summaryDiv"></div>
+        <div class='footer_spacer'></div>
+        <div class='footer'>
+            <hr>
+            <div style="margin-top: 8px;margin-bottom: 8px;">
+                <button class="prevBtn" id="summaryPrevBtn" onclick="setPage('#elementSelectors');">Previous</button>
+            </div>
+            <br>
+            <br>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
+        </div>
+    </fieldset>
+
 <!-- Store values - never displayed -->
     <fieldset id="store" style="display:none">
+        <alteryx-pluginwidget type="TextBox" id="reportDescription" dataName="reportDescription"></alteryx-pluginwidget>
         <alteryx-pluginwidget type="TextBox" id="access_token" dataName="access_token"></alteryx-pluginwidget>
         <alteryx-pluginwidget type="TextBox" id="page" dataName="page"></alteryx-pluginwidget>
         <alteryx-pluginwidget type="TextBox" id="errorStatus" dataName="errorStatus"></alteryx-pluginwidget>
