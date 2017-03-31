@@ -1,54 +1,74 @@
 import AyxStore from '../stores/AyxStore'
+import _ from 'lodash'
 
 const topLevelSegments = (store) => {
-  // store.segment1.loading = true
-  const Segments = getSegments(store)
-  Segments
-    .then(filterSegments)
-    // .then(mapSegments)
-    // .then(sortSegments)
-    // .then(removeInvalidSegments)
-    // .then(pushSegments)
-    .fail((jqXHR) => {
-      console.log(jqXHR)
-    })
-}
-const payload = (store) => {
-  let rsidList = []
-  rsidList.push(store.reportSuite.selection)
+  store.segment1.loading = true
+  // const segmentsAll = getSegments(store, payload(store, 'all'))
+  const segmentsShared = getSegments(store, payload(store, 'shared'))
+  const segmentsOwned = getSegments(store, payload(store, 'owned'))
+  const promises = [segmentsShared, segmentsOwned]
 
-  return {
-    'rsid_list': rsidList
-  }
+  // removeMissingValues()
+
+  Promise.all(promises)
+    .then(mergeSegments)
+    .then(dedupeSegments)
+    .then(mapSegments)
+    .then(sortSegments)
+    .then(pushSegments)
+    .then(removeMissingValues)
+    .then(doneLoading)
+    // .fail((jqXHR) => {
+    //   console.log(jqXHR)
+    // })
 }
 
-const getSegments = (store) => {
+const getSegments = (store, payload) => {
   const endPoint = 'https://api.omniture.com/admin/1.4/rest/'
   const currentMethod = '?method=Segments.Get'
   const url = endPoint + currentMethod + '&access_token=' + store.access_token
-  const Segments = $.ajax({
+  const segments = $.ajax({
     url: url,
     dataType: 'json',
     method: 'POST',
-    data: payload(store)
+    data: payload
   })
-  return Segments
+  return segments
 }
 
-const filterSegments = (response) => {
-  const segments = response[0].segments
-  console.log(segments)
+const payload = (store, access) => {
+  return {
+    'accessLevel': access,
+    'filters': {
+      'reportSuiteID': store.reportSuite
+    }
+  }
+}
+
+const mergeSegments = (response) => {
+  const shared = response[0]
+  const owned = response[1]
+  const segments = shared.concat(owned)
+  return segments
+}
+
+const dedupeSegments = (response) => {
+  const segments = _.uniqBy(response, (e) => {
+    return e.id
+  })
+
+  return segments
 }
 
 const mapSegments = (response) => {
-  console.log(response[0])
-  // const mapResponse = response.map((d) => {
-  //   return {
-  //     uiobject: d.name + ' | ' + d.id,
-  //     dataname: d.id
-  //   }
-  // })
-  // return mapResponse
+  const mapResponse = response.map((d) => {
+    return {
+      uiobject: d.name + ' | ' + d.id,
+      dataname: d.id
+    }
+  })
+
+  return mapResponse
 }
 
 const sortSegments = (response) => {
@@ -62,29 +82,16 @@ const sortSegments = (response) => {
   return sortResponse
 }
 
-const removeInvalidSegments = (response) => {
-  const invalid = (value) => {
-    if (value.dataname.startsWith('cm') && value.dataname.length === 30) {
-      return false
-    } else {
-      return true
-    }
-  }
-  return response.filter(invalid)
-}
-
 const pushSegments = (response) => {
   const mapResponse = response
   const segmentArray = [
     store.segment1,
-    store.segment2,
-    store.segment3,
-    store.segment4,
-    store.segment5
+    store.segment2
   ]
 
   for (let value of segmentArray) {
     value.stringList = []
+
     mapResponse.forEach(d => {
       return value.stringList.push({
         uiobject: d.uiobject,
@@ -92,59 +99,27 @@ const pushSegments = (response) => {
       })
     })
   }
+}
+
+const removeMissingValues = () => {
+  const segments = [
+    Alteryx.Gui.renderer.getReactComponentByDataName('segment1'),
+    Alteryx.Gui.renderer.getReactComponentByDataName('segment2')
+  ]
+
+  segments.map((segment) => {
+    segment.refs.widget.props.options.filter((d) => { return d.className !== '' || d.className === undefined })
+    segment.missingFields = []
+    segment.forceUpdate()
+  })
+}
+
+const doneLoading = () => {
   store.segment1.loading = false
 }
 
 const validateSegments = () => {
-  store.segment1.loading = true
-  const endPoint = 'https://api.omniture.com/admin/1.4/rest/'
-  const currentMethod = '?method=Report.GetSegments'
-  const url = endPoint + currentMethod + '&access_token=' + store.access_token
-  const payload = {
-    'existingSegments': store.segmentSelections,
-    'reportSuiteID': store.reportSuite.selection
-  }
-  $.ajax({
-    url: url,
-    dataType: 'json',
-    method: 'POST',
-    data: payload
-  })
-  .done(() => {
-    store.setPage = '#elementSelectors'
-    store.segmentError = {
-      'error_type': '',
-      'error_description': ''
-    }
-    console.log('validate done')
-    store.segment1.loading = false
-  })
-  .fail((jqXHR) => {
-    console.log(jqXHR)
-    store.segmentError = {
-      'error_type': jqXHR.responseJSON.error,
-      'error_description': jqXHR.responseJSON.error_description,
-      'segmentName': segmentName(jqXHR.responseJSON.error_description)
-    }
-    console.log('invalid segment')
-    store.segment1.loading = false
-  })
-
-  const segmentName = (description) => {
-    const segmentArray = [
-      store.segment1,
-      store.segment2,
-      store.segment3,
-      store.segment4,
-      store.segment5
-    ]
-
-    for (let value of segmentArray) {
-      if (description.includes(value.selection)) {
-        return value.selectionName
-      }
-    }
-  }
+  alert('Validate Segment Selections button clicked - connect with Report Validation')
 }
-export { topLevelSegments, getSegments }
+export { topLevelSegments, getSegments, validateSegments }
 
