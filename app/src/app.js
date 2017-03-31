@@ -18,7 +18,7 @@ import * as reportValidation from './utils/report-validation'
 
 Alteryx.Gui.AfterLoad = (manager) => {
   const collection = [
-    {key: 'reportDefinition', type: 'value'},
+    {key: 'reportDescription', type: 'value'},
     {key: 'client_id', type: 'value'},
     {key: 'client_secret', type: 'value'},
     {key: 'access_token', type: 'value'},
@@ -245,10 +245,10 @@ Alteryx.Gui.AfterLoad = (manager) => {
   // })
 
   // Show or Hide the Validate Selections buttons
-  autorun(() => {
-    store.metricSelections.length > 1 ? document.getElementById('metricValidation').style.display = 'block' : document.getElementById('metricValidation').style.display = 'none'
-    // store.elementSelections.length > 1 ? document.getElementById('elementValidation').style.display = 'block' : document.getElementById('elementValidation').style.display = 'none'
-  })
+  // autorun(() => {
+  //   store.metricSelections.length > 1 ? document.getElementById('metricValidation').style.display = 'block' : document.getElementById('metricValidation').style.display = 'none'
+  //   store.elementSelections.length > 1 ? document.getElementById('elementValidation').style.display = 'block' : document.getElementById('elementValidation').style.display = 'none'
+  // })
 
   // Render react component which handles connection error messaging
   autorun(() => {
