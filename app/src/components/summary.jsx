@@ -20,11 +20,16 @@ class Summary extends React.Component {
   //   })
   // }
 
+  capitalize (string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
   render () {
     // const reportSuite = this.reportSuiteFilter() //this.store.reportSuite.selectedValues
+    const reportSuite = this.store.reportSuite.selectionName
     const startDate = this.store.startDatePicker
     const endDate = this.store.endDatePicker
-    const granularity = this.store.granularity.selection
+    const granularity = this.capitalize(this.store.granularity.selection)
     const metric1 = this.store.metric1.selectionName
     const metric2 = this.store.metric2.selectionName
     const metric3 = this.store.metric3.selectionName
@@ -50,7 +55,7 @@ class Summary extends React.Component {
     }
     return (
       <div className={divClass}>
-        {/* <div>
+        <div>
           <a href="javascript:setPage('#reportSuite')">Selected Report Suite</a>
           <table style={tableStyle}>
             <tbody>
@@ -60,7 +65,7 @@ class Summary extends React.Component {
               </tr>
             </tbody>
           </table>
-        </div> */}
+        </div>
         <br></br>
         <div>
           <a href="javascript:setPage('#datePickers')">Selected Date</a>
