@@ -14,6 +14,7 @@ import InvalidElement from './components/invalid-element-message.jsx'
 import * as segmentSelectors from './utils/segment-selectors'
 import * as elementSelectors from './utils/element-selectors'
 import * as reportValidation from './utils/report-validation'
+import * as classificationSelectors from './utils/classification-selectors'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
@@ -37,6 +38,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'elementPrimary', type: 'dropDown'},
     {key: 'elementSecondary', type: 'dropDown'},
     {key: 'elementTertiary', type: 'dropDown'},
+    {key: 'elementPrimaryClassification', type: 'dropDown'},
+    {key: 'elementSecondaryClassification', type: 'dropDown'},
+    {key: 'elementTertiaryClassification', type: 'dropDown'},
     {key: 'elementError', type: 'value'},
     {key: 'segment1', type: 'dropDown'},
     {key: 'segment2', type: 'dropDown'}
@@ -161,6 +165,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     if (store.access_token !== '' && store.reportSuite.selection !== '') {
       metricSelectors.topLevelMetrics(store)
       elementSelectors.topLevelElements(store)
+      classificationSelectors.topLevelClassifications(store)
     }
   })
 
@@ -169,21 +174,6 @@ Alteryx.Gui.AfterLoad = (manager) => {
     const target = document.getElementById('metricSelectorsNextBtn')
     store.metricSelections.length === 0 ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
   })
-
-  // const filterElementsFunction = elementSelectors.filterElements.bind(this, store.elementPrimary.selection, store.elementSecondary)
-  // const filterElementsFunction = elementSelectors.filterElements.apply(null, store.elementPrimary.selection, store.elementSecondary)
-
-  // window.filterElementsFunction = elementSelectors.filterElements
-  // Alteryx.Gui.manager.GetDataItem('elementPrimary').UserDataChanged.push(() => { elementSelectors.filterElements(store.elementPrimary.selection, store.elementSecondary) })
-
-  // // Update the other element stores based on element selection
-  // autorun(() => {
-  //   console.log('store.elementPrimary.selection !== ""')
-  //   // elementSelectors.filterElements(store.elementPrimary.selection, store.elementSecondary)
-  //   // if (store.elementPrimary.selection !== '') {
-  //   filterElementsFunction()
-  //   // }
-  // })
 
   // autorun(() => {
   //   const metricArray = [

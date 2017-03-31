@@ -176,13 +176,21 @@
 
 <!--Element Selector -->
 <fieldset id="elementSelectors" style="display:none;">
-    <legend>Select Element to Include (Optional)</legend>
+    <legend>Select Elements to Include (Optional)</legend>
     <label for="elementPrimary">Primary Element</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimary",issearchable:"true",dataName:"elementPrimary",clearable:"true"}'></alteryx-pluginwidget>
+    <label for="elementPrimaryClassification">Classification</label>
+    <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimaryClassification",issearchable:"true",dataName:"elementPrimaryClassification",clearable:"true"}'></alteryx-pluginwidget>
+    <p>
     <label for="elementSecondary">Secondary Element</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondary",issearchable:"true",dataName:"elementSecondary",clearable:"true"}'></alteryx-pluginwidget>
+    <label for="elementSecondaryClassification">Classification</label>
+    <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondaryClassification",issearchable:"true",dataName:"elementSecondaryClassification",clearable:"true"}'></alteryx-pluginwidget>
+    <p>
     <label for="elementTertiary">Tertiary Element</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiary",issearchable:"true",dataName:"elementTertiary",clearable:"true"}'></alteryx-pluginwidget>
+    <label for="elementTertiaryClassification">Classification</label>
+    <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiaryClassification",issearchable:"true",dataName:"elementTertiaryClassification",clearable:"true"}'></alteryx-pluginwidget>
     <button class="prevBtn" id="elementValidation" onclick="validateElements();">Validate Element Selections</button>
     <br>
     <div id="invalidElement"></div>
