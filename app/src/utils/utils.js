@@ -102,7 +102,8 @@ const displayFieldset = (fieldsetName) => {
     '#reportSuite',
     '#metricSelectors',
     '#elementSelectors',
-    '#segmentSelectors'
+    '#segmentSelectors',
+    '#summary'
   ]
 
   let showArray = []

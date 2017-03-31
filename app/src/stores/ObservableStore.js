@@ -19,6 +19,8 @@ class ObservableStore {
               :
                 (d.type === 'dropDown' || d.type === 'listBox')
                   ? { selection: item.getValue(),
+                    selectionName: '',
+                    selectedValues: '',
                     stringList: item.StringList.enums,
                     loading: false}
                   : JSON.parse(item.getValue())),

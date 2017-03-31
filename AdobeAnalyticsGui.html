@@ -249,8 +249,24 @@
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
                 <!-- Add id name and onclick function during process story -->
-                <button type="submit" class="nextBtn" id="segmentSelectorsNextBtn" onclick="setPage('#summary');">Next</button>
+                <button type="submit" class="nextBtn" id="segmentSelectorsNextBtn" onclick="setPage('#summary');">Done</button>
                 <button class="prevBtn" id="segmentSelectorsPrevBtn" onclick="setPage('#elementSelectors');">Previous</button>
+            </div>
+            <br>
+            <br>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
+        </div>
+    </fieldset>
+
+<!-- Fieldset to display configuration summary -->
+    <fieldset id="summary" style="display:none">
+        <legend>Configuration Summary</legend>
+        <div id="summaryDiv"></div>
+        <div class='footer_spacer'></div>
+        <div class='footer'>
+            <hr>
+            <div style="margin-top: 8px;margin-bottom: 8px;">
+                <button class="prevBtn" id="summaryPrevBtn" onclick="setPage('#elementSelectors');">Previous</button>
             </div>
             <br>
             <br>
