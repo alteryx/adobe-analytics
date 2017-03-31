@@ -172,16 +172,18 @@ Alteryx.Gui.AfterLoad = (manager) => {
   autorun(() => {
     if (store.access_token !== '' && store.reportSuite.selection !== '') {
       metricSelectors.topLevelMetrics(store)
-    }
-  })
-
-  // Refreshes the element and segment dropdowns
-  autorun(() => {
-    if (store.access_token !== '' && store.reportSuite.selection !== '' && store.metricSelections.length > 0) {
       elementSelectors.topLevelElements(store)
       segmentSelectors.topLevelSegments(store)
     }
   })
+
+  // Refreshes the element and segment dropdowns
+  // autorun(() => {
+  //   if (store.access_token !== '' && store.reportSuite.selection !== '' && store.metricSelections.length > 0) {
+  //     elementSelectors.topLevelElements(store)
+  //     segmentSelectors.topLevelSegments(store)
+  //   }
+  // })
 
   // Enable or Disable the Next button on metric selectors page
   autorun(() => {
@@ -222,15 +224,15 @@ Alteryx.Gui.AfterLoad = (manager) => {
 
   // Displays the Classification, top and starting with options for Primary Elements if Advanced Options is toggled
   autorun(() => {
-   if (store.advOptionsPrimary) {
-     document.getElementById('advOptionsInputsPrimary').style.display = 'block'
-   } else {
-     document.getElementById('advOptionsInputsPrimary').style.display = 'none'
-   }
- })
+    if (store.advOptionsPrimary) {
+      document.getElementById('advOptionsInputsPrimary').style.display = 'block'
+    } else {
+      document.getElementById('advOptionsInputsPrimary').style.display = 'none'
+    }
+  })
 
     // Displays the Classification, top and starting with options for Secondary Elements if Advanced Options is toggled
-   autorun(() => {
+  autorun(() => {
     if (store.advOptionsSecondary) {
       document.getElementById('advOptionsInputsSecondary').style.display = 'block'
     } else {
@@ -239,7 +241,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
   })
 
     // Displays the Classification, top and starting with options for Tertiary Elements if Advanced Options is toggled
-   autorun(() => {
+  autorun(() => {
     if (store.advOptionsTertiary) {
       document.getElementById('advOptionsInputsTertiary').style.display = 'block'
     } else {
@@ -322,7 +324,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
 
   // Render react component which handles a warning message for invalid segments
   // ReactDOM.render(<InvalidSegment store={store} />, document.querySelector('#invalidSegment'))
-    
+
   // Render react component which handles the summary page
   ReactDOM.render(<Summary store={store} />, document.querySelector('#summaryDiv'))
 
