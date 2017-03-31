@@ -15,6 +15,7 @@ import InvalidSegment from './components/invalid-segment-message.jsx'
 import * as segmentSelectors from './utils/segment-selectors'
 import * as elementSelectors from './utils/element-selectors'
 import * as reportValidation from './utils/report-validation'
+import * as classificationSelectors from './utils/classification-selectors'
 import Summary from './components/summary.jsx'
 // import _ from 'lodash'
 
@@ -46,6 +47,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'topSecondary', type: 'value'},
     {key: 'startingWithSecondary', type: 'value'},
     {key: 'elementTertiary', type: 'dropDown'},
+    {key: 'elementPrimaryClassification', type: 'dropDown'},
+    {key: 'elementSecondaryClassification', type: 'dropDown'},
+    {key: 'elementTertiaryClassification', type: 'dropDown'},
     {key: 'advOptionsTertiary', type: 'value'},
     {key: 'topTertiary', type: 'value'},
     {key: 'startingWithTertiary', type: 'value'},
@@ -173,6 +177,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     if (store.access_token !== '' && store.reportSuite.selection !== '') {
       metricSelectors.topLevelMetrics(store)
       elementSelectors.topLevelElements(store)
+      classificationSelectors.topLevelClassifications(store)
       segmentSelectors.topLevelSegments(store)
     }
   })
@@ -190,21 +195,6 @@ Alteryx.Gui.AfterLoad = (manager) => {
     const target = document.getElementById('metricSelectorsNextBtn')
     store.metricSelections.length === 0 ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
   })
-
-  // const filterElementsFunction = elementSelectors.filterElements.bind(this, store.elementPrimary.selection, store.elementSecondary)
-  // const filterElementsFunction = elementSelectors.filterElements.apply(null, store.elementPrimary.selection, store.elementSecondary)
-
-  // window.filterElementsFunction = elementSelectors.filterElements
-  // Alteryx.Gui.manager.GetDataItem('elementPrimary').UserDataChanged.push(() => { elementSelectors.filterElements(store.elementPrimary.selection, store.elementSecondary) })
-
-  // // Update the other element stores based on element selection
-  // autorun(() => {
-  //   console.log('store.elementPrimary.selection !== ""')
-  //   // elementSelectors.filterElements(store.elementPrimary.selection, store.elementSecondary)
-  //   // if (store.elementPrimary.selection !== '') {
-  //   filterElementsFunction()
-  //   // }
-  // })
 
   // autorun(() => {
   //   const metricArray = [
@@ -359,3 +349,5 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.segments = reportValidation.segments
   window.payload = reportValidation.payload
 }
+
+    

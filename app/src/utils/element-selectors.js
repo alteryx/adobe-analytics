@@ -64,34 +64,6 @@ const pushElements = (response) => {
   store.elementPrimary.loading = false
 }
 
-// Filter Element Selection Section
-//
-// this filter function removes the element selection from the other element's store stringlist
-// example arguments = (store.elementPrimary.selection, store.elementSecondary)
-// const filterElements = (elementSelection, otherElementStore) => {
-//   // console.log('filterElements', this)
-//   // console.log('elementSelection')
-//   // console.log(elementSelection)
-//   // console.log('first otherElementStore.stringList')
-//   // console.log(otherElementStore.stringList)
-//   debugger
-//   const filterElement = otherElementStore.stringList.filter(d => {
-//     return d.dataName !== elementSelection
-//   })
-//   // console.log('filterElement')
-//   // console.log(filterElement)
-//   otherElementStore.stringList = []
-//   // console.log('otherElementStore')
-//   // console.log(otherElementStore.stringList)
-//   filterElement.forEach(d => {
-//     otherElementStore.stringList.push({
-//       uiobject: d.uiObject,
-//       dataname: d.dataName
-//     })
-//   })
-//   console.log('i did it')
-// }
-
 const validateElements = () => {
   store.elementPrimary.loading = true
   const endPoint = 'https://api.omniture.com/admin/1.4/rest/'
@@ -143,4 +115,4 @@ const validateElements = () => {
   }
 }
 
-export { topLevelElements, validateElements } // filterElements
+export { topLevelElements, validateElements }

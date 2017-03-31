@@ -150,7 +150,7 @@
 
 <!--Element Selector -->
 <fieldset id="elementSelectors" style="display:none;">
-    <legend>Select Element to Include (Optional)</legend>
+    <legend>Select Elements to Include (Optional)</legend>
     <label for="elementPrimary">Primary Element</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimary",issearchable:"true",dataName:"elementPrimary",clearable:"true"}'></alteryx-pluginwidget>
 
@@ -163,6 +163,8 @@
     </div>
 
     <div id="advOptionsInputsPrimary">
+      <label for="elementPrimaryClassification">Classification</label>
+      <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimaryClassification",issearchable:"true",dataName:"elementPrimaryClassification",clearable:"true"}'></alteryx-pluginwidget>
       <label style="margin-left: 20px">Record Limits</label>
       <label style="margin-left: 40px">Top Record Limit:</label>
       <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"topPrimary",default:"100",max:"50000",min:"1",dataName:"topPrimary"}'></alteryx-pluginwidget>
@@ -185,6 +187,8 @@
     </div>
 
     <div id="advOptionsInputsSecondary">
+      <label for="elementSecondaryClassification">Classification</label>
+      <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondaryClassification",issearchable:"true",dataName:"elementSecondaryClassification",clearable:"true"}'></alteryx-pluginwidget>
       <label style="margin-left: 20px">Record Limits</label>
       <label style="margin-left: 40px">Top Record Limit:</label>
       <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"topSecondary",default:"100",max:"50000",min:"1",dataName:"topSecondary"}'></alteryx-pluginwidget>
@@ -207,6 +211,8 @@
     </div>
 
     <div id="advOptionsInputsTertiary">
+      <label for="elementTertiaryClassification">Classification</label>
+      <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiaryClassification",issearchable:"true",dataName:"elementTertiaryClassification",clearable:"true"}'></alteryx-pluginwidget>
       <label style="margin-left: 20px">Record Limits</label>
       <label style="margin-left: 40px">Top Record Limit:</label>
       <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"topTertiary",default:"100",max:"50000",min:"1",dataName:"topTertiary"}'></alteryx-pluginwidget>
