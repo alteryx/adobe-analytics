@@ -352,14 +352,14 @@ hr {
     width: 100%;
 }
 
-#advOptionsPrimaryText {display:inline-block}
 #advOptionsPrimary {display:inline-block}
+#advOptionsPrimaryText {display:inline-block}
 
-#advOptionsSecondaryText {display:inline-block}
 #advOptionsSecondary {display:inline-block}
+#advOptionsSecondaryText {display:inline-block}
 
-#advOptionsTertiaryText {display:inline-block}
 #advOptionsTertiary {display:inline-block}
+#advOptionsTertiaryText {display:inline-block}
 
 input:disabled {
     opacity: .5;
