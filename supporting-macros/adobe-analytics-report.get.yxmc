@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="318" y="234" />
+        <Position x="282" y="282" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -22,6 +22,8 @@
           <RecordInfo>
             <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
             <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
             <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
           </RecordInfo>
@@ -31,7 +33,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="90" y="294" />
+        <Position x="54" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -39,6 +41,8 @@
           <Fields>
             <Field name="reportID" />
             <Field name="access_token" />
+            <Field name="client_id" />
+            <Field name="client_secret" />
           </Fields>
           <Data />
         </Configuration>
@@ -52,6 +56,8 @@
           <RecordInfo>
             <Field name="reportID" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="access_token" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -59,7 +65,7 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="174" y="234" />
+        <Position x="138" y="282" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -77,6 +83,8 @@
           <RecordInfo>
             <Field name="reportID" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="access_token" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -97,7 +105,7 @@
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="90" y="234" />
+        <Position x="54" y="282" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -112,6 +120,8 @@
               <Fields>
                 <Field name="reportID" />
                 <Field name="access_token" />
+                <Field name="client_id" />
+                <Field name="client_secret" />
               </Fields>
               <Data />
             </Configuration>
@@ -126,6 +136,8 @@
           <RecordInfo>
             <Field name="reportID" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="access_token" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -133,7 +145,7 @@
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="906" y="246" />
+        <Position x="1242" y="288" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -151,7 +163,7 @@
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-        <Position x="402" y="234" />
+        <Position x="366" y="282" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -164,8 +176,10 @@
               <Item name="Content-Type" value="application/json" />
             </NameValues>
             <Fields orderChanged="False">
-              <Field name="reportID" selected="False" />
+              <Field name="client_id" selected="False" />
+              <Field name="client_secret" selected="False" />
               <Field name="access_token" selected="False" />
+              <Field name="reportID" selected="False" />
               <Field name="endpoint" selected="False" />
               <Field name="payload" selected="False" />
               <Field name="*Unknown" selected="False" />
@@ -191,6 +205,8 @@
           <RecordInfo>
             <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
             <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
             <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
@@ -202,28 +218,29 @@
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="474" y="234" />
+        <Position x="810" y="294" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Mode>Simple</Mode>
-          <Simple>
-            <Field>DownloadData</Field>
-            <Operator>Contains</Operator>
-            <Operands>
-              <Operand>report_not_ready</Operand>
-            </Operands>
-          </Simple>
+          <Expression>Contains([DownloadData],"report_not_ready")
+OR
+Contains([DownloadData],"access token provided has expired")</Expression>
+          <Mode>Custom</Mode>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>Contains([DownloadData],"report_not_ready")</DefaultAnnotationText>
+          <AnnotationText>report not ready?</AnnotationText>
+          <DefaultAnnotationText>Contains([DownloadData],"report_not_ready")
+OR
+Contains([Down...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="True">
           <RecordInfo>
+            <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
-            <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
             <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
@@ -232,8 +249,10 @@
         </MetaInfo>
         <MetaInfo connection="False">
           <RecordInfo>
+            <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
-            <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
             <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
@@ -245,7 +264,7 @@
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="246" y="234" />
+        <Position x="210" y="282" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -266,6 +285,8 @@
           <RecordInfo>
             <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
             <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -273,7 +294,7 @@
     </Node>
     <Node ToolID="28">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="114" y="66" width="384" height="120" />
+        <Position x="54" y="150" width="384" height="120" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -291,9 +312,246 @@
         </Annotation>
       </Properties>
     </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="942" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>DownloadHeaders</Field>
+            <Operator>Contains</Operator>
+            <Operands>
+              <Operand>200 OK</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Header 200 OK?</AnnotationText>
+          <DefaultAnnotationText>Contains([DownloadHeaders],"200 OK")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
+            <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
+            <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+        <Position x="1038" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <When>Last</When>
+          <Filter />
+          <Type>ErrorStop</Type>
+          <Priority>High</Priority>
+          <Transient>False</Transient>
+          <MessageExpression>[DownloadHeaders] + " | " + [DownloadData]</MessageExpression>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
+            <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
+            <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="438" y="178" width="361" height="220" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Refresh Expired Token</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="29">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="463" y="282" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>Contains([DownloadData],"access token provided has expired")
+AND
+!IsEmpty([client_id])
+AND
+!IsEmpty([client_secret])</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>access token expired?</AnnotationText>
+              <DefaultAnnotationText>Contains([DownloadData],"access token provided has expired")
+...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="True">
+              <RecordInfo>
+                <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
+                <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
+                <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
+                <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+                <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo connection="False">
+              <RecordInfo>
+                <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
+                <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
+                <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
+                <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+                <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="30">
+          <GuiSettings>
+            <Position x="547" y="222" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Offline Authentication</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="access_token" size="1073741823" source="JSONParse: " type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-offline-authentication.yxmc" />
+        </Node>
+        <Node ToolID="31">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="715" y="294" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+                <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
+                <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
+                <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+                <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="36">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+            <Position x="631" y="234" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <CartesianMode>Error</CartesianMode>
+              <SelectConfiguration>
+                <Configuration outputConnection="Output">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Source_access_token" selected="False" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="access_token" size="1073741823" source="JSONParse: " type="V_WString" />
+                <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
+                <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
+                <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+                <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+        </Node>
+      </ChildNodes>
+    </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="558" y="30" width="524" height="208" />
+        <Position x="918" y="66" width="524" height="208" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -311,7 +569,7 @@
       <ChildNodes>
         <Node ToolID="12">
           <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-            <Position x="906" y="74.00012" />
+            <Position x="1266" y="110.0001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -329,7 +587,7 @@
         </Node>
         <Node ToolID="21">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Throttle.Throttle">
-            <Position x="739" y="74.00012" />
+            <Position x="1099" y="110.0002" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -343,8 +601,10 @@
             </Annotation>
             <MetaInfo connection="Output">
               <RecordInfo>
+                <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
                 <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
-                <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
               </RecordInfo>
             </MetaInfo>
           </Properties>
@@ -352,7 +612,7 @@
         </Node>
         <Node ToolID="23">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
-            <Position x="835" y="74.00012" />
+            <Position x="1195" y="110.0001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -367,8 +627,10 @@
             </Annotation>
             <MetaInfo connection="Output">
               <RecordInfo>
+                <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
                 <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
-                <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
               </RecordInfo>
             </MetaInfo>
           </Properties>
@@ -376,7 +638,7 @@
         </Node>
         <Node ToolID="24">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="583" y="74.00018" />
+            <Position x="943" y="110.0007" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -384,6 +646,8 @@
               <CommaDecimal value="False" />
               <SelectFields>
                 <SelectField field="reportID" selected="True" />
+                <SelectField field="client_id" selected="True" />
+                <SelectField field="client_secret" selected="True" />
                 <SelectField field="access_token" selected="True" />
                 <SelectField field="*Unknown" selected="False" />
               </SelectFields>
@@ -395,8 +659,10 @@
             </Annotation>
             <MetaInfo connection="Output">
               <RecordInfo>
+                <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
                 <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
-                <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
               </RecordInfo>
             </MetaInfo>
           </Properties>
@@ -404,7 +670,7 @@
         </Node>
         <Node ToolID="25">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-            <Position x="667" y="74.00013" />
+            <Position x="1027" y="110.0002" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -424,8 +690,10 @@
             </Annotation>
             <MetaInfo connection="Output">
               <RecordInfo>
+                <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
                 <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
-                <Field name="access_token" size="25000" source="TextInput:" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
               </RecordInfo>
             </MetaInfo>
           </Properties>
@@ -433,7 +701,7 @@
         </Node>
         <Node ToolID="26">
           <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-            <Position x="583" y="122.0002" />
+            <Position x="943" y="158.0002" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -441,10 +709,14 @@
               <Fields>
                 <Field name="reportID" />
                 <Field name="access_token" />
+                <Field name="client_id" />
+                <Field name="client_secret" />
               </Fields>
               <Data>
                 <r>
                   <c><![CDATA[ ]]></c>
+                  <c />
+                  <c />
                   <c />
                 </r>
               </Data>
@@ -459,6 +731,8 @@
               <RecordInfo>
                 <Field name="reportID" size="1" source="TextInput:" type="String" />
                 <Field name="access_token" source="TextInput:" type="Bool" />
+                <Field name="client_id" source="TextInput:" type="Bool" />
+                <Field name="client_secret" source="TextInput:" type="Bool" />
               </RecordInfo>
             </MetaInfo>
           </Properties>
@@ -486,19 +760,51 @@
     </Connection>
     <Connection>
       <Origin ToolID="13" Connection="Output" />
-      <Destination ToolID="14" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="14" Connection="False" />
-      <Destination ToolID="11" Connection="Input" />
+      <Destination ToolID="29" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="14" Connection="True" />
       <Destination ToolID="24" Connection="Input" />
     </Connection>
     <Connection>
+      <Origin ToolID="14" Connection="False" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
       <Origin ToolID="15" Connection="Output" />
       <Destination ToolID="1" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="False" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="True" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="True" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="29" Connection="False" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="True" />
+      <Destination ToolID="36" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="36" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="21" Connection="Output" />
@@ -607,6 +913,7 @@
       <Wiz_OpenOutputTools>
         <Tool ToolId="10" Selected="True" />
         <Tool ToolId="11" Selected="True" />
+        <Tool ToolId="30" Selected="True" />
         <Tool ToolId="12" Selected="True" />
         <Tool ToolId="21" Selected="True" />
       </Wiz_OpenOutputTools>

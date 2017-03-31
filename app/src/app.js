@@ -11,14 +11,17 @@ import * as reportSuites from './utils/report-suites'
 import * as metricSelectors from './utils/metric-selectors'
 import InvalidMetric from './components/invalid-metric-message.jsx'
 import InvalidElement from './components/invalid-element-message.jsx'
+import InvalidSegment from './components/invalid-segment-message.jsx'
 import * as segmentSelectors from './utils/segment-selectors'
 import * as elementSelectors from './utils/element-selectors'
 import * as reportValidation from './utils/report-validation'
+import * as classificationSelectors from './utils/classification-selectors'
+import Summary from './components/summary.jsx'
 // import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
   const collection = [
-    {key: 'reportDefinition', type: 'value'},
+    {key: 'reportDescription', type: 'value'},
     {key: 'client_id', type: 'value'},
     {key: 'client_secret', type: 'value'},
     {key: 'access_token', type: 'value'},
@@ -44,6 +47,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'topSecondary', type: 'value'},
     {key: 'startingWithSecondary', type: 'value'},
     {key: 'elementTertiary', type: 'dropDown'},
+    {key: 'elementPrimaryClassification', type: 'dropDown'},
+    {key: 'elementSecondaryClassification', type: 'dropDown'},
+    {key: 'elementTertiaryClassification', type: 'dropDown'},
     {key: 'advOptionsTertiary', type: 'value'},
     {key: 'topTertiary', type: 'value'},
     {key: 'startingWithTertiary', type: 'value'},
@@ -171,29 +177,24 @@ Alteryx.Gui.AfterLoad = (manager) => {
     if (store.access_token !== '' && store.reportSuite.selection !== '') {
       metricSelectors.topLevelMetrics(store)
       elementSelectors.topLevelElements(store)
+      classificationSelectors.topLevelClassifications(store)
+      segmentSelectors.topLevelSegments(store)
     }
   })
+
+  // Refreshes the element and segment dropdowns
+  // autorun(() => {
+  //   if (store.access_token !== '' && store.reportSuite.selection !== '' && store.metricSelections.length > 0) {
+  //     elementSelectors.topLevelElements(store)
+  //     segmentSelectors.topLevelSegments(store)
+  //   }
+  // })
 
   // Enable or Disable the Next button on metric selectors page
   autorun(() => {
     const target = document.getElementById('metricSelectorsNextBtn')
     store.metricSelections.length === 0 ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
   })
-
-  // const filterElementsFunction = elementSelectors.filterElements.bind(this, store.elementPrimary.selection, store.elementSecondary)
-  // const filterElementsFunction = elementSelectors.filterElements.apply(null, store.elementPrimary.selection, store.elementSecondary)
-
-  // window.filterElementsFunction = elementSelectors.filterElements
-  // Alteryx.Gui.manager.GetDataItem('elementPrimary').UserDataChanged.push(() => { elementSelectors.filterElements(store.elementPrimary.selection, store.elementSecondary) })
-
-  // // Update the other element stores based on element selection
-  // autorun(() => {
-  //   console.log('store.elementPrimary.selection !== ""')
-  //   // elementSelectors.filterElements(store.elementPrimary.selection, store.elementSecondary)
-  //   // if (store.elementPrimary.selection !== '') {
-  //   filterElementsFunction()
-  //   // }
-  // })
 
   // autorun(() => {
   //   const metricArray = [
@@ -244,9 +245,11 @@ Alteryx.Gui.AfterLoad = (manager) => {
     const loading = (flag) => {
       if (flag) {
         document.getElementById('loading').style.display = 'block'
+        document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">Populating menu items</p><img src="loading_ring.svg">'
         document.getElementById('loading-inner').style.display = 'block'
       } else {
         document.getElementById('loading').style.display = 'none'
+        document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
         document.getElementById('loading-inner').style.display = 'none'
       }
     }
@@ -261,12 +264,16 @@ Alteryx.Gui.AfterLoad = (manager) => {
       case '#elementSelectors':
         loading(store.elementPrimary.loading)
         break
+      case '#summary':
+        const flag = (store.metric1.loading || store.elementPrimary.loading)
+        loading(flag)
+        break
       // case '#dimensions':
       //   loading(store.dimensionsList.loading)
       //   break
-      // case '#segments':
-      //   loading(store.segmentsList.loading)
-      //   break
+      case '#segmentSelectors':
+        loading(store.segment1.loading)
+        break
       // case '#summary':
       //   const flag = (store.metricsList.loading || store.dimensionsList.loading || store.segmentsList.loading)
       //   loading(flag)
@@ -281,10 +288,10 @@ Alteryx.Gui.AfterLoad = (manager) => {
   // })
 
   // Show or Hide the Validate Selections buttons
-  autorun(() => {
-    store.metricSelections.length > 1 ? document.getElementById('metricValidation').style.display = 'block' : document.getElementById('metricValidation').style.display = 'none'
-    // store.elementSelections.length > 1 ? document.getElementById('elementValidation').style.display = 'block' : document.getElementById('elementValidation').style.display = 'none'
-  })
+  // autorun(() => {
+  //   store.metricSelections.length > 1 ? document.getElementById('metricValidation').style.display = 'block' : document.getElementById('metricValidation').style.display = 'none'
+  //   store.elementSelections.length > 1 ? document.getElementById('elementValidation').style.display = 'block' : document.getElementById('elementValidation').style.display = 'none'
+  // })
 
   // Render react component which handles connection error messaging
   autorun(() => {
@@ -304,6 +311,12 @@ Alteryx.Gui.AfterLoad = (manager) => {
 
   // Render react component which handles a warning message for invalid elements
   ReactDOM.render(<InvalidElement store={store} />, document.querySelector('#invalidElement'))
+
+  // Render react component which handles a warning message for invalid segments
+  // ReactDOM.render(<InvalidSegment store={store} />, document.querySelector('#invalidSegment'))
+
+  // Render react component which handles the summary page
+  ReactDOM.render(<Summary store={store} />, document.querySelector('#summaryDiv'))
 
   // All window declarations, below, are simply to expose functionality to the console, and
   // should probably be removed or commented out before shipping the connector.
@@ -325,6 +338,8 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.validateMetrics = metricSelectors.validateMetrics
   window.topLevelSegments = segmentSelectors.topLevelSegments
   window.getSegments = segmentSelectors.getSegments
+  window.validateSegments = segmentSelectors.validateSegments
+  window.removeMissingValues = segmentSelectors.removeMissingValues
   window.topLevelElements = elementSelectors.topLevelElements
   window.filterElements = elementSelectors.filterElements
   window.validateElements = elementSelectors.validateElements
@@ -334,3 +349,5 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.segments = reportValidation.segments
   window.payload = reportValidation.payload
 }
+
+    

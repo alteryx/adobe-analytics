@@ -101,7 +101,9 @@ const displayFieldset = (fieldsetName) => {
     '#datePickers',
     '#reportSuite',
     '#metricSelectors',
-    '#elementSelectors'
+    '#elementSelectors',
+    '#segmentSelectors',
+    '#summary'
   ]
 
   let showArray = []
@@ -147,7 +149,9 @@ const resetFields = () => {
     'metric5',
     'elementPrimary',
     'elementSecondary',
-    'elementTertiary'
+    'elementTertiary',
+    'segment1',
+    'segment2'
   ]
 
   // Resets the selection value for widgets
