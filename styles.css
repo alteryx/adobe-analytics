@@ -142,7 +142,7 @@ hr {
    width: auto;
 }
 
-.metricWarning, .elementWarning {
+.metricWarning, .elementWarning, .segmentWarning {
    background-color: #ec2227;
    border: 1px solid #9f1d20;
    border-radius: 5px;
@@ -160,7 +160,7 @@ hr {
    width: auto;
 }
 
-.metricValid, .elementValid {
+.metricValid, .elementValid, .segmentValid {
    background-color: rgb(204,246,209);
    border: 1px solid rgb(204,246,209);
    border-radius: 5px;

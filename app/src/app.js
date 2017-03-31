@@ -11,6 +11,7 @@ import * as reportSuites from './utils/report-suites'
 import * as metricSelectors from './utils/metric-selectors'
 import InvalidMetric from './components/invalid-metric-message.jsx'
 import InvalidElement from './components/invalid-element-message.jsx'
+import InvalidSegment from './components/invalid-segment-message.jsx'
 import * as segmentSelectors from './utils/segment-selectors'
 import * as elementSelectors from './utils/element-selectors'
 import * as reportValidation from './utils/report-validation'
@@ -161,7 +162,14 @@ Alteryx.Gui.AfterLoad = (manager) => {
   autorun(() => {
     if (store.access_token !== '' && store.reportSuite.selection !== '') {
       metricSelectors.topLevelMetrics(store)
+    }
+  })
+
+  // Refreshes the element and segment dropdowns
+  autorun(() => {
+    if (store.access_token !== '' && store.reportSuite.selection !== '' && store.metricSelections.length > 0) {
       elementSelectors.topLevelElements(store)
+      segmentSelectors.topLevelSegments(store)
     }
   })
 
@@ -208,9 +216,11 @@ Alteryx.Gui.AfterLoad = (manager) => {
     const loading = (flag) => {
       if (flag) {
         document.getElementById('loading').style.display = 'block'
+        document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">Populating menu items</p><img src="loading_ring.svg">'
         document.getElementById('loading-inner').style.display = 'block'
       } else {
         document.getElementById('loading').style.display = 'none'
+        document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
         document.getElementById('loading-inner').style.display = 'none'
       }
     }
@@ -228,9 +238,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
       // case '#dimensions':
       //   loading(store.dimensionsList.loading)
       //   break
-      // case '#segments':
-      //   loading(store.segmentsList.loading)
-      //   break
+      case '#segmentSelectors':
+        loading(store.segment1.loading)
+        break
       // case '#summary':
       //   const flag = (store.metricsList.loading || store.dimensionsList.loading || store.segmentsList.loading)
       //   loading(flag)
@@ -269,6 +279,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
   // Render react component which handles a warning message for invalid elements
   ReactDOM.render(<InvalidElement store={store} />, document.querySelector('#invalidElement'))
 
+  // Render react component which handles a warning message for invalid segments
+  // ReactDOM.render(<InvalidSegment store={store} />, document.querySelector('#invalidSegment'))
+
   // All window declarations, below, are simply to expose functionality to the console, and
   // should probably be removed or commented out before shipping the connector.
   // Steve - I've found that if a function is referenced by the Gui.html file they need to be defined below
@@ -289,6 +302,8 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.validateMetrics = metricSelectors.validateMetrics
   window.topLevelSegments = segmentSelectors.topLevelSegments
   window.getSegments = segmentSelectors.getSegments
+  window.validateSegments = segmentSelectors.validateSegments
+  window.removeMissingValues = segmentSelectors.removeMissingValues
   window.topLevelElements = elementSelectors.topLevelElements
   window.filterElements = elementSelectors.filterElements
   window.validateElements = elementSelectors.validateElements

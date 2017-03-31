@@ -148,27 +148,6 @@
         </div>
     </fieldset>
 
-
-<!-- Segment Selectors -->
-    <fieldset id="segmentSelectors" style="display:none;">
-        <legend>Select Segment Filters</legend>
-        <label for="segment1">Segment 1 (optional)</label>
-        <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"segment1",issearchable:"true",dataName:"segment1",clearable:"true"}'></alteryx-pluginwidget>
-        <label for="segment2">Segment 2 (optional)</label>
-        <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"segment2",issearchable:"true",dataName:"segment2",clearable:"true"}'></alteryx-pluginwidget>
-        <div class='footer'>
-            <hr>
-            <div style="margin-top: 8px;margin-bottom: 8px;">
-                <!-- Add id name and onclick function during process story -->
-                <button type="submit" class="nextBtn" id="segmentSelectorsNextBtn" onclick="alert('move to next page; add setPage()');">Next</button>
-                <button class="prevBtn" id="segmentSelectorsPrevBtn" onclick="alert('add setpage for previous');">Previous</button>
-            </div>
-            <br>
-            <br>
-            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
-        </div>
-    </fieldset>
-
 <!--Element Selector -->
 <fieldset id="elementSelectors" style="display:none;">
     <legend>Select Element to Include (Optional)</legend>
@@ -185,7 +164,7 @@
         <hr>
         <div style="margin-top: 8px;margin-bottom: 8px;">
             <!-- Add id name and onclick function during process story -->
-            <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="alert('add setPage for next page when known');">Next</button>
+            <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="setPage('#segmentSelectors');">Next</button>
             <button class="prevBtn" id="elementSelectorsPrevBtn" onclick="setPage('#metricSelectors');">Previous</button>
         </div>
         <br>
@@ -193,6 +172,29 @@
         <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
     </div>
 </fieldset>
+
+<!-- Segment Selectors -->
+    <fieldset id="segmentSelectors" style="display:none;">
+        <legend>Select Segment Filters to Include (Optional)</legend>
+        <label for="segment1">Segment 1</label>
+        <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"segment1",issearchable:"true",dataName:"segment1",clearable:"true"}'></alteryx-pluginwidget>
+        <label for="segment2">Segment 2</label>
+        <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"segment2",issearchable:"true",dataName:"segment2",clearable:"true"}'></alteryx-pluginwidget>
+        <button class="prevBtn" id="segmentValidation" onclick="validateSegments();">Validate Segment Selections</button>
+        <br>
+        <div id="invalidSegment"></div>
+        <div class='footer'>
+            <hr>
+            <div style="margin-top: 8px;margin-bottom: 8px;">
+                <!-- Add id name and onclick function during process story -->
+                <button type="submit" class="nextBtn" id="segmentSelectorsNextBtn" onclick="setPage('#summary');">Next</button>
+                <button class="prevBtn" id="segmentSelectorsPrevBtn" onclick="setPage('#elementSelectors');">Previous</button>
+            </div>
+            <br>
+            <br>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
+        </div>
+    </fieldset>
 
 <!-- Store values - never displayed -->
     <fieldset id="store" style="display:none">
