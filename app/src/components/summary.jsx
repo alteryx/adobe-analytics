@@ -8,10 +8,6 @@ class Summary extends React.Component {
     this.store = props.store
   }
 
-  // maxResults (advOptions) {
-  //   return advOptions ? `Results limited to a maximum of ${this.store.maxResults} rows` : ''
-  // }
-
   capitalize (string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
@@ -29,22 +25,59 @@ class Summary extends React.Component {
     const metrics = [metric1, metric2, metric3, metric4, metric5]
 
     const elementPrimary = this.store.elementPrimary.selectionName
+    const advOptionsPrimary = this.store.advOptionsPrimary
     const topPrimary = this.store.topPrimary
     const startingWithPrimary = this.store.startingWithPrimary
     const elementSecondary = this.store.elementSecondary.selectionName
+    const advOptionsSecondary = this.store.advOptionsSecondary
     const topSecondary = this.store.topSecondary
     const startingWithSecondary = this.store.startingWithSecondary
     const elementTertiary = this.store.elementTertiary.selectionName
+    const advOptionsTertiary = this.store.advOptionsTertiary
     const topTertiary = this.store.topTertiary
     const startingWithTertiary = this.store.startingWithTertiary
     const elements = [elementPrimary, elementSecondary, elementTertiary]
     const elementLabels = ["Primary", "Secondary", "Tertiary"]
+    const advOptionsList = [
+      {
+        isChecked: advOptionsPrimary,
+        topRecordLimit: topPrimary,
+        startingWith: startingWithPrimary
+      },
+      {
+        isChecked: advOptionsSecondary,
+        topRecordLimit: topSecondary,
+        startingWith: startingWithSecondary
+      },
+      {
+        isChecked: advOptionsTertiary,
+        topRecordLimit: topTertiary,
+        startingWith: startingWithTertiary
+      }
+    ]
 
     const segment1 = this.store.segment1.selectionName
     const segment2 = this.store.segment2.selectionName
     const segments = [segment1, segment2]
-    // const advOptions = this.store.advOptions
-    // const maxResults = this.maxResults(advOptions)
+    // React component conditionally renders pieces of information
+    // based on inclusion of advanced options
+    const ElementTableRow = (props) => {
+      const {value, index} = props
+      return advOptionsList[index].isChecked ?
+        <tr>
+          <th style={thNarrowStyle}>{elementLabels[index]} Element:</th>
+          <th style={thStyle}>{value}</th>
+          <th style={thNarrowStyle}>Top Record Limit:</th>
+          <th style={thStyle}>{advOptionsList[index].topRecordLimit}</th>
+          <th style={thNarrowStyle}>Starting with Record:</th>
+          <th style={thStyle}>{advOptionsList[index].startingWith}</th>
+        </tr>
+      :
+        <tr>
+          <th style={thNarrowStyle}>{elementLabels[index]} Element:</th>
+          <th style={thStyle}>{value}</th>
+        </tr>
+    }
     const divClass = 'summary'
     const tableStyle = {
       width: '95%'
@@ -103,7 +136,7 @@ class Summary extends React.Component {
                       metrics.reduce((acc, value, index) => {
                         if (value) {
                           acc.push(
-                            <tr key={value}>
+                            <tr key={`${value}${index}`}>
                               <th style={thNarrowStyle}>Metric {index+1}:</th>
                               <th style={thStyle}>{value}</th>
                             </tr>
@@ -127,10 +160,7 @@ class Summary extends React.Component {
                 elements.reduce((acc, value, index) => {
                   if (value) {
                     acc.push(
-                      <tr key={value}>
-                        <th style={thNarrowStyle}>{elementLabels[index]} Element:</th>
-                        <th style={thStyle}>{value}</th>
-                      </tr>
+                      <ElementTableRow key={`${value}${index}`} value={value} index={index}/>
                     )
                     return acc
                   } else {
@@ -151,7 +181,7 @@ class Summary extends React.Component {
                 segments.reduce((acc, value, index) => {
                   if (value) {
                     acc.push(
-                      <tr key={value}>
+                      <tr key={`${value}${index}`}>
                         <th style={thNarrowStyle}>Segment {index+1}:</th>
                         <th style={thStyle}>{value}</th>
                       </tr>
@@ -166,9 +196,9 @@ class Summary extends React.Component {
           </table>
         </div>
         <br></br>
-          {/* {maxResults} */}
       </div>
     )
   }
 }
+
 export default observer(Summary)
