@@ -99,7 +99,7 @@ class Summary extends React.Component {
                       metrics.reduce((acc, value, index) => {
                         if (value) {
                           acc.push(
-                            <tr>
+                            <tr key={value}>
                               <th style={thNarrowStyle}>Metric {index+1}:</th>
                               <th style={thStyle}>{value}</th>
                             </tr>
@@ -123,7 +123,7 @@ class Summary extends React.Component {
                 elements.reduce((acc, value, index) => {
                   if (value) {
                     acc.push(
-                      <tr>
+                      <tr key={value}>
                         <th style={thNarrowStyle}>{elementLabels[index]} Element:</th>
                         <th style={thStyle}>{value}</th>
                       </tr>
@@ -147,7 +147,7 @@ class Summary extends React.Component {
                 segments.reduce((acc, value, index) => {
                   if (value) {
                     acc.push(
-                      <tr>
+                      <tr key={value}>
                         <th style={thNarrowStyle}>Segment {index+1}:</th>
                         <th style={thStyle}>{value}</th>
                       </tr>
