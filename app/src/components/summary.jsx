@@ -81,10 +81,14 @@ class Summary extends React.Component {
                 <th style={thNarrowStyle}>End Date:</th>
                 <th style={thStyle}>{endDate}</th>
               </tr>
-              <tr>
-                <th style={thNarrowStyle}>Granularity:</th>
-                <th style={thStyle}>{granularity}</th>
-              </tr>
+              {
+                granularity ?
+                    <tr>
+                      <th style={thNarrowStyle}>Granularity:</th>
+                      <th style={thStyle}>{granularity}</th>
+                    </tr> :
+                    null
+              }
             </tbody>
           </table>
         </div>
