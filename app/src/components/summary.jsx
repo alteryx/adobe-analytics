@@ -11,21 +11,12 @@ class Summary extends React.Component {
   // maxResults (advOptions) {
   //   return advOptions ? `Results limited to a maximum of ${this.store.maxResults} rows` : ''
   // }
-  // reportSuiteFilter () {
-  //   const stringList = this.store.reportSuite.stringList
-  //   const selection = this.store.reportSuite.selection
-  //   return stringList.filter((d) => {
-  //     console.log(d.dataName)
-  //     return selection === d.dataName
-  //   })
-  // }
 
   capitalize (string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
   render () {
-    // const reportSuite = this.reportSuiteFilter() //this.store.reportSuite.selectedValues
     const reportSuite = this.store.reportSuite.selectionName
     const startDate = this.store.startDatePicker
     const endDate = this.store.endDatePicker
@@ -35,12 +26,23 @@ class Summary extends React.Component {
     const metric3 = this.store.metric3.selectionName
     const metric4 = this.store.metric4.selectionName
     const metric5 = this.store.metric5.selectionName
+    const metrics = [metric1, metric2, metric3, metric4, metric5]
+
     const elementPrimary = this.store.elementPrimary.selectionName
+    const topPrimary = this.store.topPrimary
+    const startingWithPrimary = this.store.startingWithPrimary
     const elementSecondary = this.store.elementSecondary.selectionName
+    const topSecondary = this.store.topSecondary
+    const startingWithSecondary = this.store.startingWithSecondary
     const elementTertiary = this.store.elementTertiary.selectionName
-    // Add these when segments is done
-    // const segment1 = this.store.segment1.selectionName
-    // const segment2 = this.store.segment2.selectionName
+    const topTertiary = this.store.topTertiary
+    const startingWithTertiary = this.store.startingWithTertiary
+    const elements = [elementPrimary, elementSecondary, elementTertiary]
+    const elementLabels = ["Primary", "Secondary", "Tertiary"]
+
+    const segment1 = this.store.segment1.selectionName
+    const segment2 = this.store.segment2.selectionName
+    const segments = [segment1, segment2]
     // const advOptions = this.store.advOptions
     // const maxResults = this.maxResults(advOptions)
     const divClass = 'summary'
@@ -87,70 +89,79 @@ class Summary extends React.Component {
           </table>
         </div>
         <br></br>
+        {/* Metrics - use .reduce to create and return an array of present
+          values with correct index reference */}
         <div>
           <a href="javascript:setPage('#metricSelectors')">Selected Metrics</a>
                 <table style={tableStyle}>
                   <tbody>
-                    <tr>
-                      <th style={thNarrowStyle}>Metric 1:</th>
-                      <th style={thStyle}>{metric1}</th>
-                     </tr>
-                    <tr>
-                      <th style={thNarrowStyle}>Metric 2:</th>
-                      <th style={thStyle}>{metric2}</th>
-                    </tr>
-                    <tr>
-                      <th style={thNarrowStyle}>Metric 3:</th>
-                      <th style={thStyle}>{metric3}</th>
-                    </tr>
-                    <tr>
-                      <th style={thNarrowStyle}>Metric 4:</th>
-                      <th style={thStyle}>{metric4}</th>
-                    </tr>
-                    <tr>
-                      <th style={thNarrowStyle}>Metric 5:</th>
-                      <th style={thStyle}>{metric5}</th>
-                    </tr>
+                    {
+                      metrics.reduce((acc, value, index) => {
+                        if (value) {
+                          acc.push(
+                            <tr>
+                              <th style={thNarrowStyle}>Metric {index+1}:</th>
+                              <th style={thStyle}>{value}</th>
+                            </tr>
+                          )
+                          return acc
+                        } else {
+                          return acc
+                        }
+                      }, [])
+                    }
             </tbody>
           </table>
         </div>
         <br></br>
+        {/* Elements */}
         <div>
           <a href="javascript:setPage('#elementSelectors')">Selected Elements</a>
           <table style={tableStyle}>
             <tbody>
-              <tr>
-                <th style={thNarrowStyle}>Primary Element:</th>
-                <th style={thStyle}>{elementPrimary}</th>
-              </tr>
-              <tr>
-                <th style={thNarrowStyle}>Secondary Element:</th>
-                <th style={thStyle}>{elementSecondary}</th>
-              </tr>
-              <tr>
-                <th style={thNarrowStyle}>Tertiary Element:</th>
-                <th style={thStyle}>{elementTertiary}</th>
-              </tr>
+              {
+                elements.reduce((acc, value, index) => {
+                  if (value) {
+                    acc.push(
+                      <tr>
+                        <th style={thNarrowStyle}>{elementLabels[index]} Element:</th>
+                        <th style={thStyle}>{value}</th>
+                      </tr>
+                    )
+                    return acc
+                  } else {
+                    return acc
+                  }
+                }, [])
+              }
             </tbody>
           </table>
         </div>
         <br></br>
-        {/* <div>
+        {/* Segments */}
+        <div>
           <a href="javascript:setPage('#segmentSelectors')">Selected Segments</a>
           <table style={tableStyle}>
             <tbody>
-              <tr>
-                <th style={thNarrowStyle}>Segment 1: </th>
-                <th style={thStyle}>{segment1}</th>
-              </tr>
-              <tr>
-                <th style={thNarrowStyle}>Segment 2:</th>
-                <th style={thStyle}>{segment2}</th>
-              </tr>
+              {
+                segments.reduce((acc, value, index) => {
+                  if (value) {
+                    acc.push(
+                      <tr>
+                        <th style={thNarrowStyle}>Segment {index+1}:</th>
+                        <th style={thStyle}>{value}</th>
+                      </tr>
+                    )
+                    return acc
+                  } else {
+                    return acc
+                  }
+                }, [])
+              }
             </tbody>
           </table>
         </div>
-        <br></br> */}
+        <br></br>
           {/* {maxResults} */}
       </div>
     )
