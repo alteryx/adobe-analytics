@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="282" y="282" />
+        <Position x="282" y="278.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -33,7 +33,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="54" y="342" />
+        <Position x="54" y="338.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -65,7 +65,7 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-        <Position x="138" y="282" />
+        <Position x="138" y="278.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -105,7 +105,7 @@
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="54" y="282" />
+        <Position x="54" y="278.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -145,7 +145,7 @@
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1242" y="288" />
+        <Position x="1242" y="284.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -163,7 +163,7 @@
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-        <Position x="366" y="282" />
+        <Position x="366" y="278.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -218,7 +218,7 @@
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="810" y="294" />
+        <Position x="810" y="290.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -264,7 +264,7 @@ Contains([Down...</DefaultAnnotationText>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="210" y="282" />
+        <Position x="210" y="278.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -294,7 +294,7 @@ Contains([Down...</DefaultAnnotationText>
     </Node>
     <Node ToolID="28">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="54" y="150" width="384" height="120" />
+        <Position x="54" y="146.0001" width="384" height="120" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -314,7 +314,7 @@ Contains([Down...</DefaultAnnotationText>
     </Node>
     <Node ToolID="32">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="942" y="306" />
+        <Position x="942" y="302.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -362,7 +362,7 @@ Contains([Down...</DefaultAnnotationText>
     </Node>
     <Node ToolID="33">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
-        <Position x="1038" y="318" />
+        <Position x="1038" y="314.0001" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -395,7 +395,7 @@ Contains([Down...</DefaultAnnotationText>
     </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="438" y="178" width="361" height="220" />
+        <Position x="438" y="174.0001" width="361" height="219.9999" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -413,7 +413,7 @@ Contains([Down...</DefaultAnnotationText>
       <ChildNodes>
         <Node ToolID="29">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="463" y="282" />
+            <Position x="463" y="278.0001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -460,7 +460,7 @@ AND
         </Node>
         <Node ToolID="30">
           <GuiSettings>
-            <Position x="547" y="222" />
+            <Position x="547" y="218.0001" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -480,7 +480,7 @@ AND
         </Node>
         <Node ToolID="31">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-            <Position x="715" y="294" />
+            <Position x="715" y="290.0001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -511,7 +511,7 @@ AND
         </Node>
         <Node ToolID="36">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-            <Position x="631" y="234" />
+            <Position x="631" y="230.0001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -551,7 +551,7 @@ AND
     </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="918" y="66" width="524" height="208" />
+        <Position x="918" y="54" width="620" height="216" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -569,7 +569,7 @@ AND
       <ChildNodes>
         <Node ToolID="12">
           <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-            <Position x="1266" y="110.0001" />
+            <Position x="1362" y="98.00005" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -587,7 +587,7 @@ AND
         </Node>
         <Node ToolID="21">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Throttle.Throttle">
-            <Position x="1099" y="110.0002" />
+            <Position x="1099" y="98.00011" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -612,7 +612,7 @@ AND
         </Node>
         <Node ToolID="23">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
-            <Position x="1195" y="110.0001" />
+            <Position x="1194" y="98.00005" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -638,7 +638,7 @@ AND
         </Node>
         <Node ToolID="24">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="943" y="110.0007" />
+            <Position x="943" y="98.00002" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -670,7 +670,7 @@ AND
         </Node>
         <Node ToolID="25">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-            <Position x="1027" y="110.0002" />
+            <Position x="1027" y="98.00006" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -701,7 +701,7 @@ AND
         </Node>
         <Node ToolID="26">
           <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-            <Position x="943" y="158.0002" />
+            <Position x="943" y="154.0002" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -737,6 +737,35 @@ AND
             </MetaInfo>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="38">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+            <Position x="1278" y="98.00006" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <When>First</When>
+              <Filter />
+              <Type>Message</Type>
+              <Priority>High</Priority>
+              <Transient>False</Transient>
+              <MessageExpression>"Adobe Analytics report not ready."</MessageExpression>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+                <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
         </Node>
       </ChildNodes>
     </Node>
@@ -812,7 +841,7 @@ AND
     </Connection>
     <Connection>
       <Origin ToolID="23" Connection="Output" />
-      <Destination ToolID="12" Connection="Input" />
+      <Destination ToolID="38" Connection="Input" />
     </Connection>
     <Connection name="#1">
       <Origin ToolID="24" Connection="Output" />
@@ -825,6 +854,10 @@ AND
     <Connection>
       <Origin ToolID="25" Connection="Output" />
       <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
