@@ -23,17 +23,21 @@ class Summary extends React.Component {
     const metric4 = this.store.metric4.selectionName
     const metric5 = this.store.metric5.selectionName
     const metrics = [metric1, metric2, metric3, metric4, metric5]
+    const metricLabels = ["One", "Two", "Three", "Four", "Five"]
 
     const elementPrimary = this.store.elementPrimary.selectionName
     const advOptionsPrimary = this.store.advOptionsPrimary
+    const elementPrimaryClassification = this.store.elementPrimaryClassification.selectionName
     const topPrimary = this.store.topPrimary
     const startingWithPrimary = this.store.startingWithPrimary
     const elementSecondary = this.store.elementSecondary.selectionName
     const advOptionsSecondary = this.store.advOptionsSecondary
+    const elementSecondaryClassification = this.store.elementSecondaryClassification.selectionName
     const topSecondary = this.store.topSecondary
     const startingWithSecondary = this.store.startingWithSecondary
     const elementTertiary = this.store.elementTertiary.selectionName
     const advOptionsTertiary = this.store.advOptionsTertiary
+    const elementTertiaryClassification = this.store.elementTertiaryClassification.selectionName
     const topTertiary = this.store.topTertiary
     const startingWithTertiary = this.store.startingWithTertiary
     const elements = [elementPrimary, elementSecondary, elementTertiary]
@@ -41,16 +45,19 @@ class Summary extends React.Component {
     const advOptionsList = [
       {
         isChecked: advOptionsPrimary,
+        classification: elementPrimaryClassification,
         topRecordLimit: topPrimary,
         startingWith: startingWithPrimary
       },
       {
         isChecked: advOptionsSecondary,
+        classification: elementSecondaryClassification,
         topRecordLimit: topSecondary,
         startingWith: startingWithSecondary
       },
       {
         isChecked: advOptionsTertiary,
+        classification: elementTertiaryClassification,
         topRecordLimit: topTertiary,
         startingWith: startingWithTertiary
       }
@@ -59,20 +66,32 @@ class Summary extends React.Component {
     const segment1 = this.store.segment1.selectionName
     const segment2 = this.store.segment2.selectionName
     const segments = [segment1, segment2]
+    const segmentLabels = ["One", "Two"]
     // React component conditionally renders pieces of information
     // based on inclusion of advanced options
     const ElementTableRow = (props) => {
       const {value, index} = props
-      return advOptionsList[index].isChecked ?
+      return advOptionsList[index].isChecked && advOptionsList[index].classification?
         <tr>
-          <th style={thNarrowStyle}>{elementLabels[index]} Element:</th>
+          <th style={thNarrowStyle}>{elementLabels[index]}:</th>
+          <th style={thStyle}>{value}</th>
+          <th style={thNarrowStyle}>Classification:</th>
+          <th style={thStyle}>{advOptionsList[index].classification}</th>
+          <th style={thNarrowStyle}>Top Record Limit:</th>
+          <th style={thStyle}>{advOptionsList[index].topRecordLimit}</th>
+          <th style={thNarrowStyle}>Starting with Record:</th>
+          <th style={thStyle}>{advOptionsList[index].startingWith}</th>
+        </tr>
+      : advOptionsList[index].isChecked ?
+        <tr>
+          <th style={thNarrowStyle}>{elementLabels[index]}:</th>
           <th style={thStyle}>{value}</th>
           <th style={thNarrowStyle}>Top Record Limit:</th>
           <th style={thStyle}>{advOptionsList[index].topRecordLimit}</th>
           <th style={thNarrowStyle}>Starting with Record:</th>
           <th style={thStyle}>{advOptionsList[index].startingWith}</th>
         </tr>
-      :
+        :
         <tr>
           <th style={thNarrowStyle}>{elementLabels[index]} Element:</th>
           <th style={thStyle}>{value}</th>
@@ -137,7 +156,7 @@ class Summary extends React.Component {
                         if (value) {
                           acc.push(
                             <tr key={`${value}${index}`}>
-                              <th style={thNarrowStyle}>Metric {index+1}:</th>
+                              <th style={thNarrowStyle}>{metricLabels[index]}:</th>
                               <th style={thStyle}>{value}</th>
                             </tr>
                           )
@@ -182,7 +201,7 @@ class Summary extends React.Component {
                   if (value) {
                     acc.push(
                       <tr key={`${value}${index}`}>
-                        <th style={thNarrowStyle}>Segment {index+1}:</th>
+                        <th style={thNarrowStyle}>{segmentLabels[index]}:</th>
                         <th style={thStyle}>{value}</th>
                       </tr>
                     )
