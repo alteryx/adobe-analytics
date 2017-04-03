@@ -132,6 +132,45 @@ Alteryx.Gui.AfterLoad = (manager) => {
     return value !== ''
   }
 
+  const advOptionsToggle = (element) => {
+    switch (element) {
+      case 'primary':
+        if (store.advOptionsPrimary === true) {
+          document.getElementById('primaryArrow').className = 'arrow-right'
+          store.advOptionsPrimary = false
+        } else {
+          document.getElementById('primaryArrow').className = 'arrow-down'
+          store.advOptionsPrimary = true
+        }
+        break
+      case 'secondary':
+        if (store.advOptionsSecondary === true) {
+          document.getElementById('secondaryArrow').className = 'arrow-right'
+          store.advOptionsSecondary = false
+        } else {
+          document.getElementById('secondaryArrow').className = 'arrow-down'
+          store.advOptionsSecondary = true
+        }
+        break
+      case 'tertiary':
+        if (store.advOptionsTertiary === true) {
+          document.getElementById('tertiaryArrow').className = 'arrow-right'
+          store.advOptionsTertiary = false
+        } else {
+          document.getElementById('tertiaryArrow').className = 'arrow-down'
+          store.advOptionsTertiary = true
+        }
+        break
+    }
+  }
+
+  // Checks the state of advOptions and displays the correct arrow image
+  autorun(() => {
+    store.advOptionsPrimary === true ? document.getElementById('primaryArrow').className = 'arrow-down' : document.getElementById('primaryArrow').className = 'arrow-right'
+    store.advOptionsSecondary === true ? document.getElementById('secondaryArrow').className = 'arrow-down' : document.getElementById('secondaryArrow').className = 'arrow-right'
+    store.advOptionsTertiary === true ? document.getElementById('tertiaryArrow').className = 'arrow-down' : document.getElementById('tertiaryArrow').className = 'arrow-right'
+  })
+
   // Enable or Disable the Connect button on Developer Credentials page
   autorun(() => {
     const target = document.getElementById('connect_button')
@@ -351,4 +390,5 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.elements = reportValidation.elements
   window.segments = reportValidation.segments
   window.payload = reportValidation.payload
+  window.advOptionsToggle = advOptionsToggle
 }
