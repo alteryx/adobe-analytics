@@ -340,6 +340,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.getSegments = segmentSelectors.getSegments
   window.validateSegments = segmentSelectors.validateSegments
   window.removeMissingValues = segmentSelectors.removeMissingValues
+  window.advOptionsPrimaryToggle = utils.advOptionsPrimaryToggle
+  window.advOptionsSecondaryToggle = utils.advOptionsSecondaryToggle
+  window.advOptionsTertiaryToggle = utils.advOptionsTertiaryToggle
   window.topLevelElements = elementSelectors.topLevelElements
   window.filterElements = elementSelectors.filterElements
   window.validateElements = elementSelectors.validateElements
@@ -349,5 +352,3 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.segments = reportValidation.segments
   window.payload = reportValidation.payload
 }
-
-    

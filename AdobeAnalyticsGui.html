@@ -159,18 +159,23 @@
       <alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsPrimary" dataName="advOptionsPrimary"></alteryx-pluginwidget>
     </div>
 
+<div id="advOptionsPrimaryArrow">
+<di
     <div id="advOptionsPrimaryText">
-    <u>Advanced Options</u>
+      <a style="cursor: pointer"; onclick="advOptionsPrimaryToggle();"><u>Advanced Options</u></a>
     </div>
 
     <div id="advOptionsInputsPrimary">
       <label for="elementPrimaryClassification">Classification</label>
       <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimaryClassification",issearchable:"true",dataName:"elementPrimaryClassification",clearable:"true"}'></alteryx-pluginwidget>
-      <label style="margin-left: 20px">Record Limits</label>
-      <label style="margin-left: 40px">Top Record Limit:</label>
-      <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"topPrimary",default:"100",max:"50000",min:"1",dataName:"topPrimary"}'></alteryx-pluginwidget>
-      <label style="margin-left: 40px">Starting with Record:</label>
-      <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"startingWithPrimary",default:"1",max:"49999",min:"1",dataName:"startingWithPrimary"}'></alteryx-pluginwidget>
+      <p></p>
+      <label>Record Limits</label>
+      <div class="recordLimitsPrimary">
+        <label>Top Record Limit:</label>
+        <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topPrimary",default:"100",max:"50000",min:"1",dataName:"topPrimary"}'></alteryx-pluginwidget>
+        <label>Starting with Record:</label>
+        <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithPrimary",default:"1",max:"49999",min:"1",dataName:"startingWithPrimary"}'></alteryx-pluginwidget>
+      </div>
     </div>
 
     <br>
@@ -184,17 +189,20 @@
     </div>
 
     <div id="advOptionsSecondaryText">
-      <u>Advanced Options</u>
+      <a style="cursor: pointer"; onclick="advOptionsSecondaryToggle();"><u>Advanced Options</u></a>
     </div>
 
     <div id="advOptionsInputsSecondary">
       <label for="elementSecondaryClassification">Classification</label>
       <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondaryClassification",issearchable:"true",dataName:"elementSecondaryClassification",clearable:"true"}'></alteryx-pluginwidget>
-      <label style="margin-left: 20px">Record Limits</label>
-      <label style="margin-left: 40px">Top Record Limit:</label>
-      <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"topSecondary",default:"100",max:"50000",min:"1",dataName:"topSecondary"}'></alteryx-pluginwidget>
-      <label style="margin-left: 40px">Starting with Record:</label>
-      <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"startingWithSecondary",default:"1",max:"49999",min:"1",dataName:"startingWithSecondary"}'></alteryx-pluginwidget>
+      <p></p>
+      <label>Record Limits</label>
+      <div class="recordLimitsSecondary">
+        <label>Top Record Limit:</label>
+        <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topSecondary",default:"100",max:"50000",min:"1",dataName:"topSecondary"}'></alteryx-pluginwidget>
+        <label>Starting with Record:</label>
+        <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithSecondary",default:"1",max:"49999",min:"1",dataName:"startingWithSecondary"}'></alteryx-pluginwidget>
+      </div>
     </div>
 
     <br>
@@ -208,18 +216,20 @@
     </div>
 
     <div id="advOptionsTertiaryText">
-    <u>Advanced Options</u>
+      <a style="cursor: pointer"; onclick="advOptionsTertiaryToggle();"><u>Advanced Options</u></a>
     </div>
 
     <div id="advOptionsInputsTertiary">
       <label for="elementTertiaryClassification">Classification</label>
       <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiaryClassification",issearchable:"true",dataName:"elementTertiaryClassification",clearable:"true"}'></alteryx-pluginwidget>
-      <label style="margin-left: 20px">Record Limits</label>
-      <label style="margin-left: 40px">Top Record Limit:</label>
-      <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"topTertiary",default:"100",max:"50000",min:"1",dataName:"topTertiary"}'></alteryx-pluginwidget>
-      <label style="margin-left: 40px">Starting with Record:</label>
-      <alteryx-pluginwidget style="margin-left: 40px" data-props='{type:"NumericSpinner",id:"startingWithTertiary",default:"1",max:"49999",min:"1",dataName:"startingWithTertiary"}'></alteryx-pluginwidget>
-      <br>
+      <p></p>
+      <label>Record Limits</label>
+      <div class="recordLimitsTertiary">
+        <label>Top Record Limit:</label>
+        <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topTertiary",default:"100",max:"50000",min:"1",dataName:"topTertiary"}'></alteryx-pluginwidget>
+        <label>Starting with Record:</label>
+        <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithTertiary",default:"1",max:"49999",min:"1",dataName:"startingWithTertiary"}'></alteryx-pluginwidget>
+      </div>
     </div>
 
     <br>
