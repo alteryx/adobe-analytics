@@ -41,7 +41,7 @@ const mapClassifications = (response) => {
         element_id: elementId, // saving element ID and name just in case
         element_name: elementName,
         classification_name: d.name, // Will become dataName
-        uiobject: `${elementName}: ${d.name}`
+        uiobject: `${elementName} | ${d.name}`
       }
     })
     mappedClassifications = mappedClassifications.concat(elementStructure)
