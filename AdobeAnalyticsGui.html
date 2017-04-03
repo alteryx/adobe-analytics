@@ -51,7 +51,7 @@
         <legend>Select Report Suite</legend>
         <alteryx-pluginwidget data-props='{type:"ListBox",dataType:"StringSelector",id:"reportSuite",issearchable:"true",dataName:"reportSuite"}'>
         </alteryx-pluginwidget>
-        <!-- <div class='footer_spacer'></div> -->
+        <div class='footer_spacer'></div>
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
@@ -92,7 +92,6 @@
             <alteryx-pluginwidget type="DateTimeField" dateFormat="YYYY-MM-DD" id="endDatePicker" dataType="SimpleDate" dataName="endDatePicker"></alteryx-pluginwidget>
         </div>
         <div id="dateWarning" style="z-index: 1; height:0px;"></div>
-        <!-- <div class='footer_spacer'></div> -->
         <p>
         <!-- Granularity section -->
         <div id="granularity">
@@ -106,6 +105,7 @@
                 <alteryx-option uiobject="Year">year</alteryx-option>
             </alteryx-pluginwidget>
         </div>
+        <div class='footer_spacer'></div>
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
@@ -135,6 +135,7 @@
         <button class="prevBtn" id="metricValidation" onclick="validateMetrics();">Validate Metric Selections</button>
         <br>
         <div id="invalidMetric"></div>
+        <div class='footer_spacer'></div>
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
@@ -236,6 +237,7 @@
 
     <br>
     <div id="invalidElement"></div>
+    <div class='footer_spacer'></div>
     <div class='footer'>
         <hr>
         <div style="margin-top: 8px;margin-bottom: 8px;">
@@ -259,6 +261,7 @@
         <button class="prevBtn" id="segmentValidation" onclick="validateSegments();">Validate Segment Selections</button>
         <br>
         <div id="invalidSegment"></div>
+        <div class='footer_spacer'></div>
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">

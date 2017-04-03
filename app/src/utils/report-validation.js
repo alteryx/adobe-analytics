@@ -43,26 +43,32 @@ const metrics = (store) => {
 }
 
 const elements = (store) => {
-  const list = [
-    store.elementPrimary,
-    store.elementSecondary,
-    store.elementTertiary
-  ]
-
-  const elements = list.filter(notEmpty)
-
   let elementDetails = []
 
-  elements.forEach((item) => {
-    elementDetails.push({
-      'id': item.selection // ,
-      // 'classification': '', // optional adv. option
-      // 'top': '', // optional adv. option
-      // 'startingWith': '' // optional adv. option
-    })
-  })
+  if (store.elementPrimary !== '') { elementDetails.push(buildElement(store.elementPrimary, store.advOptionsPrimary, store.elementPrimaryClassification, store.topPrimary, store.startingWithPrimary)) }
+  if (store.elementSecondary !== '') { elementDetails.push(buildElement(store.elementSecondary, store.advOptionsSecondary, store.elementSecondaryClassification, store.topSecondary, store.startingWithSecondary)) }
+  if (store.elementTertiary !== '') { elementDetails.push(buildElement(store.elementTertiary, store.advOptionsTertiary, store.elementTertiaryClassification, store.topTertiary, store.startingWithTertiary)) }
 
   return elementDetails
+}
+
+const buildElement = (selection, advOption, classification, top, startingWith) => {
+  let element
+
+  if (advOptions === true) {
+    element = {
+      'id': selection,
+      'classification': classification,
+      'top': top,
+      'startingWith': startingWith
+    }
+  } else {
+    element = {
+      'id': selection
+    }
+  }
+
+  return element
 }
 
 const segments = (store) => {
