@@ -42,20 +42,6 @@ const metrics = (store) => {
   return metrics
 }
 
-    {key: 'elementPrimary', type: 'dropDown'},
-    {key: 'advOptionsPrimary', type: 'value'},
-    {key: 'topPrimary', type: 'value'},
-    {key: 'startingWithPrimary', type: 'value'},
-    {key: 'elementSecondary', type: 'dropDown'},
-    {key: 'advOptionsSecondary', type: 'value'},
-    {key: 'topSecondary', type: 'value'},
-    {key: 'startingWithSecondary', type: 'value'},
-    {key: 'elementTertiary', type: 'dropDown'},
-    {key: 'advOptionsTertiary', type: 'value'},
-    {key: 'topTertiary', type: 'value'},
-    {key: 'startingWithTertiary', type: 'value'},
-    {key: 'elementError', type: 'value'},
-
 const elements = (store) => {
   let elementDetails = []
 
