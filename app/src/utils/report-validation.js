@@ -1,6 +1,7 @@
 import AyxStore from '../stores/AyxStore'
 
 const validateReport = (store) => {
+  showLoader(true)
   const endPoint = 'https://api.omniture.com/admin/1.4/rest/'
   const currentMethod = '?method=Report.Validate'
   const url = endPoint + currentMethod + '&access_token=' + store.access_token
@@ -10,7 +11,21 @@ const validateReport = (store) => {
     method: 'POST',
     data: payload(store)
   })
-  return validate
+  validate
+    .done((data) => {
+      store.reportValidation = {
+        'error_type': 'Success',
+        'error_description': ''
+      }
+      showLoader(false)
+    })
+    .fail((jqXHR) => {
+      store.reportValidation = {
+        'error_type': jqXHR.responseJSON.error,
+        'error_description': jqXHR.responseJSON.error_description
+      }
+      showLoader(false)
+    })
 }
 
 const payload = (store) => {
@@ -26,7 +41,7 @@ const payload = (store) => {
       // 'elementDataEncoding': '(string)' // base64 or utf8
     }
   }
-
+  store.reportDescription = JSON.stringify(data)
   return data
 }
 
@@ -96,4 +111,22 @@ const notEmpty = (item) => {
   return item.selection !== ''
 }
 
-export { validateReport, metrics, elements, segments, payload }
+const showLoader = (flag) => {
+  if (flag) {
+    document.getElementById('loading').style.display = 'block'
+    document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">Validating Report</p><img src="loading_ring.svg">'
+    document.getElementById('loading-inner').style.display = 'block'
+  } else {
+    document.getElementById('loading').style.display = 'none'
+    document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
+    document.getElementById('loading-inner').style.display = 'none'
+  }
+}
+
+const clearWarning = (store) => {
+  return store.reportValidation = {
+    'error_type': '',
+    'error_description': ''
+  }
+}
+export { validateReport, metrics, elements, segments, payload, clearWarning }
