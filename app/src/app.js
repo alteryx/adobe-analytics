@@ -341,8 +341,8 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.validateSegments = segmentSelectors.validateSegments
   window.removeMissingValues = segmentSelectors.removeMissingValues
   window.advOptionsPrimaryToggle = utils.advOptionsPrimaryToggle
-  window.advOptionsPrimaryToggle = utils.advOptionsSecondaryToggle
-  window.advOptionsPrimaryToggle = utils.advOptionsTertiaryToggle
+  window.advOptionsSecondaryToggle = utils.advOptionsSecondaryToggle
+  window.advOptionsTertiaryToggle = utils.advOptionsTertiaryToggle
   window.topLevelElements = elementSelectors.topLevelElements
   window.filterElements = elementSelectors.filterElements
   window.validateElements = elementSelectors.validateElements
