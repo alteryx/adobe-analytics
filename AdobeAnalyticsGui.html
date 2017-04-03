@@ -155,12 +155,18 @@
     <label for="elementPrimary">Primary Element</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimary",issearchable:"true",dataName:"elementPrimary",clearable:"true"}'></alteryx-pluginwidget>
 
+<<<<<<< HEAD
     <div id="advOptionsPrimary">
       <alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsPrimary" dataName="advOptionsPrimary"></alteryx-pluginwidget>
     </div>
 
     <div id="advOptionsPrimaryText">
       <a style="cursor: pointer"; onclick="advOptionsPrimaryToggle();"><u>Advanced Options</u></a>
+=======
+    <div id="advOptionsPrimary" style="width: 200px;">
+      <a href="#" onclick="advOptionsToggle('primary');"><div id="primaryArrow" class="arrow-right"></div><div style="display: inline-block;margin-left: 5px;"><u>Advanced Options</u></div></a> 
+      <div style="display:none;"><alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsPrimary" dataName="advOptionsPrimary"></alteryx-pluginwidget></div>
+>>>>>>> master
     </div>
 
     <div id="advOptionsInputsPrimary">
@@ -182,12 +188,9 @@
     <label for="elementSecondary">Secondary Element</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondary",issearchable:"true",dataName:"elementSecondary",clearable:"true"}'></alteryx-pluginwidget>
 
-    <div id="advOptionsSecondary">
-      <alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsSecondary" dataName="advOptionsSecondary"></alteryx-pluginwidget>
-    </div>
-
-    <div id="advOptionsSecondaryText">
-      <a style="cursor: pointer"; onclick="advOptionsSecondaryToggle();"><u>Advanced Options</u></a>
+    <div id="advOptionsSecondary" style="width: 200px;">
+      <a href="#" onclick="advOptionsToggle('secondary');"><div id="secondaryArrow" class="arrow-right"></div><div style="display: inline-block;margin-left: 5px;"><u>Advanced Options</u></div></a> 
+      <div style="display:none;"><alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsSecondary" dataName="advOptionsSecondary"></alteryx-pluginwidget></div>
     </div>
 
     <div id="advOptionsInputsSecondary">
@@ -209,12 +212,9 @@
     <label for="elementTertiary">Tertiary Element</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiary",issearchable:"true",dataName:"elementTertiary",clearable:"true"}'></alteryx-pluginwidget>
 
-    <div id="advOptionsTertiary">
-      <alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsTertiary" dataName="advOptionsTertiary"></alteryx-pluginwidget>
-    </div>
-
-    <div id="advOptionsTertiaryText">
-      <a style="cursor: pointer"; onclick="advOptionsTertiaryToggle();"><u>Advanced Options</u></a>
+    <div id="advOptionsTertiary" style="width: 200px;">
+      <a href="#" onclick="advOptionsToggle('tertiary');"><div id="tertiaryArrow" class="arrow-right"></div><div style="display: inline-block;margin-left: 5px;"><u>Advanced Options</u></div></a> 
+      <div style="display:none;"><alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsTertiary" dataName="advOptionsTertiary"></alteryx-pluginwidget></div>
     </div>
 
     <div id="advOptionsInputsTertiary">
