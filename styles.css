@@ -355,21 +355,18 @@ hr {
 #advOptionsPrimary {display:inline-block}
 #advOptionsPrimaryText {display:inline-block}
 #advOptionsInputsPrimary {margin-left: 20px}
-.recordLimitsPrimary {margin-left: 20px}
 
 #advOptionsSecondary {display:inline-block}
 #advOptionsSecondaryText {display:inline-block}
 #advOptionsInputsSecondary {margin-left: 20px}
-.recordLimitsSecondary {margin-left: 20px}
 
 #advOptionsTertiary {display:inline-block}
 #advOptionsTertiaryText {display:inline-block}
 #advOptionsInputsTertiary {margin-left: 20px}
-.recordLimitsTertiary {margin-left: 20px}
 
 .arrow-down {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
   border-top: 7px solid black;
@@ -379,8 +376,8 @@ hr {
 
 .arrow-right {
   margin-right: 3px;
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-top: 5px solid transparent;
   border-bottom: 5px solid transparent;
   border-left: 7px solid black;
