@@ -45,9 +45,9 @@ const metrics = (store) => {
 const elements = (store) => {
   let elementDetails = []
 
-  if (store.elementPrimary !== '') { elementDetails.push(buildElement(store.elementPrimary, store.advOptionsPrimary, store.elementPrimaryClassification, store.topPrimary, store.startingWithPrimary)) }
-  if (store.elementSecondary !== '') { elementDetails.push(buildElement(store.elementSecondary, store.advOptionsSecondary, store.elementSecondaryClassification, store.topSecondary, store.startingWithSecondary)) }
-  if (store.elementTertiary !== '') { elementDetails.push(buildElement(store.elementTertiary, store.advOptionsTertiary, store.elementTertiaryClassification, store.topTertiary, store.startingWithTertiary)) }
+  if (store.elementPrimary.selection !== '') { elementDetails.push(buildElement(store.elementPrimary.selection, store.advOptionsPrimary, store.elementPrimaryClassification.selection, store.topPrimary, store.startingWithPrimary)) }
+  if (store.elementSecondary.selection !== '') { elementDetails.push(buildElement(store.elementSecondary.selection, store.advOptionsSecondary, store.elementSecondaryClassification.selection, store.topSecondary, store.startingWithSecondary)) }
+  if (store.elementTertiary.selection !== '') { elementDetails.push(buildElement(store.elementTertiary.selection, store.advOptionsTertiary, store.elementTertiaryClassification.selection, store.topTertiary, store.startingWithTertiary)) }
 
   return elementDetails
 }
@@ -55,7 +55,7 @@ const elements = (store) => {
 const buildElement = (selection, advOption, classification, top, startingWith) => {
   let element
 
-  if (advOptions === true) {
+  if (advOption === true) {
     element = {
       'id': selection,
       'classification': classification,
