@@ -77,50 +77,6 @@ const pushMetrics = (response) => {
   store.metric1.loading = false
 }
 
-const validateMetrics = () => {
-  store.metric1.loading = true
-  const endPoint = 'https://api.omniture.com/admin/1.4/rest/'
-  const currentMethod = '?method=Report.GetMetrics'
-  const url = endPoint + currentMethod + '&access_token=' + store.access_token
-  const payload = {
-    'existingMetrics': store.metricSelections,
-    'reportSuiteID': store.reportSuite.selection
-  }
-  $.ajax({
-    url: url,
-    dataType: 'json',
-    method: 'POST',
-    data: payload
-  })
-  .done(() => {
-    store.setPage = '#elementSelectors'
-    store.metricError = {
-      'error_type': 'Success',
-      'error_description': ''
-    }
-    console.log('valid metric combination')
-    store.metric1.loading = false
-  })
-  .fail((jqXHR) => {
-    console.log(jqXHR)
-    store.metricError = {
-      'error_type': jqXHR.responseJSON.error,
-      'error_description': jqXHR.responseJSON.error_description,
-      'metricName': metricName(jqXHR.responseJSON.error_description)
-    }
-    console.log('invalid metric')
-    store.metric1.loading = false
-  })
-
-  const metricName = (description) => {
-    for (let value of store.metricArray) {
-      if (description.includes(value.selection)) {
-        return value.selectionName
-      }
-    }
-  }
-}
-
 // Can't get to run on user data change
 // const filterMetricLists = (store) => {
 //   console.log('filtering metrics')
@@ -151,5 +107,5 @@ const validateMetrics = () => {
 //   }
 // }
 
-export { topLevelMetrics, getMetrics, validateMetrics }
+export { topLevelMetrics }
 

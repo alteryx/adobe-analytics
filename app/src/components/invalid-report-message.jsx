@@ -1,7 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react'
 
-class InvalidMetric extends React.Component {
+class InvalidReport extends React.Component {
   constructor (props) {
     super(props)
     this.store = props.store
@@ -13,33 +13,32 @@ class InvalidMetric extends React.Component {
     if (type === '' || type === undefined) {
       divClass = ''
     } else if (type === 'Success') {
-      divClass = 'metricValid'
+      divClass = 'validReport'
     } else {
-      divClass = 'metricWarning'
+      divClass = 'invalidReport'
     }
     return divClass
   }
 
-  addText (type, desc, metric) {
+  addText (type, desc) {
     let text = ''
 
     if (type === '' || type === undefined) {
       text = ''
     } else if (type === 'Success') {
-      text = 'Success!  Valid combination of metrics.'
+      text = 'Success!  Valid report description.'
     } else {
-      text = type + '\n\n' + desc + '\n\n' + metric
+      text = type + '\n\n' + desc
     }
 
     return text
   }
 
   render () {
-    const errorType = this.store.metricError.error_type
-    const errorDesc = this.store.metricError.error_description
-    const metric = this.store.metricError.metricName
+    const errorType = this.store.reportValidation.error_type
+    const errorDesc = this.store.reportValidation.error_description
     const divClass = this.addClass(errorType)
-    const text = this.addText(errorType, errorDesc, metric)
+    const text = this.addText(errorType, errorDesc)
 
     return (
       <div className={divClass}>
@@ -48,4 +47,4 @@ class InvalidMetric extends React.Component {
     )
   }
 }
-export default observer(InvalidMetric)
+export default observer(InvalidReport)

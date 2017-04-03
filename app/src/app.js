@@ -9,9 +9,7 @@ import DateMessage from './components/date-message.jsx'
 import ConnectionErrorMessage from './components/connection-error-message.jsx'
 import * as reportSuites from './utils/report-suites'
 import * as metricSelectors from './utils/metric-selectors'
-import InvalidMetric from './components/invalid-metric-message.jsx'
-import InvalidElement from './components/invalid-element-message.jsx'
-import InvalidSegment from './components/invalid-segment-message.jsx'
+import InvalidReport from './components/invalid-report-message.jsx'
 import * as segmentSelectors from './utils/segment-selectors'
 import * as elementSelectors from './utils/element-selectors'
 import * as reportValidation from './utils/report-validation'
@@ -55,7 +53,8 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'startingWithTertiary', type: 'value'},
     {key: 'elementError', type: 'value'},
     {key: 'segment1', type: 'dropDown'},
-    {key: 'segment2', type: 'dropDown'}
+    {key: 'segment2', type: 'dropDown'},
+    {key: 'reportValidation', type: 'value'}
   ]
 
   // Instantiate the mobx store which will sync all dataItems
@@ -189,35 +188,11 @@ Alteryx.Gui.AfterLoad = (manager) => {
     }
   })
 
-  // Refreshes the element and segment dropdowns
-  // autorun(() => {
-  //   if (store.access_token !== '' && store.reportSuite.selection !== '' && store.metricSelections.length > 0) {
-  //     elementSelectors.topLevelElements(store)
-  //     segmentSelectors.topLevelSegments(store)
-  //   }
-  // })
-
   // Enable or Disable the Next button on metric selectors page
   autorun(() => {
     const target = document.getElementById('metricSelectorsNextBtn')
     store.metricSelections.length === 0 ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
   })
-
-  // autorun(() => {
-  //   const metricArray = [
-  //     store.metric1,
-  //     store.metric2,
-  //     store.metric3,
-  //     store.metric4,
-  //     store.metric5
-  //   ]
-
-  //   for (let value of metricArray) {
-  //     if (store.metricError.error_description.includes(value.selection)) {
-  //       store.metricError.name = value.selectionName
-  //     }
-  //   }
-  // })
 
   // Displays the Classification, top and starting with options for Primary Elements if Advanced Options is toggled
   autorun(() => {
@@ -228,7 +203,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     }
   })
 
-    // Displays the Classification, top and starting with options for Secondary Elements if Advanced Options is toggled
+  // Displays the Classification, top and starting with options for Secondary Elements if Advanced Options is toggled
   autorun(() => {
     if (store.advOptionsSecondary) {
       document.getElementById('advOptionsInputsSecondary').style.display = 'block'
@@ -237,7 +212,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     }
   })
 
-    // Displays the Classification, top and starting with options for Tertiary Elements if Advanced Options is toggled
+  // Displays the Classification, top and starting with options for Tertiary Elements if Advanced Options is toggled
   autorun(() => {
     if (store.advOptionsTertiary) {
       document.getElementById('advOptionsInputsTertiary').style.display = 'block'
@@ -275,9 +250,6 @@ Alteryx.Gui.AfterLoad = (manager) => {
         const flag = (store.metric1.loading || store.elementPrimary.loading)
         loading(flag)
         break
-      // case '#dimensions':
-      //   loading(store.dimensionsList.loading)
-      //   break
       case '#segmentSelectors':
         loading(store.segment1.loading)
         break
@@ -287,18 +259,6 @@ Alteryx.Gui.AfterLoad = (manager) => {
       //   break
     }
   })
-
-  // Seems to crash the devTools window
-  // Populate the reportDefinition store
-  // autorun(() => {
-  //   store.reportDefintion = JSON.stringify(reportValidation.payload(store))
-  // })
-
-  // Show or Hide the Validate Selections buttons
-  // autorun(() => {
-  //   store.metricSelections.length > 1 ? document.getElementById('metricValidation').style.display = 'block' : document.getElementById('metricValidation').style.display = 'none'
-  //   store.elementSelections.length > 1 ? document.getElementById('elementValidation').style.display = 'block' : document.getElementById('elementValidation').style.display = 'none'
-  // })
 
   // Render react component which handles connection error messaging
   autorun(() => {
@@ -313,14 +273,25 @@ Alteryx.Gui.AfterLoad = (manager) => {
   // Render react component which handles a warning message for End Date not at or after Start Date.
   ReactDOM.render(<DateMessage store={store} />, document.querySelector('#dateWarning'))
 
-  // Render react component which handles a warning message for invalid metrics
-  ReactDOM.render(<InvalidMetric store={store} />, document.querySelector('#invalidMetric'))
-
-  // Render react component which handles a warning message for invalid elements
-  ReactDOM.render(<InvalidElement store={store} />, document.querySelector('#invalidElement'))
-
-  // Render react component which handles a warning message for invalid segments
-  // ReactDOM.render(<InvalidSegment store={store} />, document.querySelector('#invalidSegment'))
+  // Render react component which handles a warning message for invalid report descriptions
+  autorun(() => {
+    let page = ''
+    switch (store.page) {
+      case '#metricSelectors':
+        page = '#invalidMetric'
+        break
+      case '#elementSelectors':
+        page = '#invalidElement'
+        break
+      case '#segmentSelectors':
+        page = '#invalidSegment'
+        break
+      case '#summary':
+        page = '#invalidReport'
+        break
+    }
+    page === '' ? '' : ReactDOM.render(<InvalidReport store={store} />, document.querySelector(page))
+  })
 
   // Render react component which handles the summary page
   ReactDOM.render(<Summary store={store} />, document.querySelector('#summaryDiv'))
@@ -341,8 +312,6 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.showLoader = utils.showLoader
   window.resetFields = utils.resetFields
   window.topLevelMetrics = metricSelectors.topLevelMetrics
-  window.getMetrics = metricSelectors.getMetrics
-  window.validateMetrics = metricSelectors.validateMetrics
   window.topLevelSegments = segmentSelectors.topLevelSegments
   window.getSegments = segmentSelectors.getSegments
   window.validateSegments = segmentSelectors.validateSegments
@@ -350,8 +319,8 @@ Alteryx.Gui.AfterLoad = (manager) => {
   window.advOptionsToggle = utils.advOptionsToggle
   window.topLevelElements = elementSelectors.topLevelElements
   window.filterElements = elementSelectors.filterElements
-  window.validateElements = elementSelectors.validateElements
   window.validateReport = reportValidation.validateReport
+  window.clearWarning = reportValidation.clearWarning
   window.metrics = reportValidation.metrics
   window.elements = reportValidation.elements
   window.segments = reportValidation.segments

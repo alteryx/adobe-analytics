@@ -16,7 +16,6 @@ class ConnectionErrorMessage extends React.Component {
   }
 
   messageText (errorStatus) {
-    console.log('errorStatus:  ' + errorStatus)
     let text
     // The original error messages are commented right after the new messages
     switch (errorStatus) {

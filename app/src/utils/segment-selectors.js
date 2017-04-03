@@ -3,12 +3,9 @@ import _ from 'lodash'
 
 const topLevelSegments = (store) => {
   store.segment1.loading = true
-  // const segmentsAll = getSegments(store, payload(store, 'all'))
   const segmentsShared = getSegments(store, payload(store, 'shared'))
   const segmentsOwned = getSegments(store, payload(store, 'owned'))
   const promises = [segmentsShared, segmentsOwned]
-
-  // removeMissingValues()
 
   Promise.all(promises)
     .then(mergeSegments)
@@ -118,8 +115,5 @@ const doneLoading = () => {
   store.segment1.loading = false
 }
 
-const validateSegments = () => {
-  alert('Validate Segment Selections button clicked - connect with Report Validation')
-}
-export { topLevelSegments, getSegments, validateSegments }
+export { topLevelSegments }
 
