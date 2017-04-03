@@ -8,24 +8,11 @@ class Summary extends React.Component {
     this.store = props.store
   }
 
-  // maxResults (advOptions) {
-  //   return advOptions ? `Results limited to a maximum of ${this.store.maxResults} rows` : ''
-  // }
-  // reportSuiteFilter () {
-  //   const stringList = this.store.reportSuite.stringList
-  //   const selection = this.store.reportSuite.selection
-  //   return stringList.filter((d) => {
-  //     console.log(d.dataName)
-  //     return selection === d.dataName
-  //   })
-  // }
-
   capitalize (string) {
     return string.charAt(0).toUpperCase() + string.slice(1)
   }
 
   render () {
-    // const reportSuite = this.reportSuiteFilter() //this.store.reportSuite.selectedValues
     const reportSuite = this.store.reportSuite.selectionName
     const startDate = this.store.startDatePicker
     const endDate = this.store.endDatePicker
@@ -35,14 +22,81 @@ class Summary extends React.Component {
     const metric3 = this.store.metric3.selectionName
     const metric4 = this.store.metric4.selectionName
     const metric5 = this.store.metric5.selectionName
+    const metrics = [metric1, metric2, metric3, metric4, metric5]
+    const metricLabels = ["One", "Two", "Three", "Four", "Five"]
+
     const elementPrimary = this.store.elementPrimary.selectionName
+    const advOptionsPrimary = this.store.advOptionsPrimary
+    const elementPrimaryClassification = this.store.elementPrimaryClassification.selectionName
+    const topPrimary = this.store.topPrimary
+    const startingWithPrimary = this.store.startingWithPrimary
     const elementSecondary = this.store.elementSecondary.selectionName
+    const advOptionsSecondary = this.store.advOptionsSecondary
+    const elementSecondaryClassification = this.store.elementSecondaryClassification.selectionName
+    const topSecondary = this.store.topSecondary
+    const startingWithSecondary = this.store.startingWithSecondary
     const elementTertiary = this.store.elementTertiary.selectionName
-    // Add these when segments is done
-    // const segment1 = this.store.segment1.selectionName
-    // const segment2 = this.store.segment2.selectionName
-    // const advOptions = this.store.advOptions
-    // const maxResults = this.maxResults(advOptions)
+    const advOptionsTertiary = this.store.advOptionsTertiary
+    const elementTertiaryClassification = this.store.elementTertiaryClassification.selectionName
+    const topTertiary = this.store.topTertiary
+    const startingWithTertiary = this.store.startingWithTertiary
+    const elements = [elementPrimary, elementSecondary, elementTertiary]
+    const elementLabels = ["Primary", "Secondary", "Tertiary"]
+    const advOptionsList = [
+      {
+        isChecked: advOptionsPrimary,
+        classification: elementPrimaryClassification,
+        topRecordLimit: topPrimary,
+        startingWith: startingWithPrimary
+      },
+      {
+        isChecked: advOptionsSecondary,
+        classification: elementSecondaryClassification,
+        topRecordLimit: topSecondary,
+        startingWith: startingWithSecondary
+      },
+      {
+        isChecked: advOptionsTertiary,
+        classification: elementTertiaryClassification,
+        topRecordLimit: topTertiary,
+        startingWith: startingWithTertiary
+      }
+    ]
+
+    const segment1 = this.store.segment1.selectionName
+    const segment2 = this.store.segment2.selectionName
+    const segments = [segment1, segment2]
+    const segmentLabels = ["One", "Two"]
+    // React component conditionally renders pieces of information
+    // based on inclusion of advanced options
+    const ElementTableRow = (props) => {
+      const {value, index} = props
+      return advOptionsList[index].isChecked && advOptionsList[index].classification?
+        <tr>
+          <th style={thNarrowStyle}>{elementLabels[index]}:</th>
+          <th style={thStyle}>{value}</th>
+          <th style={thNarrowStyle}>Classification:</th>
+          <th style={thStyle}>{advOptionsList[index].classification}</th>
+          <th style={thNarrowStyle}>Top Record Limit:</th>
+          <th style={thStyle}>{advOptionsList[index].topRecordLimit}</th>
+          <th style={thNarrowStyle}>Starting with Record:</th>
+          <th style={thStyle}>{advOptionsList[index].startingWith}</th>
+        </tr>
+      : advOptionsList[index].isChecked ?
+        <tr>
+          <th style={thNarrowStyle}>{elementLabels[index]}:</th>
+          <th style={thStyle}>{value}</th>
+          <th style={thNarrowStyle}>Top Record Limit:</th>
+          <th style={thStyle}>{advOptionsList[index].topRecordLimit}</th>
+          <th style={thNarrowStyle}>Starting with Record:</th>
+          <th style={thStyle}>{advOptionsList[index].startingWith}</th>
+        </tr>
+        :
+        <tr>
+          <th style={thNarrowStyle}>{elementLabels[index]} Element:</th>
+          <th style={thStyle}>{value}</th>
+        </tr>
+    }
     const divClass = 'summary'
     const tableStyle = {
       width: '95%'
@@ -79,81 +133,91 @@ class Summary extends React.Component {
                 <th style={thNarrowStyle}>End Date:</th>
                 <th style={thStyle}>{endDate}</th>
               </tr>
-              <tr>
-                <th style={thNarrowStyle}>Granularity:</th>
-                <th style={thStyle}>{granularity}</th>
-              </tr>
+              {
+                granularity ?
+                    <tr>
+                      <th style={thNarrowStyle}>Granularity:</th>
+                      <th style={thStyle}>{granularity}</th>
+                    </tr> :
+                    null
+              }
             </tbody>
           </table>
         </div>
         <br></br>
+        {/* Metrics - use .reduce to create and return an array of present
+          values with correct index reference */}
         <div>
           <a href="javascript:setPage('#metricSelectors')">Selected Metrics</a>
                 <table style={tableStyle}>
                   <tbody>
-                    <tr>
-                      <th style={thNarrowStyle}>Metric 1:</th>
-                      <th style={thStyle}>{metric1}</th>
-                     </tr>
-                    <tr>
-                      <th style={thNarrowStyle}>Metric 2:</th>
-                      <th style={thStyle}>{metric2}</th>
-                    </tr>
-                    <tr>
-                      <th style={thNarrowStyle}>Metric 3:</th>
-                      <th style={thStyle}>{metric3}</th>
-                    </tr>
-                    <tr>
-                      <th style={thNarrowStyle}>Metric 4:</th>
-                      <th style={thStyle}>{metric4}</th>
-                    </tr>
-                    <tr>
-                      <th style={thNarrowStyle}>Metric 5:</th>
-                      <th style={thStyle}>{metric5}</th>
-                    </tr>
+                    {
+                      metrics.reduce((acc, value, index) => {
+                        if (value) {
+                          acc.push(
+                            <tr key={`${value}${index}`}>
+                              <th style={thNarrowStyle}>{metricLabels[index]}:</th>
+                              <th style={thStyle}>{value}</th>
+                            </tr>
+                          )
+                          return acc
+                        } else {
+                          return acc
+                        }
+                      }, [])
+                    }
             </tbody>
           </table>
         </div>
         <br></br>
+        {/* Elements */}
         <div>
           <a href="javascript:setPage('#elementSelectors')">Selected Elements</a>
           <table style={tableStyle}>
             <tbody>
-              <tr>
-                <th style={thNarrowStyle}>Primary Element:</th>
-                <th style={thStyle}>{elementPrimary}</th>
-              </tr>
-              <tr>
-                <th style={thNarrowStyle}>Secondary Element:</th>
-                <th style={thStyle}>{elementSecondary}</th>
-              </tr>
-              <tr>
-                <th style={thNarrowStyle}>Tertiary Element:</th>
-                <th style={thStyle}>{elementTertiary}</th>
-              </tr>
+              {
+                elements.reduce((acc, value, index) => {
+                  if (value) {
+                    acc.push(
+                      <ElementTableRow key={`${value}${index}`} value={value} index={index}/>
+                    )
+                    return acc
+                  } else {
+                    return acc
+                  }
+                }, [])
+              }
             </tbody>
           </table>
         </div>
         <br></br>
-        {/* <div>
+        {/* Segments */}
+        <div>
           <a href="javascript:setPage('#segmentSelectors')">Selected Segments</a>
           <table style={tableStyle}>
             <tbody>
-              <tr>
-                <th style={thNarrowStyle}>Segment 1: </th>
-                <th style={thStyle}>{segment1}</th>
-              </tr>
-              <tr>
-                <th style={thNarrowStyle}>Segment 2:</th>
-                <th style={thStyle}>{segment2}</th>
-              </tr>
+              {
+                segments.reduce((acc, value, index) => {
+                  if (value) {
+                    acc.push(
+                      <tr key={`${value}${index}`}>
+                        <th style={thNarrowStyle}>{segmentLabels[index]}:</th>
+                        <th style={thStyle}>{value}</th>
+                      </tr>
+                    )
+                    return acc
+                  } else {
+                    return acc
+                  }
+                }, [])
+              }
             </tbody>
           </table>
         </div>
-        <br></br> */}
-          {/* {maxResults} */}
+        <br></br>
       </div>
     )
   }
 }
+
 export default observer(Summary)
