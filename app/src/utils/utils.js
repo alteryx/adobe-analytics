@@ -134,6 +134,30 @@ const showLoader = (flag) => {
   }
 }
 
+const advOptionsPrimaryToggle = () => {
+  if (store.advOptionsPrimary) {
+    store.advOptionsPrimary = 'false'
+  } else {
+    store.advOptionsPrimary = 'true'
+  }
+}
+
+const advOptionsSecondaryToggle = () => {
+  if (store.advOptionsSecondary) {
+    store.advOptionsSecondary = 'false'
+  } else {
+    store.advOptionsSecondary = 'true'
+  }
+}
+
+const advOptionsTertiaryToggle = () => {
+  if (store.advOptionsTertiary) {
+    store.advOptionsTertiary = 'false'
+  } else {
+    store.advOptionsTertiary = 'true'
+  }
+}
+
 const resetFields = () => {
   const valueArray = [
     'client_id',
@@ -178,4 +202,4 @@ const resetFields = () => {
   Alteryx.Gui.manager.GetDataItem('advOptionsTertiary').setValue(false)
 }
 
-export { devLogin, userLogin, setPage, displayFieldset, showLoader, resetFields }
+export { devLogin, userLogin, setPage, displayFieldset, showLoader, resetFields, advOptionsPrimaryToggle, advOptionsSecondaryToggle, advOptionsTertiaryToggle }
