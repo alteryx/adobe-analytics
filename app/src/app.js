@@ -318,6 +318,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
       case '#segmentSelectors':
         page = '#invalidSegment'
         break
+      case '#summary':
+        page = '#invalidReport'
+        break
     }
     page === '' ? '' : ReactDOM.render(<InvalidReport store={store} />, document.querySelector(page))
   })

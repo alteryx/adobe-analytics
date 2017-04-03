@@ -257,7 +257,7 @@
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
                 <!-- Add id name and onclick function during process story -->
-                <button type="submit" class="nextBtn" id="segmentSelectorsNextBtn" onclick="setPage('#summary');clearWarning(store);">Done</button>
+                <button type="submit" class="nextBtn" id="segmentSelectorsNextBtn" onclick="setPage('#summary');clearWarning(store);validateReport(store);">Done</button>
                 <button class="prevBtn" id="segmentSelectorsPrevBtn" onclick="setPage('#elementSelectors');">Previous</button>
             </div>
             <br>
@@ -270,6 +270,7 @@
     <fieldset id="summary" style="display:none">
         <legend>Configuration Summary</legend>
         <div id="summaryDiv"></div>
+        <div id="invalidReport"></div>
         <div class='footer_spacer'></div>
         <div class='footer'>
             <hr>
