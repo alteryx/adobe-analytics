@@ -134,27 +134,35 @@ const showLoader = (flag) => {
   }
 }
 
-const advOptionsPrimaryToggle = () => {
-  if (store.advOptionsPrimary) {
-    store.advOptionsPrimary = 'false'
-  } else {
-    store.advOptionsPrimary = 'true'
-  }
-}
-
-const advOptionsSecondaryToggle = () => {
-  if (store.advOptionsSecondary) {
-    store.advOptionsSecondary = 'false'
-  } else {
-    store.advOptionsSecondary = 'true'
-  }
-}
-
-const advOptionsTertiaryToggle = () => {
-  if (store.advOptionsTertiary) {
-    store.advOptionsTertiary = 'false'
-  } else {
-    store.advOptionsTertiary = 'true'
+const advOptionsToggle = (element) => {
+  switch (element) {
+    case 'primary':
+      if (store.advOptionsPrimary === true) {
+        document.getElementById('primaryArrow').className = 'arrow-right'
+        store.advOptionsPrimary = false
+      } else {
+        document.getElementById('primaryArrow').className = 'arrow-down'
+        store.advOptionsPrimary = true
+      }
+      break
+    case 'secondary':
+      if (store.advOptionsSecondary === true) {
+        document.getElementById('secondaryArrow').className = 'arrow-right'
+        store.advOptionsSecondary = false
+      } else {
+        document.getElementById('secondaryArrow').className = 'arrow-down'
+        store.advOptionsSecondary = true
+      }
+      break
+    case 'tertiary':
+      if (store.advOptionsTertiary === true) {
+        document.getElementById('tertiaryArrow').className = 'arrow-right'
+        store.advOptionsTertiary = false
+      } else {
+        document.getElementById('tertiaryArrow').className = 'arrow-down'
+        store.advOptionsTertiary = true
+      }
+      break
   }
 }
 
@@ -197,9 +205,6 @@ const resetFields = () => {
 
   // Set default value for preDefDropDown and advOptionsPrimary, advOptionsSecondary, advOptionsTertiary
   Alteryx.Gui.manager.GetDataItem('preDefDropDown').setValue('today')
-  Alteryx.Gui.manager.GetDataItem('advOptionsPrimary').setValue(false)
-  Alteryx.Gui.manager.GetDataItem('advOptionsSecondary').setValue(false)
-  Alteryx.Gui.manager.GetDataItem('advOptionsTertiary').setValue(false)
 }
 
-export { devLogin, userLogin, setPage, displayFieldset, showLoader, resetFields, advOptionsPrimaryToggle, advOptionsSecondaryToggle, advOptionsTertiaryToggle }
+export { devLogin, userLogin, setPage, displayFieldset, showLoader, resetFields, advOptionsToggle }
