@@ -34,7 +34,6 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'metric3', type: 'dropDown'},
     {key: 'metric4', type: 'dropDown'},
     {key: 'metric5', type: 'dropDown'},
-    {key: 'metricError', type: 'value'},
     {key: 'granularity', type: 'dropDown'},
     {key: 'elementPrimary', type: 'dropDown'},
     {key: 'elementSecondary', type: 'dropDown'},
@@ -51,7 +50,6 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'elementPrimaryClassification', type: 'dropDown'},
     {key: 'elementSecondaryClassification', type: 'dropDown'},
     {key: 'elementTertiaryClassification', type: 'dropDown'},
-    {key: 'elementError', type: 'value'},
     {key: 'segment1', type: 'dropDown'},
     {key: 'segment2', type: 'dropDown'},
     {key: 'reportValidation', type: 'value'}

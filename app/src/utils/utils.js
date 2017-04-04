@@ -168,20 +168,24 @@ const advOptionsToggle = (element) => {
 
 const resetFields = () => {
   const valueArray = [
+    'reportDescription',
     'client_id',
     'client_secret',
     'access_token',
     'errorStatus',
     'reportSuite',
-    'granularity',
     'metric1',
     'metric2',
     'metric3',
     'metric4',
     'metric5',
+    'granularity',
     'elementPrimary',
     'elementSecondary',
     'elementTertiary',
+    'elementPrimaryClassification',
+    'elementSecondaryClassification',
+    'elementTertiaryClassification',
     'segment1',
     'segment2'
   ]
@@ -202,6 +206,21 @@ const resetFields = () => {
   //   Alteryx.Gui.renderer.getReactComponentByDataName(d).selectedItemsMap = {}
   //   Alteryx.Gui.renderer.getReactComponentByDataName(d).forceUpdate()
   // })
+
+  // reset record limit values to 100
+  Alteryx.Gui.manager.GetDataItem('topPrimary').setValue(100)
+  Alteryx.Gui.manager.GetDataItem('topSecondary').setValue(100)
+  Alteryx.Gui.manager.GetDataItem('topTertiary').setValue(100)
+
+  // reset starting with values to 1
+  Alteryx.Gui.manager.GetDataItem('startingWithPrimary').setValue(1)
+  Alteryx.Gui.manager.GetDataItem('startingWithSecondary').setValue(1)
+  Alteryx.Gui.manager.GetDataItem('startingWithTertiary').setValue(1)
+
+  // reset advanced option values to false
+  Alteryx.Gui.manager.GetDataItem('advOptionsPrimary').setValue(false)
+  Alteryx.Gui.manager.GetDataItem('advOptionsSecondary').setValue(false)
+  Alteryx.Gui.manager.GetDataItem('advOptionsTertiary').setValue(false)
 
   // Set default value for preDefDropDown and advOptionsPrimary, advOptionsSecondary, advOptionsTertiary
   Alteryx.Gui.manager.GetDataItem('preDefDropDown').setValue('today')
