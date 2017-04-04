@@ -77,7 +77,7 @@ class Summary extends React.Component {
           <th style={thStyle}>{value}</th>
           <th style={thNarrowStyle}>Classification:</th>
           <th style={thStyle}>{advOptionsList[index].classification}</th>
-          <th style={thNarrowStyle}>Top Record Limit:</th>
+          <th style={thNarrowStyle}>Record Limit:</th>
           <th style={thStyle}>{advOptionsList[index].topRecordLimit}</th>
           <th style={thNarrowStyle}>Starting with Record:</th>
           <th style={thStyle}>{advOptionsList[index].startingWith}</th>
@@ -86,7 +86,7 @@ class Summary extends React.Component {
         <tr>
           <th style={thNarrowStyle}>{elementLabels[index]}:</th>
           <th style={thStyle}>{value}</th>
-          <th style={thNarrowStyle}>Top Record Limit:</th>
+          <th style={thNarrowStyle}>Record Limit:</th>
           <th style={thStyle}>{advOptionsList[index].topRecordLimit}</th>
           <th style={thNarrowStyle}>Starting with Record:</th>
           <th style={thStyle}>{advOptionsList[index].startingWith}</th>
