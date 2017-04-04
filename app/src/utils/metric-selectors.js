@@ -9,10 +9,10 @@ const topLevelMetrics = (store) => {
     .then(sortMetrics)
     .then(removeInvalidMetrics)
     .then(pushMetrics)
-	.then(removeMissingValues)
-	.then(doneLoading)
+    .then(removeMissingValues)
+    .then(doneLoading)
     .fail((jqXHR) => {
-      console.log(jqXHR)
+      store.metric1.loading = false
     })
 }
 

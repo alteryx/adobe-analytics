@@ -15,9 +15,6 @@ const topLevelSegments = (store) => {
     .then(pushSegments)
     .then(removeMissingValues)
     .then(doneLoading)
-    // .fail((jqXHR) => {
-    //   console.log(jqXHR)
-    // })
 }
 
 const getSegments = (store, payload) => {
@@ -30,6 +27,7 @@ const getSegments = (store, payload) => {
     method: 'POST',
     data: payload
   })
+
   return segments
 }
 
