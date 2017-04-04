@@ -6,6 +6,7 @@ const topLevelClassifications = (store) => {
     .then(mapClassifications)
     .then(prepClassifications)
     .then(pushClassifications)
+	.then(removeMissingValues)
 }
 
 const getClassifications = (store) => {
@@ -76,6 +77,20 @@ const pushClassifications = (response) => {
       })
     })
   }
+}
+
+const removeMissingValues = () => {
+  const classifications = [
+    Alteryx.Gui.renderer.getReactComponentByDataName('elementPrimaryClassification'),
+    Alteryx.Gui.renderer.getReactComponentByDataName('elementSecondaryClassification'),
+    Alteryx.Gui.renderer.getReactComponentByDataName('elementTertiaryClassification')
+  ]
+
+  classifications.map((classification) => {
+    classification.refs.widget.props.options.filter((d) => { return d.className !== '' || d.className === undefined })
+    classification.missingFields = []
+    classification.forceUpdate()
+  })
 }
 
 export { topLevelClassifications }
