@@ -1,0 +1,1088 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="11.0">
+  <Nodes>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="462" y="138" width="159.1808" height="19" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Debug Macro Workflow</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="16">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="714" y="402" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" field="endpoint" size="1073741823" type="V_WString" />
+                <FormulaField expression="'{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" field="payload" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>endpoint and payload</AnnotationText>
+              <DefaultAnnotationText>endpoint = 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_to...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="17">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="486" y="462" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="0" />
+              <Fields>
+                <Field name="reportID" />
+                <Field name="access_token" />
+                <Field name="client_id" />
+                <Field name="client_secret" />
+              </Fields>
+              <Data />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Add fields</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="18">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="570" y="402" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="19">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="485.9999" y="402" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="0" />
+              <Fields>
+                <Field name="reportID" />
+                <Field name="access_token" />
+                <Field name="client_id" />
+                <Field name="client_secret" />
+              </Fields>
+              <Data />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="True" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="20">
+          <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+            <Position x="798" y="402" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <URLField>endpoint</URLField>
+              <OutputMode>String</OutputMode>
+              <CodePage>65001</CodePage>
+              <EncodeURLs value="True" />
+              <Headers>
+                <NameValues>
+                  <Item name="Content-Type" value="application/json" />
+                </NameValues>
+                <Fields orderChanged="False">
+                  <Field name="reportID" selected="False" />
+                  <Field name="access_token" selected="False" />
+                  <Field name="client_id" selected="False" />
+                  <Field name="client_secret" selected="False" />
+                  <Field name="endpoint" selected="False" />
+                  <Field name="payload" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </Fields>
+              </Headers>
+              <Payload>
+                <HTTPAction>POST</HTTPAction>
+                <QueryStringBodyMode>Field</QueryStringBodyMode>
+                <Field>payload</Field>
+              </Payload>
+              <UserName />
+              <Password />
+              <numConnections>2</numConnections>
+              <Timeout>600</Timeout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Report.Get</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+        </Node>
+        <Node ToolID="21">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1242" y="414" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>Contains([DownloadData],"report_not_ready")
+OR
+Contains([DownloadData],"access token provided has expired")</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>report not ready?</AnnotationText>
+              <DefaultAnnotationText>Contains([DownloadData],"report_not_ready")
+OR
+Contains([Down...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="22">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="642" y="402" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="reportID" selected="True" size="25000" />
+                <SelectField field="access_token" selected="True" size="25000" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="23">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1374" y="426" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>DownloadHeaders</Field>
+                <Operator>Contains</Operator>
+                <Operands>
+                  <Operand>200 OK</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Header 200 OK?</AnnotationText>
+              <DefaultAnnotationText>Contains([DownloadHeaders],"200 OK")</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="24">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+            <Position x="1470" y="438" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <When>Last</When>
+              <Filter />
+              <Type>ErrorStop</Type>
+              <Priority>High</Priority>
+              <Transient>False</Transient>
+              <MessageExpression>[DownloadHeaders] + " | " + [DownloadData]</MessageExpression>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+        </Node>
+        <Node ToolID="25">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="486" y="330" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="reportID" />
+                <Field name="access_token" />
+                <Field name="client_id" />
+                <Field name="client_secret" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>1303520524</c>
+                  <c>eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dSI6IjIwMTQtMDQtMDFcL2dhdGV3YXkuY2VyIn0.eyJpZCI6IjBjMTI4YjZlNTcyMmVjNzhkNDMxOWMyMzRjZjAyNDM4NDU2NGEzMTkiLCJ1c2VyX2lkIjoiOEE3RDVERTc1OENBQzUxMDBBNDk1Q0RDQEFkb2JlSUQiLCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJSZXBvcnQgQ29tcGFueSBSZXBvcnRTdWl0ZSBTZWdtZW50cyBQZXJtaXNzaW9ucyBDYWxjdWxhdGVkTWV0cmljcyIsImxvZ2luX2NvbXBhbmllcyI6eyJhZGlkYXMiOm51bGx9LCJvcmdfY29tcGFuaWVzIjp7IjdhZGE0MDEwNTNjY2Y5MTMwYTQ5MGQ0Y0BhZG9iZW9yZyI6ImFkaWRhcyJ9LCJleHAiOjE0OTEzMzAwNTYsInN1YiI6IjViZDA3OWQyNDAtYWx0ZXJ5eC1hZG9iZSIsImlzcyI6ImFwaS1nYXRld2F5QGFwaS5vbW5pdHVyZS5jb20ifQ.pdnLqsaQjSJVB0oElxZ-LFnF7WbmIHGywV7_FwgjVF8cLb3VgPqKar0Pi_wJvMjQ2uJl-NJg9PlDmYv6N11MjhjhfRGI6uCRTiQhBeiArc0WBjzAvs8UJf6Z28FRIqub8q5sqtYLEiytiftXdhjWDFS8kyzx8YmrmTmi6vZQPFsBKC2rtRjYY6sswmJpJWGZ3iltMTYKRWv8Of1XsUhas6dfXqQ4gbEHckc5-wqrPpEMsp7MpQEMDIKztzvls4SROgflqhQmIDUr_ZyC0SLIp3d5sOPHwxKHjWMPSkd44rsXETWfgJCu_dRk_X4964_SRZ1XQie36WYAGutwKQU9rg</c>
+                  <c>5bd079d240-alteryx-adobe</c>
+                  <c>7f4b46e004c7a17e7ca4</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="True" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="32">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="1350" y="174" width="410.4996" height="50" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>Iterative Output - Throttle workflow so as to only ping API once per minute</Caption>
+              <Style BorderColor="#314c4a" FillColor="#ecf2f2" Margin="25" TextColor="#314c4a" Transparency="25" />
+              <Disabled value="False" />
+              <Folded value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="26">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Throttle.Throttle">
+                <Position x="1530" y="222" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <RecordsPerMinute>1</RecordsPerMinute>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Throttle to 1 record per min</AnnotationText>
+                  <DefaultAnnotationText>1 records per minute</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxThrottle" />
+            </Node>
+            <Node ToolID="27">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
+                <Position x="1626" y="222" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <GroupFields orderChanged="False" />
+                  <Mode>Skip</Mode>
+                  <N>1</N>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>Skip 1st 1</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
+            </Node>
+            <Node ToolID="28">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+                <Position x="1374" y="222" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="access_token" selected="True" />
+                    <SelectField field="reportID" selected="True" />
+                    <SelectField field="client_id" selected="True" />
+                    <SelectField field="client_secret" selected="True" />
+                    <SelectField field="*Unknown" selected="False" />
+                  </SelectFields>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+            </Node>
+            <Node ToolID="29">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+                <Position x="1458" y="222" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <ByName_ErrorMode>Warning</ByName_ErrorMode>
+                  <ByName_OutputMode>All</ByName_OutputMode>
+                  <Mode>ByName</Mode>
+                  <SetOutputOrder value="True" />
+                  <OutputOrder>
+                    <Connection>#2</Connection>
+                    <Connection>#1</Connection>
+                  </OutputOrder>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+            </Node>
+            <Node ToolID="30">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+                <Position x="1374" y="282" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <NumRows value="1" />
+                  <Fields>
+                    <Field name="reportID" />
+                    <Field name="access_token" />
+                    <Field name="client_id" />
+                    <Field name="client_secret" />
+                  </Fields>
+                  <Data>
+                    <r>
+                      <c><![CDATA[ ]]></c>
+                      <c />
+                      <c />
+                      <c />
+                    </r>
+                  </Data>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Add a blank record</AnnotationText>
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+            </Node>
+            <Node ToolID="31">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+                <Position x="1710" y="222" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <When>First</When>
+                  <Filter />
+                  <Type>Message</Type>
+                  <Priority>High</Priority>
+                  <Transient>False</Transient>
+                  <MessageExpression>"Adobe Analytics report not ready."</MessageExpression>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+            </Node>
+          </ChildNodes>
+        </Node>
+        <Node ToolID="37">
+          <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+            <Position x="870" y="294" width="157.317" height="50" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Caption>Refresh Expired Token</Caption>
+              <Style BorderColor="#314c4a" FillColor="#ecf2f2" Margin="25" TextColor="#314c4a" Transparency="25" />
+              <Disabled value="False" />
+              <Folded value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <ChildNodes>
+            <Node ToolID="33">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+                <Position x="894" y="402" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Expression>Contains([DownloadData],"access token provided has expired")
+AND
+!IsEmpty([client_id])
+AND
+!IsEmpty([client_secret])</Expression>
+                  <Mode>Custom</Mode>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>access token expired?</AnnotationText>
+                  <DefaultAnnotationText>Contains([DownloadData],"access token provided has expired")
+...</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+            </Node>
+            <Node ToolID="34">
+              <GuiSettings>
+                <Position x="978" y="342" />
+              </GuiSettings>
+              <Properties>
+                <Configuration />
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <AnnotationText>Offline Authentication</AnnotationText>
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-offline-authentication.yxmc" />
+            </Node>
+            <Node ToolID="35">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+                <Position x="1146" y="414" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <ByName_ErrorMode>Warning</ByName_ErrorMode>
+                  <ByName_OutputMode>All</ByName_OutputMode>
+                  <Mode>ByName</Mode>
+                  <SetOutputOrder value="False" />
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+            </Node>
+            <Node ToolID="36">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+                <Position x="1062" y="354" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <CartesianMode>Error</CartesianMode>
+                  <SelectConfiguration>
+                    <Configuration outputConnection="Output">
+                      <OrderChanged value="False" />
+                      <CommaDecimal value="False" />
+                      <SelectFields>
+                        <SelectField field="Source_access_token" selected="False" />
+                        <SelectField field="*Unknown" selected="True" />
+                      </SelectFields>
+                    </Configuration>
+                  </SelectConfiguration>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText />
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+            </Node>
+          </ChildNodes>
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="53" y="90" width="353" height="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Adobe Analytics Tool</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="10">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="165" y="134" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_8864_4c62ffb252ee4ea4a9a9dcdb10b9610f_\Engine_3216_69fb1757f4d54b9785415b62d94383c6_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="11">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="272" y="294" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_8864_4c62ffb252ee4ea4a9a9dcdb10b9610f_\Engine_3216_81163b4cb35d4b4fb95a7acbbed7004d_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="12">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="165" y="300" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_8864_4c62ffb252ee4ea4a9a9dcdb10b9610f_\Engine_3216_5ec839dae81b460aa793783209acfb88_.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="13">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="164" y="222" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="14">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="284" y="150" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">.\us24297-report-get-testing-download-data-07.yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>us24297-report-get-testing-download-data-07.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="39">
+          <GuiSettings Plugin="AdobeAnalytics">
+            <Position x="78" y="222" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Value name="client_id">5bd079d240-alteryx-adobe</Value>
+              <Value name="reportSuite">ag-adi-dev</Value>
+              <Value name="preDefDropDown">custom</Value>
+              <Value name="startDatePicker">2014-01-01</Value>
+              <Value name="endDatePicker">2016-12-31</Value>
+              <Value name="granularity">hour</Value>
+              <Value name="metric1">pageviews</Value>
+              <Value name="metric2">
+              </Value>
+              <Value name="metric3">
+              </Value>
+              <Value name="metric4">
+              </Value>
+              <Value name="metric5">
+              </Value>
+              <Value name="elementPrimary">zip</Value>
+              <Value name="advOptionsPrimary">False</Value>
+              <Value name="elementPrimaryClassification">
+              </Value>
+              <Value name="topPrimary">100</Value>
+              <Value name="startingWithPrimary">1</Value>
+              <Value name="elementSecondary">activity</Value>
+              <Value name="advOptionsSecondary">False</Value>
+              <Value name="elementSecondaryClassification">
+              </Value>
+              <Value name="topSecondary">100</Value>
+              <Value name="startingWithSecondary">1</Value>
+              <Value name="elementTertiary">
+              </Value>
+              <Value name="advOptionsTertiary">False</Value>
+              <Value name="elementTertiaryClassification">
+              </Value>
+              <Value name="topTertiary">100</Value>
+              <Value name="startingWithTertiary">1</Value>
+              <Value name="segment1">
+              </Value>
+              <Value name="segment2">
+              </Value>
+              <Value name="reportDescription">{"reportDescription":{"reportSuiteID":"ag-adi-dev","dateFrom":"2014-01-01","dateTo":"2016-12-31","dateGranularity":"hour","metrics":[{"id":"pageviews"}],"elements":[{"id":"zip"},{"id":"activity"}],"segments":[]}}</Value>
+              <Value name="reportValidation" />
+              <Value name="access_token">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dSI6IjIwMTQtMDQtMDFcL2dhdGV3YXkuY2VyIn0.eyJpZCI6ImMxY2QwMTI2MTFkYmI5ZmMyYWM4ZmJmZWIxOTM3MDk0M2I3MjNhYzQiLCJ1c2VyX2lkIjoiOEE3RDVERTc1OENBQzUxMDBBNDk1Q0RDQEFkb2JlSUQiLCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJSZXBvcnQgQ29tcGFueSBSZXBvcnRTdWl0ZSBTZWdtZW50cyBQZXJtaXNzaW9ucyBDYWxjdWxhdGVkTWV0cmljcyIsImxvZ2luX2NvbXBhbmllcyI6eyJhZGlkYXMiOm51bGx9LCJvcmdfY29tcGFuaWVzIjp7IjdhZGE0MDEwNTNjY2Y5MTMwYTQ5MGQ0Y0BhZG9iZW9yZyI6ImFkaWRhcyJ9LCJleHAiOjE0OTEzMzQwNTIsInN1YiI6IjViZDA3OWQyNDAtYWx0ZXJ5eC1hZG9iZSIsImlzcyI6ImFwaS1nYXRld2F5QGFwaS5vbW5pdHVyZS5jb20ifQ.f5fc2GuO9vpFft3cOKv6uHSTdqGKO2HhBKRcBG9Z9tM-g8KVHnQ89I_XQrpIArMbo19R7L6_Kj3L4zL24H9i4kBAI1fiKwIzCfvdhUp-M8ofCEQrli3ZHF2Z3kQMF7h52mb0mdSA4C9JddbOtGYE9Xg4Wak15FcZw8q7GBEODcD9OlqOJ8_XKPJfmYq7yNaBOnNSTseTVSdveScYPONOc_zgizFilMU9uLf6Rf4DtZVh7GLfTUx9nA0fkEPa9AvDoJjQ4QaA1ibooIZ-OVQOWfw1Q27zY_r7c9xyr_rmyahqM0NB-45AQgytRNfyNT_3TAb1n88k4FeipEbRCws1vw</Value>
+              <Value name="page">#summary</Value>
+              <Value name="errorStatus">
+              </Value>
+              <Value name="metricError">
+              </Value>
+              <Value name="elementError">
+              </Value>
+              <Value name="client_secret">48446B945ED6A149CD9B99B3BC9572167EE1DF23312B9825A6C7ED7E2A0EBD8F127B05F3B0ADFEDAB147AC7120A358A414D520AD862349FA554F75C09B5DFA1742A58653844F66E8B8365BD79A806297831B7CADF82C98A9FDC6FE328CB71A2944BD5DD9DCE1026BCB374D28B6AE541AD4A65BBE5DB4DDD75C2A864BF961700DEA777FC1CEE2938B7A0CF74FDDBDDCE57E8336E3E15867973493A140D37B9D05D770DA56E6E197CE19F4AAA381929298A4C56E2B0DD2C</Value>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-engine.yxmc" EngineDll="Macro" EngineDllEntryPoint="AdobeAnalytics\supporting-macros\adobe-analytics-engine.yxmc" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="462" y="90" width="131.5573" height="19" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Report.Get Macro</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="1">
+          <GuiSettings>
+            <Position x="571" y="196" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+            <MetaInfo connection="Iterate">
+              <RecordInfo>
+                <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+                <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+                <Field name="reportID" size="25000" source="TextInput:" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
+                <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
+                <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+                <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-report.get.yxmc" />
+        </Node>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="487" y="195.9999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="reportID" />
+                <Field name="access_token" />
+                <Field name="client_id" />
+                <Field name="client_secret" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>2038797193</c>
+                  <c>eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dSI6IjIwMTQtMDQtMDFcL2dhdGV3YXkuY2VyIn0.eyJpZCI6IjEzNTkyNGYyYWU4ZTQ1ZTk2MTNiZTExODY5YWNjOTA0YjExMzM4ZmQiLCJ1c2VyX2lkIjoiOEE3RDVERTc1OENBQzUxMDBBNDk1Q0RDQEFkb2JlSUQiLCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJSZXBvcnQgQ29tcGFueSBSZXBvcnRTdWl0ZSBTZWdtZW50cyBQZXJtaXNzaW9ucyBDYWxjdWxhdGVkTWV0cmljcyIsImxvZ2luX2NvbXBhbmllcyI6eyJhZGlkYXMiOm51bGx9LCJvcmdfY29tcGFuaWVzIjp7IjdhZGE0MDEwNTNjY2Y5MTMwYTQ5MGQ0Y0BhZG9iZW9yZyI6ImFkaWRhcyJ9LCJleHAiOjE0OTEzMjQ0MzksInN1YiI6IjViZDA3OWQyNDAtYWx0ZXJ5eC1hZG9iZSIsImlzcyI6ImFwaS1nYXRld2F5QGFwaS5vbW5pdHVyZS5jb20ifQ.N758tlDLfQmyv57kyvWIfNq808W_oRuahYeZJGQVpYT9rHTVL0RRkZ4N3ZlPRT_KsSdx5gKlcZcBrmVPD_9qsbxdEQRhhSlvsPh5UntS-c-pBTmOx2vNU7_3SO65dBumowpl8WZjkX22SupRq-uKkcETtaRS5J5zvKc83T1l9GpZqReXaQb3Qqm-MfAgSOeeUHgMQexMMOHnhNEdmnFWDlUE3pomRu5McjPOd0jLp1IvfNFKCOTnDufnp9z9pPvZCgOPIhRxswPfxvCvZVSHSm3NQaZxb2R-VTd1qoZSNQYvvfozFvsBWxP2N7yzOfAHlwPK7NuiTSoslwDu4A5g7A</c>
+                  <c>5bd079d240-alteryx-adobe</c>
+                  <c>7f4b46e004c7a17e7ca4</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="True" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="691" y="158" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">.\us24297-report-get-testing-o-output.yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>us24297-report-get-testing-o-output.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="691" y="254" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">.\us24297-report-get-testing-i-output.yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>us24297-report-get-testing-i-output.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="546.9999" y="134" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_10840_9e79c7ba440c48f68dfc0b45a49d8446_\Engine_3216_769015478ed1479b979be155840fe949_.yxdb</TempFile>
+              <Layout>
+                <View1>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="534.9999" y="254" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_10840_9e79c7ba440c48f68dfc0b45a49d8446_\Engine_3216_f37c662217d14793acdd076097fbdf11_.yxdb</TempFile>
+              <Layout>
+                <View1>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="True" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="False" />
+      <Destination ToolID="23" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="False" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="True" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="33" Connection="False" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="True" />
+      <Destination ToolID="36" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="36" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="JSON" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Report" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="API Response" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Iterate" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Iterate" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="1" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="True" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="True" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>US24297-report-get-test-workflow</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
