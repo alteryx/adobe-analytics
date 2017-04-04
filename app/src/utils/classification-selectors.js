@@ -6,7 +6,7 @@ const topLevelClassifications = (store) => {
     .then(mapClassifications)
     .then(prepClassifications)
     .then(pushClassifications)
-	.then(removeMissingValues)
+    .then(removeMissingValues)
 }
 
 const getClassifications = (store) => {

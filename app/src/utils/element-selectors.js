@@ -5,8 +5,11 @@ const topLevelElements = (store) => {
     .then(mapElements)
     .then(sortElements)
     .then(pushElements)
-	.then(removeMissingValues)
-	.then(doneLoading)
+    .then(removeMissingValues)
+    .then(doneLoading)
+    .fail((d) => {
+      store.elementPrimary.loading = false
+    })
 }
 
 const getElements = (store) => {
@@ -80,7 +83,7 @@ const removeMissingValues = () => {
 }
 
 const doneLoading = () => {
-	return store.elementPrimary.loading = false
+  return store.elementPrimary.loading = false
 }
 
 export { topLevelElements }

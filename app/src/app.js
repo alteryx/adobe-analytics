@@ -263,6 +263,15 @@ Alteryx.Gui.AfterLoad = (manager) => {
     }
   })
 
+  // hide any lingering loading screens if user login token expires
+  autorun(() => {
+    if (store.page === '#authSelect' && store.errorStatus !== '') {
+      document.getElementById('loading').style.display = 'none'
+      document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
+      document.getElementById('loading-inner').style.display = 'none'
+    }
+  })
+
   // Render react component which handles connection error messaging
   autorun(() => {
     const devDiv = document.getElementById('devConnectionErrorMessage')
