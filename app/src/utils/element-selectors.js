@@ -5,6 +5,8 @@ const topLevelElements = (store) => {
     .then(mapElements)
     .then(sortElements)
     .then(pushElements)
+	.then(removeMissingValues)
+	.then(doneLoading)
 }
 
 const getElements = (store) => {
@@ -61,7 +63,24 @@ const pushElements = (response) => {
       })
     })
   }
-  store.elementPrimary.loading = false
+}
+
+const removeMissingValues = () => {
+  const elements = [
+    Alteryx.Gui.renderer.getReactComponentByDataName('elementPrimary'),
+    Alteryx.Gui.renderer.getReactComponentByDataName('elementSecondary'),
+    Alteryx.Gui.renderer.getReactComponentByDataName('elementTertiary')
+  ]
+
+  elements.map((element) => {
+    element.refs.widget.props.options.filter((d) => { return d.className !== '' || d.className === undefined })
+    element.missingFields = []
+    element.forceUpdate()
+  })
+}
+
+const doneLoading = () => {
+	return store.elementPrimary.loading = false
 }
 
 export { topLevelElements }

@@ -9,6 +9,8 @@ const topLevelMetrics = (store) => {
     .then(sortMetrics)
     .then(removeInvalidMetrics)
     .then(pushMetrics)
+	.then(removeMissingValues)
+	.then(doneLoading)
     .fail((jqXHR) => {
       console.log(jqXHR)
     })
@@ -74,6 +76,25 @@ const pushMetrics = (response) => {
       })
     })
   }
+}
+
+const removeMissingValues = () => {
+  const metrics = [
+    Alteryx.Gui.renderer.getReactComponentByDataName('metric1'),
+    Alteryx.Gui.renderer.getReactComponentByDataName('metric2'),
+    Alteryx.Gui.renderer.getReactComponentByDataName('metric3'),
+    Alteryx.Gui.renderer.getReactComponentByDataName('metric4'),
+    Alteryx.Gui.renderer.getReactComponentByDataName('metric5')
+  ]
+
+  metrics.map((metric) => {
+    metric.refs.widget.props.options.filter((d) => { return d.className !== '' || d.className === undefined })
+    metric.missingFields = []
+    metric.forceUpdate()
+  })
+}
+
+const doneLoading = () => {
   store.metric1.loading = false
 }
 
