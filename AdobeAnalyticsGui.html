@@ -42,7 +42,7 @@
              </div>
         <br>
         <br>
-        <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
+        <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
         </div>
     </fieldset>
 
@@ -60,7 +60,7 @@
             </div>
             <br>
             <br>
-            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
         </div>
     </fieldset>
 
@@ -111,11 +111,11 @@
             <div style="margin-top: 8px;margin-bottom: 8px;">
                 <!-- Add id name and onclick function during process story -->
                 <button type="submit" class="nextBtn" id="datePickersNextBtn" onclick="setPage('#metricSelectors');clearWarning(store);">Next</button>
-                <button class="prevBtn" id="datePickersPrevBtn" onclick="setPage('#reportSuite');">Previous</button>
+                <button class="prevBtn" id="datePickersPrevBtn" onclick="setPage('#reportSuite');clearWarning(store);">Previous</button>
             </div>
             <br>
             <br>
-            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
         </div>
     </fieldset>
 
@@ -141,11 +141,11 @@
             <div style="margin-top: 8px;margin-bottom: 8px;">
                 <!-- Add id name and onclick function during process story -->
                 <button type="submit" class="nextBtn" id="metricSelectorsNextBtn" onclick="setPage('#elementSelectors');clearWarning(store);">Next</button>
-                <button class="prevBtn" id="metricSelectorsPrevBtn" onclick="setPage('#datePickers');">Previous</button>
+                <button class="prevBtn" id="metricSelectorsPrevBtn" onclick="setPage('#datePickers');clearWarning(store);">Previous</button>
             </div>
             <br>
             <br>
-            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
         </div>
     </fieldset>
 
@@ -173,7 +173,7 @@
     <label>Record Limit</label>
     <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topPrimary",default:"100",max:"50000",min:"1",dataName:"topPrimary"}'></alteryx-pluginwidget>
     <label>Starting with Record</label>
-    <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithPrimary",default:"1",max:"49999",min:"1",dataName:"startingWithPrimary"}'></alteryx-pluginwidget>
+    <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithPrimary",default:"1",max:"999999999",min:"1",dataName:"startingWithPrimary"}'></alteryx-pluginwidget>
   </div>
   <br>
   <label for="elementSecondary">Secondary Element</label>
@@ -197,7 +197,7 @@
     <label>Record Limit</label>
     <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topSecondary",default:"100",max:"50000",min:"1",dataName:"topSecondary"}'></alteryx-pluginwidget>
     <label>Starting with Record</label>
-    <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithSecondary",default:"1",max:"49999",min:"1",dataName:"startingWithSecondary"}'></alteryx-pluginwidget>
+    <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithSecondary",default:"1",max:"999999999",min:"1",dataName:"startingWithSecondary"}'></alteryx-pluginwidget>
   </div>
   <br>
   <label for="elementTertiary">Tertiary Element</label>
@@ -220,36 +220,23 @@
     <label>Record Limit</label>
     <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topTertiary",default:"100",max:"50000",min:"1",dataName:"topTertiary"}'></alteryx-pluginwidget>
     <label>Starting with Record</label>
-    <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithTertiary",default:"1",max:"49999",min:"1",dataName:"startingWithTertiary"}'></alteryx-pluginwidget>
+    <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithTertiary",default:"1",max:"999999999",min:"1",dataName:"startingWithTertiary"}'></alteryx-pluginwidget>
   </div>
   <br>
-  <button class="prevBtn" id="elementValidation" onclick="validateElements();">Validate Element Selections</button>
+  <button class="prevBtn" id="elementValidation" onclick="validateReport(store);">Validate Report</button>
   <br>
   <div id="invalidElement"></div>
   <div class='footer_spacer'></div>
   <div class='footer'>
     <hr>
     <div style="margin-top: 8px;margin-bottom: 8px;">
-      <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="setPage('#segmentSelectors');">Next</button>
-      <button class="prevBtn" id="elementSelectorsPrevBtn" onclick="setPage('#metricSelectors');">Previous</button>
+      <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="setPage('#segmentSelectors');clearWarning(store);">Next</button>
+      <button class="prevBtn" id="elementSelectorsPrevBtn" onclick="setPage('#metricSelectors');clearWarning(store);">Previous</button>
     </div>
     <br>
     <br>
-    <button class="prevBtn" id="elementValidation" onclick="validateReport(store);">Validate Report</button>
-    <br>
-    <div id="invalidElement"></div>
-    <div class='footer_spacer'></div>
-    <div class='footer'>
-        <hr>
-        <div style="margin-top: 8px;margin-bottom: 8px;">
-            <!-- Add id name and onclick function during process story -->
-            <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="setPage('#segmentSelectors');clearWarning(store);">Next</button>
-            <button class="prevBtn" id="elementSelectorsPrevBtn" onclick="setPage('#metricSelectors');">Previous</button>
-        </div>
-        <br>
-        <br>
-        <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
-    </div>
+    <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
+  </div>
 </fieldset>
 
 <!-- Segment Selectors -->
@@ -268,11 +255,11 @@
             <div style="margin-top: 8px;margin-bottom: 8px;">
                 <!-- Add id name and onclick function during process story -->
                 <button type="submit" class="nextBtn" id="segmentSelectorsNextBtn" onclick="setPage('#summary');clearWarning(store);validateReport(store);">Done</button>
-                <button class="prevBtn" id="segmentSelectorsPrevBtn" onclick="setPage('#elementSelectors');">Previous</button>
+                <button class="prevBtn" id="segmentSelectorsPrevBtn" onclick="setPage('#elementSelectors');clearWarning(store);">Previous</button>
             </div>
             <br>
             <br>
-            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
         </div>
     </fieldset>
 
@@ -285,11 +272,11 @@
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
-                <button class="prevBtn" id="summaryPrevBtn" onclick="setPage('#segmentSelectors');">Previous</button>
+                <button class="prevBtn" id="summaryPrevBtn" onclick="setPage('#segmentSelectors');clearWarning(store);">Previous</button>
             </div>
             <br>
             <br>
-            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect')">Change Login Credentials</a>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
         </div>
     </fieldset>
 
@@ -316,77 +303,3 @@
 <script type="text/javascript" src="bundle.js">
 </script>
 </html>
-
-<!-- <fieldset id="reportOptions">
-    <legend>Adobe Analytics</legend>
-    <label for="reportSuite">Report Suite</label>
-    <alteryx-pluginwidget type="ComboBox" id="reportSuite" dataname="reportSuite">
-    </alteryx-pluginwidget>
-    </br>
-    </br>
-    <fieldset id="reportBreakdown">
-        <legend>Report Breakdown</legend>
-        <label for="metrics">Metric</label>
-        <alteryx-pluginwidget type="ComboBox" id="metrics" dataname="metrics" clearable="true">
-        </alteryx-pluginwidget>
-        </br>
-
-        <label for="elements">Element (1)</label>
-        <alteryx-pluginwidget type="ComboBox" id="elements" dataname="elements" clearable="true">
-        </alteryx-pluginwidget>
-        </br>
-
-        <label for="elements">Element (2)</label>
-        <alteryx-pluginwidget type="ComboBox" id="elementTwo" dataname="elementTwo" clearable="true">
-        </alteryx-pluginwidget>
-        </br>
-
-        <label for="elements">Element (3)</label>
-        <alteryx-pluginwidget type="ComboBox" id="elementThree" dataname="elementThree" clearable="true">
-        </alteryx-pluginwidget>
-
-    </fieldset>
-    </br>
-    <fieldset id="advancedOptions">
-        <legend>Advanced Options</legend>
-        <label for="date1">Start</label>
-        <alteryx-pluginwidget type="DateTimeField" dateFormat="YYYY-MM-DD" id="date1" dataType="SimpleDate"
-                              dataname="dateFrom">
-        </alteryx-pluginwidget>
-        <label for="date2">End</label>
-        <alteryx-pluginwidget type="DateTimeField" dateFormat="YYYY-MM-DD" id="date2" dataType="SimpleDate"
-                              dataname="dateTo">
-        </alteryx-pluginwidget>
-        <label for="granularity">Granularity</label>
-        <alteryx-pluginwidget type="ComboBox" id="granularity" dataname="granularity" clearable="true">
-            <alteryx-option>Hour</alteryx-option>
-            <alteryx-option>Day</alteryx-option>
-            <alteryx-option>Week</alteryx-option>
-            <alteryx-option>Month</alteryx-option>
-            <alteryx-option>Quarter</alteryx-option>
-            <alteryx-option>Year</alteryx-option>
-        </alteryx-pluginwidget>
-        </br>
-        <label for="dataCenter">Data Center</label>
-        <alteryx-pluginwidget type="DropDown" id="dataCenter" dataname="dataCenter">
-            <alteryx-option default uiobject="San Jose">api.omniture.com</alteryx-option>
-            <alteryx-option uiobject="Dallas">api2.omniture.com</alteryx-option>
-            <alteryx-option uiobject="London">api3.omniture.com</alteryx-option>
-            <alteryx-option uiobject="Singapore">api4.omniture.com</alteryx-option>
-            <alteryx-option uiobject="Pacific Northwest">api5.omniture.com</alteryx-option>
-        </alteryx-pluginwidget>
-        </br>
-        <alteryx-pluginwidget type="CheckBox" id="jsonParse" dataName="jsonParse"
-                              ischecked="true" text="Attempt to Parse Report"></alteryx-pluginwidget>
-        </br>
-        <div class="alignment_container">
-            <a href="javascript:void(0)" onclick="changeCredentials()">Change Login Credentials</a>
-        </div>
-    </fieldset>
-</fieldset> -->
-<!--
-<fieldset id=test style="display:none">
-    <alteryx-pluginwidget id="token" dataname="token" type="TextBox"></alteryx-pluginwidget>
-    <alteryx-pluginwidget id="baseURL" dataname="baseURL" type="TextBox"></alteryx-pluginwidget>
-    <alteryx-pluginwidget id="auth" dataname="auth" type="TextBox"></alteryx-pluginwidget>
-</fieldset> -->
