@@ -129,6 +129,11 @@ Alteryx.Gui.AfterLoad = (manager) => {
     return value !== ''
   }
 
+  // continuously updates the reportDescription each time a selection is made
+  autorun(() => {
+    store.reportDescription = JSON.stringify(reportValidation.payload(store))
+  })
+
   // Checks the state of advOptions and displays the correct arrow image
   autorun(() => {
     store.advOptionsPrimary === true ? document.getElementById('primaryArrow').className = 'arrow-down' : document.getElementById('primaryArrow').className = 'arrow-right'
@@ -219,7 +224,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     }
   })
 
-// Determines whether to show/hide the loading spinner based on page
+  // Determines whether to show/hide the loading spinner based on page
   autorun(() => {
     // Shows or hides the loading spinner based on flag
     const loading = (flag) => {
@@ -255,6 +260,15 @@ Alteryx.Gui.AfterLoad = (manager) => {
       //   const flag = (store.metricsList.loading || store.dimensionsList.loading || store.segmentsList.loading)
       //   loading(flag)
       //   break
+    }
+  })
+
+  // hide any lingering loading screens if user login token expires
+  autorun(() => {
+    if (store.page === '#authSelect' && store.errorStatus !== '') {
+      document.getElementById('loading').style.display = 'none'
+      document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
+      document.getElementById('loading-inner').style.display = 'none'
     }
   })
 

@@ -24,10 +24,12 @@ const devLogin = () => {
       store.access_token = data.access_token
       console.log('access_token is ' + store.access_token)
       store.errorStatus = ''
-      setPage('#reportSuite')
+      store.page === '#developerCreds' ? setPage('#reportSuite') : ''
     })
     .fail((jqXHR, textStatus, errorThrown) => {
+      store.page = '#developerCreds'
       errorMessaging(jqXHR, textStatus, errorThrown)
+      showLoader(false)
     })
 }
 
@@ -76,6 +78,7 @@ const parseToken = (url, name) => {
 }
 
 const errorMessaging = (jqXHR, textStatus, errorThrown) => {
+  showLoader(false)
   switch (jqXHR.responseJSON.error_description) {
     case 'The access token provided has expired':
       store.errorStatus = 1

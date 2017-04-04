@@ -1,3 +1,5 @@
+import * as utils from './utils'
+
 const topLevelReportSuites = (store) => {
   store.reportSuite.loading = true
   const reportSuites = getReportSuites(store)
@@ -5,6 +7,22 @@ const topLevelReportSuites = (store) => {
     .then(mapReportSuites)
     .then(sortReportSuites)
     .then(pushReportSuites)
+    .fail((jqXHR) => {
+      store.reportSuite.loading = false
+      switch (jqXHR.responseJSON.error) {
+        case 'invalid_grant':
+          if (store.client_id !== '' && store.client_secret !== '') {
+            utils.devLogin(store)
+          } else {
+            store.page = '#authSelect'
+            store.errorStatus = 1
+          }
+          break
+        default:
+          store.errorStatus = jqXHR.status
+          store.page = '#authSelect'
+      }
+    })
 }
 
 const getReportSuites = (store) => {
