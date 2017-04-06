@@ -1,0 +1,1058 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="11.0">
+  <Nodes>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1074" y="84" width="252" height="276" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Detour will switch to the right if granularity = hour because if so we'll add a datetime field since the hour field comes from the payload.
+
+Hour is the only field that will not show up based on if a user chooses other granaularities month, day and year always appear</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="426" y="204" width="180" height="156" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>may need this for non-overtime reports otherwise delete</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="138" y="240" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <SelectFields>
+            <SelectField field="DownloadData" selected="True" />
+            <SelectField field="access_token" selected="False" />
+            <SelectField field="reportID" selected="False" />
+            <SelectField field="DownloadHeaders" selected="False" />
+            <SelectField field="client_secret" selected="False" />
+            <SelectField field="payload" selected="False" />
+            <SelectField field="endpoint" selected="False" />
+            <SelectField field="client_id" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="DownloadData" size="20" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+        <Position x="270" y="240" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JSON_Field>DownloadData</JSON_Field>
+          <IncludeInOutput value="False" />
+          <SingleField value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="342" y="240" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="JSON_Name" selected="True" />
+            <SelectField field="JSON_ValueString" selected="True" />
+            <SelectField field="reportID" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="450" y="276" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="JSON_Name" action="First" rename="First_JSON_Name" />
+            <SummarizeField field="JSON_ValueString" action="First" rename="First_JSON_ValueString" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="First_JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="First_JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="546" y="252" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Allow</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="First_JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="First_JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="618" y="252" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="JSON_Name" selected="True" />
+            <SelectField field="JSON_ValueString" selected="True" />
+            <SelectField field="reportID" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="702" y="252" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([JSON_Name], "report.data")</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Split up report data and metadata</AnnotationText>
+          <DefaultAnnotationText>Contains([JSON_Name], "report.data")</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="822" y="240" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="// Deleting the report.data string in each record&#xA;Replace([JSON_Name],'report.data.','')" field="JSON_Name" size="1073741823" type="V_WString" />
+            <FormulaField expression="//Parsing out the record number fron JSON_Name field&#xA;ToNumber(REGEX_Replace([JSON_Name], '^(\d+).*', '$1'))&#xA;" field="Record_ID" size="8" type="Double" />
+            <FormulaField expression="// Deleting the parsed out record ID from the orginal field&#xA;Replace([JSON_Name], ToString([Record_ID]) + '.' , '')" field="JSON_Name" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>JSON_Name = // Deleting the report.data string in each record
+Replace([JSON_Name...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="Formula: // Deleting the parsed out record ID from the orginal field&#xA;Replace([JSON_Name], ToString([Record_ID]) + '.' , '')" type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Record_ID" source="Formula: //Parsing out the record number fron JSON_Name field&#xA;ToNumber(REGEX_Replace([JSON_Name], '^(\d+).*', '$1'))&#xA;" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="978" y="252" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="Record_ID" />
+          </GroupFields>
+          <HeaderField field="JSON_Name" />
+          <DataField field="JSON_ValueString" />
+          <Methods>
+            <Method method="Concat" />
+            <Separator>,</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Record_ID" source="CrossTab:Group:Concat:" type="Double" />
+            <Field name="Cart_Views" size="2048" source="CrossTab:Header:JSON_Name:Cart Views:Concat:" type="V_WString" />
+            <Field name="day" size="2048" source="CrossTab:Header:JSON_Name:day:Concat:" type="V_WString" />
+            <Field name="hour" size="2048" source="CrossTab:Header:JSON_Name:hour:Concat:" type="V_WString" />
+            <Field name="month" size="2048" source="CrossTab:Header:JSON_Name:month:Concat:" type="V_WString" />
+            <Field name="name" size="2048" source="CrossTab:Header:JSON_Name:name:Concat:" type="V_WString" />
+            <Field name="New_Visitors" size="2048" source="CrossTab:Header:JSON_Name:New Visitors:Concat:" type="V_WString" />
+            <Field name="Revenue_per_Visit" size="2048" source="CrossTab:Header:JSON_Name:Revenue per Visit:Concat:" type="V_WString" />
+            <Field name="year" size="2048" source="CrossTab:Header:JSON_Name:year:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Record_ID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="762" y="336" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([JSON_Name],'report.metrics') AND Contains([JSON_Name],'name')</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Get Metric Names</AnnotationText>
+          <DefaultAnnotationText>Contains([JSON_Name],'report.metrics') AND Contains([JSON_Nam...</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="834" y="324" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Replace([JSON_Name],'report.','')" field="JSON_Name" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([JSON_Name], 'metrics', 'counts')" field="JSON_Name" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([JSON_Name], '.name', '')" field="JSON_Name" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[cleaning up JSON_NAME so that we can join the metric info ]]></AnnotationText>
+          <DefaultAnnotationText>JSON_Name = Replace([JSON_Name],'report.','')
+JSON_Name = Replace([JSON_Name], '...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="Formula: Replace([JSON_Name], '.name', '')" type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+        <Position x="918" y="252" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldFind>JSON_Name</FieldFind>
+          <FieldSearch>JSON_Name</FieldSearch>
+          <ReplaceFoundField>JSON_ValueString</ReplaceFoundField>
+          <FindMode>FindAny</FindMode>
+          <NoCase value="False" />
+          <MatchWholeWord value="False" />
+          <ReplaceMode>Replace</ReplaceMode>
+          <ReplaceMultipleFound value="True" />
+          <ReplaceAppendFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="Formula: // Deleting the parsed out record ID from the orginal field&#xA;Replace([JSON_Name], ToString([Record_ID]) + '.' , '')" type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="Record_ID" source="Formula: //Parsing out the record number fron JSON_Name field&#xA;ToNumber(REGEX_Replace([JSON_Name], '^(\d+).*', '$1'))&#xA;" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1458" y="264" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <SelectFields>
+            <SelectField field="Record_ID" selected="False" />
+            <SelectField field="day" selected="False" />
+            <SelectField field="hour" selected="False" />
+            <SelectField field="month" selected="False" />
+            <SelectField field="name" selected="True" rename="Report_Period" />
+            <SelectField field="Segments" selected="True" />
+            <SelectField field="Cart_Views" selected="True" />
+            <SelectField field="New_Visitors" selected="True" />
+            <SelectField field="Revenue_per_Visit" selected="True" />
+            <SelectField field="year" selected="False" />
+            <SelectField field="Date" selected="True" />
+            <SelectField field="Datetime" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Report_Period" size="2048" source="CrossTab:Header:JSON_Name:name:Concat:" type="V_WString" />
+            <Field name="Segments" size="1073741823" source="Summarize: Concat - JSON_ValueString" type="V_WString" />
+            <Field name="Cart_Views" size="2048" source="CrossTab:Header:JSON_Name:Cart Views:Concat:" type="V_WString" />
+            <Field name="New_Visitors" size="2048" source="CrossTab:Header:JSON_Name:New Visitors:Concat:" type="V_WString" />
+            <Field name="Revenue_per_Visit" size="2048" source="CrossTab:Header:JSON_Name:Revenue per Visit:Concat:" type="V_WString" />
+            <Field name="Date" source="Formula: // Creating the Date field from payload outputs&#xA;[year] + '-' + [month] + '-' + [day]" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1170" y="216" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="// Putting 0's infront of one digit months&#xA;IF Length([month]) = 1 then '0' + [month] else [month] endif" field="month" size="2048" type="V_WString" />
+            <FormulaField expression="// Putting 0's infront of one digit days&#xA;IF Length([day]) = 1 then '0' + [day] else [day] endif" field="day" size="2048" type="V_WString" />
+            <FormulaField expression="// Creating the Date field from payload outputs&#xA;[year] + '-' + [month] + '-' + [day]" field="Date" size="10" type="Date" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>month = // Putting 0's infront of one digit months
+IF Length([month]) = 1 then '...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Record_ID" source="CrossTab:Group:Concat:" type="Double" />
+            <Field name="Cart_Views" size="2048" source="CrossTab:Header:JSON_Name:Cart Views:Concat:" type="V_WString" />
+            <Field name="day" size="2048" source="Formula: // Putting 0's infront of one digit days&#xA;IF Length([day]) = 1 then '0' + [day] else [day] endif" type="V_WString" />
+            <Field name="hour" size="2048" source="CrossTab:Header:JSON_Name:hour:Concat:" type="V_WString" />
+            <Field name="month" size="2048" source="Formula: // Putting 0's infront of one digit months&#xA;IF Length([month]) = 1 then '0' + [month] else [month] endif" type="V_WString" />
+            <Field name="name" size="2048" source="CrossTab:Header:JSON_Name:name:Concat:" type="V_WString" />
+            <Field name="New_Visitors" size="2048" source="CrossTab:Header:JSON_Name:New Visitors:Concat:" type="V_WString" />
+            <Field name="Revenue_per_Visit" size="2048" source="CrossTab:Header:JSON_Name:Revenue per Visit:Concat:" type="V_WString" />
+            <Field name="year" size="2048" source="CrossTab:Header:JSON_Name:year:Concat:" type="V_WString" />
+            <Field name="Date" source="Formula: // Creating the Date field from payload outputs&#xA;[year] + '-' + [month] + '-' + [day]" type="Date" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Record_ID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Detour.Detour">
+        <Position x="1074" y="252" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <DetourRight value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Left">
+          <RecordInfo>
+            <Field name="Record_ID" source="CrossTab:Group:Concat:" type="Double" />
+            <Field name="Cart_Views" size="2048" source="CrossTab:Header:JSON_Name:Cart Views:Concat:" type="V_WString" />
+            <Field name="day" size="2048" source="CrossTab:Header:JSON_Name:day:Concat:" type="V_WString" />
+            <Field name="hour" size="2048" source="CrossTab:Header:JSON_Name:hour:Concat:" type="V_WString" />
+            <Field name="month" size="2048" source="CrossTab:Header:JSON_Name:month:Concat:" type="V_WString" />
+            <Field name="name" size="2048" source="CrossTab:Header:JSON_Name:name:Concat:" type="V_WString" />
+            <Field name="New_Visitors" size="2048" source="CrossTab:Header:JSON_Name:New Visitors:Concat:" type="V_WString" />
+            <Field name="Revenue_per_Visit" size="2048" source="CrossTab:Header:JSON_Name:Revenue per Visit:Concat:" type="V_WString" />
+            <Field name="year" size="2048" source="CrossTab:Header:JSON_Name:year:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Record_ID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="Right">
+          <RecordInfo>
+            <Field name="Record_ID" source="CrossTab:Group:Concat:" type="Double" />
+            <Field name="Cart_Views" size="2048" source="CrossTab:Header:JSON_Name:Cart Views:Concat:" type="V_WString" />
+            <Field name="day" size="2048" source="CrossTab:Header:JSON_Name:day:Concat:" type="V_WString" />
+            <Field name="hour" size="2048" source="CrossTab:Header:JSON_Name:hour:Concat:" type="V_WString" />
+            <Field name="month" size="2048" source="CrossTab:Header:JSON_Name:month:Concat:" type="V_WString" />
+            <Field name="name" size="2048" source="CrossTab:Header:JSON_Name:name:Concat:" type="V_WString" />
+            <Field name="New_Visitors" size="2048" source="CrossTab:Header:JSON_Name:New Visitors:Concat:" type="V_WString" />
+            <Field name="Revenue_per_Visit" size="2048" source="CrossTab:Header:JSON_Name:Revenue per Visit:Concat:" type="V_WString" />
+            <Field name="year" size="2048" source="CrossTab:Header:JSON_Name:year:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Record_ID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDetour" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DetourEnd.DetourEnd">
+        <Position x="1266" y="252" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Record_ID" source="CrossTab:Group:Concat:" type="Double" />
+            <Field name="Cart_Views" size="2048" source="CrossTab:Header:JSON_Name:Cart Views:Concat:" type="V_WString" />
+            <Field name="day" size="2048" source="Formula: // Putting 0's infront of one digit days&#xA;IF Length([day]) = 1 then '0' + [day] else [day] endif" type="V_WString" />
+            <Field name="hour" size="2048" source="CrossTab:Header:JSON_Name:hour:Concat:" type="V_WString" />
+            <Field name="month" size="2048" source="Formula: // Putting 0's infront of one digit months&#xA;IF Length([month]) = 1 then '0' + [month] else [month] endif" type="V_WString" />
+            <Field name="name" size="2048" source="CrossTab:Header:JSON_Name:name:Concat:" type="V_WString" />
+            <Field name="New_Visitors" size="2048" source="CrossTab:Header:JSON_Name:New Visitors:Concat:" type="V_WString" />
+            <Field name="Revenue_per_Visit" size="2048" source="CrossTab:Header:JSON_Name:Revenue per Visit:Concat:" type="V_WString" />
+            <Field name="year" size="2048" source="CrossTab:Header:JSON_Name:year:Concat:" type="V_WString" />
+            <Field name="Date" source="Formula: // Creating the Date field from payload outputs&#xA;[year] + '-' + [month] + '-' + [day]" type="Date" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Record_ID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDetourEnd" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1170" y="288" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="// Putting 0's infront of one digit months&#xA;IF Length([month]) = 1 then '0' + [month] else [month] endif" field="month" size="2048" type="V_WString" />
+            <FormulaField expression="// Putting 0's infront of one digit days&#xA;IF Length([day]) = 1 then '0' + [day] else [day] endif" field="day" size="2048" type="V_WString" />
+            <FormulaField expression="// Putting 0's infront of one digit hours&#xA;IF Length([hour]) = 1 then '0' + [hour] else [hour] endif" field="hour" size="2048" type="V_WString" />
+            <FormulaField expression="// Creating the Date field from payload outputs&#xA;[year] + '-' + [month] + '-' + [day]" field="Date" size="10" type="Date" />
+            <FormulaField expression="[Date] + ' ' + [hour] + ':00:00'" field="Datetime" size="19" type="DateTime" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="2">
+          <Name />
+          <DefaultAnnotationText>month = // Putting 0's infront of one digit months
+IF Length([month]) = 1 then '...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Record_ID" source="CrossTab:Group:Concat:" type="Double" />
+            <Field name="Cart_Views" size="2048" source="CrossTab:Header:JSON_Name:Cart Views:Concat:" type="V_WString" />
+            <Field name="day" size="2048" source="Formula: // Putting 0's infront of one digit days&#xA;IF Length([day]) = 1 then '0' + [day] else [day] endif" type="V_WString" />
+            <Field name="hour" size="2048" source="Formula: // Putting 0's infront of one digit hours&#xA;IF Length([hour]) = 1 then '0' + [hour] else [hour] endif" type="V_WString" />
+            <Field name="month" size="2048" source="Formula: // Putting 0's infront of one digit months&#xA;IF Length([month]) = 1 then '0' + [month] else [month] endif" type="V_WString" />
+            <Field name="name" size="2048" source="CrossTab:Header:JSON_Name:name:Concat:" type="V_WString" />
+            <Field name="New_Visitors" size="2048" source="CrossTab:Header:JSON_Name:New Visitors:Concat:" type="V_WString" />
+            <Field name="Revenue_per_Visit" size="2048" source="CrossTab:Header:JSON_Name:Revenue per Visit:Concat:" type="V_WString" />
+            <Field name="year" size="2048" source="CrossTab:Header:JSON_Name:year:Concat:" type="V_WString" />
+            <Field name="Date" source="Formula: // Creating the Date field from payload outputs&#xA;[year] + '-' + [month] + '-' + [day]" type="Date" />
+            <Field name="Datetime" source="Formula: [Date] + ' ' + [hour] + ':00:00'" type="DateTime" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Record_ID" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="846" y="480" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>Contains([JSON_Name],'report.segments') AND Contains([JSON_Name],'name')</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Get Metric Names</AnnotationText>
+          <DefaultAnnotationText>Contains([JSON_Name],'report.segments') AND Contains([JSON_Na...</DefaultAnnotationText>
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="954" y="468" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="JSON_ValueString" action="Concat" rename="Segments">
+              <Concat_Start />
+              <Separator><![CDATA[ & ]]></Separator>
+              <Concat_End />
+            </SummarizeField>
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Segments" size="1073741823" source="Summarize: Concat - JSON_ValueString" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="1338" y="264" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="Target_Record_ID" selected="True" />
+                <SelectField field="Target_Cart_Views" selected="True" />
+                <SelectField field="Source_Segments" selected="True" />
+                <SelectField field="Target_day" selected="True" />
+                <SelectField field="Target_month" selected="True" />
+                <SelectField field="Target_name" selected="True" />
+                <SelectField field="Target_New_Visitors" selected="True" />
+                <SelectField field="Target_Revenue_per_Visit" selected="True" />
+                <SelectField field="Target_year" selected="True" />
+                <SelectField field="Target_Date" selected="True" />
+                <SelectField field="Target_hour" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Record_ID" source="CrossTab:Group:Concat:" type="Double" />
+            <Field name="Cart_Views" size="2048" source="CrossTab:Header:JSON_Name:Cart Views:Concat:" type="V_WString" />
+            <Field name="Segments" size="1073741823" source="Summarize: Concat - JSON_ValueString" type="V_WString" />
+            <Field name="day" size="2048" source="Formula: // Putting 0's infront of one digit days&#xA;IF Length([day]) = 1 then '0' + [day] else [day] endif" type="V_WString" />
+            <Field name="month" size="2048" source="Formula: // Putting 0's infront of one digit months&#xA;IF Length([month]) = 1 then '0' + [month] else [month] endif" type="V_WString" />
+            <Field name="name" size="2048" source="CrossTab:Header:JSON_Name:name:Concat:" type="V_WString" />
+            <Field name="New_Visitors" size="2048" source="CrossTab:Header:JSON_Name:New Visitors:Concat:" type="V_WString" />
+            <Field name="Revenue_per_Visit" size="2048" source="CrossTab:Header:JSON_Name:Revenue per Visit:Concat:" type="V_WString" />
+            <Field name="year" size="2048" source="CrossTab:Header:JSON_Name:year:Concat:" type="V_WString" />
+            <Field name="Date" source="Formula: // Creating the Date field from payload outputs&#xA;[year] + '-' + [month] + '-' + [day]" type="Date" />
+            <Field name="hour" size="2048" source="CrossTab:Header:JSON_Name:hour:Concat:" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1422" y="204" width="120" height="48" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Need to get rid of Null segments</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="Yellow" />
+          <Shape shape="0" />
+          <Justification Justification="4" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="240" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Input26</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="DownloadData" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>____DownloadData____</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="DownloadData" size="20" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1578" y="264" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output27</Name>
+          <Abbrev>O</Abbrev>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="54" y="60" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>granularity</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="66" y="144" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="5" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="True" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="False" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="14" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="14" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="29" Connection="Action" />
+      <Destination ToolID="17" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="True" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="False" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="18" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="18" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Left" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Right" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="23" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="23" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="True" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="1" Connection="Input" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="28" Connection="Question" />
+      <Destination ToolID="29" Connection="Question" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (26)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (27)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>granularity</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>adobe-analytics-response-parse</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValueFormula</Type>
+              <Description />
+              <ToolId value="29" />
+              <Expression>If [#1] = 'hour' then 'True' else 'False' endif</Expression>
+              <Destination>17/DetourRight/@value</Destination>
+              <Mode>Expression</Mode>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (25)</Name>
+          <ToolId value="25" />
+          <Questions>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (26)</Description>
+              <Name>Macro Input (26)</Name>
+              <ToolId value="26" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (27)</Description>
+              <Name>Macro Output (27)</Name>
+              <ToolId value="27" />
+            </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>checkGranularity</Description>
+              <Name>granularity</Name>
+              <ToolId value="28" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="26" Selected="True" />
+        <Tool ToolId="27" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
