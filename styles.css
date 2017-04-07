@@ -143,39 +143,41 @@ hr {
 }
 
 .invalidReport {
-   background-color: #ec2227;
-   border: 1px solid #9f1d20;
-   border-radius: 5px;
-   color: #ffffff;
-   display: block;
-   font-family: 'Segoe UI Semibold', Arial, sans-serif;
+   background-color: white;
+   border: 1px solid #FF2600;
+   border-radius: 0px;
+   color: black;
+   display: inline-flex;
+   font-family: 'Segoe UI', Arial, sans-serif;
    font-size: 12px;
    margin-top: 35px;
-   // left: 145px;
-   // top: 41.5px;
-   // right: 20px;
-   white-space: pre-wrap;
-   padding: 5px 5px 5px 5px;
-   text-align: center;
-   width: auto;
+   padding: 10px;
+   text-align: left;
+   width: 93%;
 }
 
 .validReport {
-   background-color: rgb(204,246,209);
-   border: 1px solid rgb(204,246,209);
-   border-radius: 5px;
+   background-color: white;
+   border: 1px solid #7AC142;
+   border-radius: 0px;
    color: black;
-   display: block;
-   font-family: 'Segoe UI Semibold', Arial, sans-serif;
+   display: inline-flex;
+   font-family: 'Segoe UI', Arial, sans-serif;
    font-size: 12px;
    margin-top: 35px;
-   // left: 145px;
-   // top: 41.5px;
-   // right: 20px;
-   white-space: pre-wrap;
-   padding: 5px 5px 5px 5px;
-   text-align: center;
-   width: auto;
+   padding: 10px;
+   text-align: left;
+   width: 93%;
+}
+
+.validationTypeText {
+   font-family: 'Segoe UI Semibold', Arial, sans-serif;
+   font-size: 12px;
+}
+
+.validationImgStyle {
+  width: 20px;
+  height: 20px;
 }
 
 .prevBtn {
