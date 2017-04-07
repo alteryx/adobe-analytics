@@ -63,7 +63,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1398" y="318" />
+        <Position x="1410" y="270" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -557,35 +557,6 @@ Macro</AnnotationText>
       </Properties>
       <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-report.get.yxmc" />
     </Node>
-    <Node ToolID="44">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="1314" y="318" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <NumRows value="1" />
-          <Fields>
-            <Field name="Report" />
-          </Fields>
-          <Data>
-            <r>
-              <c>Report Placeholder</c>
-            </r>
-          </Data>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field name="Report" size="18" source="TextInput:" type="String" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
-    </Node>
     <Node ToolID="45">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
         <Position x="1398" y="414" />
@@ -602,6 +573,48 @@ Macro</AnnotationText>
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+        <Position x="762" y="126" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>granularity</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings>
+        <Position x="1242" y="294" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="granularity">%Question.granularity%</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output27">
+          <RecordInfo>
+            <Field name="Report_Period" size="2048" source="CrossTab:Header:JSON_Name:name:Concat:" type="V_WString" />
+            <Field name="Segments" size="1073741823" source="Summarize: Concat - JSON_ValueString" type="V_WString" />
+            <Field name="Cart_Views" size="2048" source="CrossTab:Header:JSON_Name:Cart Views:Concat:" type="V_WString" />
+            <Field name="New_Visitors" size="2048" source="CrossTab:Header:JSON_Name:New Visitors:Concat:" type="V_WString" />
+            <Field name="Revenue_per_Visit" size="2048" source="CrossTab:Header:JSON_Name:Revenue per Visit:Concat:" type="V_WString" />
+            <Field name="Date" source="Formula: // Creating the Date field from payload outputs&#xA;[year] + '-' + [month] + '-' + [day]" type="Date" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-response-parse.yxmc" />
     </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
@@ -907,7 +920,11 @@ Macro</AnnotationText>
       <Destination ToolID="5" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="44" Connection="Output" />
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="51" Connection="Input26" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output27" />
       <Destination ToolID="3" Connection="Input" />
     </Connection>
     <Connection>
@@ -1041,6 +1058,12 @@ Macro</AnnotationText>
       <Constant>
         <Namespace>Question</Namespace>
         <Name>reportDescription</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>granularity</Name>
         <Value />
         <IsNumeric value="False" />
       </Constant>
@@ -1267,6 +1290,16 @@ Macro</AnnotationText>
               <Name>JSON</Name>
               <ToolId value="45" />
             </Question>
+            <Question>
+              <Type>TextBox</Type>
+              <Description>granularity</Description>
+              <Name>granularity</Name>
+              <ToolId value="50" />
+              <Default />
+              <Password value="False" />
+              <Multiline value="False" />
+              <Hidden value="False" />
+            </Question>
           </Questions>
         </Question>
       </Questions>
@@ -1285,6 +1318,7 @@ Macro</AnnotationText>
         <Tool ToolId="12" Selected="True" />
         <Tool ToolId="43" Selected="True" />
         <Tool ToolId="45" Selected="True" />
+        <Tool ToolId="51" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
