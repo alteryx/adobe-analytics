@@ -102,7 +102,7 @@ class InvalidReport extends React.Component {
       height: "auto"
     }
     const textStyle = {
-      "margin-left": "10px"
+      "marginLeft": "10px"
     }
 
     return (
