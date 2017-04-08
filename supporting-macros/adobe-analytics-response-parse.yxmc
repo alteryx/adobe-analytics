@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1074" y="84" width="252" height="276" />
+        <Position x="1074" y="78" width="252" height="276" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -25,7 +25,7 @@ Hour is the only field that will not show up based on if a user chooses other gr
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="426" y="204" width="180" height="156" />
+        <Position x="426" y="198" width="180" height="156" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -45,7 +45,7 @@ Hour is the only field that will not show up based on if a user chooses other gr
     </Node>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="138" y="240" />
+        <Position x="138" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -77,7 +77,7 @@ Hour is the only field that will not show up based on if a user chooses other gr
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
-        <Position x="270" y="240" />
+        <Position x="270" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -101,7 +101,7 @@ Hour is the only field that will not show up based on if a user chooses other gr
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="342" y="240" />
+        <Position x="342" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -129,7 +129,7 @@ Hour is the only field that will not show up based on if a user chooses other gr
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="450" y="276" />
+        <Position x="450" y="270" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -154,7 +154,7 @@ Hour is the only field that will not show up based on if a user chooses other gr
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-        <Position x="546" y="252" />
+        <Position x="546" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -186,7 +186,7 @@ Hour is the only field that will not show up based on if a user chooses other gr
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="618" y="252" />
+        <Position x="618" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -214,7 +214,7 @@ Hour is the only field that will not show up based on if a user chooses other gr
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="702" y="252" />
+        <Position x="702" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -244,7 +244,7 @@ Hour is the only field that will not show up based on if a user chooses other gr
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="822" y="240" />
+        <Position x="822" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -272,7 +272,7 @@ Replace([JSON_Name...</DefaultAnnotationText>
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-        <Position x="978" y="252" />
+        <Position x="978" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -313,7 +313,7 @@ Replace([JSON_Name...</DefaultAnnotationText>
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="762" y="336" />
+        <Position x="762" y="330" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -343,7 +343,7 @@ Replace([JSON_Name...</DefaultAnnotationText>
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="834" y="324" />
+        <Position x="834" y="318" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -371,7 +371,7 @@ JSON_Name = Replace([JSON_Name], '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
-        <Position x="918" y="252" />
+        <Position x="918" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -402,7 +402,7 @@ JSON_Name = Replace([JSON_Name], '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1458" y="264" />
+        <Position x="1458" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -414,12 +414,12 @@ JSON_Name = Replace([JSON_Name], '...</DefaultAnnotationText>
             <SelectField field="month" selected="False" />
             <SelectField field="name" selected="True" rename="Report_Period" />
             <SelectField field="Segments" selected="True" />
+            <SelectField field="Date" selected="True" />
+            <SelectField field="Datetime" selected="True" />
             <SelectField field="Cart_Views" selected="True" />
             <SelectField field="New_Visitors" selected="True" />
             <SelectField field="Revenue_per_Visit" selected="True" />
             <SelectField field="year" selected="False" />
-            <SelectField field="Date" selected="True" />
-            <SelectField field="Datetime" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -432,10 +432,10 @@ JSON_Name = Replace([JSON_Name], '...</DefaultAnnotationText>
           <RecordInfo>
             <Field name="Report_Period" size="2048" source="CrossTab:Header:JSON_Name:name:Concat:" type="V_WString" />
             <Field name="Segments" size="1073741823" source="Summarize: Concat - JSON_ValueString" type="V_WString" />
+            <Field name="Date" source="Formula: // Creating the Date field from payload outputs&#xA;[year] + '-' + [month] + '-' + [day]" type="Date" />
             <Field name="Cart_Views" size="2048" source="CrossTab:Header:JSON_Name:Cart Views:Concat:" type="V_WString" />
             <Field name="New_Visitors" size="2048" source="CrossTab:Header:JSON_Name:New Visitors:Concat:" type="V_WString" />
             <Field name="Revenue_per_Visit" size="2048" source="CrossTab:Header:JSON_Name:Revenue per Visit:Concat:" type="V_WString" />
-            <Field name="Date" source="Formula: // Creating the Date field from payload outputs&#xA;[year] + '-' + [month] + '-' + [day]" type="Date" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -443,7 +443,7 @@ JSON_Name = Replace([JSON_Name], '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1170" y="216" />
+        <Position x="1170" y="210" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -481,7 +481,7 @@ IF Length([month]) = 1 then '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Detour.Detour">
-        <Position x="1074" y="252" />
+        <Position x="1074" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -529,7 +529,7 @@ IF Length([month]) = 1 then '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DetourEnd.DetourEnd">
-        <Position x="1266" y="252" />
+        <Position x="1266" y="246" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -560,7 +560,7 @@ IF Length([month]) = 1 then '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1170" y="288" />
+        <Position x="1170" y="282" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -601,7 +601,7 @@ IF Length([month]) = 1 then '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="21">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="846" y="480" />
+        <Position x="846" y="474" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -610,7 +610,7 @@ IF Length([month]) = 1 then '...</DefaultAnnotationText>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <AnnotationText>Get Metric Names</AnnotationText>
+          <AnnotationText>Get Segments</AnnotationText>
           <DefaultAnnotationText>Contains([JSON_Name],'report.segments') AND Contains([JSON_Na...</DefaultAnnotationText>
           <Left value="True" />
         </Annotation>
@@ -631,7 +631,7 @@ IF Length([month]) = 1 then '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="22">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="954" y="468" />
+        <Position x="954" y="462" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -658,7 +658,7 @@ IF Length([month]) = 1 then '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="23">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-        <Position x="1338" y="264" />
+        <Position x="1338" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -708,7 +708,7 @@ IF Length([month]) = 1 then '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="24">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1422" y="204" width="120" height="48" />
+        <Position x="1422" y="198" width="120" height="48" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -741,7 +741,7 @@ IF Length([month]) = 1 then '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="26">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
-        <Position x="54" y="240" />
+        <Position x="54" y="234" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -779,7 +779,7 @@ IF Length([month]) = 1 then '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1578" y="264" />
+        <Position x="1578" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -796,7 +796,7 @@ IF Length([month]) = 1 then '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="28">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="54" y="60" width="59" height="59" />
+        <Position x="54" y="54" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -809,7 +809,7 @@ IF Length([month]) = 1 then '...</DefaultAnnotationText>
     </Node>
     <Node ToolID="29">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="66" y="144" width="59" height="59" />
+        <Position x="66" y="138" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
