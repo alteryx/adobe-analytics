@@ -24,22 +24,22 @@ class ConnectionErrorMessage extends React.Component {
         break
       case 1:
       case '1':
-        text = 'Token has expired:  Please re-enter login credentials'
+        text = 'XMSG("Token has expired:  Please re-enter login credentials")'
         break
       case 400:
       case '400':
-        text = 'Reconfigure tool and try again' // '400 Bad Request Error:  Reconfigure tool and try again'
+        text = 'XMSG("Reconfigure tool and try again")' // '400 Bad Request Error:  Reconfigure tool and try again'
         break
       case 401:
       case '401':
-        text = 'Enter valid Adobe Analytics credentials' // '401 Unauthorized Error:  Enter valid Google Analytics credentials'
+        text = 'XMSG("Enter valid Adobe Analytics credentials")' // '401 Unauthorized Error:  Enter valid Google Analytics credentials'
         break
       case 503:
       case '503':
-        text = 'Adobe Analytics API is unreachable, try again later' // '503 Service Unavailable Error:  Google API is unreachable, try again later'
+        text = 'XMSG("Adobe Analytics API is unreachable, try again later")' // '503 Service Unavailable Error:  Google API is unreachable, try again later'
         break
       default:
-        text = 'Unable to reach API:  Reconfigure tool and try again'
+        text = 'XMSG("Unable to reach API:  Reconfigure tool and try again")'
     }
 
     return text

@@ -54,7 +54,7 @@ class InvalidReport extends React.Component {
     if (type === '' || type === undefined) {
       text = ''
     } else if (type === 'Success') {
-      text = 'Valid report description.'
+      text = 'XMSG("Valid report description.")'
     } else {
       text = desc + '.'
     }
