@@ -3,8 +3,8 @@ import { observer } from 'mobx-react'
 
 class DateMessage extends React.Component {
   constructor (props) {
-    super(props);
-    this.store = props.store;
+    super(props)
+    this.store = props.store
   }
 
   addClass (dateBool) {
@@ -12,7 +12,7 @@ class DateMessage extends React.Component {
   }
 
   addText (dateBool) {
-    return dateBool ? 'Start date cannot be after End date.' : ''
+    return dateBool ? 'XMSG("Start date cannot be after End date.")' : ''
   }
 
   render () {
@@ -24,8 +24,8 @@ class DateMessage extends React.Component {
       <div className={divClass}>
         {text}
       </div>
-    );
+    )
   }
 }
 
-export default observer(DateMessage);
+export default observer(DateMessage)

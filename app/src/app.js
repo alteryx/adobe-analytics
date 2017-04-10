@@ -230,7 +230,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     const loading = (flag) => {
       if (flag) {
         document.getElementById('loading').style.display = 'block'
-        document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">Populating menu items</p><img src="loading_ring.svg">'
+        document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">XMSG("Populating menu items")</p><img src="loading_ring.svg">'
         document.getElementById('loading-inner').style.display = 'block'
       } else {
         document.getElementById('loading').style.display = 'none'

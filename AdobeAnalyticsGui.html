@@ -14,23 +14,23 @@
 <body>
 <!-- Logon Selection Page -->
 <fieldset id="authSelect" style="display:none">
-    <legend>Sign in to Adobe Analytics</legend>
+    <legend>XMSG("Sign in to Adobe Analytics")</legend>
     <div class="button-panel">
-        <button style="width:116px;" class="button" type="submit" id="userButton" onclick="resetFields();userLogin();">User Login</button>
-        <p>Sign in using Adobe Analytics credentials. This option requires re-entering credentials every 60 minutes or any time a new workflow is opened.</p>
-        <button style="width:116px;" class="button2" type="submit" id="devButton" onclick="resetFields();setPage('#developerCreds')">Developer Login</button>
-        <p>Sign in using API credentials. This option requires obtaining a Client ID and Client Secret and does not require re-entering credentials to run a workflow.</p>
+        <button style="width:116px;" class="button" type="submit" id="userButton" onclick="resetFields();userLogin();">XMSG("User Login")</button>
+        <p>XMSG("Sign in using Adobe Analytics credentials. This option requires re-entering credentials every 60 minutes or any time a new workflow is opened.")</p>
+        <button style="width:116px;" class="button2" type="submit" id="devButton" onclick="resetFields();setPage('#developerCreds')">XMSG("Developer Login")</button>
+        <p>XMSG("Sign in using API credentials. This option requires obtaining a Client ID and Client Secret and does not require re-entering credentials to run a workflow.")</p>
     </div>
 <!--     <div id="connectionErrorMessage" style="height: 0px;"></div> -->
 </fieldset>
 
 <!-- Developer credentials -->
     <fieldset id="developerCreds" style="display:none">
-        <legend>Sign in as Developer</legend>
-        <label for="dataItemClientID">Client ID</label>
+        <legend>XMSG("Sign in as Developer")</legend>
+        <label for="dataItemClientID">XMSG("Client ID")</label>
         <alteryx-pluginwidget type="TextBox" id="client_id" dataName="client_id"></alteryx-pluginwidget>
         <br/>
-        <label>Client Secret</label>
+        <label>XMSG("Client Secret")</label>
         <alteryx-pluginwidget type="TextBox" password="true" id="client_secret" dataName="client_secret"></alteryx-pluginwidget>
         <br/>
         <div id="devConnectionErrorMessage" style="height: 0px;"></div>
@@ -38,17 +38,17 @@
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
-                <button type="submit" style="float: right" id="connect_button" onclick="devLogin();">Connect</button>
+                <button type="submit" style="float: right" id="connect_button" onclick="devLogin();">XMSG("Connect")</button>
              </div>
         <br>
         <br>
-        <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
+        <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">XMSG("Change Login Credentials")</a>
         </div>
     </fieldset>
 
 <!-- Report Suite Selector -->
     <fieldset id="reportSuite" style="display:none">
-        <legend>Select Report Suite</legend>
+        <legend>XMSG("Select Report Suite")</legend>
         <alteryx-pluginwidget data-props='{type:"ListBox",dataType:"StringSelector",id:"reportSuite",issearchable:"true",dataName:"reportSuite"}'>
         </alteryx-pluginwidget>
         <div class='footer_spacer'></div>
@@ -56,53 +56,53 @@
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
                 <!-- Add id name and onclick function during process story -->
-                <button type="submit" class="nextBtn" id="reportSuiteNextBtn" onclick="setPage('#datePickers')">Next</button>
+                <button type="submit" class="nextBtn" id="reportSuiteNextBtn" onclick="setPage('#datePickers')">XMSG("Next")</button>
             </div>
             <br>
             <br>
-            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">XMSG("Change Login Credentials")</a>
         </div>
     </fieldset>
 
 <!-- Selectors for Date Pickers and Granularity -->
     <fieldset id="datePickers" style="display:none;">
-        <legend>Select Dates and Granularity to Include</legend>
+        <legend>XMSG("Select Dates and Granularity to Include")</legend>
         <div id="preDefDateRange">
-            <label for="preDefDropDown">Preset Date Range</label>
+            <label for="preDefDropDown">XMSG("Preset Date Range")</label>
             <alteryx-pluginwidget type="DropDown" id="preDefDropDown" dataName="preDefDropDown">
-                <alteryx-option uiobject="Custom">custom</alteryx-option>
-                <alteryx-option uiobject="Today">today</alteryx-option>
-                <alteryx-option uiobject="Yesterday">yesterday</alteryx-option>
-                <alteryx-option uiobject="Last 7 Days">last7Days</alteryx-option>
-                <alteryx-option uiobject="Last Week">lastWeek</alteryx-option>
-                <alteryx-option uiobject="Last 30 Days">last30Days</alteryx-option>
-                <alteryx-option uiobject="Last Month">lastMonth</alteryx-option>
-                <alteryx-option uiobject="Month to Date">monthToDate</alteryx-option>
-                <alteryx-option uiobject="Year to Date">yearToDate</alteryx-option>
-                <alteryx-option uiobject="Last Year">lastYear</alteryx-option>
+                <alteryx-option uiobject='XMSG("Custom")'>custom</alteryx-option>
+                <alteryx-option uiobject='XMSG("Today")'>today</alteryx-option>
+                <alteryx-option uiobject='XMSG("Yesterday")'>yesterday</alteryx-option>
+                <alteryx-option uiobject='XMSG("Last 7 Days")'>last7Days</alteryx-option>
+                <alteryx-option uiobject='XMSG("Last Week")'>lastWeek</alteryx-option>
+                <alteryx-option uiobject='XMSG("Last 30 Days")'>last30Days</alteryx-option>
+                <alteryx-option uiobject='XMSG("Last Month")'>lastMonth</alteryx-option>
+                <alteryx-option uiobject='XMSG("Month to Date")'>monthToDate</alteryx-option>
+                <alteryx-option uiobject='XMSG("Year to Date")'>yearToDate</alteryx-option>
+                <alteryx-option uiobject='XMSG("Last Year")'>lastYear</alteryx-option>
             </alteryx-pluginwidget>
         </div>
         <br>
         <div id="startDate" class="datePicker">
-            <label for="startDatePicker" class="datePickerLabel">Start</label>
+            <label for="startDatePicker" class="datePickerLabel">XMSG("Start")</label>
             <alteryx-pluginwidget type="DateTimeField" dateFormat="YYYY-MM-DD" id="startDatePicker" dataType="SimpleDate" dataName="startDatePicker"></alteryx-pluginwidget>
         </div>
         <div id="endDate" class="datePicker">
-            <label for="endDatePicker" class="datePickerLabel">End</label>
+            <label for="endDatePicker" class="datePickerLabel">XMSG("End")</label>
             <alteryx-pluginwidget type="DateTimeField" dateFormat="YYYY-MM-DD" id="endDatePicker" dataType="SimpleDate" dataName="endDatePicker"></alteryx-pluginwidget>
         </div>
         <div id="dateWarning" style="z-index: 1; height:0px;"></div>
         <p>
         <!-- Granularity section -->
         <div id="granularity">
-            <label for="granularity">Granularity (Optional)</label>
+            <label for="granularity">XMSG("Granularity (Optional)")</label>
             <alteryx-pluginwidget data-props='{type:"DropDown",id:"granularity",dataName:"granularity",clearable:"true"}'>
-                <alteryx-option uiobject="Hour">hour</alteryx-option>
-                <alteryx-option uiobject="Day">day</alteryx-option>
-                <alteryx-option uiobject="Week">week</alteryx-option>
-                <alteryx-option uiobject="Month">month</alteryx-option>
-                <alteryx-option uiobject="Quarter">quarter</alteryx-option>
-                <alteryx-option uiobject="Year">year</alteryx-option>
+                <alteryx-option uiobject='XMSG("Hour")'>hour</alteryx-option>
+                <alteryx-option uiobject='XMSG("Day")'>day</alteryx-option>
+                <alteryx-option uiobject='XMSG("Week")'>week</alteryx-option>
+                <alteryx-option uiobject='XMSG("Month")'>month</alteryx-option>
+                <alteryx-option uiobject='XMSG("Quarter")'>quarter</alteryx-option>
+                <alteryx-option uiobject='XMSG("Year")'>year</alteryx-option>
             </alteryx-pluginwidget>
         </div>
         <div class='footer_spacer'></div>
@@ -110,29 +110,29 @@
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
                 <!-- Add id name and onclick function during process story -->
-                <button type="submit" class="nextBtn" id="datePickersNextBtn" onclick="setPage('#metricSelectors');clearWarning(store);">Next</button>
-                <button class="prevBtn" id="datePickersPrevBtn" onclick="setPage('#reportSuite');clearWarning(store);">Previous</button>
+                <button type="submit" class="nextBtn" id="datePickersNextBtn" onclick="setPage('#metricSelectors');clearWarning(store);">XMSG("Next")</button>
+                <button class="prevBtn" id="datePickersPrevBtn" onclick="setPage('#reportSuite');clearWarning(store);">XMSG("Previous")</button>
             </div>
             <br>
             <br>
-            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">XMSG("Change Login Credentials")</a>
         </div>
     </fieldset>
 
 <!-- Metric Selectors -->
     <fieldset id="metricSelectors" style="display:none;">
-        <legend>Select Metrics to Include</legend>
-        <label for="metric1">Metric 1</label>
+        <legend>XMSG("Select Metrics to Include")</legend>
+        <label for="metric1">XMSG("Metric 1")</label>
         <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"metric1",issearchable:"true",dataName:"metric1",clearable:"true"}'></alteryx-pluginwidget>
-        <label for="metric2">Metric 2 (optional)</label>
+        <label for="metric2">XMSG("Metric 2 (optional)")</label>
         <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"metric2",issearchable:"true",dataName:"metric2",clearable:"true"}'></alteryx-pluginwidget>
-        <label for="metric3">Metric 3 (optional)</label>
+        <label for="metric3">XMSG("Metric 3 (optional)")</label>
         <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"metric3",issearchable:"true",dataName:"metric3",clearable:"true"}'></alteryx-pluginwidget>
-        <label for="metric4">Metric 4 (optional)</label>
+        <label for="metric4">XMSG("Metric 4 (optional)")</label>
         <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"metric4",issearchable:"true",dataName:"metric4",clearable:"true"}'></alteryx-pluginwidget>
-        <label for="metric5">Metric 5 (optional)</label>
+        <label for="metric5">XMSG("Metric 5 (optional)")</label>
         <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"metric5",issearchable:"true",dataName:"metric5",clearable:"true"}'></alteryx-pluginwidget>
-        <button class="prevBtn" id="metricValidation" onclick="validateReport(store);">Validate Report</button>
+        <button class="prevBtn" id="metricValidation" onclick="validateReport(store);">XMSG("Validate Report")</button>
         <br>
         <div id="invalidMetric"></div>
         <div class='footer_spacer'></div>
@@ -140,25 +140,25 @@
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
                 <!-- Add id name and onclick function during process story -->
-                <button type="submit" class="nextBtn" id="metricSelectorsNextBtn" onclick="setPage('#elementSelectors');clearWarning(store);">Next</button>
-                <button class="prevBtn" id="metricSelectorsPrevBtn" onclick="setPage('#datePickers');clearWarning(store);">Previous</button>
+                <button type="submit" class="nextBtn" id="metricSelectorsNextBtn" onclick="setPage('#elementSelectors');clearWarning(store);">XMSG("Next")</button>
+                <button class="prevBtn" id="metricSelectorsPrevBtn" onclick="setPage('#datePickers');clearWarning(store);">XMSG("Previous")</button>
             </div>
             <br>
             <br>
-            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">XMSG("Change Login Credentials")</a>
         </div>
     </fieldset>
 
 <!--Element Selector -->
 <fieldset id="elementSelectors" style="display:none;">
-  <legend>Select Elements to Include (Optional)</legend>
-  <label for="elementPrimary">Primary Element</label>
+  <legend>XMSG("Select Elements to Include (Optional)")</legend>
+  <label for="elementPrimary">XMSG("Primary Element")</label>
   <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimary",issearchable:"true",dataName:"elementPrimary",clearable:"true"}'></alteryx-pluginwidget>
   <div id="advOptionsPrimary">
     <a style="cursor: pointer" onclick="advOptionsToggle('primary');">
       <div id="primaryArrow" class="arrow-right"></div>
       <div id="advOptionsText">
-        <u>Advanced Options</u>
+        <u>XMSG("Advanced Options")</u>
       </div>
     </a>
     <!-- hiding this widget because arrow animation replaced toggle button-->
@@ -168,21 +168,21 @@
   </div>
   <br>
   <div id="advOptionsInputsPrimary">
-    <label for="elementPrimaryClassification">Classification</label>
+    <label for="elementPrimaryClassification">XMSG("Classification")</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimaryClassification",issearchable:"true",dataName:"elementPrimaryClassification",clearable:"true"}'></alteryx-pluginwidget>
-    <label>Record Limit</label>
+    <label>XMSG("Record Limit")</label>
     <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topPrimary",default:"100",max:"50000",min:"1",dataName:"topPrimary"}'></alteryx-pluginwidget>
-    <label>Starting with Record</label>
+    <label>XMSG("Starting with Record")</label>
     <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithPrimary",default:"1",max:"999999999",min:"1",dataName:"startingWithPrimary"}'></alteryx-pluginwidget>
   </div>
   <br>
-  <label for="elementSecondary">Secondary Element</label>
+  <label for="elementSecondary">XMSG("Secondary Element")</label>
   <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondary",issearchable:"true",dataName:"elementSecondary",clearable:"true"}'></alteryx-pluginwidget>
   <div id="advOptionsSecondary">
     <a style="cursor: pointer" onclick="advOptionsToggle('secondary');">
       <div id="secondaryArrow" class="arrow-right"></div>
       <div id="advOptionsText">
-        <u>Advanced Options</u>
+        <u>XMSG("Advanced Options")</u>
       </div>
     </a>
     <!-- hiding this widget because arrow animation replaced toggle button-->
@@ -192,21 +192,21 @@
   </div>
   <br>
   <div id="advOptionsInputsSecondary">
-    <label for="elementSecondaryClassification">Classification</label>
+    <label for="elementSecondaryClassification">XMSG("Classification")</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondaryClassification",issearchable:"true",dataName:"elementSecondaryClassification",clearable:"true"}'></alteryx-pluginwidget>
-    <label>Record Limit</label>
+    <label>XMSG("Record Limit")</label>
     <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topSecondary",default:"100",max:"50000",min:"1",dataName:"topSecondary"}'></alteryx-pluginwidget>
-    <label>Starting with Record</label>
+    <label>XMSG("Starting with Record")</label>
     <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithSecondary",default:"1",max:"999999999",min:"1",dataName:"startingWithSecondary"}'></alteryx-pluginwidget>
   </div>
   <br>
-  <label for="elementTertiary">Tertiary Element</label>
+  <label for="elementTertiary">XMSG("Tertiary Element")</label>
   <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiary",issearchable:"true",dataName:"elementTertiary",clearable:"true"}'></alteryx-pluginwidget>
   <div id="advOptionsTertiary">
     <a style="cursor: pointer" onclick="advOptionsToggle('tertiary');">
       <div id="tertiaryArrow" class="arrow-right"></div>
       <div id="advOptionsText">
-        <u>Advanced Options</u>
+        <u>XMSG("Advanced Options")</u>
       </div>
     </a>
     <div style="display:none;">
@@ -215,38 +215,38 @@
   </div>
   <br>
   <div id="advOptionsInputsTertiary">
-    <label for="elementTertiaryClassification">Classification</label>
+    <label for="elementTertiaryClassification">XMSG("Classification")</label>
     <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiaryClassification",issearchable:"true",dataName:"elementTertiaryClassification",clearable:"true"}'></alteryx-pluginwidget>
-    <label>Record Limit</label>
+    <label>XMSG("Record Limit")</label>
     <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topTertiary",default:"100",max:"50000",min:"1",dataName:"topTertiary"}'></alteryx-pluginwidget>
-    <label>Starting with Record</label>
+    <label>XMSG("Starting with Record")</label>
     <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithTertiary",default:"1",max:"999999999",min:"1",dataName:"startingWithTertiary"}'></alteryx-pluginwidget>
   </div>
   <br>
-  <button class="prevBtn" id="elementValidation" onclick="validateReport(store);">Validate Report</button>
+  <button class="prevBtn" id="elementValidation" onclick="validateReport(store);">XMSG("Validate Report")</button>
   <br>
   <div id="invalidElement"></div>
   <div class='footer_spacer'></div>
   <div class='footer'>
     <hr>
     <div style="margin-top: 8px;margin-bottom: 8px;">
-      <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="setPage('#segmentSelectors');clearWarning(store);">Next</button>
-      <button class="prevBtn" id="elementSelectorsPrevBtn" onclick="setPage('#metricSelectors');clearWarning(store);">Previous</button>
+      <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="setPage('#segmentSelectors');clearWarning(store);">XMSG("Next")</button>
+      <button class="prevBtn" id="elementSelectorsPrevBtn" onclick="setPage('#metricSelectors');clearWarning(store);">XMSG("Previous")</button>
     </div>
     <br>
     <br>
-    <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
+    <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">XMSG("Change Login Credentials")</a>
   </div>
 </fieldset>
 
 <!-- Segment Selectors -->
     <fieldset id="segmentSelectors" style="display:none;">
-        <legend>Select Segments to Include (Optional)</legend>
-        <label for="segment1">Segment 1</label>
+        <legend>XMSG("Select Segments to Include (Optional)")</legend>
+        <label for="segment1">XMSG("Segment 1")</label>
         <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"segment1",issearchable:"true",dataName:"segment1",clearable:"true"}'></alteryx-pluginwidget>
-        <label for="segment2">Segment 2</label>
+        <label for="segment2">XMSG("Segment 2")</label>
         <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"segment2",issearchable:"true",dataName:"segment2",clearable:"true"}'></alteryx-pluginwidget>
-        <button class="prevBtn" id="segmentValidation" onclick="validateReport(store);">Validate Report</button>
+        <button class="prevBtn" id="segmentValidation" onclick="validateReport(store);">XMSG("Validate Report")</button>
         <br>
         <div id="invalidSegment"></div>
         <div class='footer_spacer'></div>
@@ -254,29 +254,29 @@
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
                 <!-- Add id name and onclick function during process story -->
-                <button type="submit" class="nextBtn" id="segmentSelectorsNextBtn" onclick="setPage('#summary');clearWarning(store);validateReport(store);">Done</button>
-                <button class="prevBtn" id="segmentSelectorsPrevBtn" onclick="setPage('#elementSelectors');clearWarning(store);">Previous</button>
+                <button type="submit" class="nextBtn" id="segmentSelectorsNextBtn" onclick="setPage('#summary');clearWarning(store);validateReport(store);">XMSG("Done")</button>
+                <button class="prevBtn" id="segmentSelectorsPrevBtn" onclick="setPage('#elementSelectors');clearWarning(store);">XMSG("Previous")</button>
             </div>
             <br>
             <br>
-            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">XMSG("Change Login Credentials")</a>
         </div>
     </fieldset>
 
 <!-- Fieldset to display configuration summary -->
     <fieldset id="summary" style="display:none">
-        <legend>Configuration Summary</legend>
+        <legend>XMSG("Configuration Summary")</legend>
         <div id="summaryDiv"></div>
         <div id="invalidReport"></div>
         <div class='footer_spacer'></div>
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
-                <button class="prevBtn" id="summaryPrevBtn" onclick="setPage('#segmentSelectors');clearWarning(store);">Previous</button>
+                <button class="prevBtn" id="summaryPrevBtn" onclick="setPage('#segmentSelectors');clearWarning(store);">XMSG("Previous")</button>
             </div>
             <br>
             <br>
-            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">Change Login Credentials</a>
+            <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">XMSG("Change Login Credentials")</a>
         </div>
     </fieldset>
 
