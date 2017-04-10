@@ -93,7 +93,7 @@ class Summary extends React.Component {
         </tr>
         :
         <tr>
-          <th style={thNarrowStyle}>{elementLabels[index]} XMSG("Element"):</th>
+          <th style={thNarrowStyle}>{elementLabels[index]}:</th>
           <th style={thStyle}>{value}</th>
         </tr>
     }
