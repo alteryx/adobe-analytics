@@ -514,16 +514,12 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Expression>[ElementID] != "0"
-AND
-[ElementName] != "Date"</Expression>
+          <Expression>([ElementID]+[ElementName])!='0Date'</Expression>
           <Mode>Custom</Mode>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>[ElementID] != "0"
-AND
-[ElementName] != "Date"</DefaultAnnotationText>
+          <DefaultAnnotationText>([ElementID]+[ElementName])!='0Date'</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
