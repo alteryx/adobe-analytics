@@ -587,35 +587,6 @@ Macro</AnnotationText>
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="51">
-      <GuiSettings>
-        <Position x="1242" y="294" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Value name="granularity">%Question.granularity%</Value>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
-        <MetaInfo connection="Output27">
-          <RecordInfo>
-            <Field name="Report_Period" size="2048" source="CrossTab:Header:JSON_Name:name:Concat:" type="V_WString" />
-            <Field name="Segments" size="1073741823" source="Summarize: Concat - JSON_ValueString" type="V_WString" />
-            <Field name="Cart_Views" size="2048" source="CrossTab:Header:JSON_Name:Cart Views:Concat:" type="V_WString" />
-            <Field name="New_Visitors" size="2048" source="CrossTab:Header:JSON_Name:New Visitors:Concat:" type="V_WString" />
-            <Field name="Revenue_per_Visit" size="2048" source="CrossTab:Header:JSON_Name:Revenue per Visit:Concat:" type="V_WString" />
-            <Field name="Date" source="Formula: // Creating the Date field from payload outputs&#xA;[year] + '-' + [month] + '-' + [day]" type="Date" />
-          </RecordInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-response-parse.yxmc" />
-    </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
         <Position x="654" y="274" width="445" height="160" />
@@ -921,10 +892,6 @@ Macro</AnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="43" Connection="Output" />
-      <Destination ToolID="51" Connection="Input26" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="51" Connection="Output27" />
       <Destination ToolID="3" Connection="Input" />
     </Connection>
     <Connection>
@@ -1318,7 +1285,6 @@ Macro</AnnotationText>
         <Tool ToolId="12" Selected="True" />
         <Tool ToolId="43" Selected="True" />
         <Tool ToolId="45" Selected="True" />
-        <Tool ToolId="51" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />

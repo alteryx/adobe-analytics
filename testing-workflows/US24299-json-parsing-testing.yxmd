@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="111">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="738" y="54" width="353" height="1051" />
+        <Position x="738" y="53.99998" width="353" height="1051" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -21,7 +21,7 @@
       <ChildNodes>
         <Node ToolID="104">
           <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-            <Position x="748.0001" y="83" />
+            <Position x="748.0001" y="82.99998" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -201,7 +201,7 @@
         </Node>
         <Node ToolID="110">
           <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-            <Position x="748.0002" y="959" />
+            <Position x="748.0003" y="959" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -231,7 +231,7 @@
         </Node>
         <Node ToolID="28">
           <GuiSettings>
-            <Position x="950.0001" y="83" />
+            <Position x="950" y="83.00004" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -245,7 +245,7 @@
         </Node>
         <Node ToolID="29">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="1022" y="83" />
+            <Position x="1022" y="82.99999" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -268,7 +268,7 @@
         </Node>
         <Node ToolID="30">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="866.0001" y="83" />
+            <Position x="866" y="82.99998" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -288,7 +288,7 @@
         </Node>
         <Node ToolID="34">
           <GuiSettings>
-            <Position x="950.0001" y="227" />
+            <Position x="950" y="227" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -325,7 +325,7 @@
         </Node>
         <Node ToolID="36">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="866.0001" y="227" />
+            <Position x="866" y="227" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -345,7 +345,7 @@
         </Node>
         <Node ToolID="37">
           <GuiSettings>
-            <Position x="950.0001" y="371" />
+            <Position x="950" y="371" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -382,7 +382,7 @@
         </Node>
         <Node ToolID="39">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="866.0001" y="371" />
+            <Position x="866" y="371" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -402,7 +402,7 @@
         </Node>
         <Node ToolID="40">
           <GuiSettings>
-            <Position x="950.0001" y="515" />
+            <Position x="950" y="515" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -439,7 +439,7 @@
         </Node>
         <Node ToolID="42">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="866.0001" y="515" />
+            <Position x="866" y="515" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -459,7 +459,7 @@
         </Node>
         <Node ToolID="43">
           <GuiSettings>
-            <Position x="950.0001" y="659" />
+            <Position x="950" y="659" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -496,7 +496,7 @@
         </Node>
         <Node ToolID="45">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="866.0001" y="659" />
+            <Position x="866" y="659" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -516,7 +516,7 @@
         </Node>
         <Node ToolID="46">
           <GuiSettings>
-            <Position x="950.0001" y="815" />
+            <Position x="950" y="815" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -553,7 +553,7 @@
         </Node>
         <Node ToolID="48">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="866.0001" y="815" />
+            <Position x="866" y="815" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -573,7 +573,7 @@
         </Node>
         <Node ToolID="49">
           <GuiSettings>
-            <Position x="950.0001" y="959" />
+            <Position x="950" y="959" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1695,7 +1695,7 @@
     </Node>
     <Node ToolID="77">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="414" y="54" width="293.0001" height="607" />
+        <Position x="414" y="54" width="293.0001" height="597" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1731,7 +1731,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_5128_ee75236ab0164647aae0a634e3863d3c_\Engine_17132_fdec064bd577495a997011e9c2e8efc4_.yxdb</TempFile>
+              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_8628_abee9018c11b445dbd76845b6cd87888_\Engine_4084_10dd99c987b545cea91ee64f75e18d81_.yxdb</TempFile>
               <Layout>
                 <View1>
                   <Hints>
@@ -1751,63 +1751,6 @@
         <Node ToolID="55">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
             <Position x="518.0001" y="83" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <OrderChanged value="False" />
-              <SelectFields>
-                <SelectField field="DownloadData" selected="True" />
-                <SelectField field="*Unknown" selected="False" />
-              </SelectFields>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-        </Node>
-        <Node ToolID="56">
-          <GuiSettings>
-            <Position x="578.0001" y="160" />
-          </GuiSettings>
-          <Properties>
-            <Configuration />
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
-        </Node>
-        <Node ToolID="57">
-          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="638.0001" y="160" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_5128_ee75236ab0164647aae0a634e3863d3c_\Engine_17132_fdec064bd577495a997011e9c2e8efc4_.yxdb</TempFile>
-              <Layout>
-                <View1>
-                  <Hints>
-                    <Table />
-                  </Hints>
-                </View1>
-              </Layout>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-        </Node>
-        <Node ToolID="58">
-          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="518.0001" y="160" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1845,7 +1788,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_5128_ee75236ab0164647aae0a634e3863d3c_\Engine_17132_fdec064bd577495a997011e9c2e8efc4_.yxdb</TempFile>
+              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_8628_abee9018c11b445dbd76845b6cd87888_\Engine_4084_fd366c66ee5f4c4fbb08ab7409e272e4_.yxdb</TempFile>
               <Layout>
                 <View1>
                   <Hints>
@@ -1865,63 +1808,6 @@
         <Node ToolID="61">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
             <Position x="518.0001" y="232" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <OrderChanged value="False" />
-              <SelectFields>
-                <SelectField field="DownloadData" selected="True" />
-                <SelectField field="*Unknown" selected="False" />
-              </SelectFields>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-        </Node>
-        <Node ToolID="62">
-          <GuiSettings>
-            <Position x="578.0001" y="304" />
-          </GuiSettings>
-          <Properties>
-            <Configuration />
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
-        </Node>
-        <Node ToolID="63">
-          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="638.0001" y="304" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_5128_ee75236ab0164647aae0a634e3863d3c_\Engine_17132_fdec064bd577495a997011e9c2e8efc4_.yxdb</TempFile>
-              <Layout>
-                <View1>
-                  <Hints>
-                    <Table />
-                  </Hints>
-                </View1>
-              </Layout>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-        </Node>
-        <Node ToolID="64">
-          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="518.0001" y="304" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1959,7 +1845,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_5128_ee75236ab0164647aae0a634e3863d3c_\Engine_17132_fdec064bd577495a997011e9c2e8efc4_.yxdb</TempFile>
+              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_8628_abee9018c11b445dbd76845b6cd87888_\Engine_4084_84fa81bf96df4dd2bb1cb7ec807c6740_.yxdb</TempFile>
               <Layout>
                 <View1>
                   <Hints>
@@ -1979,63 +1865,6 @@
         <Node ToolID="67">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
             <Position x="518.0001" y="376" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <OrderChanged value="False" />
-              <SelectFields>
-                <SelectField field="DownloadData" selected="True" />
-                <SelectField field="*Unknown" selected="False" />
-              </SelectFields>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-        </Node>
-        <Node ToolID="68">
-          <GuiSettings>
-            <Position x="578.0001" y="448" />
-          </GuiSettings>
-          <Properties>
-            <Configuration />
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
-        </Node>
-        <Node ToolID="69">
-          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="638.0001" y="448" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_5128_ee75236ab0164647aae0a634e3863d3c_\Engine_17132_fdec064bd577495a997011e9c2e8efc4_.yxdb</TempFile>
-              <Layout>
-                <View1>
-                  <Hints>
-                    <Table />
-                  </Hints>
-                </View1>
-              </Layout>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-        </Node>
-        <Node ToolID="70">
-          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="518.0001" y="448" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -2073,7 +1902,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_5128_ee75236ab0164647aae0a634e3863d3c_\Engine_17132_fdec064bd577495a997011e9c2e8efc4_.yxdb</TempFile>
+              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_8628_abee9018c11b445dbd76845b6cd87888_\Engine_4084_bb350e904e534b918082770aba387dc5_.yxdb</TempFile>
               <Layout>
                 <View1>
                   <Hints>
@@ -2110,63 +1939,6 @@
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
         </Node>
-        <Node ToolID="74">
-          <GuiSettings>
-            <Position x="578.0001" y="592" />
-          </GuiSettings>
-          <Properties>
-            <Configuration />
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
-        </Node>
-        <Node ToolID="75">
-          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="638.0001" y="592" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_5128_ee75236ab0164647aae0a634e3863d3c_\Engine_17132_fdec064bd577495a997011e9c2e8efc4_.yxdb</TempFile>
-              <Layout>
-                <View1>
-                  <Hints>
-                    <Table />
-                  </Hints>
-                </View1>
-              </Layout>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-        </Node>
-        <Node ToolID="76">
-          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="518.0002" y="592" />
-          </GuiSettings>
-          <Properties>
-            <Configuration>
-              <OrderChanged value="False" />
-              <SelectFields>
-                <SelectField field="DownloadData" selected="True" />
-                <SelectField field="*Unknown" selected="False" />
-              </SelectFields>
-            </Configuration>
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-        </Node>
         <Node ToolID="103">
           <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
             <Position x="424.0001" y="83" />
@@ -2180,6 +1952,96 @@
             <Annotation DisplayMode="0">
               <Name />
               <DefaultAnnotationText>ranked-1-metrics-2-elements-0-classifications-0-segments.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+                <Field name="reportID" size="25000" source="(Multiple Sources)" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
+                <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
+                <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+                <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="113">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="424.0001" y="232" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">.\sampe-json-datasets\ranked-1-metrics-2-elements-2-classifications-2-segments.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>ranked-1-metrics-2-elements-2-classifications-2-segments.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+                <Field name="reportID" size="25000" source="(Multiple Sources)" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
+                <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
+                <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+                <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="114">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="424.0001" y="376" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">.\sampe-json-datasets\ranked-2-metrics-1-elements-0-classifications-1-segments.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>ranked-2-metrics-1-elements-0-classifications-1-segments.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+                <Field name="reportID" size="25000" source="(Multiple Sources)" type="V_WString" />
+                <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
+                <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
+                <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
+                <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+                <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="115">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="424.0001" y="520" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">.\sampe-json-datasets\ranked-5-metrics-2-elements-2-classifications-0-segments.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>ranked-5-metrics-2-elements-2-classifications-0-segments.yxdb</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
             <MetaInfo connection="Output">
@@ -2438,28 +2300,12 @@
       <Destination ToolID="53" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="56" Connection="Output" />
-      <Destination ToolID="57" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="58" Connection="Output" />
-      <Destination ToolID="56" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="59" Connection="Output" />
       <Destination ToolID="60" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="61" Connection="Output" />
       <Destination ToolID="59" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="62" Connection="Output" />
-      <Destination ToolID="63" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="64" Connection="Output" />
-      <Destination ToolID="62" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="65" Connection="Output" />
@@ -2470,14 +2316,6 @@
       <Destination ToolID="65" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="68" Connection="Output" />
-      <Destination ToolID="69" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="70" Connection="Output" />
-      <Destination ToolID="68" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="71" Connection="Output" />
       <Destination ToolID="72" Connection="Input" />
     </Connection>
@@ -2486,16 +2324,20 @@
       <Destination ToolID="71" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="74" Connection="Output" />
-      <Destination ToolID="75" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="76" Connection="Output" />
-      <Destination ToolID="74" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="103" Connection="Output" />
       <Destination ToolID="55" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="113" Connection="Output" />
+      <Destination ToolID="61" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="114" Connection="Output" />
+      <Destination ToolID="67" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="115" Connection="Output" />
+      <Destination ToolID="73" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
