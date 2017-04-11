@@ -187,7 +187,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_9520_5052d2a5f40e4a2e97362d8363f01119_\Engine_17132_8efc52f7fe1047d5a4df0dda54e8ab5f_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_21140_f228f7ea51a94d67be40d8b5298bfdd6_\Engine_17132_dccd537c719641eab629a94711e84ba4_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
@@ -233,7 +233,7 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_9520_5052d2a5f40e4a2e97362d8363f01119_\Engine_17132_d9b88f2dcd9041a58e58d92ec0beeab5_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_21140_f228f7ea51a94d67be40d8b5298bfdd6_\Engine_17132_993c9c69db2842ae8d966ae06433588c_.yxdb</TempFile>
           <Layout>
             <View1>
               <Hints>
@@ -370,29 +370,6 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="65">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="882" y="294" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_9520_5052d2a5f40e4a2e97362d8363f01119_\Engine_17132_ff148a04500f44679cc6b0bd3853556b_.yxdb</TempFile>
-          <Layout>
-            <View1>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
     <Node ToolID="66">
       <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
         <Position x="738" y="294" />
@@ -471,32 +448,6 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="74">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="990" y="462" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="True" />
-          <SelectFields>
-            <SelectField field="JSON_ValueString" selected="True" rename="Value" />
-            <SelectField field="JSON_Name1" selected="False" />
-            <SelectField field="JSON_Name2" selected="False" />
-            <SelectField field="JSON_Name3" selected="True" rename="RecordID" />
-            <SelectField field="JSON_Name4" selected="True" />
-            <SelectField field="ElementName" selected="True" />
-            <SelectField field="Element_Count" selected="True" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
     <Node ToolID="75">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
         <Position x="762" y="390" />
@@ -513,267 +464,6 @@
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
-    <Node ToolID="76">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1014" y="378" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_9520_5052d2a5f40e4a2e97362d8363f01119_\Engine_17132_2ac48d371224473d92fd0a0660f2fd32_.yxdb</TempFile>
-          <Layout>
-            <View1>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
-    </Node>
-    <Node ToolID="78">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-        <Position x="846" y="378" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <GroupFields>
-            <Field field="JSON_Name3" />
-          </GroupFields>
-          <HeaderField field="JSON_Name4" />
-          <DataField field="JSON_ValueString" />
-          <Methods>
-            <Method method="Concat" />
-            <Separator>,</Separator>
-            <FieldSize value="2048" />
-          </Methods>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="Output">
-          <RecordInfo>
-            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name3" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
-            <Field name="day" size="2048" source="CrossTab:Header:JSON_Name4:day:Concat:" type="V_WString" />
-            <Field name="month" size="2048" source="CrossTab:Header:JSON_Name4:month:Concat:" type="V_WString" />
-            <Field name="name" size="2048" source="CrossTab:Header:JSON_Name4:name:Concat:" type="V_WString" />
-            <Field name="year" size="2048" source="CrossTab:Header:JSON_Name4:year:Concat:" type="V_WString" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="JSON_Name3" order="Asc" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
-    </Node>
-    <Node ToolID="79">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="930" y="378" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="True" />
-          <SelectFields>
-            <SelectField field="JSON_Name3" selected="True" rename="RecordID" />
-            <SelectField field="name" selected="True" />
-            <SelectField field="day" selected="True" />
-            <SelectField field="month" selected="True" />
-            <SelectField field="year" selected="True" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="106">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="930" y="198" width="100" height="40" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Text>Segments doesn't alter JSON</Text>
-          <Font name="Segoe UI" size="8.25" style="0" />
-          <TextColor name="Black" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="109">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="930" y="306" width="120" height="40" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Text>Classification doesn't alter JSON</Text>
-          <Font name="Segoe UI" size="8.25" style="0" />
-          <TextColor name="Black" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="112">
-      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-        <Position x="1074" y="390" width="168" height="40" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Text>RecordID is the Time period (aka day, hour, etc.)</Text>
-          <Font name="Segoe UI" size="8.25" style="0" />
-          <TextColor name="Black" />
-          <FillColor name="White" />
-          <Shape shape="0" />
-          <Justification Justification="4" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="119">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="1074" y="462" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Field>JSON_Name4</Field>
-          <NumFields value="8" />
-          <ErrorHandling>Last</ErrorHandling>
-          <RootName>JSON_Name4</RootName>
-          <Delimeters value="." />
-          <Flags value="0" />
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
-    </Node>
-    <Node ToolID="136">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="918" y="462" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField field="Element_Count" type="V_WString" size="1073741823" expression="ToString(ToNumber(REGEX_CountMatches([JSON_Name4], 'breakdown\.'))-1)" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>Element_Count=ToString(ToNumber(REGEX_CountMatches([JSON_Name...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="148">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1146" y="462" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <FormulaFields>
-            <FormulaField field="MetricID" type="V_WString" size="25000" expression="IF [JSON_Name41]='breakdownTotal' THEN [JSON_Name42]&#xA;ELSEIF [JSON_Name43] IN ('counts', 'breakdownTotal') THEN [JSON_Name44]&#xA;ELSEIF [JSON_Name45] IN ('counts', 'breakdownTotal') THEN [JSON_Name46]&#xA;ELSEIF [JSON_Name47] IN ('counts', 'breakdownTotal') THEN [JSON_Name48]&#xA;ELSE Null() ENDIF" />
-            <FormulaField field="JSON_Name42" type="V_WString" size="1073741823" expression="IF [JSON_Name41]='breakdown' THEN [JSON_Name42] ELSE Null() ENDIF" />
-            <FormulaField field="JSON_Name44" type="V_WString" size="1073741823" expression="IF [JSON_Name43]='breakdown' THEN [JSON_Name44] ELSE Null() ENDIF" />
-            <FormulaField field="JSON_Name46" type="V_WString" size="1073741823" expression="IF [JSON_Name45]='breakdown' THEN [JSON_Name46] ELSE Null() ENDIF" />
-          </FormulaFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText />
-          <DefaultAnnotationText>MetricID=IF [JSON_Name41]='breakdownTotal' THEN [JSON_Name42]...
-JSON_Name42=IF [JSON_Name41]='breakdown' THEN [JSON_Name42] E...
-JSON_Name44=IF [JSON_Name43]='breakdown' THEN [JSON_Name44] E...
-...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
-    </Node>
-    <Node ToolID="149">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1218" y="462" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Expression>Contains([JSON_Name43],'name')
-OR
-Contains([JSON_Name43],'url')
-OR
-Contains([JSON_Name45],'name')
-OR
-Contains([JSON_Name45],'url')
-OR
-Contains([JSON_Name47],'name')
-OR
-Contains([JSON_Name47],'url')</Expression>
-          <Mode>Custom</Mode>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText />
-          <DefaultAnnotationText>Contains([JSON_Name43],'name')
-OR
-Contains([JSON_Name43],'url...</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
-    <Node ToolID="150">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1494" y="582" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_9520_5052d2a5f40e4a2e97362d8363f01119_\Engine_17132_4b274af07d5e4cc78688ed70f9eceda4_.yxdb</TempFile>
-          <Layout>
-            <View1>
-              <Hints>
-                <Table />
-              </Hints>
-            </View1>
-          </Layout>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
     <Node ToolID="152">
       <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
@@ -795,21 +485,20 @@ Contains([JSON_Name43],'url...</DefaultAnnotationText>
         </Annotation>
       </Properties>
     </Node>
-    <Node ToolID="164">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1350" y="558" />
+    <Node ToolID="255">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="2790" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <OrderChanged value="False" />
-          <SelectFields>
-            <SelectField field="JSON_Name41" selected="False" />
-            <SelectField field="JSON_Name43" selected="False" />
-            <SelectField field="JSON_Name45" selected="False" />
-            <SelectField field="JSON_Name47" selected="False" />
-            <SelectField field="JSON_Name48" selected="False" />
-            <SelectField field="*Unknown" selected="True" />
-          </SelectFields>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_21140_f228f7ea51a94d67be40d8b5298bfdd6_\Engine_17132_da813293965641279600cd967978b2fb_.yxdb</TempFile>
+          <Layout>
+            <View1>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+          </Layout>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -817,15 +506,36 @@ Contains([JSON_Name43],'url...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
     </Node>
-    <Node ToolID="162">
-      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="1338" y="378" width="391" height="114" />
+    <Node ToolID="259">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="906" y="294" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Caption>Parse Element Breakdown Names</Caption>
+          <Expression>[ElementID] != "0"
+AND
+[ElementName] != "Date"</Expression>
+          <Mode>Custom</Mode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[ElementID] != "0"
+AND
+[ElementName] != "Date"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="257">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1350" y="505" width="1125" height="146" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Build Report Table</Caption>
           <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
           <Disabled value="False" />
           <Folded value="False" />
@@ -837,9 +547,904 @@ Contains([JSON_Name43],'url...</DefaultAnnotationText>
         </Annotation>
       </Properties>
       <ChildNodes>
+        <Node ToolID="164">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1360" y="539" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="JSON_Name41" selected="False" />
+                <SelectField field="JSON_Name43" selected="False" />
+                <SelectField field="JSON_Name45" selected="False" />
+                <SelectField field="JSON_Name47" selected="False" />
+                <SelectField field="JSON_Name48" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="165">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1446" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="MetricID" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="MetricID" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_MetricID" selected="False" />
+                    <SelectField field="Right_MetricID" selected="False" rename="Right_MetricID" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="168">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1638" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="RecordID" />
+                <Field field="Element_Count" />
+                <Field field="Element0_Grp" />
+                <Field field="Element1_Grp" />
+                <Field field="Element2_Grp" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="RecordID" />
+                <Field field="Element_Count" />
+                <Field field="JSON_Name42" />
+                <Field field="JSON_Name44" />
+                <Field field="JSON_Name46" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_RecordID" selected="False" rename="Right_RecordID" />
+                    <SelectField field="Right_Element_Count" selected="False" rename="Right_Element_Count" />
+                    <SelectField field="Right_JSON_Name42" selected="False" rename="Right_JSON_Name42" />
+                    <SelectField field="Right_JSON_Name44" selected="False" rename="Right_JSON_Name44" />
+                    <SelectField field="Right_JSON_Name46" selected="False" rename="Right_JSON_Name46" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="172">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="1830" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="217">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1734" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="JSON_Name42" selected="False" />
+                <SelectField field="JSON_Name44" selected="False" />
+                <SelectField field="JSON_Name46" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="218">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1926" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Element_Count" selected="False" />
+                <SelectField field="Element0_Grp" selected="False" />
+                <SelectField field="Element1_Grp" selected="False" />
+                <SelectField field="Element2_Grp" selected="False" />
+                <SelectField field="JSON_Name4" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="220">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+            <Position x="2022" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldType>All</FieldType>
+              <Fields orderChanged="False">
+                <Field name="Element0_Name" />
+                <Field name="Element1_Name" />
+                <Field name="Element2_Name" />
+                <Field name="RecordID" selected="False" />
+                <Field name="Element0_URL" selected="False" />
+                <Field name="Element1_URL" selected="False" />
+                <Field name="Element2_URL" selected="False" />
+                <Field name="Value" selected="False" />
+                <Field name="MetricName" selected="False" />
+                <Field name="*Unknown" selected="False" />
+              </Fields>
+              <CopyOutput value="False" />
+              <Expression>IF IsNull([_CurrentField_]) THEN 'TOTAL' ELSE [_CurrentField_] ENDIF</Expression>
+              <ChangeFieldType value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText />
+              <DefaultAnnotationText>IF IsNull([_CurrentField_]) THEN 'TOTAL' ELSE [_CurrentField_...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+        </Node>
+        <Node ToolID="221">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="2118" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="RecordID" />
+                <Field field="Element0_Name" />
+                <Field field="Element0_URL" />
+                <Field field="Element1_Name" />
+                <Field field="Element1_URL" />
+                <Field field="Element2_Name" />
+                <Field field="Element2_URL" />
+                <Field field="Value" />
+                <Field field="MetricName" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText />
+              <DefaultAnnotationText>Unique: RecordID, Element0_Name, Element0_URL, Element1_Name, Element1_URL, Element2_Name, Element2_URL, Value, MetricName</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="222">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+            <Position x="2214" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields>
+                <Field field="RecordID" />
+                <Field field="Element0_Name" />
+                <Field field="Element0_URL" />
+                <Field field="Element1_Name" />
+                <Field field="Element1_URL" />
+                <Field field="Element2_Name" />
+                <Field field="Element2_URL" />
+              </GroupFields>
+              <HeaderField field="MetricName" />
+              <DataField field="Value" />
+              <Methods>
+                <Method method="Concat" />
+                <Separator>,</Separator>
+                <FieldSize value="2048" />
+              </Methods>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field description="TextToColumns: Parsed from JSON_Name" name="RecordID" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field name="Element0_Name" size="999999" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field description="Formula: IF !IsNull([Name]) THEN [Row+1:URL] ELSE Null() ENDIF" name="Element0_URL" size="999999" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field name="Element1_Name" size="999999" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field name="Element1_URL" size="999999" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field name="Element2_Name" size="999999" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field name="Element2_URL" size="999999" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field name="Add_to_Cart_Rate" size="2048" source="CrossTab:Header:MetricName:Add to Cart Rate:Concat:" type="V_WString" />
+                <Field name="Bounce_rate" size="2048" source="CrossTab:Header:MetricName:Bounce rate:Concat:" type="V_WString" />
+                <Field name="Cart_Abandonment_Rate" size="2048" source="CrossTab:Header:MetricName:Cart Abandonment Rate:Concat:" type="V_WString" />
+                <Field name="Conversion_rate" size="2048" source="CrossTab:Header:MetricName:Conversion rate:Concat:" type="V_WString" />
+                <Field name="Exit_Rate" size="2048" source="CrossTab:Header:MetricName:Exit Rate:Concat:" type="V_WString" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="RecordID" order="Asc" />
+                <Field field="Element0_Name" order="Asc" />
+                <Field field="Element0_URL" order="Asc" />
+                <Field field="Element1_Name" order="Asc" />
+                <Field field="Element1_URL" order="Asc" />
+                <Field field="Element2_Name" order="Asc" />
+                <Field field="Element2_URL" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+        </Node>
+        <Node ToolID="224">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2310" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="226">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="2406" y="534" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="RecordID" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="RecordID" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_RecordID" selected="False" />
+                    <SelectField field="Left_day" selected="False" />
+                    <SelectField field="Left_month" selected="False" />
+                    <SelectField field="Left_year" selected="False" />
+                    <SelectField field="Right_RecordID" selected="False" rename="Right_RecordID" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="258">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="1542" y="546" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="251">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1626" y="354" width="1137" height="134" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Correct Table Element Naming</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="244">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1636" y="383.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="ElementName" type="V_WString" size="2048" expression="Trim([ElementName])" />
+                <FormulaField field="ElementID_URL" type="V_WString" size="1073741823" expression="'Element'+[ElementID]+'_URL'" />
+                <FormulaField field="ElementID" type="V_WString" size="1073741823" expression="'Element'+[ElementID]+'_Name'" />
+                <FormulaField field="ElementName_URL" type="V_WString" size="2048" expression="[ElementName]+' [URL]'" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText />
+              <DefaultAnnotationText>ElementName=Trim([ElementName])
+ElementID_URL='Element'+[ElementID]+'_URL'
+ElementID='Element'+[ElementID]+'_Name'
+...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="237">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.FieldInfo.FieldInfo">
+            <Position x="1720" y="383" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFieldInfo" />
+        </Node>
+        <Node ToolID="241">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="1792" y="383" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <StartValue>1</StartValue>
+              <FieldName>RecordID</FieldName>
+              <FieldType>Int64</FieldType>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="242">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+            <Position x="2116" y="419" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields />
+              <HeaderField field="RecordID" />
+              <DataField field="Name" />
+              <Methods>
+                <Method method="Concat" />
+                <Separator>,</Separator>
+                <FieldSize value="25000" />
+              </Methods>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="1" size="25000" source="CrossTab:Header:RecordID:1:Concat:" type="V_WString" />
+                <Field name="2" size="25000" source="CrossTab:Header:RecordID:2:Concat:" type="V_WString" />
+                <Field name="3" size="25000" source="CrossTab:Header:RecordID:3:Concat:" type="V_WString" />
+                <Field name="4" size="25000" source="CrossTab:Header:RecordID:4:Concat:" type="V_WString" />
+                <Field name="5" size="25000" source="CrossTab:Header:RecordID:5:Concat:" type="V_WString" />
+                <Field name="6" size="25000" source="CrossTab:Header:RecordID:6:Concat:" type="V_WString" />
+                <Field name="7" size="25000" source="CrossTab:Header:RecordID:7:Concat:" type="V_WString" />
+                <Field name="8" size="25000" source="CrossTab:Header:RecordID:8:Concat:" type="V_WString" />
+                <Field name="9" size="25000" source="CrossTab:Header:RecordID:9:Concat:" type="V_WString" />
+                <Field name="10" size="25000" source="CrossTab:Header:RecordID:10:Concat:" type="V_WString" />
+                <Field name="11" size="25000" source="CrossTab:Header:RecordID:11:Concat:" type="V_WString" />
+                <Field name="12" size="25000" source="CrossTab:Header:RecordID:12:Concat:" type="V_WString" />
+              </RecordInfo>
+              <SortInfo>
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+        </Node>
+        <Node ToolID="246">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+            <Position x="1972" y="395" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldFind>Name</FieldFind>
+              <FieldSearch>ElementID_URL</FieldSearch>
+              <ReplaceFoundField>ElementName_URL</ReplaceFoundField>
+              <FindMode>FindWhole</FindMode>
+              <NoCase value="False" />
+              <MatchWholeWord value="False" />
+              <ReplaceMode>Replace</ReplaceMode>
+              <ReplaceMultipleFound value="True" />
+              <ReplaceAppendFields />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+        </Node>
+        <Node ToolID="249">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
+            <Position x="2044" y="419" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldFind>Name</FieldFind>
+              <FieldSearch>ElementID</FieldSearch>
+              <ReplaceFoundField>ElementName</ReplaceFoundField>
+              <FindMode>FindAny</FindMode>
+              <NoCase value="False" />
+              <MatchWholeWord value="False" />
+              <ReplaceMode>Replace</ReplaceMode>
+              <ReplaceMultipleFound value="False" />
+              <ReplaceAppendFields />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFindReplace" />
+        </Node>
+        <Node ToolID="250">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1864" y="383" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Name" selected="True" type="V_WString" size="25000" />
+                <SelectField field="Type" selected="False" />
+                <SelectField field="Size" selected="False" />
+                <SelectField field="Scale" selected="False" />
+                <SelectField field="Source" selected="False" />
+                <SelectField field="Description" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="252">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="2502" y="414" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByPos</Mode>
+              <SetOutputOrder value="True" />
+              <OutputOrder>
+                <Connection>#1</Connection>
+                <Connection>#2</Connection>
+              </OutputOrder>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="254">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
+            <Position x="2598" y="414" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <RenameMode>FirstRow</RenameMode>
+              <Fields orderChanged="False">
+                <Field name="1" />
+                <Field name="2" />
+                <Field name="3" />
+                <Field name="4" />
+                <Field name="5" />
+                <Field name="6" />
+                <Field name="7" />
+                <Field name="8" />
+                <Field name="9" />
+                <Field name="10" />
+                <Field name="11" />
+                <Field name="12" />
+                <Field name="*Unknown" />
+              </Fields>
+              <Expression />
+              <FirstRow>
+                <OnError>Ignore</OnError>
+              </FirstRow>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Date" size="25000" source="(Multiple Sources)" type="V_WString" />
+                <Field name="Element0_Name" size="999999" source="CrossTab: (Multiple Sources)" type="V_WString" />
+                <Field name="Element0_URL" size="999999" source="CrossTab: (Multiple Sources)" type="V_WString" />
+                <Field name="Element1_Name" size="999999" source="CrossTab: (Multiple Sources)" type="V_WString" />
+                <Field name="Element1_URL" size="999999" source="CrossTab: (Multiple Sources)" type="V_WString" />
+                <Field name="Element2_Name" size="999999" source="CrossTab: (Multiple Sources)" type="V_WString" />
+                <Field name="Element2_URL" size="999999" source="CrossTab: (Multiple Sources)" type="V_WString" />
+                <Field name="Add_to_Cart_Rate" size="25000" source="CrossTab: (Multiple Sources)" type="V_WString" />
+                <Field name="Bounce_rate" size="25000" source="CrossTab: (Multiple Sources)" type="V_WString" />
+                <Field name="Cart_Abandonment_Rate" size="25000" source="CrossTab: (Multiple Sources)" type="V_WString" />
+                <Field name="Conversion_rate" size="25000" source="CrossTab: (Multiple Sources)" type="V_WString" />
+                <Field name="Exit_Rate" size="25000" source="CrossTab: (Multiple Sources)" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
+        </Node>
+        <Node ToolID="256">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicSelect.DynamicSelect">
+            <Position x="2694" y="414" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Formula</Mode>
+              <Expression>!REGEX_Match([Name], 'Element\d_Name')
+AND
+!REGEX_Match([Name], 'Element\d_URL')</Expression>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicSelect" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="231">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="894" y="450" width="379" height="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Parse JSON.Data</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="74">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="976" y="479" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="JSON_ValueString" selected="True" rename="Value" />
+                <SelectField field="JSON_Name1" selected="False" />
+                <SelectField field="JSON_Name2" selected="False" />
+                <SelectField field="JSON_Name3" selected="True" rename="RecordID" />
+                <SelectField field="JSON_Name4" selected="True" />
+                <SelectField field="ElementName" selected="True" />
+                <SelectField field="Element_Count" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="119">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="1060" y="479" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>JSON_Name4</Field>
+              <NumFields value="8" />
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>JSON_Name4</RootName>
+              <Delimeters value="." />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="136">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="904" y="479" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Element_Count" type="V_WString" size="1073741823" expression="ToString(ToNumber(REGEX_CountMatches([JSON_Name4], 'breakdown\.'))-1)" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Count Elements</AnnotationText>
+              <DefaultAnnotationText>Element_Count=ToString(ToNumber(REGEX_CountMatches([JSON_Name...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="148">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1132" y="479" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="MetricID" type="V_WString" size="25000" expression="IF [JSON_Name41]='breakdownTotal' OR [JSON_Name41]='counts' THEN [JSON_Name42]&#xA;ELSEIF [JSON_Name43] IN ('counts', 'breakdownTotal') THEN [JSON_Name44]&#xA;ELSEIF [JSON_Name45] IN ('counts', 'breakdownTotal') THEN [JSON_Name46]&#xA;ELSEIF [JSON_Name47] IN ('counts', 'breakdownTotal') THEN [JSON_Name48]&#xA;ELSE Null() ENDIF" />
+                <FormulaField field="JSON_Name42" type="V_WString" size="1073741823" expression="IF [JSON_Name41]='breakdown' THEN [JSON_Name42] ELSE Null() ENDIF" />
+                <FormulaField field="JSON_Name44" type="V_WString" size="1073741823" expression="IF [JSON_Name43]='breakdown' THEN [JSON_Name44] ELSE Null() ENDIF" />
+                <FormulaField field="JSON_Name46" type="V_WString" size="1073741823" expression="IF [JSON_Name45]='breakdown' THEN [JSON_Name46] ELSE Null() ENDIF" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText />
+              <DefaultAnnotationText>MetricID=IF [JSON_Name41]='breakdownTotal' OR [JSON_Name41]='...
+JSON_Name42=IF [JSON_Name41]='breakdown' THEN [JSON_Name42] E...
+JSON_Name44=IF [JSON_Name43]='breakdown' THEN [JSON_Name44] E...
+...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="149">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1204" y="479" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>Contains([JSON_Name43],'name')
+OR
+Contains([JSON_Name43],'url')
+OR
+Contains([JSON_Name45],'name')
+OR
+Contains([JSON_Name45],'url')
+OR
+Contains([JSON_Name47],'name')
+OR
+Contains([JSON_Name47],'url')</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText />
+              <DefaultAnnotationText>Contains([JSON_Name43],'name')
+OR
+Contains([JSON_Name43],'url...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="230">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="906" y="342" width="259" height="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Parse Date/Time</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="78">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+            <Position x="916" y="371" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields>
+                <Field field="JSON_Name3" />
+              </GroupFields>
+              <HeaderField field="JSON_Name4" />
+              <DataField field="JSON_ValueString" />
+              <Methods>
+                <Method method="Concat" />
+                <Separator>,</Separator>
+                <FieldSize value="2048" />
+              </Methods>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name3" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field name="day" size="2048" source="CrossTab:Header:JSON_Name4:day:Concat:" type="V_WString" />
+                <Field name="month" size="2048" source="CrossTab:Header:JSON_Name4:month:Concat:" type="V_WString" />
+                <Field name="name" size="2048" source="CrossTab:Header:JSON_Name4:name:Concat:" type="V_WString" />
+                <Field name="year" size="2048" source="CrossTab:Header:JSON_Name4:year:Concat:" type="V_WString" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="JSON_Name3" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+        </Node>
+        <Node ToolID="79">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1000" y="371" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <SelectFields>
+                <SelectField field="JSON_Name3" selected="True" rename="RecordID" />
+                <SelectField field="name" selected="False" />
+                <SelectField field="day" selected="True" />
+                <SelectField field="month" selected="True" />
+                <SelectField field="year" selected="True" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="225">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1084" y="371" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Date" type="V_WString" size="25000" expression="[year]+'-'+PADLEFT([month],2,'0')+'-'+PADLEFT([day],2,'0')" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Create date</AnnotationText>
+              <DefaultAnnotationText>Date=[year]+'-'+PADLEFT([month],2,'0')+'-'+PADLEFT([day],2,'0')</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="162">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1350" y="462" width="214.4709" height="19" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Parse Element Breakdown Names</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+          <Disabled value="False" />
+          <Folded value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
         <Node ToolID="151">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="1348" y="407" />
+            <Position x="1360" y="568" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -859,7 +1464,7 @@ Contains([JSON_Name43],'url...</DefaultAnnotationText>
         </Node>
         <Node ToolID="153">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-            <Position x="1408" y="407" />
+            <Position x="1420" y="568" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -880,7 +1485,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
         </Node>
         <Node ToolID="155">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="1468" y="407" />
+            <Position x="1480" y="568" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -906,7 +1511,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
         </Node>
         <Node ToolID="157">
           <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-            <Position x="1528" y="407" />
+            <Position x="1540" y="568" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -931,7 +1536,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
         </Node>
         <Node ToolID="159">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="1588" y="407" />
+            <Position x="1600" y="568" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -949,13 +1554,19 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
         </Node>
-        <Node ToolID="163">
-          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="1660" y="412" />
+        <Node ToolID="174">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1698" y="575" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_9520_5052d2a5f40e4a2e97362d8363f01119_\Engine_17132_59780aed8eb442cf815cc5b35d67bf24_.yxdb</TempFile>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="JSON_Name42" selected="True" rename="Element0_Grp" />
+                <SelectField field="JSON_Name44" selected="True" rename="Element1_Grp" />
+                <SelectField field="JSON_Name46" selected="True" rename="Element2_Grp" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
@@ -963,7 +1574,277 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
               <Left value="False" />
             </Annotation>
           </Properties>
-          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="194">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1794" y="491" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>Element_Count</Field>
+                <Operator>=</Operator>
+                <Operands>
+                  <Operand>0</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[Element_Count] = "0"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="197">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1878" y="491" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Name" selected="True" rename="Element0_Name" />
+                <SelectField field="URL" selected="True" rename="Element0_URL" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="198">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1794" y="575" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>Element_Count</Field>
+                <Operator>=</Operator>
+                <Operands>
+                  <Operand>1</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[Element_Count] = "1"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="199">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1794" y="659" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Field>Element_Count</Field>
+                <Operator>=</Operator>
+                <Operands>
+                  <Operand>2</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[Element_Count] = "2"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="200">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1878" y="575" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Name" selected="True" rename="Element1_Name" />
+                <SelectField field="URL" selected="True" rename="Element1_URL" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="201">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1878" y="659" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="Name" selected="True" rename="Element2_Name" />
+                <SelectField field="URL" selected="True" rename="Element2_URL" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="205">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1986" y="575" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="RecordID" />
+                <Field field="Element0_Grp" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="RecordID" />
+                <Field field="Element0_Grp" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="True" />
+                  <SelectFields>
+                    <SelectField field="Left_RecordID" selected="False" />
+                    <SelectField field="Left_Element_Count" selected="False" />
+                    <SelectField field="Left_Element0_Grp" selected="False" />
+                    <SelectField field="Left_Element1_Grp" selected="False" />
+                    <SelectField field="Left_Element2_Grp" selected="False" />
+                    <SelectField field="Right_RecordID" selected="True" />
+                    <SelectField field="Right_Element_Count" selected="True" />
+                    <SelectField field="Right_Element0_Grp" selected="True" />
+                    <SelectField field="Right_Element1_Grp" selected="True" />
+                    <SelectField field="Right_Element2_Grp" selected="True" />
+                    <SelectField field="Left_Element0_Name" selected="True" />
+                    <SelectField field="Left_Element0_URL" selected="True" />
+                    <SelectField field="Right_Element1_Name" selected="True" />
+                    <SelectField field="Right_Element1_URL" selected="True" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="208">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="1986" y="491" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField field="Element1_Name" type="V_WString" size="25000" expression="'TOTAL'" />
+                <FormulaField field="Element1_URL" type="V_WString" size="25000" expression="Null()" />
+                <FormulaField field="Element2_Name" type="V_WString" size="25000" expression="'TOTAL'" />
+                <FormulaField field="Element2_URL" type="V_WString" size="25000" expression="Null()" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText />
+              <DefaultAnnotationText>Element1_Name='TOTAL'
+Element1_URL=Null()
+Element2_Name='TOTAL'
+...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="209">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="2094" y="575" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="212">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="1986" y="659" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="RecordID" />
+                <Field field="Element0_Grp" />
+                <Field field="Element1_Grp" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="RecordID" />
+                <Field field="Element0_Grp" />
+                <Field field="Element1_Grp" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="True" />
+                  <SelectFields>
+                    <SelectField field="Left_RecordID" selected="False" />
+                    <SelectField field="Left_Element_Count" selected="False" />
+                    <SelectField field="Left_Element0_Grp" selected="False" />
+                    <SelectField field="Left_Element1_Grp" selected="False" />
+                    <SelectField field="Left_Element2_Grp" selected="False" />
+                    <SelectField field="Right_RecordID" selected="True" />
+                    <SelectField field="Right_Element_Count" selected="True" />
+                    <SelectField field="Right_Element0_Grp" selected="True" />
+                    <SelectField field="Right_Element1_Grp" selected="True" />
+                    <SelectField field="Right_Element2_Grp" selected="True" />
+                    <SelectField field="Left_Element0_Name" selected="True" />
+                    <SelectField field="Left_Element0_URL" selected="True" />
+                    <SelectField field="Left_Element1_Name" selected="True" />
+                    <SelectField field="Left_Element1_URL" selected="True" />
+                    <SelectField field="Right_Element2_Name" selected="True" />
+                    <SelectField field="Right_Element2_URL" selected="True" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
         </Node>
       </ChildNodes>
     </Node>
@@ -1812,6 +2693,14 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
       <Destination ToolID="57" Connection="Input" />
     </Connection>
     <Connection>
+      <Origin ToolID="62" Connection="Output" />
+      <Destination ToolID="165" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="164" Connection="Output" />
+      <Destination ToolID="165" Connection="Left" />
+    </Connection>
+    <Connection>
       <Origin ToolID="63" Connection="Output" />
       <Destination ToolID="64" Connection="Input" />
     </Connection>
@@ -1825,7 +2714,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
     </Connection>
     <Connection>
       <Origin ToolID="68" Connection="Output" />
-      <Destination ToolID="65" Connection="Input" />
+      <Destination ToolID="259" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="73" Connection="Output" />
@@ -1844,10 +2733,6 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
       <Destination ToolID="53" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="74" Connection="Output" />
-      <Destination ToolID="119" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="75" Connection="True" />
       <Destination ToolID="78" Connection="Input" />
     </Connection>
@@ -1856,12 +2741,120 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
       <Destination ToolID="136" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="78" Connection="Output" />
-      <Destination ToolID="79" Connection="Input" />
+      <Origin ToolID="259" Connection="True" />
+      <Destination ToolID="244" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="165" Connection="Join" />
+      <Destination ToolID="258" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="165" Connection="Left" />
+      <Destination ToolID="258" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="79" Connection="Output" />
-      <Destination ToolID="76" Connection="Input" />
+      <Origin ToolID="168" Connection="Right" />
+      <Destination ToolID="217" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="168" Connection="Join" />
+      <Destination ToolID="172" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="217" Connection="Output" />
+      <Destination ToolID="172" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="172" Connection="Output" />
+      <Destination ToolID="218" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="218" Connection="Output" />
+      <Destination ToolID="220" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="220" Connection="Output" />
+      <Destination ToolID="221" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="221" Connection="Unique" />
+      <Destination ToolID="222" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="222" Connection="Output" />
+      <Destination ToolID="224" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="224" Connection="Output" />
+      <Destination ToolID="226" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="225" Connection="Output" />
+      <Destination ToolID="226" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="226" Connection="Join" />
+      <Destination ToolID="237" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="226" Connection="Join" />
+      <Destination ToolID="252" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="242" Connection="Output" />
+      <Destination ToolID="252" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="258" Connection="Output" />
+      <Destination ToolID="168" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="209" Connection="Output" />
+      <Destination ToolID="168" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="244" Connection="Output" />
+      <Destination ToolID="246" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="250" Connection="Output" />
+      <Destination ToolID="246" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="244" Connection="Output" />
+      <Destination ToolID="249" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="246" Connection="Output" />
+      <Destination ToolID="249" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="237" Connection="Output" />
+      <Destination ToolID="241" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="241" Connection="Output" />
+      <Destination ToolID="250" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="249" Connection="Output" />
+      <Destination ToolID="242" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="252" Connection="Output" />
+      <Destination ToolID="254" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="254" Connection="Output" />
+      <Destination ToolID="256" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="256" Connection="Output" />
+      <Destination ToolID="255" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="74" Connection="Output" />
+      <Destination ToolID="119" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="119" Connection="Output" />
@@ -1884,8 +2877,12 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
       <Destination ToolID="164" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="164" Connection="Output" />
-      <Destination ToolID="150" Connection="Input" />
+      <Origin ToolID="78" Connection="Output" />
+      <Destination ToolID="79" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="79" Connection="Output" />
+      <Destination ToolID="225" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="151" Connection="Output" />
@@ -1905,7 +2902,63 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
     </Connection>
     <Connection>
       <Origin ToolID="159" Connection="True" />
-      <Destination ToolID="163" Connection="Input" />
+      <Destination ToolID="174" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="174" Connection="Output" />
+      <Destination ToolID="194" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="174" Connection="Output" />
+      <Destination ToolID="198" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="174" Connection="Output" />
+      <Destination ToolID="199" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="194" Connection="True" />
+      <Destination ToolID="197" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="197" Connection="Output" />
+      <Destination ToolID="205" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="200" Connection="Output" />
+      <Destination ToolID="205" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="197" Connection="Output" />
+      <Destination ToolID="208" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="198" Connection="True" />
+      <Destination ToolID="200" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="199" Connection="True" />
+      <Destination ToolID="201" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="201" Connection="Output" />
+      <Destination ToolID="212" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="205" Connection="Join" />
+      <Destination ToolID="212" Connection="Left" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="205" Connection="Join" />
+      <Destination ToolID="209" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="208" Connection="Output" />
+      <Destination ToolID="209" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="212" Connection="Join" />
+      <Destination ToolID="209" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="97" Connection="Output" />
@@ -1922,10 +2975,6 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
     <Connection>
       <Origin ToolID="104" Connection="Output" />
       <Destination ToolID="105" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="105" Connection="Output" />
-      <Destination ToolID="21" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="107" Connection="Output" />
