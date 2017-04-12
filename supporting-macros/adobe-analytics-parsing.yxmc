@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="10.5">
+<AlteryxDocument yxmdVer="11.0">
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
@@ -83,7 +83,12 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="Date" size="25000" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Date" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+            <Field name="Product | Product Group (c)" size="999999" source="CrossTab: (Multiple Sources)" type="V_WString" />
+            <Field name="Product | Product Group (c) [URL]" size="999999" source="CrossTab: (Multiple Sources)" type="V_WString" />
+            <Field name="Product | Product Division (c)" size="999999" source="CrossTab: (Multiple Sources)" type="V_WString" />
+            <Field name="Product | Product Division (c) [URL]" size="999999" source="CrossTab: (Multiple Sources)" type="V_WString" />
+            <Field name="Page_Views" size="1073741823" source="(Multiple Sources)" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -131,7 +136,7 @@
         <Configuration>
           <Caption>Ranked Report Parsing</Caption>
           <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
-          <Disabled value="True" />
+          <Disabled value="False" />
           <Folded value="True" />
         </Configuration>
         <Annotation DisplayMode="0">
@@ -143,7 +148,7 @@
       <ChildNodes>
         <Node ToolID="83">
           <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
-            <Position x="328" y="95.00034" />
+            <Position x="328" y="95.00031" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -167,7 +172,7 @@
         </Node>
         <Node ToolID="84">
           <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-            <Position x="400.0002" y="95.00021" />
+            <Position x="400.0002" y="95.00018" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -198,7 +203,7 @@
         </Node>
         <Node ToolID="85">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="604" y="95.00015" />
+            <Position x="604" y="95.00012" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -239,7 +244,7 @@
         </Node>
         <Node ToolID="87">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="604" y="191.0008" />
+            <Position x="604" y="191.0007" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -280,7 +285,7 @@
         </Node>
         <Node ToolID="88">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="604.0001" y="347.0009" />
+            <Position x="604.0001" y="347.0008" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -315,7 +320,7 @@
         </Node>
         <Node ToolID="89">
           <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-            <Position x="688.0001" y="95.00027" />
+            <Position x="688.0001" y="95.00024" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -354,7 +359,7 @@
         </Node>
         <Node ToolID="90">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="760.0004" y="95" />
+            <Position x="760.0004" y="94.99999" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -458,7 +463,7 @@
         </Node>
         <Node ToolID="95">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="520" y="95.00031" />
+            <Position x="520" y="95.00024" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -487,7 +492,7 @@
         </Node>
         <Node ToolID="96">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="604.0001" y="467.0002" />
+            <Position x="604.0001" y="467.0001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -553,7 +558,7 @@
         </Node>
         <Node ToolID="114">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="1122" y="678.0003" width="1219" height="170" />
+            <Position x="1122" y="678.0002" width="135.4137" height="38" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -607,7 +612,7 @@
             </Node>
             <Node ToolID="103">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-                <Position x="1216" y="707.0003" />
+                <Position x="1216" y="707.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration joinByRecordPos="False">
@@ -674,7 +679,7 @@
             </Node>
             <Node ToolID="104">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-                <Position x="1408" y="707.0003" />
+                <Position x="1408" y="707.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration joinByRecordPos="False">
@@ -784,7 +789,7 @@
             </Node>
             <Node ToolID="105">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-                <Position x="1600" y="707.0003" />
+                <Position x="1600" y="707.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -822,7 +827,7 @@
             </Node>
             <Node ToolID="106">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="1504" y="779.0003" />
+                <Position x="1504" y="779.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -858,7 +863,7 @@
             </Node>
             <Node ToolID="107">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="1696" y="707.0003" />
+                <Position x="1696" y="707.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -896,7 +901,7 @@
             </Node>
             <Node ToolID="108">
               <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
-                <Position x="1792" y="707.0003" />
+                <Position x="1792" y="707.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -943,7 +948,7 @@
             </Node>
             <Node ToolID="109">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
-                <Position x="1984" y="707.0003" />
+                <Position x="1984" y="707.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1020,7 +1025,7 @@
             </Node>
             <Node ToolID="110">
               <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-                <Position x="2080" y="707.0003" />
+                <Position x="2080" y="707.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1069,7 +1074,7 @@
             </Node>
             <Node ToolID="111">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="2176" y="707.0003" />
+                <Position x="2176" y="707.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1140,7 +1145,7 @@
             </Node>
             <Node ToolID="153">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-                <Position x="2272" y="707.0003" />
+                <Position x="2272" y="707.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1176,7 +1181,7 @@
             </Node>
             <Node ToolID="176">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-                <Position x="1878" y="707.0003" />
+                <Position x="1878" y="707.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1209,7 +1214,7 @@
             </Node>
             <Node ToolID="175">
               <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-                <Position x="1794" y="779.0003" />
+                <Position x="1794" y="779.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1236,7 +1241,7 @@
         </Node>
         <Node ToolID="127">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="1122" y="162.0007" width="991.0002" height="199.9994" />
+            <Position x="1122" y="162.0007" width="196.9611" height="38" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1619,7 +1624,7 @@ AND
             </Node>
             <Node ToolID="126">
               <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-                <Position x="1132" y="246.0005" />
+                <Position x="1132" y="246.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1647,7 +1652,7 @@ AND
         </Node>
         <Node ToolID="133">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="690.0001" y="318.0008" width="379" height="113.9994" />
+            <Position x="690" y="318.0007" width="131.5627" height="38" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1665,7 +1670,7 @@ AND
           <ChildNodes>
             <Node ToolID="128">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="772.0001" y="347.0008" />
+                <Position x="772.0001" y="347.0007" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1699,7 +1704,7 @@ AND
             </Node>
             <Node ToolID="129">
               <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-                <Position x="856.0001" y="347.0008" />
+                <Position x="856.0001" y="347.0007" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1736,7 +1741,7 @@ AND
             </Node>
             <Node ToolID="130">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-                <Position x="700.0001" y="347.0008" />
+                <Position x="700.0001" y="347.0007" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1765,7 +1770,7 @@ AND
             </Node>
             <Node ToolID="131">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-                <Position x="928.0001" y="347.0008" />
+                <Position x="928.0001" y="347.0007" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1807,7 +1812,7 @@ JSON_Name44=IF [JSON_Name43]='breakdown' THEN [JSON_Name44] E...
             </Node>
             <Node ToolID="132">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-                <Position x="1000" y="347.0008" />
+                <Position x="1000" y="347.0007" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1873,7 +1878,7 @@ Contains([JSON_Name43],'url...</DefaultAnnotationText>
         </Node>
         <Node ToolID="150">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="1122" y="366.0003" width="811" height="297.9999" />
+            <Position x="1122" y="366.0003" width="214.4709" height="38" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1927,7 +1932,7 @@ Contains([JSON_Name43],'url...</DefaultAnnotationText>
             </Node>
             <Node ToolID="135">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-                <Position x="1192" y="479.0003" />
+                <Position x="1192" y="479.0004" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1966,7 +1971,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
             </Node>
             <Node ToolID="136">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="1252" y="479.0003" />
+                <Position x="1252" y="479.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -2003,7 +2008,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
             </Node>
             <Node ToolID="137">
               <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-                <Position x="1312" y="479.0003" />
+                <Position x="1312" y="479.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -2039,7 +2044,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
             </Node>
             <Node ToolID="138">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-                <Position x="1372" y="479.0003" />
+                <Position x="1372" y="479.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -2081,7 +2086,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
             </Node>
             <Node ToolID="139">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="1468" y="479.0003" />
+                <Position x="1468" y="479.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -2114,7 +2119,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
             </Node>
             <Node ToolID="140">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-                <Position x="1564" y="395.0003" />
+                <Position x="1564" y="395.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -2159,7 +2164,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
             </Node>
             <Node ToolID="141">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="1648" y="395.0003" />
+                <Position x="1648" y="395.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -2191,7 +2196,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
             </Node>
             <Node ToolID="142">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-                <Position x="1564" y="479.0003" />
+                <Position x="1564" y="479.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -2236,7 +2241,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
             </Node>
             <Node ToolID="143">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-                <Position x="1564" y="563.0003" />
+                <Position x="1564" y="563.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -2281,7 +2286,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
             </Node>
             <Node ToolID="144">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="1648" y="479.0003" />
+                <Position x="1648" y="479.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -2313,7 +2318,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
             </Node>
             <Node ToolID="145">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="1648" y="563.0003" />
+                <Position x="1648" y="563.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -2345,7 +2350,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
             </Node>
             <Node ToolID="146">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-                <Position x="1756" y="479.0003" />
+                <Position x="1756" y="479.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration joinByRecordPos="False">
@@ -2430,7 +2435,7 @@ URL=IF [JSON_Name43]='url' OR [JSON_Name45]='url' OR [JSON_Na...</DefaultAnnotat
             </Node>
             <Node ToolID="147">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-                <Position x="1756" y="395.0003" />
+                <Position x="1756" y="395.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -2470,7 +2475,7 @@ Element2_Name='TOTAL'
             </Node>
             <Node ToolID="148">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
-                <Position x="1864" y="479.0003" />
+                <Position x="1864" y="479.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -2504,7 +2509,7 @@ Element2_Name='TOTAL'
             </Node>
             <Node ToolID="149">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-                <Position x="1756" y="563.0003" />
+                <Position x="1756" y="563.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration joinByRecordPos="False">
@@ -2602,7 +2607,7 @@ Element2_Name='TOTAL'
         </Node>
         <Node ToolID="99">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="688.0001" y="467.0002" />
+            <Position x="688.0001" y="467.0001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -6067,6 +6072,10 @@ Element2_Name='TOTAL'
       <Company />
       <Copyright />
       <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
     </MetaInfo>
     <Events>
       <Enabled value="False" />
