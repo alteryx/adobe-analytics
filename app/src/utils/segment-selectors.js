@@ -35,7 +35,9 @@ const payload = (store, access) => {
   return {
     'accessLevel': access,
     'filters': {
-      'reportSuiteID': store.reportSuite
+      'reportSuiteID': {
+		  'selection': store.reportSuite.selection
+	  }
     }
   }
 }
