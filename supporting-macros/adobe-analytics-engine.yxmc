@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="54" y="318" />
+        <Position x="114" y="498" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -31,18 +31,20 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
+          <AnnotationText>Interface
+Inputs</AnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field name="client_id" source="TextInput:" type="Bool" />
-            <Field name="client_secret" source="TextInput:" type="Bool" />
-            <Field name="access_token" source="TextInput:" type="Bool" />
+            <Field name="client_id" size="24" source="TextInput:" type="String" />
+            <Field name="client_secret" size="20" source="TextInput:" type="String" />
+            <Field name="access_token" size="925" source="TextInput:" type="V_String" />
             <Field name="startDatePicker" source="TextInput:" type="Date" />
             <Field name="endDatePicker" source="TextInput:" type="Date" />
-            <Field name="preDefDropDown" source="TextInput:" type="Bool" />
-            <Field name="reportDescription" source="TextInput:" type="Bool" />
+            <Field name="preDefDropDown" size="8" source="TextInput:" type="String" />
+            <Field name="reportDescription" size="274" source="TextInput:" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -63,7 +65,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1410" y="270" />
+        <Position x="1842" y="498" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -72,6 +74,7 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name>Report</Name>
+          <AnnotationText>Formatted Report Output</AnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
@@ -80,7 +83,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1398" y="486" />
+        <Position x="1842" y="858" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -89,54 +92,16 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name>API Response</Name>
+          <AnnotationText>API Header Output</AnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
     </Node>
-    <Node ToolID="6">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="66" y="54" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name>client_id</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="7">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="174" y="54" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name>client_secret</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="8">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="306" y="54" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name>access_token</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Detour.Detour">
-        <Position x="330" y="318" />
+        <Position x="306" y="498" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -178,7 +143,7 @@
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DetourEnd.DetourEnd">
-        <Position x="582" y="318" />
+        <Position x="558" y="498" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -205,7 +170,7 @@
     </Node>
     <Node ToolID="12">
       <GuiSettings>
-        <Position x="414" y="366" />
+        <Position x="390" y="546" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -225,7 +190,7 @@
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="138" y="318" />
+        <Position x="174" y="498" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -261,7 +226,7 @@
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-        <Position x="486" y="354" />
+        <Position x="462" y="534" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -287,7 +252,7 @@
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
-        <Position x="330" y="258" width="59" height="59" />
+        <Position x="306" y="438" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -300,7 +265,7 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxGuiToolkit.Condition.Condition">
-        <Position x="330" y="186" width="59" height="59" />
+        <Position x="306" y="366" width="59" height="59" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -315,7 +280,7 @@
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="234" y="318" />
+        <Position x="234" y="498" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -353,178 +318,9 @@ Update reportDefinition with relative date</AnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
-    <Node ToolID="19">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Date.Date">
-        <Position x="450" y="54" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="1">
-          <Name>startDatePicker</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="20">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Date.Date">
-        <Position x="606" y="54" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="1">
-          <Name>endDatePicker</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="21">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="762" y="54" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="1">
-          <Name>preDefDropDown</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="22">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="930" y="54" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name>reportSuite</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="23">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="1062" y="54" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name>page</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="24">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="1194" y="54" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name>metric1</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="25">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="1194" y="102" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name>metric2</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="26">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="1194" y="150" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name>metric3</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="27">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="1194" y="198" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name>metric4</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="28">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="1194" y="246" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name>metric5</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="29">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="1302" y="54" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name>segment1</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="30">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="1302" y="102" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name>segment2</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
-    <Node ToolID="32">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="66" y="138" width="59" height="59" />
-      </GuiSettings>
-      <Properties>
-        <Configuration />
-        <Annotation DisplayMode="0">
-          <Name>reportDescription</Name>
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-    </Node>
     <Node ToolID="43">
       <GuiSettings>
-        <Position x="1122" y="318" />
+        <Position x="1086" y="498" />
       </GuiSettings>
       <Properties>
         <Configuration />
@@ -538,16 +334,18 @@ Macro</AnnotationText>
         </Annotation>
         <MetaInfo connection="Iterate">
           <RecordInfo>
+            <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="reportID" size="25000" source="(Multiple Sources)" type="V_WString" />
-            <Field name="access_token" size="25000" source="(Multiple Sources)" type="V_WString" />
+            <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
           </RecordInfo>
         </MetaInfo>
         <MetaInfo connection="Output">
           <RecordInfo>
+            <Field name="access_token" size="1073741823" source="(Multiple Sources)" type="V_WString" />
             <Field name="reportID" size="25000" source="(Multiple Sources)" type="V_WString" />
-            <Field name="access_token" size="25000" source="(Multiple Sources)" type="V_WString" />
-            <Field name="dateFrom" size="1073741823" source="Formula: '&quot;dateFrom&quot;:&quot;'+[startDatePicker]+'&quot;'" type="V_WString" />
-            <Field name="dateTo" size="1073741823" source="Formula: '&quot;dateTo&quot;:&quot;'+[endDatePicker]+'&quot;'" type="V_WString" />
+            <Field name="client_id" size="1073741823" source="TextInput:" type="V_WString" />
+            <Field name="client_secret" size="1073741823" source="TextInput:" type="V_WString" />
             <Field name="endpoint" size="1073741823" source="Formula: 'https://api.omniture.com/admin/1.4/rest/?method=Report.Get&amp;access_token=' + [access_token]" type="V_WString" />
             <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
@@ -559,7 +357,7 @@ Macro</AnnotationText>
     </Node>
     <Node ToolID="45">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1398" y="414" />
+        <Position x="1842" y="774" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -568,28 +366,385 @@ Macro</AnnotationText>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name>JSON</Name>
+          <AnnotationText>Raw JSON Output</AnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
     </Node>
-    <Node ToolID="50">
-      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-        <Position x="762" y="126" width="59" height="59" />
+    <Node ToolID="51">
+      <GuiSettings>
+        <Position x="1242" y="498" />
       </GuiSettings>
       <Properties>
         <Configuration />
         <Annotation DisplayMode="0">
-          <Name>granularity</Name>
+          <Name />
+          <AnnotationText>Response
+Parsing</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date" source="(Multiple Sources)" type="DateTime" />
+            <Field name="Bounces" source="(Multiple Sources)" type="Byte" />
+            <Field name="Page_Views" source="(Multiple Sources)" type="Byte" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+        <Position x="1242" y="774" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JSON_Field>DownloadData</JSON_Field>
+          <IncludeInOutput value="False" />
+          <SingleField value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+    </Node>
+    <Node ToolID="53">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1770" y="858" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="access_token" selected="False" />
+            <SelectField field="reportID" selected="False" />
+            <SelectField field="client_id" selected="False" />
+            <SelectField field="client_secret" selected="False" />
+            <SelectField field="endpoint" selected="False" />
+            <SelectField field="DownloadData" selected="False" />
+            <SelectField field="dateFrom" selected="False" />
+            <SelectField field="dateTo" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="payload" size="1073741823" source="Formula: '{&#xA; &quot;reportID&quot;:&quot;' + [reportID] + '&quot;&#xA;}'" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="55">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1170" y="498" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <SelectFields>
+            <SelectField field="DownloadData" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="60">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1326" y="498" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Switch(&#xA;[period],[period]&#xA;,'custom','Custom'&#xA;,'today','Today'&#xA;,'yesterday','Yesterday'&#xA;,'last7Days','Last 7 Days'&#xA;,'lastWeek','Last Week'&#xA;,'last30Days','Last 30 Days'&#xA;,'lastMonth','Last Month'&#xA;,'monthToDate','Month to Date'&#xA;,'yearToDate','Year to Date'&#xA;,'lastYear','Last Year')" field="Period" size="1073741823" type="V_WString" />
+            <FormulaField expression="TitleCase([granularity])" field="Granularity" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Add Period, Segments, Granularity</AnnotationText>
+          <DefaultAnnotationText>Period = Switch(
+[period],[period]
+,'custom','Custom'
+,'today','Today'
+,'yesterd...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date" source="(Multiple Sources)" type="DateTime" />
+            <Field name="Bounces" source="(Multiple Sources)" type="Byte" />
+            <Field name="Page_Views" source="(Multiple Sources)" type="Byte" />
+            <Field name="Period" size="1073741823" source="Formula: Switch(&#xA;[period],[period]&#xA;,'custom','Custom'&#xA;,'today','Today'&#xA;,'yesterday','Yesterday'&#xA;,'last7Days','Last 7 Days'&#xA;,'lastWeek','Last Week'&#xA;,'last30Days','Last 30 Days'&#xA;,'lastMonth','Last Month'&#xA;,'monthToDate','Month to Date'&#xA;,'yearToDate','Year to Date'&#xA;,'lastYear','Last Year')" type="V_WString" />
+            <Field name="Granularity" size="1073741823" source="Formula: TitleCase([granularity])" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="68">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="1626" y="498" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Allow</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date" source="(Multiple Sources)" type="DateTime" />
+            <Field name="Bounces" source="(Multiple Sources)" type="Byte" />
+            <Field name="Page_Views" source="(Multiple Sources)" type="Byte" />
+            <Field name="Period" size="1073741823" source="Formula: Switch(&#xA;[period],[period]&#xA;,'custom','Custom'&#xA;,'today','Today'&#xA;,'yesterday','Yesterday'&#xA;,'last7Days','Last 7 Days'&#xA;,'lastWeek','Last Week'&#xA;,'last30Days','Last 30 Days'&#xA;,'lastMonth','Last Month'&#xA;,'monthToDate','Month to Date'&#xA;,'yearToDate','Year to Date'&#xA;,'lastYear','Last Year')" type="V_WString" />
+            <Field name="Granularity" size="1073741823" source="Formula: TitleCase([granularity])" type="V_WString" />
+            <Field name="Segment" size="1073741823" source="Summarize: Concat - JSON_ValueString" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="69">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1698" y="498" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IIF(IsNull([Segment]),'All',[Segment])" field="Segment" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Update Segment to All if null</AnnotationText>
+          <DefaultAnnotationText><![CDATA[Segment = IIF(IsNull([Segment]),'All',[Segment])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Date" source="(Multiple Sources)" type="DateTime" />
+            <Field name="Bounces" source="(Multiple Sources)" type="Byte" />
+            <Field name="Page_Views" source="(Multiple Sources)" type="Byte" />
+            <Field name="Period" size="1073741823" source="Formula: Switch(&#xA;[period],[period]&#xA;,'custom','Custom'&#xA;,'today','Today'&#xA;,'yesterday','Yesterday'&#xA;,'last7Days','Last 7 Days'&#xA;,'lastWeek','Last Week'&#xA;,'last30Days','Last 30 Days'&#xA;,'lastMonth','Last Month'&#xA;,'monthToDate','Month to Date'&#xA;,'yearToDate','Year to Date'&#xA;,'lastYear','Last Year')" type="V_WString" />
+            <Field name="Granularity" size="1073741823" source="Formula: TitleCase([granularity])" type="V_WString" />
+            <Field name="Segment" size="1073741823" source="Formula: IIF(IsNull([Segment]),'All',[Segment])" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="71">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1770" y="498" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <SelectFields>
+            <SelectField field="Period" selected="True" />
+            <SelectField field="Granularity" selected="True" />
+            <SelectField field="Segment" selected="True" />
+            <SelectField field="Date" selected="True" />
+            <SelectField field="Bounces" selected="True" />
+            <SelectField field="Page_Views" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Period" size="1073741823" source="Formula: Switch(&#xA;[period],[period]&#xA;,'custom','Custom'&#xA;,'today','Today'&#xA;,'yesterday','Yesterday'&#xA;,'last7Days','Last 7 Days'&#xA;,'lastWeek','Last Week'&#xA;,'last30Days','Last 30 Days'&#xA;,'lastMonth','Last Month'&#xA;,'monthToDate','Month to Date'&#xA;,'yearToDate','Year to Date'&#xA;,'lastYear','Last Year')" type="V_WString" />
+            <Field name="Granularity" size="1073741823" source="Formula: TitleCase([granularity])" type="V_WString" />
+            <Field name="Segment" size="1073741823" source="Formula: IIF(IsNull([Segment]),'All',[Segment])" type="V_WString" />
+            <Field name="Date" source="(Multiple Sources)" type="DateTime" />
+            <Field name="Bounces" source="(Multiple Sources)" type="Byte" />
+            <Field name="Page_Views" source="(Multiple Sources)" type="Byte" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="72">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1316" y="606" width="308" height="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Generate Segment Names</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
       </Properties>
+      <ChildNodes>
+        <Node ToolID="62">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1326" y="635" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>REGEX_Match([JSON_Name], 'report.segments.\d.name')</Expression>
+              <Mode>Custom</Mode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Segment Names</AnnotationText>
+              <DefaultAnnotationText>REGEX_Match([JSON_Name], 'report.segments.\d.name')</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="True">
+              <RecordInfo>
+                <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+                <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+            <MetaInfo connection="False">
+              <RecordInfo>
+                <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+                <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="65">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="1516" y="635" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="JSON_ValueString" action="Concat" rename="Segment">
+                  <Concat_Start />
+                  <Separator><![CDATA[ & ]]></Separator>
+                  <Concat_End />
+                </SummarizeField>
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>Concat Segment Names</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Segment" size="1073741823" source="Summarize: Concat - JSON_ValueString" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="66">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="1326" y="707" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="0" />
+              <Fields>
+                <Field name="JSON_ValueString" />
+              </Fields>
+              <Data />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>JSON_ValueString</AnnotationText>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="JSON_ValueString" size="1073741823" source="TextInput:" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="67">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="1444" y="635" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="JSON_ValueString" size="1073741823" source="(Multiple Sources)" type="V_WString" />
+                <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+      </ChildNodes>
     </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="654" y="274" width="445" height="160" />
+        <Position x="630" y="454" width="445" height="160" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -607,7 +762,7 @@ Macro</AnnotationText>
       <ChildNodes>
         <Node ToolID="34">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-            <Position x="679" y="318.0001" />
+            <Position x="655" y="498" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -640,7 +795,7 @@ Macro</AnnotationText>
         </Node>
         <Node ToolID="35">
           <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
-            <Position x="768" y="318" />
+            <Position x="744" y="498" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -704,7 +859,7 @@ Macro</AnnotationText>
         </Node>
         <Node ToolID="38">
           <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
-            <Position x="847" y="318" />
+            <Position x="823" y="498" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -739,7 +894,7 @@ Macro</AnnotationText>
         </Node>
         <Node ToolID="40">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="922" y="318" />
+            <Position x="898" y="498" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -796,12 +951,11 @@ Macro</AnnotationText>
         </Node>
         <Node ToolID="41">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="1015" y="318" />
+            <Position x="991" y="498" />
           </GuiSettings>
           <Properties>
             <Configuration>
               <OrderChanged value="False" />
-              <CommaDecimal value="False" />
               <SelectFields>
                 <SelectField field="client_id" selected="True" />
                 <SelectField field="client_secret" selected="True" />
@@ -828,19 +982,252 @@ Macro</AnnotationText>
         </Node>
       </ChildNodes>
     </Node>
+    <Node ToolID="73">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="102" y="30" width="1373" height="290" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Interface Tools</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="6">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="112" y="59" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>client_id</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="219.9999" y="59.00004" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>client_secret</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="8">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="352" y="59.00002" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>access_token</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="19">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Date.Date">
+            <Position x="496" y="59.00013" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="1">
+              <Name>startDatePicker</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="20">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Date.Date">
+            <Position x="652" y="58.99998" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="1">
+              <Name>endDatePicker</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="21">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="808" y="59.00002" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="1">
+              <Name>preDefDropDown</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="22">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="976" y="59.00002" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>reportSuite</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="23">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="1108" y="59.00002" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>page</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="24">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="1240" y="59" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>metric1</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="25">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="1240" y="107" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>metric2</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="26">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="1240" y="155" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>metric3</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="1240" y="203" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>metric4</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="28">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="1240" y="251" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>metric5</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="29">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="1348" y="59.00003" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>segment1</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="30">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="1348" y="107" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>segment2</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="32">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="112" y="143" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>reportDescription</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+        <Node ToolID="50">
+          <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
+            <Position x="808" y="131" width="59" height="59" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>granularity</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+        </Node>
+      </ChildNodes>
+    </Node>
   </Nodes>
   <Connections>
     <Connection>
       <Origin ToolID="1" Connection="Output" />
       <Destination ToolID="13" Connection="Input" />
-    </Connection>
-    <Connection name="#1" Wireless="True">
-      <Origin ToolID="6" Connection="Question" />
-      <Destination ToolID="17" Connection="Question" />
-    </Connection>
-    <Connection name="#2" Wireless="True">
-      <Origin ToolID="7" Connection="Question" />
-      <Destination ToolID="17" Connection="Question" />
     </Connection>
     <Connection>
       <Origin ToolID="10" Connection="Left" />
@@ -884,15 +1271,83 @@ Macro</AnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="55" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output" />
+      <Destination ToolID="60" Connection="Input" />
+    </Connection>
+    <Connection name="period" Wireless="True">
+      <Origin ToolID="21" Connection="Question" />
+      <Destination ToolID="60" Connection="Question" />
+    </Connection>
+    <Connection name="segment1" Wireless="True">
+      <Origin ToolID="29" Connection="Question" />
+      <Destination ToolID="60" Connection="Question" />
+    </Connection>
+    <Connection name="segment2" Wireless="True">
+      <Origin ToolID="30" Connection="Question" />
+      <Destination ToolID="60" Connection="Question" />
+    </Connection>
+    <Connection name="granularity" Wireless="True">
+      <Origin ToolID="50" Connection="Question" />
+      <Destination ToolID="60" Connection="Question" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
       <Destination ToolID="45" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="43" Connection="Output" />
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="62" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="Output" />
       <Destination ToolID="5" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="43" Connection="Output" />
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="Output" />
+      <Destination ToolID="51" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="60" Connection="Output" />
+      <Destination ToolID="68" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="65" Connection="Output" />
+      <Destination ToolID="68" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="68" Connection="Output" />
+      <Destination ToolID="69" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="69" Connection="Output" />
+      <Destination ToolID="71" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="71" Connection="Output" />
       <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="62" Connection="True" />
+      <Destination ToolID="67" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="66" Connection="Output" />
+      <Destination ToolID="67" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="67" Connection="Output" />
+      <Destination ToolID="65" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="34" Connection="Output" />
@@ -913,6 +1368,14 @@ Macro</AnnotationText>
     <Connection>
       <Origin ToolID="41" Connection="Output" />
       <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection name="#1" Wireless="True">
+      <Origin ToolID="6" Connection="Question" />
+      <Destination ToolID="17" Connection="Question" />
+    </Connection>
+    <Connection name="#2" Wireless="True">
+      <Origin ToolID="7" Connection="Question" />
+      <Destination ToolID="17" Connection="Question" />
     </Connection>
   </Connections>
   <Properties>
@@ -1285,6 +1748,7 @@ Macro</AnnotationText>
         <Tool ToolId="12" Selected="True" />
         <Tool ToolId="43" Selected="True" />
         <Tool ToolId="45" Selected="True" />
+        <Tool ToolId="51" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
