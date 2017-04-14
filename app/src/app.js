@@ -180,16 +180,29 @@ Alteryx.Gui.AfterLoad = (manager) => {
   autorun(() => {
     store.page === '' ? utils.displayFieldset('#authSelect') : utils.displayFieldset(store.page)
   })
-
+  
   // Refreshes the metric dropdowns
   autorun(() => {
     if (store.access_token !== '' && store.reportSuite.selection !== '') {
       metricSelectors.topLevelMetrics(store)
-      elementSelectors.topLevelElements(store)
-      classificationSelectors.topLevelClassifications(store)
-      segmentSelectors.topLevelSegments(store)
     }
   })
+  
+  // Get Elements and Classifications and populate in the dropdowns
+  autorun(() => {
+    if (store.access_token !== '' && store.reportSuite.selection !== '' && store.metric1.selection !== '') {
+      elementSelectors.topLevelElements(store)
+	  classificationSelectors.topLevelClassifications(store)
+    }
+  })  
+  
+  // Get Segments and populate in dropdowns
+  // Did not include with autorun above because Rithi was having issues with CEF Dev Tools freezing
+  autorun(() => {
+    if (store.access_token !== '' && store.reportSuite.selection !== '' && store.metric1.selection !== '') {
+	  segmentSelectors.topLevelSegments(store)
+    }
+  })  
 
   // Enable or Disable the Next button on metric selectors page
   autorun(() => {
