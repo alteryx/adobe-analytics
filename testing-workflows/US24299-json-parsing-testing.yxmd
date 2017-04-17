@@ -247,7 +247,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="29">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -317,7 +317,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="35">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -389,7 +389,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="38">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -457,7 +457,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="41">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -525,7 +525,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="44">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -597,7 +597,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="47">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -665,7 +665,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="50">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1060,7 +1060,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="11">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1133,7 +1133,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="14">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1211,7 +1211,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="17">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1287,7 +1287,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="20">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1365,7 +1365,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="23">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1441,7 +1441,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="26">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1519,7 +1519,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="91">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1597,7 +1597,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="94">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1667,7 +1667,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="97">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1739,7 +1739,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="100">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1831,7 +1831,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="54">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1903,7 +1903,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="60">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -1974,7 +1974,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="66">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -2050,7 +2050,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="72">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -2393,7 +2393,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="130">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -2469,7 +2469,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="133">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -2542,7 +2542,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="136">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -2620,7 +2620,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="139">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
@@ -2698,7 +2698,7 @@
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
         </Node>
         <Node ToolID="142">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">

@@ -243,11 +243,11 @@ Alteryx.Gui.AfterLoad = (manager) => {
     const loading = (flag) => {
       if (flag) {
         document.getElementById('loading').style.display = 'block'
-        document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">XMSG("Populating menu items...")</p><img src="loading_ring.svg">'
+        document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">XMSG("Populating menu items...")</p><img src=".\\assets\\loading_ring.svg">'
         document.getElementById('loading-inner').style.display = 'block'
       } else {
         document.getElementById('loading').style.display = 'none'
-        document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
+        document.getElementById('loading-inner').innerHTML = '<img src=".\\assets\\loading_ring.svg">'
         document.getElementById('loading-inner').style.display = 'none'
       }
     }
@@ -280,7 +280,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
   autorun(() => {
     if (store.page === '#authSelect' && store.errorStatus !== '') {
       document.getElementById('loading').style.display = 'none'
-      document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
+      document.getElementById('loading-inner').innerHTML = '<img src=".\\assets\\loading_ring.svg">'
       document.getElementById('loading-inner').style.display = 'none'
     }
   })

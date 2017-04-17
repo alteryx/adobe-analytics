@@ -3,7 +3,7 @@
 	The variables [Engine.EngineDirectory], [Engine.PluginDirectory]
 	and [Engine.JavaScriptPluginDirectory] can also be used-->
 <AlteryxJavaScriptPlugin>
-    <EngineSettings EngineDllEntryPoint="AdobeAnalytics\supporting-macros\adobe-analytics-engine.yxmc" EngineDll="Macro" SDKVersion="10.1" />
+    <EngineSettings EngineDllEntryPoint="AdobeAnalytics\Supporting_Macros\adobe-analytics-engine.yxmc" EngineDll="Macro" SDKVersion="10.1" />
     <GuiSettings Help="HTML-AdobeAnalytics.htm" Html="AdobeAnalyticsGui.html" Icon="AdobeAnalyticsIcon.png" SDKVersion="10.1">
         <InputConnections>
             <!--<Connection Name="Input" AllowMultiple="False" Optional="True" Type="Connection" Label=""/>-->

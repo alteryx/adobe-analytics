@@ -474,7 +474,7 @@ AND
                   <Left value="False" />
                 </Annotation>
               </Properties>
-              <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-offline-authentication.yxmc" />
+              <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-offline-authentication.yxmc" />
             </Node>
             <Node ToolID="35">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
@@ -733,7 +733,7 @@ AND
               <Left value="False" />
             </Annotation>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-engine.yxmc" EngineDll="Macro" EngineDllEntryPoint="AdobeAnalytics\supporting-macros\adobe-analytics-engine.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-engine.yxmc" EngineDll="Macro" EngineDllEntryPoint="AdobeAnalytics\Supporting_Macros\adobe-analytics-engine.yxmc" />
         </Node>
       </ChildNodes>
     </Node>
@@ -790,7 +790,7 @@ AND
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-report.get.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-report.get.yxmc" />
         </Node>
         <Node ToolID="2">
           <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">

@@ -186,7 +186,7 @@ Inputs</AnnotationText>
           </RecordInfo>
         </MetaInfo>
       </Properties>
-      <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-offline-authentication.yxmc" />
+      <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-offline-authentication.yxmc" />
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
@@ -353,7 +353,7 @@ Macro</AnnotationText>
           </RecordInfo>
         </MetaInfo>
       </Properties>
-      <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-report.get.yxmc" />
+      <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-report.get.yxmc" />
     </Node>
     <Node ToolID="51">
       <GuiSettings>
@@ -376,7 +376,7 @@ Parsing</AnnotationText>
           </RecordInfo>
         </MetaInfo>
       </Properties>
-      <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-parsing.yxmc" />
+      <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-parsing.yxmc" />
     </Node>
     <Node ToolID="53">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
