@@ -80,10 +80,10 @@ const parseToken = (url, name) => {
 const errorMessaging = (jqXHR, textStatus, errorThrown) => {
   showLoader(false)
   switch (jqXHR.responseJSON.error_description) {
-    case 'The access token provided has expired':
+    case 'XMSG("The access token provided has expired")':
       store.errorStatus = 1
       break
-    case 'The client credentials are invalid':
+    case 'XMSG("The client credentials are invalid")':
       store.errorStatus = 401
       break
     default:
@@ -128,7 +128,7 @@ const displayFieldset = (fieldsetName) => {
 const showLoader = (flag) => {
   if (flag) {
     document.getElementById('loading').style.display = 'block'
-    document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">Sign in to Adobe Analytics<br>using the popup</p><img src=".//assets//loading_ring.svg">'
+    document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">XMSG("Sign in to Adobe Analytics<br>using the popup")</p><img src=".//assets//loading_ring.svg">'
     document.getElementById('loading-inner').style.display = 'block'
   } else {
     document.getElementById('loading').style.display = 'none'
