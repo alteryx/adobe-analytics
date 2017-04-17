@@ -1,4 +1,3 @@
-/*jslint es6:true*/
 import AyxStore from '../stores/AyxStore'
 
 // Developer acccess_token request triggered by Connect button on developerCreds page
