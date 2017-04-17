@@ -88,9 +88,9 @@ const removeMissingValues = () => {
   ]
 
   metrics.map((metric) => {
-    metric.refs.widget.props.options.filter((d) => { return d.className !== '' || d.className === undefined })
+    metric.refs.widget.props.options.filter((d) => { return d.className === '' || d.className === undefined })
     metric.missingFields = []
-    metric.forceUpdate()
+    setTimeout(function () { metric.forceUpdate() }, 500)
   })
 }
 
