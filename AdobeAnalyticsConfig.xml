@@ -10,7 +10,6 @@
         </InputConnections>
         <OutputConnections>
             <Connection Name="Report" AllowMultiple="False" Optional="False" Type="Connection" Label="R"/>
-            <Connection Name="JSON" AllowMultiple="False" Optional="False" Type="Connection" Label="J"/>
             <Connection Name="API Response" AllowMultiple="False" Optional="False" Type="Connection" Label="A"/>
         </OutputConnections>
     </GuiSettings>
