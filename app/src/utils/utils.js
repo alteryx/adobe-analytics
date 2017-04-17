@@ -45,7 +45,7 @@ const userLogin = () => {
 
   showLoader(true)
   store.errorStatus = ''
-
+  
   const pollTimer = window.setInterval(() => {
     try {
       if (win.document.location.origin === 'https://developers.google.com') {
@@ -61,6 +61,18 @@ const userLogin = () => {
     } catch (e) {
                 // console.log("catch");
     }
+  }, 500)
+  
+  const clearUserLoginInterval = setInterval(() => {
+	  // console.log('Checking win.closed status')
+	  // console.log('store.acccess_token', typeof store.acccess_token === 'undefined')
+	  if (win.closed && typeof store.acccess_token === 'undefined') {
+		// console.log('store.page = ', store.page)
+		// console.log('Window closed without User Login')
+		// console.log('store.acccess_token', store.acccess_token)
+		if (store.page !== '#reportSuite') showLoader(false) // : showLoader(true)
+		clearInterval(clearUserLoginInterval)
+	  }
   }, 500)
 }
 
