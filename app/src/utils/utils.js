@@ -128,11 +128,11 @@ const displayFieldset = (fieldsetName) => {
 const showLoader = (flag) => {
   if (flag) {
     document.getElementById('loading').style.display = 'block'
-    document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">Sign in to Adobe Analytics<br>using the popup</p><img src="loading_ring.svg">'
+    document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">Sign in to Adobe Analytics<br>using the popup</p><img src=".//assets//loading_ring.svg">'
     document.getElementById('loading-inner').style.display = 'block'
   } else {
     document.getElementById('loading').style.display = 'none'
-    document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
+    document.getElementById('loading-inner').innerHTML = '<img src=".//assets//loading_ring.svg">'
     document.getElementById('loading-inner').style.display = 'none'
   }
 }
