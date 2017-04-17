@@ -47,6 +47,7 @@ const userLogin = () => {
   store.errorStatus = ''
   
   const pollTimer = window.setInterval(() => {
+	console.log('pollTimer')
     try {
       if (win.document.location.origin === 'https://developers.google.com') {
         const url = win.document.URL
@@ -57,6 +58,7 @@ const userLogin = () => {
         win.close()
         showLoader(false)
         setPage('#reportSuite')
+	    clearInterval(pollTimer)
       }
     } catch (e) {
                 // console.log("catch");
@@ -72,6 +74,7 @@ const userLogin = () => {
 		// console.log('store.acccess_token', store.acccess_token)
 		if (store.page !== '#reportSuite') showLoader(false) // : showLoader(true)
 		clearInterval(clearUserLoginInterval)
+	    clearInterval(pollTimer)
 	  }
   }, 500)
 }
