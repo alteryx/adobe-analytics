@@ -86,4 +86,4 @@ const setDates = preDefValue => {
   }
 }
 
-export { getDates, setDates }
+export { setDates }
