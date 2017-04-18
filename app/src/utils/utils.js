@@ -45,9 +45,8 @@ const userLogin = () => {
 
   showLoader(true)
   store.errorStatus = ''
-  
+
   const pollTimer = window.setInterval(() => {
-	console.log('pollTimer')
     try {
       if (win.document.location.origin === 'https://developers.google.com') {
         const url = win.document.URL
@@ -58,24 +57,21 @@ const userLogin = () => {
         win.close()
         showLoader(false)
         setPage('#reportSuite')
-	    clearInterval(pollTimer)
+        clearInterval(pollTimer)
       }
     } catch (e) {
                 // console.log("catch");
     }
   }, 500)
-  
+
   const clearUserLoginInterval = setInterval(() => {
-	  // console.log('Checking win.closed status')
-	  // console.log('store.acccess_token', typeof store.acccess_token === 'undefined')
-	  if (win.closed && typeof store.acccess_token === 'undefined') {
-		// console.log('store.page = ', store.page)
-		// console.log('Window closed without User Login')
-		// console.log('store.acccess_token', store.acccess_token)
-		if (store.page !== '#reportSuite') showLoader(false) // : showLoader(true)
-		clearInterval(clearUserLoginInterval)
-	    clearInterval(pollTimer)
-	  }
+    if (win.closed && typeof store.acccess_token === 'undefined') {
+      if (store.page !== '#reportSuite') {
+        showLoader(false)
+      }
+      clearInterval(clearUserLoginInterval)
+      clearInterval(pollTimer)
+    }
   }, 500)
 }
 
