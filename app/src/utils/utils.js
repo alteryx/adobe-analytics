@@ -57,9 +57,20 @@ const userLogin = () => {
         win.close()
         showLoader(false)
         setPage('#reportSuite')
+        clearInterval(pollTimer)
       }
     } catch (e) {
                 // console.log("catch");
+    }
+  }, 500)
+
+  const clearUserLoginInterval = setInterval(() => {
+    if (win.closed && typeof store.acccess_token === 'undefined') {
+      if (store.page !== '#reportSuite') {
+        showLoader(false)
+      }
+      clearInterval(clearUserLoginInterval)
+      clearInterval(pollTimer)
     }
   }, 500)
 }
