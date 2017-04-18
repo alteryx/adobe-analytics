@@ -129,4 +129,4 @@ const clearWarning = (store) => {
     'error_description': ''
   }
 }
-export { validateReport, metrics, elements, segments, payload, clearWarning }
+export { validateReport, payload, clearWarning }
