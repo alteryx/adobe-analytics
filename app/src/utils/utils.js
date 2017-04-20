@@ -221,6 +221,10 @@ const resetFields = () => {
 
   // Set default value for preDefDropDown and advOptionsPrimary, advOptionsSecondary, advOptionsTertiary
   Alteryx.Gui.manager.GetDataItem('preDefDropDown').setValue('today')
+  
+  // set stringList of store.elementPrimary and store.segment1 to empty. This lets the autoruns of API calls to run as expected
+  store.elementPrimary.stringList = []
+  store.segment1.stringList = []
 }
 
 export { devLogin, userLogin, setPage, displayFieldset, resetFields, advOptionsToggle }
