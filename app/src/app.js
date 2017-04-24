@@ -1,21 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import moment from 'moment'
 import AyxStore from './stores/AyxStore'
 import { extendObservable, autorun, toJS } from 'mobx'
-import moment from 'moment'
 import * as utils from './utils/utils'
 import * as picker from './utils/date-pickers'
-import DateMessage from './components/date-message.jsx'
-import ConnectionErrorMessage from './components/connection-error-message.jsx'
 import * as reportSuites from './utils/report-suites'
 import * as metricSelectors from './utils/metric-selectors'
-import InvalidReport from './components/invalid-report-message.jsx'
 import * as segmentSelectors from './utils/segment-selectors'
 import * as elementSelectors from './utils/element-selectors'
 import * as reportValidation from './utils/report-validation'
 import * as classificationSelectors from './utils/classification-selectors'
+import DateMessage from './components/date-message.jsx'
+import ConnectionErrorMessage from './components/connection-error-message.jsx'
+import InvalidReport from './components/invalid-report-message.jsx'
 import Summary from './components/summary.jsx'
-// import _ from 'lodash'
 
 Alteryx.Gui.AfterLoad = (manager) => {
   const collection = [
@@ -55,8 +54,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'reportValidation', type: 'value'}
   ]
 
-  // Instantiate the mobx store which will sync all dataItems
-  // specified in the collection.
+  // Instantiate the mobx store which will sync all dataItems specified in the collection.
   const store = new AyxStore(manager, collection)
 
   // Set Predefined dropdown to 'custom' value if it is undefined.
@@ -129,7 +127,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     return value !== ''
   }
 
-  // continuously updates the reportDescription each time a selection is made
+  // Continuously updates the reportDescription each time a selection is made
   autorun(() => {
     store.reportDescription = JSON.stringify(reportValidation.payload(store))
   })
@@ -177,6 +175,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
     }
   })
 
+  // Autorun changes displayFieldset to #authSelect if store.page is empty
   autorun(() => {
     store.page === '' ? utils.displayFieldset('#authSelect') : utils.displayFieldset(store.page)
   })
@@ -185,8 +184,21 @@ Alteryx.Gui.AfterLoad = (manager) => {
   autorun(() => {
     if (store.access_token !== '' && store.reportSuite.selection !== '') {
       metricSelectors.topLevelMetrics(store)
+    }
+  })
+
+  // Get Elements and Classifications and populate in the dropdowns
+  autorun(() => {
+    if (store.access_token !== '' && store.reportSuite.selection !== '' && store.metric1.selection !== '' && store.elementPrimary.stringList.length === 0) {
       elementSelectors.topLevelElements(store)
       classificationSelectors.topLevelClassifications(store)
+    }
+  })
+
+  // Get Segments and populate in dropdowns
+  // Did not include with autorun above because Rithi was having issues with CEF Dev Tools freezing
+  autorun(() => {
+    if (store.access_token !== '' && store.reportSuite.selection !== '' && store.metric1.selection !== '' && store.segment1.stringList.length === 0) {
       segmentSelectors.topLevelSegments(store)
     }
   })
@@ -194,7 +206,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
   // Enable or Disable the Next button on metric selectors page
   autorun(() => {
     const target = document.getElementById('metricSelectorsNextBtn')
-    store.metricSelections.length === 0 ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
+    store.metric1.selection === '' ? target.setAttribute('disabled', 'true') : target.removeAttribute('disabled')
   })
 
   // Displays the Classification, top and starting with options for Primary Elements if Advanced Options is toggled
@@ -230,11 +242,11 @@ Alteryx.Gui.AfterLoad = (manager) => {
     const loading = (flag) => {
       if (flag) {
         document.getElementById('loading').style.display = 'block'
-        document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">XMSG("Populating menu items")</p><img src="loading_ring.svg">'
+        document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">XMSG("Populating menu items...")</p><img src=".\\assets\\loading_ring.svg">'
         document.getElementById('loading-inner').style.display = 'block'
       } else {
         document.getElementById('loading').style.display = 'none'
-        document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
+        document.getElementById('loading-inner').innerHTML = '<img src=".\\assets\\loading_ring.svg">'
         document.getElementById('loading-inner').style.display = 'none'
       }
     }
@@ -256,18 +268,14 @@ Alteryx.Gui.AfterLoad = (manager) => {
       case '#segmentSelectors':
         loading(store.segment1.loading)
         break
-      // case '#summary':
-      //   const flag = (store.metricsList.loading || store.dimensionsList.loading || store.segmentsList.loading)
-      //   loading(flag)
-      //   break
     }
   })
 
-  // hide any lingering loading screens if user login token expires
+  // Hide any lingering loading screens if user login token expires
   autorun(() => {
     if (store.page === '#authSelect' && store.errorStatus !== '') {
       document.getElementById('loading').style.display = 'none'
-      document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
+      document.getElementById('loading-inner').innerHTML = '<img src=".\\assets\\loading_ring.svg">'
       document.getElementById('loading-inner').style.display = 'none'
     }
   })
@@ -308,33 +316,22 @@ Alteryx.Gui.AfterLoad = (manager) => {
   // Render react component which handles the summary page
   ReactDOM.render(<Summary store={store} />, document.querySelector('#summaryDiv'))
 
-  // All window declarations, below, are simply to expose functionality to the console, and
-  // should probably be removed or commented out before shipping the connector.
-  // Steve - I've found that if a function is referenced by the Gui.html file they need to be defined below
+  // All window declarations, below, are simply to expose functionality to the console and Gui.html file
   window.store = store
   window.moment = moment
   window.toJS = toJS
   window.devLogin = utils.devLogin
   window.userLogin = utils.userLogin
-  window.getDates = picker.getDates
-  window.setDates = picker.setDates
-  window.topLevelReportSuites = reportSuites.topLevelReportSuites
   window.displayFieldset = utils.displayFieldset
   window.setPage = utils.setPage
-  window.showLoader = utils.showLoader
   window.resetFields = utils.resetFields
+  window.topLevelReportSuites = reportSuites.topLevelReportSuites
   window.topLevelMetrics = metricSelectors.topLevelMetrics
   window.topLevelSegments = segmentSelectors.topLevelSegments
-  window.getSegments = segmentSelectors.getSegments
-  window.validateSegments = segmentSelectors.validateSegments
-  window.removeMissingValues = segmentSelectors.removeMissingValues
-  window.advOptionsToggle = utils.advOptionsToggle
   window.topLevelElements = elementSelectors.topLevelElements
-  window.filterElements = elementSelectors.filterElements
-  window.validateReport = reportValidation.validateReport
+  window.setDates = picker.setDates
+  window.advOptionsToggle = utils.advOptionsToggle
   window.clearWarning = reportValidation.clearWarning
-  window.metrics = reportValidation.metrics
-  window.elements = reportValidation.elements
-  window.segments = reportValidation.segments
   window.payload = reportValidation.payload
+  window.validateReport = reportValidation.validateReport
 }

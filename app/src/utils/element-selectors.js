@@ -76,9 +76,9 @@ const removeMissingValues = () => {
   ]
 
   elements.map((element) => {
-    element.refs.widget.props.options.filter((d) => { return d.className !== '' || d.className === undefined })
+    element.refs.widget.props.options.filter((d) => { return d.className === '' || d.className === undefined })
     element.missingFields = []
-    element.forceUpdate()
+    setTimeout(function () { element.forceUpdate() }, 500)
   })
 }
 

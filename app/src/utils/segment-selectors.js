@@ -13,8 +13,8 @@ const topLevelSegments = (store) => {
     .then(mapSegments)
     .then(sortSegments)
     .then(pushSegments)
-    .then(removeMissingValues)
     .then(doneLoading)
+    .then(removeMissingValues)
 }
 
 const getSegments = (store, payload) => {
@@ -35,7 +35,9 @@ const payload = (store, access) => {
   return {
     'accessLevel': access,
     'filters': {
-      'reportSuiteID': store.reportSuite
+      'reportSuiteID': {
+        'selection': store.reportSuite.selection
+      }
     }
   }
 }
@@ -103,9 +105,9 @@ const removeMissingValues = () => {
   ]
 
   segments.map((segment) => {
-    segment.refs.widget.props.options.filter((d) => { return d.className !== '' || d.className === undefined })
+    segment.refs.widget.props.options.filter((d) => { return d.className === '' || d.className === undefined })
     segment.missingFields = []
-    segment.forceUpdate()
+    setTimeout(function () { segment.forceUpdate() }, 500)
   })
 }
 

@@ -87,9 +87,9 @@ const removeMissingValues = () => {
   ]
 
   classifications.map((classification) => {
-    classification.refs.widget.props.options.filter((d) => { return d.className !== '' || d.className === undefined })
+    classification.refs.widget.props.options.filter((d) => { return d.className === '' || d.className === undefined })
     classification.missingFields = []
-    classification.forceUpdate()
+    setTimeout(function () { classification.forceUpdate() }, 500)
   })
 }
 

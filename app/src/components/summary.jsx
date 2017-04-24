@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { observer } from 'mobx-react'
 
@@ -77,7 +76,7 @@ class Summary extends React.Component {
           <th style={thStyle}>{value}</th>
           <th style={thNarrowStyle}>XMSG("Classification"):</th>
           <th style={thStyle}>{advOptionsList[index].classification}</th>
-          <th style={thNarrowStyle}>XMSG("Record "):</th>
+          <th style={thNarrowStyle}>XMSG("Record Limit"):</th>
           <th style={thStyle}>{advOptionsList[index].topRecordLimit}</th>
           <th style={thNarrowStyle}>XMSG("Starting with Record"):</th>
           <th style={thStyle}>{advOptionsList[index].startingWith}</th>

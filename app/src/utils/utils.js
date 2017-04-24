@@ -22,7 +22,6 @@ const devLogin = () => {
   $.ajax(settings)
     .done((data) => {
       store.access_token = data.access_token
-      console.log('access_token is ' + store.access_token)
       store.errorStatus = ''
       store.page === '#developerCreds' ? setPage('#reportSuite') : ''
     })
@@ -41,7 +40,6 @@ const userLogin = () => {
   const redirectUri = 'https://developers.google.com/oauthplayground'
   const _url = base + 'scope=' + scope + '&redirect_uri=' + redirectUri + '&response_type=token' + '&client_id=' + clientId + '&access_type=offline'
   const win = window.open(_url, 'windowname1', 'width=800, height=600')
-  // Alteryx.Gui.manager.GetDataItem('errorStatus').setValue('')
 
   showLoader(true)
   store.errorStatus = ''
@@ -50,16 +48,24 @@ const userLogin = () => {
     try {
       if (win.document.location.origin === 'https://developers.google.com') {
         const url = win.document.URL
-        console.log(url)
         const accessToken = parseToken(url, 'access_token')
         store.access_token = accessToken
-        console.log('User login access_token is:' + store.access_token)
         win.close()
         showLoader(false)
         setPage('#reportSuite')
+        clearInterval(pollTimer)
       }
     } catch (e) {
-                // console.log("catch");
+    }
+  }, 500)
+
+  const clearUserLoginInterval = setInterval(() => {
+    if (win.closed && typeof store.acccess_token === 'undefined') {
+      if (store.page !== '#reportSuite') {
+        showLoader(false)
+      }
+      clearInterval(clearUserLoginInterval)
+      clearInterval(pollTimer)
     }
   }, 500)
 }
@@ -80,10 +86,10 @@ const parseToken = (url, name) => {
 const errorMessaging = (jqXHR, textStatus, errorThrown) => {
   showLoader(false)
   switch (jqXHR.responseJSON.error_description) {
-    case 'The access token provided has expired':
+    case 'XMSG("The access token provided has expired")':
       store.errorStatus = 1
       break
-    case 'The client credentials are invalid':
+    case 'XMSG("The client credentials are invalid")':
       store.errorStatus = 401
       break
     default:
@@ -128,11 +134,11 @@ const displayFieldset = (fieldsetName) => {
 const showLoader = (flag) => {
   if (flag) {
     document.getElementById('loading').style.display = 'block'
-    document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">Sign in to Adobe Analytics<br>using the popup</p><img src="loading_ring.svg">'
+    document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">XMSG("Sign in to Adobe Analytics<br>using the popup")</p><img src=".//assets//loading_ring.svg">'
     document.getElementById('loading-inner').style.display = 'block'
   } else {
     document.getElementById('loading').style.display = 'none'
-    document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
+    document.getElementById('loading-inner').innerHTML = '<img src=".//assets//loading_ring.svg">'
     document.getElementById('loading-inner').style.display = 'none'
   }
 }
@@ -198,18 +204,6 @@ const resetFields = () => {
     Alteryx.Gui.manager.GetDataItem(item).setValue('')
   })
 
-  // Alteryx.Gui.manager.GetDataItem('reportSuite').setStringList([])
-  // for (let value of stringListArray) {
-  //   console.log(value)
-  //   Alteryx.Gui.manager.GetDataItem(value).setStringList([])
-  // }
-
-  // // Remove prior selections from ListBox widgets
-  // renderArray.map(d => {
-  //   Alteryx.Gui.renderer.getReactComponentByDataName(d).selectedItemsMap = {}
-  //   Alteryx.Gui.renderer.getReactComponentByDataName(d).forceUpdate()
-  // })
-
   // reset record limit values to 100
   Alteryx.Gui.manager.GetDataItem('topPrimary').setValue(100)
   Alteryx.Gui.manager.GetDataItem('topSecondary').setValue(100)
@@ -227,6 +221,10 @@ const resetFields = () => {
 
   // Set default value for preDefDropDown and advOptionsPrimary, advOptionsSecondary, advOptionsTertiary
   Alteryx.Gui.manager.GetDataItem('preDefDropDown').setValue('today')
+  
+  // set stringList of store.elementPrimary and store.segment1 to empty. This lets the autoruns of API calls to run as expected
+  store.elementPrimary.stringList = []
+  store.segment1.stringList = []
 }
 
-export { devLogin, userLogin, setPage, displayFieldset, showLoader, resetFields, advOptionsToggle }
+export { devLogin, userLogin, setPage, displayFieldset, resetFields, advOptionsToggle }

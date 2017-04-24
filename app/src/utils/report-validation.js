@@ -114,11 +114,11 @@ const notEmpty = (item) => {
 const showLoader = (flag) => {
   if (flag) {
     document.getElementById('loading').style.display = 'block'
-    document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">XMSG("Validating Report")</p><img src="loading_ring.svg">'
+    document.getElementById('loading-inner').innerHTML = '<p style="font-size: 14px">XMSG("Validating report...")</p><img src=".//assets//loading_ring.svg">'
     document.getElementById('loading-inner').style.display = 'block'
   } else {
     document.getElementById('loading').style.display = 'none'
-    document.getElementById('loading-inner').innerHTML = '<img src="loading_ring.svg">'
+    document.getElementById('loading-inner').innerHTML = '<img src=".//assets//loading_ring.svg">'
     document.getElementById('loading-inner').style.display = 'none'
   }
 }
@@ -129,4 +129,4 @@ const clearWarning = (store) => {
     'error_description': ''
   }
 }
-export { validateReport, metrics, elements, segments, payload, clearWarning }
+export { validateReport, payload, clearWarning }

@@ -476,7 +476,7 @@ AND
               </RecordInfo>
             </MetaInfo>
           </Properties>
-          <EngineSettings Macro="AdobeAnalytics\supporting-macros\adobe-analytics-offline-authentication.yxmc" />
+          <EngineSettings Macro="AdobeAnalytics\Supporting_Macros\adobe-analytics-offline-authentication.yxmc" />
         </Node>
         <Node ToolID="31">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">

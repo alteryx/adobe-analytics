@@ -9,9 +9,10 @@
         document.write('<link rel="import" href="' + window.Alteryx.LibDir + '1/lib/alteryx/gui/includes.html">')
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
+
 <!-- Logon Selection Page -->
 <fieldset id="authSelect" style="display:none">
     <legend>XMSG("Sign in to Adobe Analytics")</legend>
@@ -21,7 +22,6 @@
         <button style="width:116px;" class="button2" type="submit" id="devButton" onclick="resetFields();setPage('#developerCreds')">XMSG("Developer Login")</button>
         <p>XMSG("Sign in using API credentials. This option requires obtaining a Client ID and Client Secret and does not require re-entering credentials to run a workflow.")</p>
     </div>
-<!--     <div id="connectionErrorMessage" style="height: 0px;"></div> -->
 </fieldset>
 
 <!-- Developer credentials -->
@@ -55,7 +55,6 @@
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
-                <!-- Add id name and onclick function during process story -->
                 <button type="submit" class="nextBtn" id="reportSuiteNextBtn" onclick="setPage('#datePickers')">XMSG("Next")</button>
             </div>
             <br>
@@ -109,7 +108,6 @@
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
-                <!-- Add id name and onclick function during process story -->
                 <button type="submit" class="nextBtn" id="datePickersNextBtn" onclick="setPage('#metricSelectors');clearWarning(store);">XMSG("Next")</button>
                 <button class="prevBtn" id="datePickersPrevBtn" onclick="setPage('#reportSuite');clearWarning(store);">XMSG("Previous")</button>
             </div>
@@ -139,7 +137,6 @@
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
-                <!-- Add id name and onclick function during process story -->
                 <button type="submit" class="nextBtn" id="metricSelectorsNextBtn" onclick="setPage('#elementSelectors');clearWarning(store);">XMSG("Next")</button>
                 <button class="prevBtn" id="metricSelectorsPrevBtn" onclick="setPage('#datePickers');clearWarning(store);">XMSG("Previous")</button>
             </div>
@@ -150,94 +147,94 @@
     </fieldset>
 
 <!--Element Selector -->
-<fieldset id="elementSelectors" style="display:none;">
-  <legend>XMSG("Select Elements to Include (Optional)")</legend>
-  <label for="elementPrimary">XMSG("Primary Element")</label>
-  <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimary",issearchable:"true",dataName:"elementPrimary",clearable:"true"}'></alteryx-pluginwidget>
-  <div id="advOptionsPrimary">
-    <a style="cursor: pointer" onclick="advOptionsToggle('primary');">
-      <div id="primaryArrow" class="arrow-right"></div>
-      <div id="advOptionsText">
-        <u>XMSG("Advanced Options")</u>
+    <fieldset id="elementSelectors" style="display:none;">
+      <legend>XMSG("Select Elements to Include (Optional)")</legend>
+      <label for="elementPrimary">XMSG("Primary Element")</label>
+      <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimary",issearchable:"true",dataName:"elementPrimary",clearable:"true"}'></alteryx-pluginwidget>
+      <div id="advOptionsPrimary">
+        <a style="cursor: pointer" onclick="advOptionsToggle('primary');">
+          <div id="primaryArrow" class="arrow-right"></div>
+          <div id="advOptionsText">
+            <u>XMSG("Advanced Options")</u>
+          </div>
+        </a>
+        <!-- hiding this widget because arrow animation replaced toggle button-->
+        <div style="display:none;">
+          <alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsPrimary" dataName="advOptionsPrimary"></alteryx-pluginwidget>
+        </div>
       </div>
-    </a>
-    <!-- hiding this widget because arrow animation replaced toggle button-->
-    <div style="display:none;">
-      <alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsPrimary" dataName="advOptionsPrimary"></alteryx-pluginwidget>
-    </div>
-  </div>
-  <br>
-  <div id="advOptionsInputsPrimary">
-    <label for="elementPrimaryClassification">XMSG("Classification")</label>
-    <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimaryClassification",issearchable:"true",dataName:"elementPrimaryClassification",clearable:"true"}'></alteryx-pluginwidget>
-    <label>XMSG("Record Limit")</label>
-    <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topPrimary",default:"100",max:"50000",min:"1",dataName:"topPrimary"}'></alteryx-pluginwidget>
-    <label>XMSG("Starting with Record")</label>
-    <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithPrimary",default:"1",max:"999999999",min:"1",dataName:"startingWithPrimary"}'></alteryx-pluginwidget>
-  </div>
-  <br>
-  <label for="elementSecondary">XMSG("Secondary Element")</label>
-  <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondary",issearchable:"true",dataName:"elementSecondary",clearable:"true"}'></alteryx-pluginwidget>
-  <div id="advOptionsSecondary">
-    <a style="cursor: pointer" onclick="advOptionsToggle('secondary');">
-      <div id="secondaryArrow" class="arrow-right"></div>
-      <div id="advOptionsText">
-        <u>XMSG("Advanced Options")</u>
+      <br>
+      <div id="advOptionsInputsPrimary">
+        <label for="elementPrimaryClassification">XMSG("Classification")</label>
+        <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementPrimaryClassification",issearchable:"true",dataName:"elementPrimaryClassification",clearable:"true"}'></alteryx-pluginwidget>
+        <label>XMSG("Record Limit")</label>
+        <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topPrimary",default:"100",max:"50000",min:"1",dataName:"topPrimary"}'></alteryx-pluginwidget>
+        <label>XMSG("Starting with Record")</label>
+        <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithPrimary",default:"1",max:"999999999",min:"1",dataName:"startingWithPrimary"}'></alteryx-pluginwidget>
       </div>
-    </a>
-    <!-- hiding this widget because arrow animation replaced toggle button-->
-    <div style="display:none;">
-      <alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsSecondary" dataName="advOptionsSecondary"></alteryx-pluginwidget>
-    </div>
-  </div>
-  <br>
-  <div id="advOptionsInputsSecondary">
-    <label for="elementSecondaryClassification">XMSG("Classification")</label>
-    <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondaryClassification",issearchable:"true",dataName:"elementSecondaryClassification",clearable:"true"}'></alteryx-pluginwidget>
-    <label>XMSG("Record Limit")</label>
-    <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topSecondary",default:"100",max:"50000",min:"1",dataName:"topSecondary"}'></alteryx-pluginwidget>
-    <label>XMSG("Starting with Record")</label>
-    <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithSecondary",default:"1",max:"999999999",min:"1",dataName:"startingWithSecondary"}'></alteryx-pluginwidget>
-  </div>
-  <br>
-  <label for="elementTertiary">XMSG("Tertiary Element")</label>
-  <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiary",issearchable:"true",dataName:"elementTertiary",clearable:"true"}'></alteryx-pluginwidget>
-  <div id="advOptionsTertiary">
-    <a style="cursor: pointer" onclick="advOptionsToggle('tertiary');">
-      <div id="tertiaryArrow" class="arrow-right"></div>
-      <div id="advOptionsText">
-        <u>XMSG("Advanced Options")</u>
+      <br>
+      <label for="elementSecondary">XMSG("Secondary Element")</label>
+      <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondary",issearchable:"true",dataName:"elementSecondary",clearable:"true"}'></alteryx-pluginwidget>
+      <div id="advOptionsSecondary">
+        <a style="cursor: pointer" onclick="advOptionsToggle('secondary');">
+          <div id="secondaryArrow" class="arrow-right"></div>
+          <div id="advOptionsText">
+            <u>XMSG("Advanced Options")</u>
+          </div>
+        </a>
+        <!-- hiding this widget because arrow animation replaced toggle button-->
+        <div style="display:none;">
+          <alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsSecondary" dataName="advOptionsSecondary"></alteryx-pluginwidget>
+        </div>
       </div>
-    </a>
-    <div style="display:none;">
-      <alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsTertiary" dataName="advOptionsTertiary"></alteryx-pluginwidget>
-    </div>
-  </div>
-  <br>
-  <div id="advOptionsInputsTertiary">
-    <label for="elementTertiaryClassification">XMSG("Classification")</label>
-    <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiaryClassification",issearchable:"true",dataName:"elementTertiaryClassification",clearable:"true"}'></alteryx-pluginwidget>
-    <label>XMSG("Record Limit")</label>
-    <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topTertiary",default:"100",max:"50000",min:"1",dataName:"topTertiary"}'></alteryx-pluginwidget>
-    <label>XMSG("Starting with Record")</label>
-    <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithTertiary",default:"1",max:"999999999",min:"1",dataName:"startingWithTertiary"}'></alteryx-pluginwidget>
-  </div>
-  <br>
-  <button class="prevBtn" id="elementValidation" onclick="validateReport(store);">XMSG("Validate Report")</button>
-  <br>
-  <div id="invalidElement"></div>
-  <div class='footer_spacer'></div>
-  <div class='footer'>
-    <hr>
-    <div style="margin-top: 8px;margin-bottom: 8px;">
-      <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="setPage('#segmentSelectors');clearWarning(store);">XMSG("Next")</button>
-      <button class="prevBtn" id="elementSelectorsPrevBtn" onclick="setPage('#metricSelectors');clearWarning(store);">XMSG("Previous")</button>
-    </div>
-    <br>
-    <br>
-    <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">XMSG("Change Login Credentials")</a>
-  </div>
-</fieldset>
+      <br>
+      <div id="advOptionsInputsSecondary">
+        <label for="elementSecondaryClassification">XMSG("Classification")</label>
+        <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementSecondaryClassification",issearchable:"true",dataName:"elementSecondaryClassification",clearable:"true"}'></alteryx-pluginwidget>
+        <label>XMSG("Record Limit")</label>
+        <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topSecondary",default:"100",max:"50000",min:"1",dataName:"topSecondary"}'></alteryx-pluginwidget>
+        <label>XMSG("Starting with Record")</label>
+        <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithSecondary",default:"1",max:"999999999",min:"1",dataName:"startingWithSecondary"}'></alteryx-pluginwidget>
+      </div>
+      <br>
+      <label for="elementTertiary">XMSG("Tertiary Element")</label>
+      <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiary",issearchable:"true",dataName:"elementTertiary",clearable:"true"}'></alteryx-pluginwidget>
+      <div id="advOptionsTertiary">
+        <a style="cursor: pointer" onclick="advOptionsToggle('tertiary');">
+          <div id="tertiaryArrow" class="arrow-right"></div>
+          <div id="advOptionsText">
+            <u>XMSG("Advanced Options")</u>
+          </div>
+        </a>
+        <div style="display:none;">
+          <alteryx-pluginwidget type="CheckBox" showAsToggle="true" id="advOptionsTertiary" dataName="advOptionsTertiary"></alteryx-pluginwidget>
+        </div>
+      </div>
+      <br>
+      <div id="advOptionsInputsTertiary">
+        <label for="elementTertiaryClassification">XMSG("Classification")</label>
+        <alteryx-pluginwidget data-props='{type:"ComboBox",dataType:"StringSelector",id:"elementTertiaryClassification",issearchable:"true",dataName:"elementTertiaryClassification",clearable:"true"}'></alteryx-pluginwidget>
+        <label>XMSG("Record Limit")</label>
+        <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"topTertiary",default:"100",max:"50000",min:"1",dataName:"topTertiary"}'></alteryx-pluginwidget>
+        <label>XMSG("Starting with Record")</label>
+        <alteryx-pluginwidget data-props='{type:"NumericSpinner",id:"startingWithTertiary",default:"1",max:"999999999",min:"1",dataName:"startingWithTertiary"}'></alteryx-pluginwidget>
+      </div>
+      <br>
+      <button class="prevBtn" id="elementValidation" onclick="validateReport(store);">XMSG("Validate Report")</button>
+      <br>
+      <div id="invalidElement"></div>
+      <div class='footer_spacer'></div>
+      <div class='footer'>
+        <hr>
+        <div style="margin-top: 8px;margin-bottom: 8px;">
+          <button type="submit" class="nextBtn" id="elementSelectorsNextBtn" onclick="setPage('#segmentSelectors');clearWarning(store);">XMSG("Next")</button>
+          <button class="prevBtn" id="elementSelectorsPrevBtn" onclick="setPage('#metricSelectors');clearWarning(store);">XMSG("Previous")</button>
+        </div>
+        <br>
+        <br>
+        <a href="javascript:void(0)" onclick="resetFields();setPage('#authSelect');clearWarning(store);">XMSG("Change Login Credentials")</a>
+      </div>
+    </fieldset>
 
 <!-- Segment Selectors -->
     <fieldset id="segmentSelectors" style="display:none;">
@@ -253,7 +250,6 @@
         <div class='footer'>
             <hr>
             <div style="margin-top: 8px;margin-bottom: 8px;">
-                <!-- Add id name and onclick function during process story -->
                 <button type="submit" class="nextBtn" id="segmentSelectorsNextBtn" onclick="setPage('#summary');clearWarning(store);validateReport(store);">XMSG("Done")</button>
                 <button class="prevBtn" id="segmentSelectorsPrevBtn" onclick="setPage('#elementSelectors');clearWarning(store);">XMSG("Previous")</button>
             </div>
@@ -287,8 +283,6 @@
         <alteryx-pluginwidget type="TextBox" id="access_token" dataName="access_token"></alteryx-pluginwidget>
         <alteryx-pluginwidget type="TextBox" id="page" dataName="page"></alteryx-pluginwidget>
         <alteryx-pluginwidget type="TextBox" id="errorStatus" dataName="errorStatus"></alteryx-pluginwidget>
-        <alteryx-pluginwidget type="TextBox" id="metricError" dataName="metricError"></alteryx-pluginwidget>
-        <alteryx-pluginwidget type="TextBox" id="elementError" dataName="elementError"></alteryx-pluginwidget>
     </fieldset>
 
 <!-- Error and Loading Messaging -->
@@ -296,7 +290,7 @@
     <div id="app"></div>
     <div id="loading" class="loading" style="display:none;"></div>
     <div id="loading-inner" class="loading-inner" style="display:none;">
-        <img src="loading_ring.svg">
+        <img src=".\assets\loading_ring.svg">
     </div>
 
 </body>

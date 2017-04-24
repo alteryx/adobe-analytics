@@ -39,7 +39,7 @@ class InvalidReport extends React.Component {
     if (type === '' || type === undefined) {
       text = ''
     } else if (type === 'Success') {
-      text = 'Success!'
+      text = 'XMSG("Success")!'
     } else {
       let typeNoUnder = type.replace(/_/g, ' ')
       text = _.startCase(typeNoUnder)
