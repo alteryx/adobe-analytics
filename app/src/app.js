@@ -189,7 +189,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
 
   // Get Elements and Classifications and populate in the dropdowns
   autorun(() => {
-    if (store.access_token !== '' && store.reportSuite.selection !== '' && store.metric1.selection !== '' && store.elementPrimary.stringList.length === 0) {
+    if (store.access_token !== '' && store.reportSuite.selection !== '' && store.metric1.selection !== '') {
       elementSelectors.topLevelElements(store)
       classificationSelectors.topLevelClassifications(store)
     }
@@ -198,7 +198,7 @@ Alteryx.Gui.AfterLoad = (manager) => {
   // Get Segments and populate in dropdowns
   // Did not include with autorun above because Rithi was having issues with CEF Dev Tools freezing
   autorun(() => {
-    if (store.access_token !== '' && store.reportSuite.selection !== '' && store.metric1.selection !== '' && store.segment1.stringList.length === 0) {
+    if (store.access_token !== '' && store.reportSuite.selection !== '' && store.metric1.selection !== '') {
       segmentSelectors.topLevelSegments(store)
     }
   })
