@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AlteryxJavaScriptPlugin>
+  <Properties>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Adobe Analytics</Name>
+      <Description>Générer des données de rapport à la demande à partir de vos suites de rapports Adobe Analytics.                                    v2.0.0.0</Description>
+      <RootToolName></RootToolName>
+      <ToolVersion>2</ToolVersion>
+      <ToolInDb value="False" />
+      <CategoryName>Connecteurs</CategoryName>
+      <SearchTags>Adobe,télécharger,cloud,api,omniture,analytics,marketing,rapport,suite</SearchTags>
+      <Author>Alteryx</Author>
+      <Company>Alteryx, Inc.</Company>
+      <Copyright>Alteryx, Inc.</Copyright>
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+  </Properties>
+</AlteryxJavaScriptPlugin>

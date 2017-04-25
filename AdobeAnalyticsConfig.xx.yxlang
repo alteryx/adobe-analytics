@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AlteryxJavaScriptPlugin>
+  <Properties>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>⇚⇚Adobe Analytics⇚⇚</Name>
+      <Description>⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚Generate on demand report data from your Adobe Analytics report suites.                                    v2.0.0.0⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚</Description>
+      <RootToolName></RootToolName>
+      <ToolVersion>2</ToolVersion>
+      <ToolInDb value="False" />
+      <CategoryName>⇚⇚Connectors⇚⇚</CategoryName>
+      <SearchTags>⇚Adobe⇚,⇚download⇚,⇚cloud⇚,⇚api⇚,⇚omniture⇚,⇚analytics⇚,⇚marketing⇚,⇚report⇚,⇚suite⇚</SearchTags>
+      <Author>Alteryx</Author>
+      <Company>Alteryx, Inc.</Company>
+      <Copyright>Alteryx, Inc.</Copyright>
+      <DescriptionLink actual="" displayed="" />
+    </MetaInfo>
+  </Properties>
+</AlteryxJavaScriptPlugin>
