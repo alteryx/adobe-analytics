@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="11.0">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="90" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="11" />
+          <Fields>
+            <Field name="preDefDropDown" />
+            <Field name="startDatePicker" />
+            <Field name="endDatePicker" />
+          </Fields>
+          <Data>
+            <r>
+              <c>today</c>
+              <c>2017-01-01</c>
+              <c>2017-01-01</c>
+            </r>
+            <r>
+              <c>yesterday</c>
+              <c>2017-01-01</c>
+              <c>2017-01-01</c>
+            </r>
+            <r>
+              <c>last7Days</c>
+              <c>2017-01-01</c>
+              <c>2017-01-01</c>
+            </r>
+            <r>
+              <c>last14Days</c>
+              <c>2017-01-01</c>
+              <c>2017-01-01</c>
+            </r>
+            <r>
+              <c>lastWeek</c>
+              <c>2017-01-01</c>
+              <c>2017-01-01</c>
+            </r>
+            <r>
+              <c>last30Days</c>
+              <c>2017-01-01</c>
+              <c>2017-01-01</c>
+            </r>
+            <r>
+              <c>last60Days</c>
+              <c>2017-01-01</c>
+              <c>2017-01-01</c>
+            </r>
+            <r>
+              <c>lastMonth</c>
+              <c>2017-01-01</c>
+              <c>2017-01-01</c>
+            </r>
+            <r>
+              <c>monthToDate</c>
+              <c>2017-01-01</c>
+              <c>2017-01-01</c>
+            </r>
+            <r>
+              <c>yearToDate</c>
+              <c>2017-01-01</c>
+              <c>2017-01-01</c>
+            </r>
+            <r>
+              <c>lastYear</c>
+              <c>2017-01-01</c>
+              <c>2017-01-01</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="270" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="// startDatePicker logic based on predefined date dropdown&#xA;// ToDate selections end on the previous day&#xA;// Sunday is start of week&#xA;IF [preDefDropDown]=&quot;today&quot; THEN DateTimeToday() &#xA;ELSEIF [preDefDropDown]=&quot;yesterday&quot; THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;last7Days&quot; THEN DateTimeAdd(DateTimeToday(),-7,'days') &#xA;ELSEIF [preDefDropDown]=&quot;last14Days&quot; THEN DateTimeAdd(DateTimeToday(),-14,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastWeek&quot; THEN DateTimeAdd((DateTimeAdd(DateTimeToday(),&#xA;	-(Switch(DateTimeFormat(DateTimeToday(),&quot;%a&quot;),0&#xA;	,'Sun',1&#xA;	,'Mon',2&#xA;	,'Tue',3&#xA;	,'Wed',4&#xA;	,'Thu',5&#xA;	,'Fri',6&#xA;	,'Sat',7))&#xA;	,'days')),-6,'days')&#xA;ELSEIF [preDefDropDown]=&quot;last30Days&quot; THEN DateTimeAdd(DateTimeToday(),-30,'days') &#xA;ELSEIF [preDefDropDown]=&quot;last60Days&quot; THEN DateTimeAdd(DateTimeToday(),-60,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastMonth&quot; THEN DateTimeAdd(DateTimeFirstOfMonth(),-1,'month') &#xA;ELSEIF [preDefDropDown]=&quot;monthToDate&quot; THEN DateTimeFirstOfMonth() &#xA;ELSEIF [preDefDropDown]=&quot;yearToDate&quot; THEN DateTimeTrim(DateTimeToday(),'year')&#xA;ELSEIF [preDefDropDown]=&quot;lastYear&quot; THEN DateTimeAdd(DateTimeTrim(DateTimeToday(),'year'),-1,'year') &#xA;ELSE [startDatePicker] ENDIF" field="startDatePicker" size="10" type="Date" />
+            <FormulaField expression="// endDatePicker logic based on predefined date dropdown&#xA;// ToDate selections end on the previous day&#xA;// Monday is start of week&#xA;IF [preDefDropDown]=&quot;today&quot; THEN DateTimeToday() &#xA;ELSEIF [preDefDropDown] IN (&quot;yesterday&quot;, &quot;last7Days&quot;, &quot;last14Days&quot;, &quot;last30Days&quot;, &quot;last60Days&quot;, &quot;monthToDate&quot;, &quot;yearToDate&quot;) THEN DateTimeAdd(DateTimeToday(),-1,'days') &#xA;ELSEIF [preDefDropDown]=&quot;lastWeek&quot; THEN DateTimeAdd([startDatePicker],6,'days')&#xA;ELSEIF [preDefDropDown]=&quot;lastMonth&quot; THEN DateTimeAdd(DateTimeFirstOfMonth(),-1,'day') &#xA;ELSEIF [preDefDropDown]=&quot;lastYear&quot; THEN DateTimeFormat(DateTimeAdd(DateTimeTrim(DateTimeToday(),'year'),-1,'year'),&quot;%Y&quot;)+&quot;-12-31&quot; &#xA;ELSE [endDatePicker] ENDIF" field="endDatePicker" size="10" type="Date" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>startDatePicker = // startDatePicker logic based on predefined date dropdown
+// ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="186" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="366" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_3040_02c3261dda0346aabd0c3f5b654ae360_\Engine_6928_909d25366a5d40f6810c0905b3f06a74_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>US25217-updated-predefined-date-range-calculations</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

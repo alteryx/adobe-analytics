@@ -6,9 +6,11 @@ const getDates = () => {
   const today = moment().format(format)
   const yesterday = moment().subtract(1, 'days').format(format)
   const L7DStart = moment().subtract(7, 'days').format(format)
+  const L14DStart = moment().subtract(14, 'days').format(format)
   const LWEnd = moment().subtract(moment().day() + 1, 'days').format(format)
   const LWStart = moment(LWEnd).subtract(6, 'days').format(format)
   const L30DStart = moment(yesterday).subtract(29, 'days').format(format)
+  const L60DStart = moment(yesterday).subtract(59, 'days').format(format)
   const LMEnd = moment().subtract(moment().date(), 'days').format(format)
   const LMStart = moment(LMEnd).subtract(moment(LMEnd).date() - 1, 'days').format(format)
   const CurMonStart = moment().startOf('month').format(format)
@@ -29,12 +31,20 @@ const getDates = () => {
       'start': L7DStart,
       'end': yesterday
     },
+    'last14Days': {
+      'start': L14DStart,
+      'end': yesterday
+    },
     'lastWeek': {
       'start': LWStart,
       'end': LWEnd
     },
     'last30Days': {
       'start': L30DStart,
+      'end': yesterday
+    },
+    'last60Days': {
+      'start': L60DStart,
       'end': yesterday
     },
     'lastMonth': {
@@ -68,10 +78,14 @@ const setDates = preDefValue => {
         return date.yesterday
       case 'last7Days':
         return date.last7Days
+      case 'last14Days':
+        return date.last14Days
       case 'lastWeek':
         return date.lastWeek
       case 'last30Days':
         return date.last30Days
+      case 'last60Days':
+        return date.last60Days
       case 'lastMonth':
         return date.lastMonth
       case 'monthToDate':
