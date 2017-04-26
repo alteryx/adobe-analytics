@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="749" y="250" width="392.109" height="19" />
+        <Position x="750" y="330" width="392.109" height="19" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -21,7 +21,7 @@
       <ChildNodes>
         <Node ToolID="28">
           <GuiSettings Plugin="AdobeAnalytics">
-            <Position x="774" y="330" />
+            <Position x="775" y="410" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -87,18 +87,20 @@
         </Node>
         <Node ToolID="29">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="870" y="294" />
+            <Position x="871" y="374" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_11396_0748e8b7fad74f02a4b1fba3f954292d_\Engine_5800_7c3fbe0f45294bce94b17a74b331a180_.yxdb</TempFile>
+              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6176_1e7832efa6ed4c0eb2032da8c053ed3b_\Engine_7024_d3ad49d9495d42aa9c2e792b3b175baa_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
                 <ViewSize value="100" />
                 <View1>
                   <DefaultTab>Profile</DefaultTab>
-                  <Hints />
+                  <Hints>
+                    <Table />
+                  </Hints>
                 </View1>
                 <View2 />
               </Layout>
@@ -113,11 +115,11 @@
         </Node>
         <Node ToolID="30">
           <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-            <Position x="870" y="366" />
+            <Position x="871" y="446" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_11396_0748e8b7fad74f02a4b1fba3f954292d_\Engine_5800_c1b5e81e341b43da93f02c7cc1f7f887_.yxdb</TempFile>
+              <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6176_1e7832efa6ed4c0eb2032da8c053ed3b_\Engine_7024_d6615b9da80b4050b7c4f48ad702af7f_.yxdb</TempFile>
               <TempFileDataProfiling />
               <Layout>
                 <ViewMode>Single</ViewMode>
@@ -141,7 +143,7 @@
         </Node>
         <Node ToolID="32">
           <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-            <Position x="930" y="294" width="180" height="120" />
+            <Position x="931" y="374" width="180" height="120" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -165,14 +167,14 @@
     </Node>
     <Node ToolID="27">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="762" y="18" width="285.9333" height="19" />
+        <Position x="752" y="53.99998" width="400.6115" height="236" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Caption>Invalid Query that returns nothing in both outputs</Caption>
+          <Caption>Invalid Query that returns nothing in R output and something in A output</Caption>
           <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
-          <Disabled value="True" />
-          <Folded value="True" />
+          <Disabled value="False" />
+          <Folded value="False" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -183,13 +185,13 @@
       <ChildNodes>
         <Node ToolID="24">
           <GuiSettings Plugin="AdobeAnalytics">
-            <Position x="772" y="95.00002" />
+            <Position x="762" y="126" />
           </GuiSettings>
           <Properties>
             <Configuration>
               <Value name="client_id">bfecd55fad-groot-connection</Value>
               <Value name="reportSuite">cdgbulldogdev</Value>
-              <Value name="preDefDropDown">yesterday</Value>
+              <Value name="preDefDropDown">custom</Value>
               <Value name="startDatePicker">2017-04-19</Value>
               <Value name="endDatePicker">2017-04-19</Value>
               <Value name="granularity">
@@ -227,7 +229,7 @@
               <Value name="reportDescription">{"reportDescription":{"reportSuiteID":"cdgbulldogdev","dateFrom":"2017-04-19","dateTo":"2017-04-19","dateGranularity":"","metrics":[{"id":"activityconversions"},{"id":"activityimpressions"},{"id":"participationevent3"},{"id":"event3"},{"id":"participationevent2"}],"elements":[],"segments":[]}}</Value>
               <Value name="reportValidation">
               </Value>
-              <Value name="access_token">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dSI6IjIwMTQtMDQtMDFcL2dhdGV3YXkuY2VyIn0.eyJpZCI6ImE1MTgxZjA0ZTdiOGUyZWY0YmI0NTc2NzgzOTgyN2FiZWM2MzUxM2EiLCJ1c2VyX2lkIjoiMTRFQ0NBQ0Q1NjIxODFFRjdGMDAwMTAxQEFkb2JlSUQiLCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJSZXBvcnQiLCJsb2dpbl9jb21wYW5pZXMiOnsiY2RlZ3Jvb3QiOm51bGx9LCJvcmdfY29tcGFuaWVzIjp7IjdiZTgwOGU1NTI5M2RkNzgwYTQ5MGQ0ZEBhZG9iZW9yZyI6ImNkZWdyb290In0sImV4cCI6MTQ5MjcyNjk0Mywic3ViIjoiYmZlY2Q1NWZhZC1ncm9vdC1jb25uZWN0aW9uIiwiaXNzIjoiYXBpLWdhdGV3YXlAYXBpLm9tbml0dXJlLmNvbSJ9.gyq2ayHH_FwB1aiNbKwUr8tsvcgNE2HVNqD8KefiR6Lqaryuf_x1f6H9EEuAHRxrGC_Gh1qX6lGBhelskQH9cxBy4C190OZXsq4pDdI6kxSBES2sQukP3CrH_2bYWd1Q05jDbWp_Mv3ekz8jgw8iXDnSh86yrTszoH6jVnwjEAsJiVrKJ1-tr30juHHBlf85RDxMj5j9Vm65efIj1iSJdjdtt5uJCjsyOsPzfibFNcfRt787H7Jzi02bQKRaxa4xmsC62XOFR3mttehTP2XOmMcmy2Zpj5eOJ3rZdinsK5Sd38SMwp-e9qIyuLchuIOGRGUUn8qOSEhvMjRehCC4Lg</Value>
+              <Value name="access_token">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dSI6IjIwMTQtMDQtMDFcL2dhdGV3YXkuY2VyIn0.eyJpZCI6ImI4OWNhZGQ2YWI3ZGMyMTA5OGQxMThkZTE4OTY3MjQwNjBhMWNkMmEiLCJ1c2VyX2lkIjoiMTRFQ0NBQ0Q1NjIxODFFRjdGMDAwMTAxQEFkb2JlSUQiLCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJSZXBvcnQiLCJsb2dpbl9jb21wYW5pZXMiOnsiY2RlZ3Jvb3QiOm51bGx9LCJvcmdfY29tcGFuaWVzIjp7IjdiZTgwOGU1NTI5M2RkNzgwYTQ5MGQ0ZEBhZG9iZW9yZyI6ImNkZWdyb290In0sImV4cCI6MTQ5MzE2MDQxMywic3ViIjoiYmZlY2Q1NWZhZC1ncm9vdC1jb25uZWN0aW9uIiwiaXNzIjoiYXBpLWdhdGV3YXlAYXBpLm9tbml0dXJlLmNvbSJ9.XpmqNhyBQyV5YzsNa1HSCz4MAfNA8i0PxI0muqhgjcSZlG9k0UdFYvWVAw5uiTD6KZEe8Z4tu1C_HwLk27XUomkptlhzGNgPapx3qzWOVctPTNKJqjYNGcL_H6iuJrux7AAugVbAg8Nk05hFqg_YjAkAZpAZ3ES7KzKG5MkdUwYft3J7431DQxOHtwu1cFnL9GXuZfUdloTqXuocBoxkTVtku9JzCWIJ55APzf_8keInUEigWVRK4v0eTxYpBBHZB-zELuMy2mpokpeGuL-aWk_siXEOWKynkkXq4PZ-NbwXXuNew6TCkvI3o0KDJmywPP7aCYWyNvo3gaCQndochA</Value>
               <Value name="page">#summary</Value>
               <Value name="errorStatus">
               </Value>
@@ -244,7 +246,7 @@
         </Node>
         <Node ToolID="25">
           <GuiSettings>
-            <Position x="892" y="47" />
+            <Position x="881.0001" y="82.99998" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -253,38 +255,85 @@
               <DefaultAnnotationText />
               <Left value="False" />
             </Annotation>
-            <Dependencies>
-              <Implicit />
-            </Dependencies>
           </Properties>
           <EngineSettings Macro="CReW_ExpectZeroRecords.yxmc" />
         </Node>
-        <Node ToolID="26">
-          <GuiSettings>
-            <Position x="892" y="143" />
+        <Node ToolID="36">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
+            <Position x="954" y="174" />
           </GuiSettings>
           <Properties>
-            <Configuration />
+            <Configuration>
+              <When>Last</When>
+              <Filter />
+              <Type>Message</Type>
+              <Priority>Normal</Priority>
+              <Transient>False</Transient>
+              <MessageExpression>IIF([API Method BOOL], "PASS: Response received for Invalid Request", "FAIL: No Response received for Invalid Request.")</MessageExpression>
+            </Configuration>
             <Annotation DisplayMode="0">
               <Name />
               <DefaultAnnotationText />
               <Left value="False" />
             </Annotation>
           </Properties>
-          <EngineSettings Macro="CReW_ExpectZeroRecords.yxmc" />
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
+        </Node>
+        <Node ToolID="37">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Test.Test">
+            <Position x="1050" y="174" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Tests>
+                <Test>
+                  <Name>Response for Invalid Request</Name>
+                  <Connection>#1</Connection>
+                  <Type>ExpAll</Type>
+                  <Value>[API Method BOOL]</Value>
+                </Test>
+              </Tests>
+              <DontReportSubsequent value="True" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Response for Invalid Request</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTest" />
+        </Node>
+        <Node ToolID="38">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="870" y="174" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="!IsEmpty([API Method])" field="API Method BOOL" size="1" type="Bool" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText><![CDATA[API Method BOOL = !IsEmpty([API Method])
+]]></DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
         </Node>
       </ChildNodes>
     </Node>
     <Node ToolID="22">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="64.99991" y="21.99998" width="653.0001" height="604" />
+        <Position x="53.99998" y="57.99988" width="144.0934" height="19" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Caption>Report Type Testing</Caption>
           <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
-          <Disabled value="False" />
-          <Folded value="False" />
+          <Disabled value="True" />
+          <Folded value="True" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -295,7 +344,7 @@
       <ChildNodes>
         <Node ToolID="8">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Test.Test">
-            <Position x="618" y="198" />
+            <Position x="607.0001" y="234" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -334,14 +383,14 @@ Ranked Report</DefaultAnnotationText>
         </Node>
         <Node ToolID="4">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="90.00008" y="65.99998" width="389.9176" height="19" />
+            <Position x="79.00015" y="101.9999" width="389.9176" height="38" />
           </GuiSettings>
           <Properties>
             <Configuration>
               <Caption>Trended Reports - Tests the request payload and the response object</Caption>
               <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
-              <Disabled value="True" />
-              <Folded value="True" />
+              <Disabled value="False" />
+              <Folded value="False" />
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
@@ -352,7 +401,7 @@ Ranked Report</DefaultAnnotationText>
           <ChildNodes>
             <Node ToolID="1">
               <GuiSettings Plugin="AdobeAnalytics">
-                <Position x="100.0001" y="126" />
+                <Position x="89.00015" y="161.9999" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -398,7 +447,7 @@ Ranked Report</DefaultAnnotationText>
                   <Value name="reportDescription">{"reportDescription":{"reportSuiteID":"cdgbulldogdev","dateFrom":"2017-03-01","dateTo":"2017-03-31","dateGranularity":"day","metrics":[{"id":"pageviews"}],"elements":[{"id":"activity"}],"segments":[]}}</Value>
                   <Value name="reportValidation">
                   </Value>
-                  <Value name="access_token">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dSI6IjIwMTQtMDQtMDFcL2dhdGV3YXkuY2VyIn0.eyJpZCI6ImRmOTY5MDZhYWM1MmMyMDM5MzBjODg2ZjMxMzgxZjkyMmQxNTYwNWEiLCJ1c2VyX2lkIjoiMTRFQ0NBQ0Q1NjIxODFFRjdGMDAwMTAxQEFkb2JlSUQiLCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJSZXBvcnQiLCJsb2dpbl9jb21wYW5pZXMiOnsiY2RlZ3Jvb3QiOm51bGx9LCJvcmdfY29tcGFuaWVzIjp7IjdiZTgwOGU1NTI5M2RkNzgwYTQ5MGQ0ZEBhZG9iZW9yZyI6ImNkZWdyb290In0sImV4cCI6MTQ5MjcyMjk2OSwic3ViIjoiYmZlY2Q1NWZhZC1ncm9vdC1jb25uZWN0aW9uIiwiaXNzIjoiYXBpLWdhdGV3YXlAYXBpLm9tbml0dXJlLmNvbSJ9.QxotW0PKJtzqza-cUnhqvlEBGxxAbjYERvZKdF2B5Avxs8BLteA25ds3hpj9hLYh6TL4-dhH7IDSbBDJdpEtJKVhLGcG2p2RwGB4v2IGlbMT7eq80U1rJB4i4gv6I6yZk6m5CqRRWEx4HNH7oGW58LCi9j7l-KSCHY998TMHD7TZA17Yw_whUEfnEoVPJ7zIvqRQ9njgoe88wfwjayEUR6itHR2H29KX798LvpKRx8akXxMp1-6rCE52qtHuzaHL5STMfrCO4CFPbwg7hv1fB-l79wP2Ck3sVubonqu3UE_UDst-J_IwP4qCCBo5YqPXxDF92DPRK2HG4HHHcVal3A</Value>
+                  <Value name="access_token">eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dSI6IjIwMTQtMDQtMDFcL2dhdGV3YXkuY2VyIn0.eyJpZCI6IjNiYzQ3OTE0ODFjMDI2ZmRlNmFmMzY0MDI4YmJmN2JiODUyZTljNWMiLCJ1c2VyX2lkIjoiMTRFQ0NBQ0Q1NjIxODFFRjdGMDAwMTAxQEFkb2JlSUQiLCJ0b2tlbl90eXBlIjoiYmVhcmVyIiwic2NvcGUiOiJSZXBvcnQiLCJsb2dpbl9jb21wYW5pZXMiOnsiY2RlZ3Jvb3QiOm51bGx9LCJvcmdfY29tcGFuaWVzIjp7IjdiZTgwOGU1NTI5M2RkNzgwYTQ5MGQ0ZEBhZG9iZW9yZyI6ImNkZWdyb290In0sImV4cCI6MTQ5MzE2MDQ3Miwic3ViIjoiYmZlY2Q1NWZhZC1ncm9vdC1jb25uZWN0aW9uIiwiaXNzIjoiYXBpLWdhdGV3YXlAYXBpLm9tbml0dXJlLmNvbSJ9.WPQS4PRcqDxmEAwxCGPFN5ywJ8ZVzgyUmBd2Bwn11SQiq7S7A7dRQu2-exN4oCiUbQlRagX42BokqekhX3jN1n3VwwXgu6y2ekFE0G89Tz8jfgHRim97bbksPCDtLyMapvuJuOaxC9Xg4SBqK5XHM-GwxH5rm9NDdBjFAQnjd1nhx10S-PNxWcrueW53ZyPvl5Gm966Y5vd8Qkgw9CgvT8smovtKT-DHesD3GJ2o9pk0hVBI2D2oQbiXRnQf8XrrdwAsKkNSXan0wU91xgPxMIavXaPEmhrOBbVQgHIoJfr_-5zsaJPhpPfEbF3UAPj0dZtBkiMA0fbgLpEDR76wKg</Value>
                   <Value name="page">#summary</Value>
                   <Value name="errorStatus">
                   </Value>
@@ -414,11 +463,11 @@ Ranked Report</DefaultAnnotationText>
             </Node>
             <Node ToolID="2">
               <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-                <Position x="194.0001" y="94.99999" />
+                <Position x="183.0002" y="130.9999" />
               </GuiSettings>
               <Properties>
                 <Configuration>
-                  <TempFile>C:\ProgramData\Alteryx\Engine\Engine_7620_4a50c0f8c1264e35b2bef3d6126e6c2b_\Engine_5800_3e6e387ce11c4d21a00624661e12aade_.yxdb</TempFile>
+                  <TempFile>C:\ProgramData\Alteryx\Engine\Engine_3752_c526d88e77db43e19015d5463b15963c_\Engine_7024_c345c5b349ba4b73a678c4a5ea0f860b_.yxdb</TempFile>
                   <TempFileDataProfiling />
                   <Layout>
                     <ViewMode>Single</ViewMode>
@@ -442,7 +491,7 @@ Ranked Report</DefaultAnnotationText>
             </Node>
             <Node ToolID="6">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="196.0001" y="150" />
+                <Position x="185.0002" y="185.9999" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -462,13 +511,13 @@ Ranked Report</DefaultAnnotationText>
             </Node>
             <Node ToolID="7">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-                <Position x="268.0001" y="150" />
+                <Position x="258" y="185.9999" />
               </GuiSettings>
               <Properties>
                 <Configuration>
                   <FormulaFields>
                     <FormulaField expression="Contains([Report Description], &quot;dateGranularity&quot;)" field="containsGranularity" size="1" type="Bool" />
-                    <FormulaField expression="Contains([Report JSON], &quot;trended&quot;)" field="containsTrended" size="1" type="Bool" />
+                    <FormulaField expression="Contains([Response JSON], &quot;trended&quot;)" field="containsTrended" size="1" type="Bool" />
                     <FormulaField expression="!Contains([Report Description], '&quot;elements&quot;:[]')" field="containsElement" size="1" type="Bool" />
                   </FormulaFields>
                 </Configuration>
@@ -484,7 +533,7 @@ contains...</DefaultAnnotationText>
             </Node>
             <Node ToolID="9">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
-                <Position x="352.0001" y="150" />
+                <Position x="450" y="185.9999" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -503,18 +552,41 @@ contains...</DefaultAnnotationText>
               </Properties>
               <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
             </Node>
+            <Node ToolID="33">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+                <Position x="354" y="185.9999" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Mode>Simple</Mode>
+                  <Simple>
+                    <Field>API Method</Field>
+                    <Operator>=</Operator>
+                    <Operands>
+                      <Operand>Report.Get</Operand>
+                    </Operands>
+                  </Simple>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>[API Method] = "Report.Get"</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+            </Node>
           </ChildNodes>
         </Node>
         <Node ToolID="15">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="89.99995" y="318.0002" width="393.7418" height="19" />
+            <Position x="79.00008" y="354.0002" width="393.7418" height="38" />
           </GuiSettings>
           <Properties>
             <Configuration>
               <Caption>Overtime Reports - Tests the request payload and the response object</Caption>
               <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
-              <Disabled value="True" />
-              <Folded value="True" />
+              <Disabled value="False" />
+              <Folded value="False" />
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
@@ -525,7 +597,7 @@ contains...</DefaultAnnotationText>
           <ChildNodes>
             <Node ToolID="10">
               <GuiSettings Plugin="AdobeAnalytics">
-                <Position x="99.99994" y="383.0001" />
+                <Position x="89.00008" y="419.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -588,11 +660,11 @@ contains...</DefaultAnnotationText>
             </Node>
             <Node ToolID="11">
               <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-                <Position x="196" y="347.0002" />
+                <Position x="185.0001" y="383.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
-                  <TempFile>C:\ProgramData\Alteryx\Engine\Engine_7620_4a50c0f8c1264e35b2bef3d6126e6c2b_\Engine_5800_90f78ec5280a4e359281bd72f561aebe_.yxdb</TempFile>
+                  <TempFile>C:\ProgramData\Alteryx\Engine\Engine_3752_c526d88e77db43e19015d5463b15963c_\Engine_7024_7a660b5749544205b27fb5a947e14a1d_.yxdb</TempFile>
                   <TempFileDataProfiling />
                   <Layout>
                     <ViewMode>Single</ViewMode>
@@ -616,7 +688,7 @@ contains...</DefaultAnnotationText>
             </Node>
             <Node ToolID="12">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="196" y="407.0002" />
+                <Position x="185.0001" y="443.0002" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -636,13 +708,13 @@ contains...</DefaultAnnotationText>
             </Node>
             <Node ToolID="13">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-                <Position x="268" y="407.0002" />
+                <Position x="258" y="438" />
               </GuiSettings>
               <Properties>
                 <Configuration>
                   <FormulaFields>
                     <FormulaField expression="Contains([Report Description], &quot;dateGranularity&quot;)" field="containsGranularity" size="1" type="Bool" />
-                    <FormulaField expression="Contains([Report JSON], &quot;overtime&quot;)" field="containsOvertime" size="1" type="Bool" />
+                    <FormulaField expression="Contains([Response JSON], &quot;overtime&quot;)" field="containsOvertime" size="1" type="Bool" />
                     <FormulaField expression="Contains([Report Description], '&quot;elements&quot;:[]')" field="!containsElement" size="1" type="Bool" />
                   </FormulaFields>
                 </Configuration>
@@ -658,7 +730,7 @@ contains...</DefaultAnnotationText>
             </Node>
             <Node ToolID="14">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
-                <Position x="351.9999" y="407.0002" />
+                <Position x="450" y="438" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -677,18 +749,41 @@ contains...</DefaultAnnotationText>
               </Properties>
               <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
             </Node>
+            <Node ToolID="34">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+                <Position x="354" y="438" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Mode>Simple</Mode>
+                  <Simple>
+                    <Field>API Method</Field>
+                    <Operator>=</Operator>
+                    <Operands>
+                      <Operand>Report.Get</Operand>
+                    </Operands>
+                  </Simple>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>[API Method] = "Report.Get"</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+            </Node>
           </ChildNodes>
         </Node>
         <Node ToolID="21">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="89.99991" y="582" width="386.7701" height="19" />
+            <Position x="78.99995" y="617.9999" width="386.7701" height="38" />
           </GuiSettings>
           <Properties>
             <Configuration>
               <Caption>Ranked Reports - Tests the request payload and the response object</Caption>
               <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="10" />
-              <Disabled value="True" />
-              <Folded value="True" />
+              <Disabled value="False" />
+              <Folded value="False" />
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
@@ -699,7 +794,7 @@ contains...</DefaultAnnotationText>
           <ChildNodes>
             <Node ToolID="16">
               <GuiSettings Plugin="AdobeAnalytics">
-                <Position x="99.99989" y="647" />
+                <Position x="88.99995" y="682.9999" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -761,11 +856,11 @@ contains...</DefaultAnnotationText>
             </Node>
             <Node ToolID="17">
               <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-                <Position x="195.9999" y="611" />
+                <Position x="184.9999" y="646.9999" />
               </GuiSettings>
               <Properties>
                 <Configuration>
-                  <TempFile>C:\ProgramData\Alteryx\Engine\Engine_11008_6ab68e3811d64a688aec457ead118548_\Engine_5800_7da15566eb3d43518ffeddcecb157a1d_.yxdb</TempFile>
+                  <TempFile>C:\ProgramData\Alteryx\Engine\Engine_3752_c526d88e77db43e19015d5463b15963c_\Engine_7024_98abfa3b43d9422690437d599f51d90f_.yxdb</TempFile>
                   <TempFileDataProfiling />
                   <Layout>
                     <ViewMode>Single</ViewMode>
@@ -789,7 +884,7 @@ contains...</DefaultAnnotationText>
             </Node>
             <Node ToolID="18">
               <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                <Position x="195.9999" y="671" />
+                <Position x="185" y="706.9999" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -809,13 +904,13 @@ contains...</DefaultAnnotationText>
             </Node>
             <Node ToolID="19">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-                <Position x="267.9999" y="671" />
+                <Position x="258" y="701.9999" />
               </GuiSettings>
               <Properties>
                 <Configuration>
                   <FormulaFields>
                     <FormulaField expression="Contains([Report Description], '&quot;dateGranularity&quot;:&quot;&quot;')" field="!containsGranularity" size="1" type="Bool" />
-                    <FormulaField expression="Contains([Report JSON], &quot;ranked&quot;)" field="containsRanked" size="1" type="Bool" />
+                    <FormulaField expression="Contains([Response JSON], &quot;ranked&quot;)" field="containsRanked" size="1" type="Bool" />
                     <FormulaField expression="!Contains([Report Description], '&quot;elements&quot;:[]')" field="containsElement" size="1" type="Bool" />
                   </FormulaFields>
                 </Configuration>
@@ -831,7 +926,7 @@ co...</DefaultAnnotationText>
             </Node>
             <Node ToolID="20">
               <GuiSettings Plugin="AlteryxBasePluginsGui.Message.Message">
-                <Position x="351.9999" y="671" />
+                <Position x="450" y="701.9999" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -850,11 +945,34 @@ co...</DefaultAnnotationText>
               </Properties>
               <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMessage" />
             </Node>
+            <Node ToolID="35">
+              <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+                <Position x="354" y="701.9999" />
+              </GuiSettings>
+              <Properties>
+                <Configuration>
+                  <Mode>Simple</Mode>
+                  <Simple>
+                    <Field>API Method</Field>
+                    <Operator>=</Operator>
+                    <Operands>
+                      <Operand>Report.Get</Operand>
+                    </Operands>
+                  </Simple>
+                </Configuration>
+                <Annotation DisplayMode="0">
+                  <Name />
+                  <DefaultAnnotationText>[API Method] = "Report.Get"</DefaultAnnotationText>
+                  <Left value="False" />
+                </Annotation>
+              </Properties>
+              <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+            </Node>
           </ChildNodes>
         </Node>
         <Node ToolID="23">
           <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-            <Position x="582" y="318" width="108" height="180" />
+            <Position x="571.0001" y="354.0001" width="108" height="180" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -890,7 +1008,15 @@ co...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="24" Connection="API Response" />
-      <Destination ToolID="26" Connection="Input6" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="37" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="36" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="1" Connection="Report" />
@@ -906,7 +1032,7 @@ co...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="7" Connection="Output" />
-      <Destination ToolID="9" Connection="Input" />
+      <Destination ToolID="33" Connection="Input" />
     </Connection>
     <Connection name="#1">
       <Origin ToolID="9" Connection="Output" />
@@ -919,6 +1045,10 @@ co...</DefaultAnnotationText>
     <Connection name="#3">
       <Origin ToolID="20" Connection="Output" />
       <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="True" />
+      <Destination ToolID="9" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="10" Connection="Report" />
@@ -934,6 +1064,10 @@ co...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="True" />
       <Destination ToolID="14" Connection="Input" />
     </Connection>
     <Connection>
@@ -950,6 +1084,10 @@ co...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="35" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="True" />
       <Destination ToolID="20" Connection="Input" />
     </Connection>
   </Connections>
