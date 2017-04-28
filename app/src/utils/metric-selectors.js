@@ -6,7 +6,7 @@ const topLevelMetrics = (store) => {
   Metrics
     .then(mapMetrics)
     .then(sortMetrics)
-    .then(removeInvalidMetrics)
+    // .then(removeInvalidMetrics)
     .then(pushMetrics)
     .then(removeMissingValues)
     .then(doneLoading)
@@ -52,16 +52,16 @@ const sortMetrics = (response) => {
   return sortResponse
 }
 
-const removeInvalidMetrics = (response) => {
-  const invalid = (value) => {
-    if (value.dataname.startsWith('cm') && value.dataname.length === 30) {
-      return false
-    } else {
-      return true
-    }
-  }
-  return response.filter(invalid)
-}
+// const removeInvalidMetrics = (response) => {
+//   const invalid = (value) => {
+//     if (value.dataname.startsWith('cm') && value.dataname.length === 30) {
+//       return false
+//     } else {
+//       return true
+//     }
+//   }
+//   return response.filter(invalid)
+// }
 
 const pushMetrics = (response) => {
   const mapResponse = response
