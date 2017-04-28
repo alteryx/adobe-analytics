@@ -89,7 +89,10 @@ const buildElement = (selection, advOption, classification, top, startingWith) =
 const segments = (store) => {
   const list = [
     store.segment1,
-    store.segment2
+    store.segment2,
+    store.segment3,
+    store.segment4,
+    store.segment5
   ]
 
   const segments = list.filter(notEmpty)
