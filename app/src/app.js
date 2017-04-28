@@ -51,6 +51,9 @@ Alteryx.Gui.AfterLoad = (manager) => {
     {key: 'elementTertiaryClassification', type: 'dropDown'},
     {key: 'segment1', type: 'dropDown'},
     {key: 'segment2', type: 'dropDown'},
+    {key: 'segment3', type: 'dropDown'},
+    {key: 'segment4', type: 'dropDown'},
+    {key: 'segment5', type: 'dropDown'},
     {key: 'reportValidation', type: 'value'}
   ]
 

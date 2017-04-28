@@ -83,7 +83,10 @@ const pushSegments = (response) => {
   const mapResponse = response
   const segmentArray = [
     store.segment1,
-    store.segment2
+    store.segment2,
+    store.segment3,
+    store.segment4,
+    store.segment5
   ]
 
   for (let value of segmentArray) {
@@ -101,7 +104,10 @@ const pushSegments = (response) => {
 const removeMissingValues = () => {
   const segments = [
     Alteryx.Gui.renderer.getReactComponentByDataName('segment1'),
-    Alteryx.Gui.renderer.getReactComponentByDataName('segment2')
+    Alteryx.Gui.renderer.getReactComponentByDataName('segment2'),
+    Alteryx.Gui.renderer.getReactComponentByDataName('segment3'),
+    Alteryx.Gui.renderer.getReactComponentByDataName('segment4'),
+    Alteryx.Gui.renderer.getReactComponentByDataName('segment5')
   ]
 
   segments.map((segment) => {
@@ -116,4 +122,3 @@ const doneLoading = () => {
 }
 
 export { topLevelSegments }
-

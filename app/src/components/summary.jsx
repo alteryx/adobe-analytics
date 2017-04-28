@@ -64,8 +64,11 @@ class Summary extends React.Component {
 
     const segment1 = this.store.segment1.selectionName
     const segment2 = this.store.segment2.selectionName
-    const segments = [segment1, segment2]
-    const segmentLabels = ['XMSG("One")', 'XMSG("Two")']
+    const segment3 = this.store.segment3.selectionName
+    const segment4 = this.store.segment4.selectionName
+    const segment5 = this.store.segment5.selectionName
+    const segments = [segment1, segment2, segment3, segment4, segment5]
+    const segmentLabels = ['XMSG("One")', 'XMSG("Two")', 'XMSG("Three")', 'XMSG("Four")', 'XMSG("Five")']
     // React component conditionally renders pieces of information
     // based on inclusion of advanced options
     const ElementTableRow = (props) => {
