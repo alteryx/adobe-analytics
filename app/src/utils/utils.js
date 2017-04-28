@@ -196,7 +196,10 @@ const resetFields = () => {
     'elementSecondaryClassification',
     'elementTertiaryClassification',
     'segment1',
-    'segment2'
+    'segment2',
+    'segment3',
+    'segment4',
+    'segment5'
   ]
 
   // Resets the selection value for widgets
@@ -221,7 +224,7 @@ const resetFields = () => {
 
   // Set default value for preDefDropDown and advOptionsPrimary, advOptionsSecondary, advOptionsTertiary
   Alteryx.Gui.manager.GetDataItem('preDefDropDown').setValue('today')
-  
+
   // set stringList of store.elementPrimary and store.segment1 to empty. This lets the autoruns of API calls to run as expected
   store.elementPrimary.stringList = []
   store.segment1.stringList = []
