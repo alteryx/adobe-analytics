@@ -1193,7 +1193,7 @@ Report Description = [#1]
     </Node>
     <Node ToolID="73">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="54" y="49" width="2042" height="271.0022" />
+        <Position x="53.99998" y="50" width="2042" height="270.0022" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -1211,7 +1211,7 @@ Report Description = [#1]
       <ChildNodes>
         <Node ToolID="6">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="64.00011" y="83.00027" width="59" height="59" />
+            <Position x="64.00014" y="83.00012" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1224,7 +1224,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="7">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="64.00036" y="167.0013" width="59" height="59" />
+            <Position x="64.00035" y="167.0012" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1237,7 +1237,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="8">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="64" y="251.0009" width="59" height="59" />
+            <Position x="63.99998" y="251.0008" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1250,7 +1250,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="19">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Date.Date">
-            <Position x="209.9995" y="167.0006" width="59" height="59" />
+            <Position x="209.9994" y="167.0005" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1263,7 +1263,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="20">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Date.Date">
-            <Position x="210.0011" y="251.0012" width="59" height="59" />
+            <Position x="210.0012" y="251.0011" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1276,7 +1276,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="21">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="209.9987" y="83.00003" width="59" height="59" />
+            <Position x="209.9986" y="83.00009" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1289,7 +1289,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="22">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="377.9994" y="83.00193" width="59" height="59" />
+            <Position x="377.9994" y="83.00191" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1315,7 +1315,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="24">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="521.9999" y="83.00243" width="59" height="59" />
+            <Position x="521.9998" y="83.00257" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1328,7 +1328,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="25">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="629.9995" y="83.00262" width="59" height="59" />
+            <Position x="629.9995" y="83.0027" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1341,7 +1341,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="26">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="521.9999" y="167.0025" width="59" height="59" />
+            <Position x="521.9999" y="167.0024" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1367,7 +1367,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="28">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="521.9999" y="251.0018" width="59" height="59" />
+            <Position x="521.9999" y="251.0019" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1380,7 +1380,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="29">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="1552" y="83.00191" width="59" height="59" />
+            <Position x="1554" y="79.99998" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1432,7 +1432,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="74">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="749.9999" y="83.00248" width="59" height="59" />
+            <Position x="749.9999" y="83.00246" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1445,7 +1445,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="75">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="905.9999" y="83.00208" width="59" height="59" />
+            <Position x="905.9999" y="83.00204" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1471,7 +1471,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="77">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="1242" y="83.00214" width="59" height="59" />
+            <Position x="1242" y="83.00215" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1484,7 +1484,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="78">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="1374" y="83.00205" width="59" height="59" />
+            <Position x="1374" y="83.00204" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1575,7 +1575,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="85">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="905.9999" y="251.0021" width="59" height="59" />
+            <Position x="905.9999" y="251.002" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1640,7 +1640,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="90">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="1962" y="83.00206" width="59" height="59" />
+            <Position x="1962" y="83.00204" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1653,7 +1653,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="112">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="1686" y="78" width="59" height="59" />
+            <Position x="1686" y="79.00001" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1666,7 +1666,7 @@ Report Description = [#1]
         </Node>
         <Node ToolID="113">
           <GuiSettings Plugin="AlteryxGuiToolkit.Questions.TextBox.QuestionTextBox">
-            <Position x="1686" y="162" width="59" height="59" />
+            <Position x="1686" y="164" width="59" height="59" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -1826,7 +1826,7 @@ Report Description = [#1]
       <Origin ToolID="32" Connection="Question" />
       <Destination ToolID="104" Connection="Question" />
     </Connection>
-    <Connection>
+    <Connection Wireless="True">
       <Origin ToolID="51" Connection="Output" />
       <Destination ToolID="60" Connection="Input" />
     </Connection>
@@ -1834,28 +1834,8 @@ Report Description = [#1]
       <Origin ToolID="21" Connection="Question" />
       <Destination ToolID="60" Connection="Question" />
     </Connection>
-    <Connection name="segment1" Wireless="True">
-      <Origin ToolID="29" Connection="Question" />
-      <Destination ToolID="60" Connection="Question" />
-    </Connection>
-    <Connection name="segment2" Wireless="True">
-      <Origin ToolID="30" Connection="Question" />
-      <Destination ToolID="60" Connection="Question" />
-    </Connection>
     <Connection name="granularity" Wireless="True">
       <Origin ToolID="50" Connection="Question" />
-      <Destination ToolID="60" Connection="Question" />
-    </Connection>
-    <Connection name="segment4" Wireless="True">
-      <Origin ToolID="112" Connection="Question" />
-      <Destination ToolID="60" Connection="Question" />
-    </Connection>
-    <Connection name="segment5" Wireless="True">
-      <Origin ToolID="113" Connection="Question" />
-      <Destination ToolID="60" Connection="Question" />
-    </Connection>
-    <Connection name="segment3" Wireless="True">
-      <Origin ToolID="114" Connection="Question" />
       <Destination ToolID="60" Connection="Question" />
     </Connection>
     <Connection name="#2">
