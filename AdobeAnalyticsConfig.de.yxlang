@@ -5,7 +5,7 @@
       <NameIsFileName value="True" />
       <Name>Adobe Analytics</Name>
       <Description>Generieren Sie auf Anfrage Berichtsdaten aus Ihren Adobe Analytics Report-Suiten.                                    v2.0.0.0</Description>
-      <RootToolName></RootToolName>
+      <RootToolName>AdobeAnalytics</RootToolName>
       <ToolVersion>2</ToolVersion>
       <ToolInDb value="False" />
       <CategoryName>Konnektoren</CategoryName>
