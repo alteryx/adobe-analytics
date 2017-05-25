@@ -5,7 +5,7 @@
       <NameIsFileName value="True" />
       <Name>⇚⇚Adobe Analytics⇚⇚</Name>
       <Description>⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚Generate on demand report data from your Adobe Analytics report suites.                                    v2.0.0.0⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚⇚</Description>
-      <RootToolName></RootToolName>
+      <RootToolName>AdobeAnalytics</RootToolName>
       <ToolVersion>2</ToolVersion>
       <ToolInDb value="False" />
       <CategoryName>⇚⇚Connectors⇚⇚</CategoryName>
